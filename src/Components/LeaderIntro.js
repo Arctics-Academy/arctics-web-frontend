@@ -10,7 +10,7 @@ export default function LeaderIntro () {
       <div className='leader-intro'>
         <div className='leader-intro-bkg'>
           <div className='lit-upper'>
-            <img src={chouImg} className='leader-intro-img'/>
+            <img src={chouImg} className='leader-intro-img' alt='Tim Chou (Arctics Academy Founder)'/>
             <div className='leader-intro-title'>
               <p className='lit-header'>共同創辦人</p>
               <p className='lit-info'>周致廷 Tim</p> 
