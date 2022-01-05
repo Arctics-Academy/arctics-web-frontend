@@ -1,0 +1,304 @@
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+ 
+ @media only screen and (min-width: 769px) {
+    .rwd-show {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .rwd-hide {
+        display: none;
+    }
+
+    .r-nav {
+        background-color: white;
+        padding-left: 8vw;
+        padding-right: 8vw;
+        width: 84vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .r-nav__logo {
+        height: 35px;
+    }
+
+    #checkbox {
+        display: block;
+        width: 39px;
+        height: 27px;
+        margin: 0;
+        position: absolute;
+        top: 16px;
+        right: 6.74vw;
+   
+        cursor: pointer;
+   
+        opacity: 0;
+        z-index: 10;
+   
+        -webkit-touch-callout: none;
+    }
+
+    .r-nav__hamburger {
+        margin-top: auto;
+    }
+
+    .r-nav__meat
+    {
+      display: block;
+      width: 33px;
+      height: 4px;
+      margin-bottom: 5px;
+      position: relative;
+      background: #003b6b;
+      border-radius: 3px;
+      z-index: 1;
+      transform-origin: 0px 0px;
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  opacity 0.5s ease;
+    }
+
+    .r-nav__meat:last-child {
+        margin-bottom: 0;
+    }
+
+    .r-nav__meat:nth-child(2)
+    {
+      transform-origin: left center;
+    }
+    
+    .r-nav__meat:nth-child(4)
+    {
+      transform-origin: left center;
+    }
+
+    .r-nav__hamburger input:checked ~ .r-nav__meat:nth-child(2)
+    {
+    opacity: 1;
+    transform: translate(3.5px, -2.5px) rotate(45deg);
+    }
+    
+    .r-nav__hamburger input:checked ~ .r-nav__meat:nth-child(3)
+    {
+    opacity: 0;
+    transform: scale(0.2, 0.2);
+    }
+
+    .r-nav__hamburger input:checked ~ .r-nav__meat:nth-child(4)
+    {
+        opacity: 1;
+    transform: translate(3.5px, 2.5px) rotate(-45deg);
+    }
+
+    .r-nav__menu {
+        visibility: hidden;
+        opacity: 0;
+        position: fixed;
+        margin: 0;
+        left: 0;
+        top: 67px;
+        z-index: 3;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 64px;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .r-nav__hamburger input:checked ~ .r-nav__menu {
+        /* display: block; */
+        visibility: visible;
+        opacity: 1;
+        
+    }
+
+    .r-nav__menu-item {
+        display: block;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    .r-nav__action-button {
+        border-radius: 8px;
+        height: 40px;
+        width: 80vw;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        border: 0;
+        background-color: var(--notice);
+        font-family: var(--heading-font);
+        font-size: 1rem;
+        color: var(--primary);
+        margin-top: auto;
+        position: fixed;
+        bottom: 3vh;
+    }
+ 
+    #header {
+        padding-top: 100px;
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+
+    .header__logo {
+        width: 40vw;
+        margin-bottom: 6px;
+        margin-top: 32px;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .header__slogan {
+        font-size: 1.3rem;
+    }
+
+    .header__slogan-break {
+        padding-left: 0;
+    }
+
+    .header__subtitle {
+        line-height: 1.3;
+    }
+
+    .header__form {
+        display: block;
+    }
+
+    .header__email-box {
+        margin-bottom: 8px;
+        width: 45vw;
+    }
+
+    .header__function-button {
+        margin-bottom: 16px;
+    }
+
+    .header__email-button {
+        display: inline;
+    }
+
+    #about-us {
+        padding: 88px 8vw 182px 8vw;
+    }
+
+    .about-us__heading-indent {
+        margin-left: 0;
+    }
+
+    .about-us__text {
+        margin-left: 0;
+    }
+
+    #function {
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+
+    .function__flexbox {
+        flex-direction: column;
+    }
+
+    .function__one-description, 
+    .function__two-description, 
+    .function__three-description {
+        width: 80vw;
+        
+    }
+
+    #members {
+        padding: 88px 10% 194px 10%;
+    }
+
+    .members__heading-indent {
+        margin-left: 0;
+    }
+
+    .r-members {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-around;
+        width: 84vw;
+    }
+
+    .r-members__box {
+        background-color: white;
+        padding: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+        height: 280px;
+    }
+
+    .footer__left {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #contact-us {
+        padding-left: 8vw;
+        padding-right: 8vw;
+        padding-top: 88px;
+        padding-bottom: 101px;
+    }
+
+    .contact-us__text {
+        width: 80vw;
+        text-align: left;
+    }
+
+    .contact-us__input,
+    .contact-us__message-box {
+        width: 80vw;
+    }
+
+    .leader-intro-bkg {
+        display: flex;
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .lit-upper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leader-intro-img {
+        margin-left: 3.5%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .leader-intro-title {
+        margin-top: 5%;
+        margin-left: 3.5%;
+    }
+
+    .leader-intro-content {
+        margin-left: 3.5%;
+    }
+}
+
+ 
