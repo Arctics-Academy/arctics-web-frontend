@@ -24,18 +24,9 @@ export default function Header () {
     }
 
     const validateInput = (input) => {
-        const atPosition = input.indexOf('@')
-        if (atPosition > 0) {
-            const username = input.slice(0, atPosition)
-            const domain = input.slice(atPosition+1)
-
-            const usrnameTest = /^[\x00-\x7F]*$/.test(username)
-            const domainTest = /^[A-Za-z0-9.-]+$/.test(domain)
-
-            if (usrnameTest && domainTest) return true
-        }
-
-        return false
+        const valid = /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/.test(input);
+        if (valid) return true
+        else return false
     }
 
     const handleButton = async () => {
