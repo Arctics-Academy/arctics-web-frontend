@@ -75,12 +75,19 @@ nav {
     color: var(--primary);
 }
 
+a:link {
+    color: var(--primary);
+}
+
 a:visited {
     color: var(--primary);
 }
 
-a:active,
 a:hover {
+    color: var(--tertiary);
+}
+
+a:active {
     color: var(--tertiary);
 }
 
