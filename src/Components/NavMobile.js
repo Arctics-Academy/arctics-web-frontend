@@ -20,9 +20,10 @@ export default function NavMobile () {
 				<li className="r-nav__menu-item"><a href="#function" onClick={handleOnClick}>產品功能</a></li>
 				<li className="r-nav__menu-item"><a href="#members" onClick={handleOnClick}>團隊成員</a></li>
 				<li className="r-nav__menu-item" ><a href="#contact-us" onClick={handleOnClick}>聯絡我們</a></li>
-				<li><button className="r-nav__action-button" onClick={handleOnClick}>註冊 / 登入</button></li>
 			</ul>
 		</div>
 	    </nav>
     );
 }
+
+// <li><button className="r-nav__action-button" onClick={handleOnClick}>註冊 / 登入</button></li> => temporarily removed

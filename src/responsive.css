@@ -9,13 +9,13 @@
  * prefixes.
  */
  
- @media only screen and (min-width: 769px) {
+ @media only screen and (min-width: 800px) {
     .rwd-show {
         display: none;
     }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 800px) {
     .rwd-hide {
         display: none;
     }

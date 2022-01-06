@@ -78,7 +78,7 @@ export default function Header () {
 		    <div className="header__form">
 			    <a href="#function" id="header__function-button" className="header__function-button">查看平台功能</a>
 			    <br className="rwd-show"></br>
-			    <input className="header__email-box" id="email-input" placeholder="留下您的Email，讓我們通知您最新消息" value={email} onChange={e=>setEmail(e.target.value.trim())} style={{borderColor: "red", border: "2px"}}></input>
+			    <input className="header__email-box" id="email-input" placeholder="留下您的Email獲取最新消息" value={email} onChange={e=>setEmail(e.target.value.trim())} style={{borderColor: "red", border: "2px"}}></input>
 			    <button className="header__email-button" id="email-button" onClick={handleButton}>{confirmText}</button>
 		    </div>
             {popText(popVis)}

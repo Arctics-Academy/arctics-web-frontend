@@ -27,4 +27,4 @@ export default function Nav() {
     );
 }
 
-//<button className="nav__action-button">註冊 / 登入</button> => temporary removed
+//<button className="nav__action-button">註冊 / 登入</button> => temporarily removed
