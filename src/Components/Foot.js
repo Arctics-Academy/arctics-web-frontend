@@ -14,7 +14,7 @@ export default function Foot () {
 		    <ul className="footer footer__right rwd-hide">
 			    <li className="footer__link-item"><img src={imgFB} alt="facbook link" height="24px"></img></li>
 			    <li className="footer__link-item"><img src={imgIns} alt="instagram link" height="24px"></img></li>
-			    <li className="footer__link-item"><a href="MAILTO:artics.academy666@gmail.com" target="_blank" rel="noreferrer noopener"><img src={imgEmail} alt="email link" height="24px" width="24px"></img></a></li>
+			    <li className="footer__link-item"><a href="MAILTO:articsteam.official@gmail.com" target="_blank" rel="noreferrer noopener"><img src={imgEmail} alt="email link" height="24px" width="24px"></img></a></li>
 		    </ul>
         </footer>
     );
