@@ -76,7 +76,7 @@ export default function Header () {
                 不同高中生涯的台清交成學生視訊對談！
             </p>
 		    <div className="header__form">
-			    <a href="#function" className="header__function-button">查看平台功能</a>
+			    <a href="#function" id="header__function-button" className="header__function-button">查看平台功能</a>
 			    <br className="rwd-show"></br>
 			    <input className="header__email-box" id="email-input" placeholder="留下您的Email，讓我們通知您最新消息" value={email} onChange={e=>setEmail(e.target.value.trim())} style={{borderColor: "red", border: "2px"}}></input>
 			    <button className="header__email-button" id="email-button" onClick={handleButton}>{confirmText}</button>

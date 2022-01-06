@@ -154,12 +154,11 @@ h1 {
     border-radius: 8px;
     text-align: center;
     background-color: var(--primary);
-    color: white;
     text-decoration: none;
     margin-right: 16px;
 }
 
-.header__function-button:visited {
+#header__function-button {
     color: white;
 }
 
