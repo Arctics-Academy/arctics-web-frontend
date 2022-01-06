@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: "https://arctics-academic.herokuapp.com/"
+  baseURL: "https://arctics-web-app.herokuapp.com/"
 })
 
 const submitSubscriber = async (email) => {
