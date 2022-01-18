@@ -9,7 +9,7 @@ import imgEmail from '../img/footer-email-icon.png'
 export default function Foot () {
     return (
         <footer>
-            <p className="footer footer__left">Copyright &copy; 2021 Arctics 平台</p>
+            <p className="footer footer__left">版權所有 &copy; {(new Date).getFullYear()} Arctics升學顧問</p>
 		    <p className="footer footer__mid rwd-hide">Made with 💙 in Taiwan</p>
 		    <ul className="footer footer__right rwd-hide">
 			    <li className="footer__link-item"><img src={imgFB} alt="facbook link" height="24px"></img></li>
