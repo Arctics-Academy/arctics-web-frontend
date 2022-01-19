@@ -4,7 +4,7 @@ export const ParamContext = React.createContext()
 
 const initState = {
     email: '',
-    userName: '',
+    username: '',
     identity: '',
 }
 
@@ -13,7 +13,7 @@ const reducer = (state, action) => {
         case 'login':
             return {
                 email: action.payload.email,
-                userName: action.payload.userName,
+                username: action.payload.username,
                 identity: action.payload.identity
             }
         default:

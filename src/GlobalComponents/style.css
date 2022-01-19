@@ -61,6 +61,15 @@ a:active {
     cursor: pointer;
 }
 
+.nav__notify-count {
+    display: inline-block;
+    background-color: var(--notice);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+
 footer {
     padding: 30px 10% 30px 10%;
     color: #fff;
