@@ -1,3 +1,10 @@
+body {
+    background: url(./img/background.png), linear-gradient(#4bb3cc 9%, #afeff0 17.5%, #003b6b 29%, #003b6b 41%, #4bb3cc 47%, #003b6b 99%);
+    background-size: auto 5358px;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
 /* HEADER */
 
 header {

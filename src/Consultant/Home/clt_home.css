@@ -1,0 +1,43 @@
+.clt_home__main {
+    margin-top: 80px;
+    background: #f5f5f5;
+    width: 100%;
+    min-height: 1000px;
+}
+
+.clt_home__greet-bear {
+    position: static
+}
+
+.clt_home__greeting {
+    padding-top: 81px;
+    margin-left: 240px;
+}
+
+.clt_home__greet-usrname {
+    color: #4bb3cc;
+    font-size: 43px;
+    margin-left: 8px;
+}
+
+.clt_home__greet {
+    color: #003b6b;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.clt_home__greet-wishes {
+    color: #003b6b;
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+
+
+.clt_home__greet-underline {
+    position: static;
+    background-color: #003b6b;
+    height: 3px;
+    width: 400px;
+    border-radius: 4px;
+}
