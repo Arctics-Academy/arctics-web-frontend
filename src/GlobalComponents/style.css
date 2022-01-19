@@ -1,47 +1,3 @@
-@font-face {
-    font-family: 'jf-openhuninn-1.1';
-    src: url('./fonts/jf-openhuninn-11.woff2') format('woff2');
-    src: url('./fonts/jf-openhuninn-11.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-:root {
-    /* Font Family */
-    --heading-font: "jf-openhuninn-1.1", san-serif;
-
-    /* Colors */
-    --primary: #003b6b;
-    --secondary: #4bb3cc;
-    --tertiary: #80bccd;
-    --quaternary: #b0dde2;
-    --off-white: #f5f5f5;
-    --notice: #f2d60f;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--heading-font);
-    margin: 0;
-    background: url(./LandingPage/img/background.png), linear-gradient(#4bb3cc 9%, #afeff0 17.5%, #003b6b 29%, #003b6b 41%, #4bb3cc 47%, #003b6b 99%);
-    background-size: auto 5358px;
-    background-repeat: no-repeat;
-    background-position: top center;
-}
-
-a, a:link, a:visited {
-    text-decoration: none;
-}
-
-.light-up {
-    color: var(--tertiary);
-}
-
-/*
 nav {
     position: fixed;
     top: 0px;
@@ -62,7 +18,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-content: center;
-    // background-color: #80bccd; 
+    /* background-color: #80bccd; */
 }
 
 .nav__menu {
@@ -136,4 +92,3 @@ footer {
     display: inline-block;
     height: 24px;
 }
-*/

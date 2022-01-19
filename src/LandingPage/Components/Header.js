@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../style.css';
 import '../responsive.css'
 import LogoImg from '../img/header-arctics-logo.png';
-import { submitSubscriber } from '../axios';
+import { submitSubscriber } from '../../axios';
 //import { successSubscribe, invalidSubmission } from './modal/subscribeModal';
 
 export default function Header () {

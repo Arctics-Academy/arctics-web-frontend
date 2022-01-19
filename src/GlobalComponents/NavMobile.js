@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style.css';
-import '../responsive.css';
-import logo from '../img/nav-arctics-logo.png';
+import './style.css';
+import './responsive.css';
+import logo from './img/nav-arctics-logo.png';
 
 export default function NavMobile () {
 	const handleOnClick = (e)=>{ document.getElementById("checkbox").checked = false;}

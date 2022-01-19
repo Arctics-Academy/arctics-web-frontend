@@ -1,9 +1,9 @@
 import React from 'react';
-import '../style.css';
-import '../responsive.css';
-import imgFB from '../img/footer-fb-icon.png';
-import imgIns from '../img/footer-insta-icon.png';
-import imgEmail from '../img/footer-email-icon.png'
+import './style.css';
+import './responsive.css';
+import imgFB from './img/footer-fb-icon.png';
+import imgIns from './img/footer-insta-icon.png';
+import imgEmail from './img/footer-email-icon.png'
 
 
 export default function Foot () {
