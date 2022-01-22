@@ -29,9 +29,39 @@ nav {
 
 .nav__menu-item {
     display: inline-block;
+    vertical-align: top;
     margin-right: 16px;
     color: var(--primary);
+    position: relative;
 }
+
+.nav__menu-submenu {
+    list-style: none;
+    padding-left: 0;
+    position: absolute;
+    padding-top: 27.5px;
+    white-space: nowrap;
+    z-index: 1;
+    display: none;
+}
+
+.nav__menu-submenu-item {
+    padding-left: 0;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    padding: 8px 10px 6px 20px;
+}
+
+.nav__menu-item:hover > .nav__menu-submenu {
+    display: block;
+}
+
+.nav__menu-submenu-item:hover {
+    border: solid 0.3px var(--tertiary);
+}
+
 
 a:link {
     color: var(--primary);
@@ -43,6 +73,10 @@ a:visited {
 
 a:hover {
     color: var(--tertiary);
+}
+
+.nav__menu-submenu-link:hover {
+    border-bottom: solid 3px var(--tertiary);
 }
 
 a:active {

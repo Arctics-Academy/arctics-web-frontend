@@ -53,9 +53,27 @@ export default function Nav() {
 									通知 <span className='nav__notify-count'>9</span>
 									</a>
 							</li>
-				   		 	<li className="nav__menu-item"><a>我的諮詢</a></li>
-				   		 	<li className="nav__menu-item"><a>我的錢包</a></li>
-				   		 	<li className="nav__menu-item" ><a>小幫手</a></li>
+				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link'>我的諮詢</a>
+								<ul className='nav__menu-submenu'>
+									<li className='nav__menu-submenu-item'>資訊總覽</li>
+									<li className='nav__menu-submenu-item'>新預約</li>
+									<li className='nav__menu-submenu-item'>請假</li>
+								</ul>
+							</li>
+				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link'>我的錢包</a>
+								<ul className='nav__menu-submenu'>
+									<li className='nav__menu-submenu-item'>帳戶明細</li>
+									<li className='nav__menu-submenu-item'>提領</li>
+								</ul>
+							</li>
+				   		 	<li className="nav__menu-item" ><a className='nav__menu-submenu-link'>小幫手</a>
+								<ul className='nav__menu-submenu'>
+									<li className='nav__menu-submenu-item'>常用題庫</li>
+									<li className='nav__menu-submenu-item'>網站導覽</li>
+									<li className='nav__menu-submenu-item'>FAQ</li>
+									<li className='nav__menu-submenu-item'>問題回報</li>
+								</ul>
+							</li>
 			    		</ul>
 						<button className="nav__action-button">個人檔案</button>
 		    		</div>
