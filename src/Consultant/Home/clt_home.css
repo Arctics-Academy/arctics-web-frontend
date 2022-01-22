@@ -6,7 +6,8 @@
 }
 
 .clt_home__greet-bear {
-    position: static
+    position: absolute;
+    top: 165px;
 }
 
 .clt_home__greeting {
@@ -23,7 +24,7 @@
 .clt_home__greet {
     color: #003b6b;
     font-size: 20px;
-    margin-left: 20px;
+    margin-left: 80px;
 }
 
 .clt_home__greet-wishes {
@@ -41,3 +42,176 @@
     width: 400px;
     border-radius: 4px;
 }
+
+.clt_home-ancmt {
+    padding-top: 45.8px;
+    margin-left: 240px;
+}
+
+.clt_home-ancmt-title {
+    color: #003b6b;
+    font-size: 27px;
+}
+
+.clt_home-ancmt-title-icon {
+    position: absolute;
+    top: 268.3px;
+}
+
+.clt_home-ancmt-title-content {
+    margin-left: 35px;
+}
+
+.clt_home-ancmt-banner {
+    position: absolute;
+    top: 304px;
+    left: 240px;
+    width: 861px;
+    height: 141px;
+    background-color: #80bccd;
+    border: solid 2px #003b6b;
+}
+
+.clt_home-ancmt-banner-bkg {
+    margin-top: 24.7px;
+    margin-left: 117.6px;
+    mix-blend-mode: soft-light;
+    z-index: -1;
+}
+
+.clt_home-ancmt-banner-title {
+    color: #f5f5f5;
+    font-size: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 19.6px
+}
+
+.clt_home-ancmt-banner-link {
+    color: #003b6b;
+    position: absolute;
+    font-size: 16px;
+    top: 103.7px;
+    left: 304.1px;
+}
+
+.clt_home-myapnt {
+    padding-top: 202px;
+    margin-left: 240px;
+}
+
+.clt_home-myapnt-title-text {
+    color: #003b6b;
+    font-size: 27px;
+    margin-left: 35px;
+}
+
+.clt_home-myapnt-title-icon {
+    position: absolute;
+    left: 240px;
+    top: 503px;
+    height: 29px;
+    width: auto;
+}
+
+.clt_home-myapnt-blocks {
+    display: flex;
+    width: 856px;
+    margin-top: 16px;
+}
+
+/* block card */
+
+.clt_home-myapnt-card {
+    position: relative;
+    width: 250px;
+    height: 275px;
+    border-radius: 16px;
+    border: solid 1px #4bb3cc;
+    background-color: #fff;
+}
+
+.card-date-time {
+    color: #003b6b;
+    font-size: 16px;
+    text-align: left;
+    position: absolute;
+    top: 23px;
+    left: 33.6px;
+}
+
+.card-date {
+    height: 5px;
+}
+
+.card-time {
+    height: 10px;
+}
+
+.card-maker-info {
+    color: #003b6b;
+    font-size: 16px;
+    text-align: left;
+    position: absolute;
+    left: 33.6px;
+    top: 80px;
+}
+
+.card-name {
+    height: 5px;
+}
+
+.card-grade {
+    height: 10px;
+}
+
+.card-specified-features {
+    display: flex;
+    width: 200px;
+    position: absolute;
+    left: 33.6px;
+    top: 152px
+}
+
+.card-feature {
+    color: #4bb3cc;
+    background-color: #fff;
+    border: solid 1px #4bb3cc;
+    font-size: 14px;
+    width: 64px;
+    height: 20px;
+    text-align: center;
+    border-radius: 8px;
+    padding-top: 2.5px;
+    margin-right: 8px;
+}
+
+.card-unavailable-button {
+    width: 51px;
+    height: 30px;
+    background-color: #4bb3cc;
+    border-radius: 8px;
+    color: #f5f5f5;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 106.4px;
+    bottom: 18px;
+}
+
+.card-open-meeting {
+    width: 80px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    color: #003b6b;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 16.5px;
+    bottom: 18px;
+}
+
+/* block card end */

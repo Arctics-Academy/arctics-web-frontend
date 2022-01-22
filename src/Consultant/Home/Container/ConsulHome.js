@@ -1,10 +1,14 @@
 import Greeting from '../Components/Greeting'
+import Announcement from '../Components/Announcement'
 import '../clt_home.css'
+import MyAppointment from '../Components/MyAppointmen'
 
 const ConsulHome = () => {
     return (
         <div className='clt_home__main'>
             <Greeting />
+            <Announcement />
+            <MyAppointment />
         </div>
     )
 }
