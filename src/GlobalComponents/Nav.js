@@ -18,7 +18,7 @@ export default function Nav() {
 				type: 'login',
 				payload: {
 					email: 's@mail.com',
-					username: 'sa',
+					username: 'Alex',
 					identity: 'consultant'
 				}
 			})

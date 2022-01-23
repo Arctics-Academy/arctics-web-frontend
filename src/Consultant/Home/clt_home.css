@@ -129,6 +129,7 @@
     border-radius: 16px;
     border: solid 1px #4bb3cc;
     background-color: #fff;
+    font-family: var(--heading-font);
 }
 
 .card-date-time {
@@ -184,6 +185,7 @@
     border-radius: 8px;
     padding-top: 2.5px;
     margin-right: 8px;
+    font-family: var(--heading-font);
 }
 
 .card-unavailable-button {
@@ -198,6 +200,7 @@
     position: absolute;
     right: 106.4px;
     bottom: 18px;
+    font-family: var(--heading-font);
 }
 
 .card-open-meeting {
@@ -212,6 +215,108 @@
     position: absolute;
     right: 16.5px;
     bottom: 18px;
+    font-family: var(--heading-font);
 }
 
 /* block card end */
+
+.clt_home-purse {
+    position: absolute;
+    top: 268.3px;
+    left: 1300px;
+    right: 296px;
+}
+
+.clt_home-purse-title-icon {
+    position: absolute;
+    top: 2.5px;
+}
+
+.clt_home-purse-title-text {
+    font-size: 27px;
+    color: #003b6b;
+    margin-left: 35px;
+}
+
+.clt_home-purse-list {
+    margin-top: 5px;
+    width: 400px;
+    height: 535px;
+    border: solid 2px #c0ac49;
+    border-radius: 16px;
+}
+
+.clt_home-purse-list-unwithdrawed {
+    position: relative;
+}
+
+.clt_home-purse-list-uwtext {
+    font-size: 16px;
+    color: #003b6b;
+    margin: 45px 1px 0 30px;
+}
+
+.clt_home-purse-list-amount {
+    margin: 0;
+}
+
+.clt_home-purse-list-amount-num {
+    font-size: 48px;
+    margin: 0 15px 1px 30px;
+    color: #003b6b;
+}
+
+.clt_home-purse-list-sepline {
+    width: 325px;
+    height: 2px;
+    background-color: #c0ac49;
+    margin: 10px 32px;
+
+}
+
+.clt_home-purse-list-out {
+    list-style: none;
+    padding: 5px 0;
+    color: #4bb3cc;
+    font-size: 16px;
+}
+
+.clt_home-purse-list-out-date {
+}
+
+.clt_home-purse-list-out-name {
+    padding-left: 23px;    
+}
+
+.clt_home-purse-list-out-amount {
+    padding-left: 16px;
+    padding-right: 5px;
+}
+
+.clt_home-purse-show-receipt {
+    width: 90px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: #003b6b;
+    font-family: var(--heading-font);
+    position: absolute;
+    left: 178px;
+    bottom: 48px;
+}
+
+.clt_home-purse-goto-withdraw {
+    width: 90px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: #003b6b;
+    font-family: var(--heading-font);
+    position: absolute;
+    left: 280px;
+    bottom: 48px;    
+}
