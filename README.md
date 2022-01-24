@@ -1,10 +1,12 @@
-# Arctics-Web-Frontend
+# arctics-web-frontend
 
-This is the frontent develop repository of `arctics-web-app`
-For our website, please visit [Arctics](https://www.arctics.academy)
+## Intro
+This is the frontend repository of `arctics-web-app`. 
+For our website, please visit [www.arctics.academy](https://www.arctics.academy).
 
+
+## File Structure
 ```
-Folders structure
 src
  ├─Consultant
  │  └─Home
