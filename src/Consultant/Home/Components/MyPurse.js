@@ -22,8 +22,7 @@ const listBody = (receipt) => {
             <li className='clt_home-purse-list-out'>
                 <span className='clt_home-purse-list-out-date'>{e.date}</span>
                 <span className='clt_home-purse-list-out-name'>{e.name}</span>
-                <span className='clt_home-purse-list-out-amount'>{e.amount}</span>
-                元
+                <span className='clt_home-purse-list-out-amount'>{e.amount}元</span>
             </li>
         ))
     )

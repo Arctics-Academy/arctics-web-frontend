@@ -1,23 +1,25 @@
 .clt_home__main {
     margin-top: 80px;
     background: #f5f5f5;
-    width: 100%;
+    width: 105vw;
+    height: 100vh;
     min-height: 1000px;
 }
 
 .clt_home__greet-bear {
     position: absolute;
-    top: 165px;
+    top: 71px;
 }
 
 .clt_home__greeting {
     padding-top: 81px;
-    margin-left: 240px;
+    margin-left: 10%;
+    position: relative;
 }
 
 .clt_home__greet-usrname {
     color: #4bb3cc;
-    font-size: 43px;
+    font-size: 32px;
     margin-left: 8px;
 }
 
@@ -39,23 +41,24 @@
     position: static;
     background-color: #003b6b;
     height: 3px;
-    width: 400px;
+    width: 400.5px;
     border-radius: 4px;
 }
 
 .clt_home-ancmt {
     padding-top: 45.8px;
-    margin-left: 240px;
+    margin-left: 10%;
+    position: relative;
 }
 
 .clt_home-ancmt-title {
     color: #003b6b;
-    font-size: 27px;
+    font-size: 20px;
 }
 
 .clt_home-ancmt-title-icon {
     position: absolute;
-    top: 268.3px;
+    top: 45px;
 }
 
 .clt_home-ancmt-title-content {
@@ -64,19 +67,20 @@
 
 .clt_home-ancmt-banner {
     position: absolute;
-    top: 304px;
-    left: 240px;
-    width: 861px;
+    top: 90px;
+    /*width: 860px;*/
+    width: 44.8vw;
     height: 141px;
+    min-width: 430px;
+    max-width: 860px;
     background-color: #80bccd;
     border: solid 2px #003b6b;
 }
 
 .clt_home-ancmt-banner-bkg {
-    margin-top: 24.7px;
+    margin-top: 25px;
     margin-left: 117.6px;
     mix-blend-mode: soft-light;
-    z-index: -1;
 }
 
 .clt_home-ancmt-banner-title {
@@ -84,7 +88,8 @@
     font-size: 40px;
     position: absolute;
     bottom: 20px;
-    left: 19.6px
+    left: 19.6px;
+    font-family: var(--heading-font);
 }
 
 .clt_home-ancmt-banner-link {
@@ -97,21 +102,19 @@
 
 .clt_home-myapnt {
     padding-top: 202px;
-    margin-left: 240px;
+    margin-left: 10%;
+    position: relative;
 }
 
 .clt_home-myapnt-title-text {
     color: #003b6b;
-    font-size: 27px;
+    font-size: 20px;
     margin-left: 35px;
 }
 
 .clt_home-myapnt-title-icon {
     position: absolute;
-    left: 240px;
-    top: 503px;
-    height: 29px;
-    width: auto;
+    top: 202px;
 }
 
 .clt_home-myapnt-blocks {
@@ -222,24 +225,26 @@
 
 .clt_home-purse {
     position: absolute;
-    top: 268.3px;
-    left: 1300px;
+    top: 250px;
+    left: 63.7%;
     right: 296px;
 }
 
 .clt_home-purse-title-icon {
     position: absolute;
-    top: 2.5px;
 }
 
 .clt_home-purse-title-text {
-    font-size: 27px;
+    font-size: 20px;
     color: #003b6b;
+    top: 1px;
     margin-left: 35px;
+    min-width: 80px;
+    display: flex;
 }
 
 .clt_home-purse-list {
-    margin-top: 5px;
+    margin-top: 17px;
     width: 400px;
     height: 535px;
     border: solid 2px #c0ac49;
@@ -279,6 +284,7 @@
     padding: 5px 0;
     color: #4bb3cc;
     font-size: 16px;
+    width: 310px;
 }
 
 .clt_home-purse-list-out-date {
@@ -291,6 +297,9 @@
 .clt_home-purse-list-out-amount {
     padding-left: 16px;
     padding-right: 5px;
+    left: auto;
+    right: 0;
+    float: right;
 }
 
 .clt_home-purse-show-receipt {
