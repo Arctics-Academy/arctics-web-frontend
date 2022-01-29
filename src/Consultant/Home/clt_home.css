@@ -1,0 +1,389 @@
+.clt_home__main {
+    margin-top: 80px;
+    background: #f5f5f5;
+    width: 105vw;
+    height: 100vh;
+    min-height: 1000px;
+}
+
+.clt_home__greet-bear {
+    position: absolute;
+    top: 71px;
+}
+
+.clt_home__greeting {
+    padding-top: 81px;
+    margin-left: 10%;
+    position: relative;
+}
+
+.clt_home__greet-usrname {
+    color: #4bb3cc;
+    font-size: 32px;
+    margin-left: 8px;
+}
+
+.clt_home__greet {
+    color: #003b6b;
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+.clt_home__greet-wishes {
+    color: #003b6b;
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+
+
+.clt_home__greet-underline {
+    position: static;
+    background-color: #003b6b;
+    height: 3px;
+    width: 400.5px;
+    border-radius: 4px;
+}
+
+.clt_home-ancmt {
+    padding-top: 45.8px;
+    margin-left: 10%;
+    position: relative;
+}
+
+.clt_home-ancmt-title {
+    color: #003b6b;
+    font-size: 20px;
+}
+
+.clt_home-ancmt-title-icon {
+    position: absolute;
+    top: 45px;
+}
+
+.clt_home-ancmt-title-content {
+    margin-left: 35px;
+}
+
+.clt_home-ancmt-banner {
+    position: absolute;
+    top: 90px;
+    /*width: 860px;*/
+    width: 44.8vw;
+    height: 141px;
+    min-width: 430px;
+    max-width: 860px;
+    background-color: #80bccd;
+    border: solid 2px #003b6b;
+}
+
+.clt_home-ancmt-banner-bkg {
+    margin-top: 25px;
+    margin-left: 117.6px;
+    mix-blend-mode: soft-light;
+}
+
+.clt_home-ancmt-banner-title {
+    color: #f5f5f5;
+    font-size: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 19.6px;
+    font-family: var(--heading-font);
+}
+
+.clt_home-ancmt-banner-link {
+    color: #003b6b;
+    position: absolute;
+    font-size: 16px;
+    top: 103.7px;
+    left: 304.1px;
+}
+
+.clt_home-myapnt {
+    padding-top: 202px;
+    margin-left: 10%;
+    position: relative;
+    width: 44.6vw;
+    max-width: 860px;
+    height: 351px;
+}
+
+.clt_home-myapnt-title-text {
+    color: #003b6b;
+    font-size: 20px;
+    margin-left: 35px;
+}
+
+.clt_home-myapnt-title-icon {
+    position: absolute;
+    top: 202px;
+}
+
+.clt_home-myapnt-show-apnt {
+    position: relative;
+}
+
+.clt_home-myapnt-blocks {
+    position: absolute;
+    display: flex;
+    /*width: 790px;*/
+    width: 41.1vw;
+    max-width: 790px;
+    top: 16px;
+    left: 35px;
+    overflow: hidden;
+}
+
+.clt_home-myapnt-show-all-link {
+    position: absolute;
+    color: #003b6b;
+    left: 82%;
+    top: 308px;
+    width: 133px;
+    height: 20px;
+}
+
+.clt_home-myapnt-left-arrow {
+    position: absolute;
+    top: 93px;
+}
+
+.clt_home-myapnt-right-arrow {
+    position: absolute;
+    top: 93px;
+    left: 96.7%;
+}
+
+.clt_home-myapnt-left-arrow:hover {
+    border: solid 1px #003b6b;
+}
+
+.clt_home-myapnt-right-arrow:hover {
+    border: solid 1px #003b6b;
+}
+
+.clt_home-myapnt-link-text {
+    font-size: 18px;
+    padding-bottom: 2px;
+}
+
+.clt_home-myapnt-show-all-link:hover {
+    color: #4bb3cc;
+}
+
+.clt_home-myapnt-link-arrow1 {
+   margin-top: 1px;
+   margin-left: 3px;
+}
+
+.clt_home-myapnt-link-arrow2 {
+    margin-top: 3px;
+}
+
+/* block card */
+
+.clt_home-myapnt-card {
+    position: relative;
+    width: 250px;
+    height: 275px;
+    border-radius: 16px;
+    border: solid 1px #4bb3cc;
+    background-color: #fff;
+    font-family: var(--heading-font);
+}
+
+.card-date-time {
+    color: #003b6b;
+    font-size: 16px;
+    text-align: left;
+    position: absolute;
+    top: 23px;
+    left: 33.6px;
+}
+
+.card-date {
+    height: 5px;
+}
+
+.card-time {
+    height: 10px;
+}
+
+.card-maker-info {
+    color: #003b6b;
+    font-size: 16px;
+    text-align: left;
+    position: absolute;
+    left: 33.6px;
+    top: 80px;
+}
+
+.card-name {
+    height: 5px;
+}
+
+.card-grade {
+    height: 10px;
+}
+
+.card-specified-features {
+    display: flex;
+    width: 200px;
+    position: absolute;
+    left: 33.6px;
+    top: 152px
+}
+
+.card-feature {
+    color: #4bb3cc;
+    background-color: #fff;
+    border: solid 1px #4bb3cc;
+    font-size: 14px;
+    width: 64px;
+    height: 20px;
+    text-align: center;
+    border-radius: 8px;
+    padding-top: 2.5px;
+    margin-right: 8px;
+    font-family: var(--heading-font);
+}
+
+.card-unavailable-button {
+    width: 51px;
+    height: 30px;
+    background-color: #4bb3cc;
+    border-radius: 8px;
+    color: #f5f5f5;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 106.4px;
+    bottom: 18px;
+    font-family: var(--heading-font);
+}
+
+.card-open-meeting {
+    width: 80px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    color: #003b6b;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 16.5px;
+    bottom: 18px;
+    font-family: var(--heading-font);
+}
+
+/* block card end */
+
+.clt_home-purse {
+    position: absolute;
+    top: 250px;
+    left: 63.7%;
+    right: 296px;
+}
+
+.clt_home-purse-title-icon {
+    position: absolute;
+}
+
+.clt_home-purse-title-text {
+    font-size: 20px;
+    color: #003b6b;
+    top: 1px;
+    margin-left: 35px;
+    min-width: 80px;
+    display: flex;
+}
+
+.clt_home-purse-list {
+    margin-top: 17px;
+    width: 400px;
+    height: 535px;
+    border: solid 2px #c0ac49;
+    border-radius: 16px;
+}
+
+.clt_home-purse-list-unwithdrawed {
+    position: relative;
+}
+
+.clt_home-purse-list-uwtext {
+    font-size: 16px;
+    color: #003b6b;
+    margin: 45px 1px 0 30px;
+}
+
+.clt_home-purse-list-amount {
+    margin: 0;
+}
+
+.clt_home-purse-list-amount-num {
+    font-size: 48px;
+    margin: 0 15px 1px 30px;
+    color: #003b6b;
+}
+
+.clt_home-purse-list-sepline {
+    width: 325px;
+    height: 2px;
+    background-color: #c0ac49;
+    margin: 10px 32px;
+
+}
+
+.clt_home-purse-list-out {
+    list-style: none;
+    padding: 5px 0;
+    color: #4bb3cc;
+    font-size: 16px;
+    width: 310px;
+}
+
+.clt_home-purse-list-out-date {
+}
+
+.clt_home-purse-list-out-name {
+    padding-left: 23px;    
+}
+
+.clt_home-purse-list-out-amount {
+    padding-left: 16px;
+    padding-right: 5px;
+    left: auto;
+    right: 0;
+    float: right;
+}
+
+.clt_home-purse-show-receipt {
+    width: 90px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: #003b6b;
+    font-family: var(--heading-font);
+    position: absolute;
+    left: 178px;
+    bottom: 48px;
+}
+
+.clt_home-purse-goto-withdraw {
+    width: 90px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: #003b6b;
+    font-family: var(--heading-font);
+    position: absolute;
+    left: 280px;
+    bottom: 48px;    
+}

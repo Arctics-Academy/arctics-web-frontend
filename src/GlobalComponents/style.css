@@ -1,51 +1,6 @@
-@font-face {
-    font-family: 'jf-openhuninn-1.1';
-    src: url('./fonts/jf-openhuninn-11.woff2') format('woff2');
-    src: url('./fonts/jf-openhuninn-11.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-:root {
-    /* Font Family */
-    --heading-font: "jf-openhuninn-1.1", san-serif;
-
-    /* Colors */
-    --primary: #003b6b;
-    --secondary: #4bb3cc;
-    --tertiary: #80bccd;
-    --quaternary: #b0dde2;
-    --off-white: #f5f5f5;
-    --notice: #f2d60f;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--heading-font);
-    margin: 0;
-    /*
-    background: url(./LandingPage/img/background.png), linear-gradient(#4bb3cc 9%, #afeff0 17.5%, #003b6b 29%, #003b6b 41%, #4bb3cc 47%, #003b6b 99%);
-    background-size: auto 5358px;
-    background-repeat: no-repeat;
-    background-position: top center;
-    */
-}
-
-a, a:link, a:visited {
-    text-decoration: none;
-}
-
-.light-up {
-    color: var(--tertiary);
-}
-
-/*
 nav {
     position: fixed;
+    z-index: 1;
     top: 0px;
     width: 80%;
     padding: 16px 10% 16px 10%;
@@ -64,7 +19,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-content: center;
-    // background-color: #80bccd; 
+    /* background-color: #80bccd; */
 }
 
 .nav__menu {
@@ -74,9 +29,39 @@ nav {
 
 .nav__menu-item {
     display: inline-block;
+    vertical-align: top;
     margin-right: 16px;
     color: var(--primary);
+    position: relative;
 }
+
+.nav__menu-submenu {
+    list-style: none;
+    padding-left: 0;
+    position: absolute;
+    padding-top: 27.5px;
+    white-space: nowrap;
+    z-index: 1;
+    display: none;
+}
+
+.nav__menu-submenu-item {
+    padding-left: 0;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    padding: 8px 10px 6px 20px;
+}
+
+.nav__menu-item:hover > .nav__menu-submenu {
+    display: block;
+}
+
+.nav__menu-submenu-item:hover {
+    border: solid 0.3px var(--tertiary);
+}
+
 
 a:link {
     color: var(--primary);
@@ -88,6 +73,10 @@ a:visited {
 
 a:hover {
     color: var(--tertiary);
+}
+
+.nav__menu-submenu-link:hover {
+    border-bottom: solid 3px var(--tertiary);
 }
 
 a:active {
@@ -107,12 +96,22 @@ a:active {
     cursor: pointer;
 }
 
+.nav__notify-count {
+    display: inline-block;
+    background-color: var(--notice);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+
 footer {
     padding: 30px 10% 30px 10%;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /*background-color: #4bb3cc;*/
 }
 
 .footer {
@@ -138,4 +137,3 @@ footer {
     display: inline-block;
     height: 24px;
 }
-*/

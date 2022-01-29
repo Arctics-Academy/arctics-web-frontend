@@ -1,21 +1,26 @@
-import Nav from '../src/Components/Nav';
-import NavMobile from '../src/Components/NavMobile';
-import Foot from '../src/Components/Foot';
-import LandingPage from '../src/Containers/LandingPage'
+import Nav from '../src/GlobalComponents/Nav';
+import NavMobile from '../src/GlobalComponents/NavMobile';
+import Foot from '../src/GlobalComponents/Foot';
+import LandingPage from './LandingPage/Containers/LandingPage'
+import ConsulHome from './Consultant/Home/Container/ConsulHome';
 import { Switch, Route } from 'react-router-dom';
 import './style.css';
-import './responsive.css';
+//import './responsive.css';
+import ContextReducer from './ContextReducer';
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json ! 
 const App = () => {
   return (
     <div className="App">
-      <NavMobile />
-      <Nav />
-      <Switch>
-        <Route path="/" component={LandingPage} />
-      </Switch>
-      <Foot />
+      <ContextReducer>
+        <NavMobile />
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/consultant-home" component={ConsulHome} />
+        </Switch>
+        <Foot />
+      </ContextReducer>
     </div>
   )
 }

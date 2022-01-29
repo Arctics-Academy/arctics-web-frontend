@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import  * as smoothscroll from 'smoothscroll-polyfill';
 import './index.css';
 import './style.css';
-import './responsive.css';
+//import './responsive.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
