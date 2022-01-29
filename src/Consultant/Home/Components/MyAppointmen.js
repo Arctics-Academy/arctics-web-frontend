@@ -1,4 +1,7 @@
 import bellIcon from '../img/bell.png'
+import darkarrow from '../img/darkArrow-right.png'
+import palearrow from '../img/paleArrow-left.png'
+import gotoarrow from '../img/gotoArrow.png'
 import '../clt_home.css'
 
 /* Appointment Format
@@ -16,6 +19,18 @@ const tempTest = [{
     grade: '高二',
     features: ['面試', '學習歷程']
 }]
+
+const leftArrow  = () => {
+    return(
+        <img className='clt_home-myapnt-left-arrow' src={palearrow} />
+    )
+}
+
+const rightArrow = () => {
+    return (
+        <img className='clt_home-myapnt-right-arrow' src={darkarrow} />
+    )
+}
 
 const showBlocks = (appointments) => {
     return (
@@ -51,8 +66,17 @@ const MyAppointment = () => {
                 <img className='clt_home-myapnt-title-icon' src={bellIcon} />
                 <span className='clt_home-myapnt-title-text'>我的諮詢</span>
             </div>
-            <div className='clt_home-myapnt-blocks'>
-                {showBlocks(tempTest)}
+            <div className='clt_home-myapnt-show-apnt'>
+                {leftArrow()}
+                <div className='clt_home-myapnt-blocks'>
+                    {showBlocks(tempTest)}
+                </div>
+                {rightArrow()}
+                <a className='clt_home-myapnt-show-all-link' >
+                    <span className='clt_home-myapnt-link-text'>查看全部諮詢</span>
+                    <img className='clt_home-myapnt-link-arrow1' src={gotoarrow} />
+                    <img className='clt_home-myapnt-link-arrow2' src={gotoarrow}/>
+                </a>
             </div>
         </div>
     )
