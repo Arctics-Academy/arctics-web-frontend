@@ -1,4 +1,3 @@
-import { Button } from 'antd'
 import { useState } from 'react'
 import "../clt_schedule.css"
 import DateRow from "./DateRow"
@@ -49,7 +48,7 @@ const Calender = () => {
     const [year, setYear] = useState(2022)
     const [month, setMonth] = useState(curDate.getMonth()+1)
     const handleAddMonth = () => {
-        if (month == 12) {
+        if (month === 12) {
             setMonth(1)
             setYear(year+1)
         } else {
@@ -57,7 +56,7 @@ const Calender = () => {
         }
     }
     const handleMinusMonth = () => {
-        if (month == 1) {
+        if (month === 1) {
             setMonth(12)
             setYear(year-1)
         } else {

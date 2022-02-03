@@ -22,7 +22,7 @@ const showMeeting = (meetings) => {
 }
 
 const DateBlock = (dateLog) => {
-    if (dateLog.date != undefined) { //dateLog != {}
+    if (dateLog.date !== undefined) { //dateLog != {}
         return (
             <div className="clt_schedule-calender-date-block">
                 <p className="clt_schedule-calender-date-block-date-number">{dateLog.date}</p>
