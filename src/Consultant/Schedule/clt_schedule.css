@@ -1,0 +1,250 @@
+.clt_schedule-main {
+    margin-top: 80px;
+    background: #f5f5f5;
+    width: 100vw;
+    height: 135vh;
+    min-height: 1080px;
+    position: relative;
+}
+
+.clt_schedule-title {
+    position: absolute;
+    top: 79px;
+    left: 10%;
+}
+
+.clt_schedule-title-text {
+    font-size: 32px;
+    color: #003b6b;
+}
+
+.clt_schedule-title-underline {
+    top: 27px;
+    height: 2px;
+    width: 128px;
+    background-color: #003b6b;
+}
+
+.clt_schedule-mode-btn {
+    display: flex;
+    position: absolute;
+    top: 145px;
+    left: 10%;
+}
+
+.clt_schedule-mode-btn-calender {
+    height: 25px;
+    margin-right: 28px;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    width: 90px;
+}
+
+.clt_schedule-mode-calender-icon {
+    position: absolute;
+    height: 24px;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+
+.clt_schedule-mode-calender-text {
+    position: absolute;
+    color: #b0dde2;
+    font-family: var(--heading-font);
+    font-size: 20px;
+    bottom: 1px;
+    left: 27px;
+}
+
+.clt_schedule-mode-btn-calender:hover {
+    cursor: pointer;
+}
+
+.clt_schedule-mode-btn-list {
+    height: 25px;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    width: 90px;
+}
+
+.clt_schedule-mode-list-icon {
+    position: absolute;
+    height: 19px;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    top: 3px;
+    left: 0;
+}
+
+.clt_schedule-mode-list-text {
+    font-family: var(--heading-font);
+    position: absolute;
+    color: #003b6b;
+    font-size: 20px;
+    bottom: 1px;
+    left: 27px;
+}
+
+.clt_schedule-mode-btn-list:hover {
+    cursor: pointer;
+}
+
+.clt_schedule-display {
+    position: absolute;
+    top: 186px;
+    left: 10%;
+}
+
+.clt_schedule-calender {
+    width: 77vw;
+    /*max-width: 1440px;*/
+    border-radius: 24px;
+    overflow: hidden;
+    border: solid 2px #003b6b;
+}
+
+.clt_schedule-calender-title {
+    width: inherit;
+    height: 55px;
+    text-align: center;
+    background-color: #b0dde2;
+    padding-top: 10px;
+    border: solid 0.5px #003b6b;
+}
+
+.clt_schedule-calender-title-text {
+    margin-top: 28px;
+    font-size: 32px;
+    padding: 0;
+    align-items: center;
+    margin-left: 26vw;
+    margin-right: 26vw;
+}
+
+.clt_schedule-calender-btn-left {
+    background: none;
+    border: none;
+}
+
+.clt_schedule-calender-btn-right {
+    background: none;
+    border: none;
+}
+
+.clt_schedule-calender-btn-left:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.clt_schedule-calender-btn-right:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.clt_schedule-calender-header {
+    width: inherit;
+    display: flex;
+}
+
+.clt_schedule-calender-header-text {
+    width: 11vw;
+    height: 37.5px;
+    text-align: center;
+    align-items: center;
+    border: solid 0.5px #003b6b;
+    font-size: 24px;
+    padding-top: 10px;
+    color: #f5f5f5;
+    background-color: #80bccd;
+    font-family: var(--heading-font);
+}
+
+.clt_schedule-calender-row {
+    width: inherit;
+    display: flex;
+}
+
+.clt_schedule-calender-date-block {
+    width: 11vw;
+    height: 18vh;
+    border: solid 0.5px #003b6b;
+    position: relative;
+    background-color: #fff;
+}
+
+.clt_schedule-calender-date-block-date-number {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 1.2vw;
+    top: 1vh;
+    font-size: 3vh;
+}
+
+.clt_schedule-calender-date-block-meetings {
+    position: absolute;
+    top: 6vh;
+    left: 1.2vw;
+    background-color: ivory;
+    /*overflow-y: scroll;*/
+    margin: 0;
+}
+
+.clt_schedule-calender-meeting-info-finished {
+    text-align: center;
+    margin: 0;
+    font-size: 2vh;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #b0dde2;
+    padding: 3px;
+    border-radius: 8px;
+    font-family: var(--heading-font);
+}
+
+.clt_schedule-calender-meeting-info-todo {
+    text-align: center;
+    margin: 0;
+    font-size: 2vh;
+    width: 100%;
+    background-color: #4bb3cc;
+    color: #f5f5f5;
+    padding: 3px;
+    border-radius: 8px;
+    font-family: var(--heading-font);
+}
+
+.clt_schedule-calender-meeting-info-canceled {
+    text-align: center;
+    margin: 0;
+    font-size: 2vh;
+    width: 100%;
+    background-color: #de5454;
+    color: #f5f5f5;
+    padding: 3px;
+    border-radius: 8px;
+    font-family: var(--heading-font);
+}
+
+.clt_schedule-calender-meeting-info-ready {
+    text-align: center;
+    margin: 0;
+    font-size: 2vh;
+    width: 100%;
+    background-color: #f2d60f;
+    color: #003b6b;
+    padding: 3px;
+    border-radius: 8px;
+    font-family: var(--heading-font);
+}
+
+
+
