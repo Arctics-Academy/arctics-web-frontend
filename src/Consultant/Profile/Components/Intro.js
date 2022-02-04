@@ -1,4 +1,4 @@
-import "../clt_info.css"
+import "../clt_profile.css"
 
 const tempIntro = {
     fee:250,
@@ -15,7 +15,7 @@ const tempIntro = {
 
 const Intro = () => {
     return (
-        <div class="Rectangle-44">
+        <div class="clt_home-intro">
             <div>
                 <span>費用</span>
                 <span>{tempIntro.fee}</span>

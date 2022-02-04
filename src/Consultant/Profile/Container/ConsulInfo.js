@@ -1,6 +1,6 @@
 import Intro from '../Components/Intro'
 
-const ConsulProfile = () => {
+const ConsulInfo = () => {
     return (
         <div>
             <Intro />
@@ -8,4 +8,4 @@ const ConsulProfile = () => {
     )
 }
 
-export default ConsulProfile
+export default ConsulInfo
