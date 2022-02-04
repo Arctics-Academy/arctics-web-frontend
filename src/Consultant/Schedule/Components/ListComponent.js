@@ -34,13 +34,13 @@ const FutureMeeting = ({meetingInfo}) => {
                     <span className='clt_schedule-list-student-title'>對象</span>
                     <span className='clt_schedule-list-student-text'>{meetingInfo.student}</span>
                 </div>
-                <div className='clt_schedule-remark-exp'>
+                <div className='clt_schedule-list-remark'>
                     <img className='clt_schedule-list-remark-icon' src={memoIcon} />
                     <span className='clt_schedule-list-remark-title'>備註</span>
                     <span className='clt_schedule-list-remark-text'>{meetingInfo.remark}</span>
                 </div>
             </div>
-            <div className='clt_schedule-list-future-row2'>
+            <div className='clt_schedule-list-future-row3'>
                 <div className='clt_schedule-list-content'>
                     <img className='clt_schedule-list-content-icon' src={bookIcon} />
                     <span className='clt_schedule-list-content-title'>諮詢項目</span>
@@ -80,13 +80,13 @@ const PastMeeting = ({meetingInfo}) => {
                     <span className='clt_schedule-list-student-title'>對象</span>
                     <span className='clt_schedule-list-student-text'>{meetingInfo.student}</span>
                 </div>
-                <div className='clt_schedule-remark-exp'>
+                <div className='clt_schedule-list-remark'>
                     <img className='clt_schedule-list-remark-icon' src={memoIcon} />
                     <span className='clt_schedule-list-remark-title'>備註</span>
                     <span className='clt_schedule-list-remark-text'>{meetingInfo.remark}</span>
                 </div>
             </div>
-            <div className='clt_schedule-list-past-row2'>
+            <div className='clt_schedule-list-past-row3'>
                 <div className='clt_schedule-list-content'>
                     <img className='clt_schedule-list-content-icon' src={bookIcon} />
                     <span className='clt_schedule-list-content-title'>諮詢項目</span>
@@ -126,13 +126,13 @@ const CanceledMeeting = ({meetingInfo}) => {
                     <span className='clt_schedule-list-student-title'>對象</span>
                     <span className='clt_schedule-list-student-text'>{meetingInfo.student}</span>
                 </div>
-                <div className='clt_schedule-remark-exp'>
+                <div className='clt_schedule-list-remark'>
                     <img className='clt_schedule-list-remark-icon' src={memoIcon} />
                     <span className='clt_schedule-list-remark-title'>備註</span>
                     <span className='clt_schedule-list-remark-text'>{meetingInfo.remark}</span>
                 </div>
             </div>
-            <div className='clt_schedule-list-cancel-row2'>
+            <div className='clt_schedule-list-cancel-row3'>
                 <div className='clt_schedule-list-content'>
                     <img className='clt_schedule-list-content-icon' src={bookIcon} />
                     <span className='clt_schedule-list-content-title'>諮詢項目</span>
