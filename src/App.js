@@ -3,6 +3,7 @@ import NavMobile from '../src/GlobalComponents/NavMobile';
 import Foot from '../src/GlobalComponents/Foot';
 import LandingPage from './LandingPage/Containers/LandingPage'
 import ConsulHome from './Consultant/Home/Container/ConsulHome';
+import ConsulSchedule from './Consultant/Schedule/Container/ConsulScedule';
 import { Switch, Route } from 'react-router-dom';
 import './style.css';
 //import './responsive.css';
@@ -18,6 +19,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/consultant-home" component={ConsulHome} />
+          <Route exact path="/consultant-schedule" component={ConsulSchedule} />
         </Switch>
         <Foot />
       </ContextReducer>
