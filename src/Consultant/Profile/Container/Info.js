@@ -3,7 +3,7 @@ import Banner from "../Components/Banner";
 const Info = () => {
   return (
     <div>
-      <Banner />
+      {/* <Banner /> */}
       <Intro />
     </div>
   );
