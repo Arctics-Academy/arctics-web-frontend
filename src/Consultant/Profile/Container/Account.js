@@ -1,6 +1,6 @@
 
 
-const ConsulAccount = () => {
+const Account = () => {
     return (
         <div>
             ConsulAccount
@@ -8,4 +8,4 @@ const ConsulAccount = () => {
     )
 }
 
-export default ConsulAccount
+export default Account
