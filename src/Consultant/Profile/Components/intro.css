@@ -1,0 +1,107 @@
+.intro {
+  padding: 80px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+.intro-top {
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+.intro-top span {
+  margin: 15px;
+}
+.intro-top-avatar {
+  border-radius: 10%;
+}
+.intro-top-photo {
+  position: relative;
+  top: 20px;
+  right: 20px;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+}
+.intro-top-name {
+  font-family: GenSenRoundedTW-B;
+  font-size: 20px;
+  text-align: left;
+  color: #003b6b;
+}
+
+.intro-top-already {
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #4bb3cc;
+}
+.intro-top-times {
+  font-family: GenSenRoundedTW-M;
+  font-size: 24px;
+  color: #003b6b;
+}
+
+.intro-top-point {
+  font-family: GenSenRoundedTW-B;
+  font-size: 48px;
+  color: #003b6b;
+}
+.intro-top button {
+  margin: 3.7px;
+  font-family: GenSenRoundedTW-B;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 10px;
+  border: 0;
+  padding: 5px 10px;
+}
+.intro-top-edit {
+  background-color: #f2d60f;
+  color: #003b6b;
+}
+.intro-top-student {
+  background-color: #4bb3cc;
+  color: #f5f5f5;
+}
+.Line-2 {
+  height: 2px;
+  margin: 20px 0;
+  background-color: #003b6b;
+}
+
+td {
+  vertical-align: top;
+  padding: 20px;
+}
+
+.intro-main span {
+  font-family: GenSenRoundedTW-M;
+  text-align: left;
+  line-height: 1.5;
+}
+.intro-main-key {
+  font-size: 18px;
+  color: #4bb3cc;
+}
+
+.intro-main-unit {
+  font-size: 16px;
+  color: #003b6b;
+}
+.intro-main-text {
+  font-size: 24px;
+  color: #003b6b;
+  white-space: pre-line;
+}
+.intro-main-block {
+  display: inline-block;
+  color: #003b6b;
+  font-size: 14px;
+  margin: 3px;
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: solid 1px #003b6b;
+}
+button:hover {
+  cursor: pointer;
+}
