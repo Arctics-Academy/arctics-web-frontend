@@ -17,6 +17,7 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/consultant-home" component={ConsulHome} />
           <Route path="*">
             <Redirect to="/" />
           </Route>
@@ -28,5 +29,3 @@ const App = () => {
 }
 
 export default App
-
-// temporary removed => <Route exact path="/consultant-home" component={ConsulHome} />
