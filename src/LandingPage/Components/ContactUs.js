@@ -29,7 +29,7 @@ export default function ContactUs () {
 		resetAllValue();
 		// feedbackModal();
 		setConfirmText("成功送出！")
-		setTimeout(()=>{setConfirmText("提交")}, 1000)
+		setTimeout(()=>{setConfirmText("提交")}, 2000)
 	}
     return(
         <section id="contact-us">
