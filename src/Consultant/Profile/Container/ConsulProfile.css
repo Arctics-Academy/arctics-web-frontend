@@ -1,7 +1,4 @@
 .main {
-  /* width: 100%;
-  height: 1774px; */
-  /* margin: 90px 0 0; */
   padding: 120px 280px 353px 240px;
   background-color: #f5f5f5;
 }
@@ -45,4 +42,9 @@
 .menu button:focus {
   background-color: #4bb3cc;
   color: white;
+}
+.content {
+  padding: 80px;
+  border-radius: 20px;
+  background-color: #fff;
 }
