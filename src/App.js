@@ -8,8 +8,8 @@ import ConsulSchedule from './Consultant/Schedule/Container/ConsulSchedule';
 import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
 import ConsulMonoCancel from './Consultant/Cancel/Container/ConsulMonoCancel';
 import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
-import ConsulAccount from './Consultant/PersonalInfo/Container/ConsulAccount';
-import ConsulProfile from './Consultant/PersonalInfo/Container/ConsulProfile';
+// import ConsulAccount from './Consultant/PersonalInfo/Container/ConsulAccount';
+import ConsulProfile from './Consultant/Profile/Container/ConsulProfile';
 
 import { Switch, Route } from "react-router-dom";
 import "./style.css";
