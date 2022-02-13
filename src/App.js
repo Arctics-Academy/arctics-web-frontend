@@ -11,12 +11,12 @@ import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
 import ConsulAccount from './Consultant/PersonalInfo/Container/ConsulAccount';
 import ConsulProfile from './Consultant/PersonalInfo/Container/ConsulProfile';
 
-import { Switch, Route } from 'react-router-dom';
-import './style.css';
+import { Switch, Route } from "react-router-dom";
+import "./style.css";
 //import './responsive.css';
-import ContextReducer from './ContextReducer';
+import ContextReducer from "./ContextReducer";
 //TODO: tidy structure -> move navbar to here and add switch routers
-//TODO: static.json ! 
+//TODO: static.json !
 const App = () => {
   return (
     <div className="App">
@@ -26,7 +26,6 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/consultant-home" component={ConsulHome} />
-          <Route exact path="/consultant-account" component={ConsulAccount} />
           <Route exact path="/consultant-profile" component={ConsulProfile} />
           <Route exact path="/consultant-schedule" component={ConsulSchedule} />
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
@@ -36,7 +35,7 @@ const App = () => {
         <Foot />
       </ContextReducer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

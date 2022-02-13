@@ -1,0 +1,36 @@
+td {
+  vertical-align: top;
+  padding: 20px;
+}
+
+.intro-main span {
+  font-family: GenSenRoundedTW-M;
+  text-align: left;
+  line-height: 1.5;
+}
+.intro-main-key {
+  font-size: 18px;
+  color: #4bb3cc;
+}
+
+.intro-main-unit {
+  font-size: 16px;
+  color: #003b6b;
+}
+.intro-main-text {
+  font-size: 24px;
+  color: #003b6b;
+  white-space: pre-line;
+}
+.intro-main-block {
+  display: inline-block;
+  color: #003b6b;
+  font-size: 14px;
+  margin: 3px;
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: solid 1px #003b6b;
+}
+button:hover {
+  cursor: pointer;
+}
