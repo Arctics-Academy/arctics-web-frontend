@@ -127,21 +127,28 @@
 .clt_home-myapnt-blocks {
     position: absolute;
     display: flex;
-    /*width: 790px;*/
+    /*width: 790px;
     width: 41.1vw;
-    max-width: 790px;
+    max-width: 790px;*/
+    width: 44.6vw;
+    max-width: 860px;
+    height: 290px;
     top: 16px;
-    left: 35px;
-    overflow: hidden;
+    overflow: auto;
+}
+
+.clt_home-myapnt-blocks:hover > .clt_home-myapnt-blocks::-webkit-scrollbar-thumb {
+    display: inline;
+    background: #888;
 }
 
 .clt_home-myapnt-show-all-link {
     position: absolute;
     color: #003b6b;
-    left: 82%;
     top: 308px;
-    width: 133px;
+    width: 100%;
     height: 20px;
+    text-align: right;
 }
 
 .clt_home-myapnt-left-arrow {
@@ -168,7 +175,8 @@
     padding-bottom: 2px;
 }
 
-.clt_home-myapnt-show-all-link:hover {
+.clt_home-myapnt-link-text:hover {
+    cursor: pointer;
     color: #4bb3cc;
 }
 
@@ -185,12 +193,13 @@
 
 .clt_home-myapnt-card {
     position: relative;
-    width: 250px;
+    min-width: 250px;
     height: 275px;
     border-radius: 16px;
     border: solid 1px #4bb3cc;
     background-color: #fff;
     font-family: var(--heading-font);
+    margin-right: 1vw;
 }
 
 .card-date-time {

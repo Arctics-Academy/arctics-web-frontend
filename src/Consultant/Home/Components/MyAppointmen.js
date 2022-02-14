@@ -18,6 +18,24 @@ const tempTest = [{
     name: 'PolarBear',
     grade: '高二',
     features: ['面試', '學習歷程']
+}, {
+    date: '2022/01/30 (日)',
+    time: '18:00~19:00',
+    name: 'PolarBear',
+    grade: '高二',
+    features: ['面試', '學習歷程']
+}, {
+    date: '2022/01/30 (日)',
+    time: '18:00~19:00',
+    name: 'PolarBear',
+    grade: '高二',
+    features: ['面試', '學習歷程']
+}, {
+    date: '2022/01/30 (日)',
+    time: '18:00~19:00',
+    name: 'PolarBear',
+    grade: '高二',
+    features: ['面試', '學習歷程']
 }]
 
 const leftArrow  = () => {
@@ -67,16 +85,14 @@ const MyAppointment = () => {
                 <span className='clt_home-myapnt-title-text'>我的諮詢</span>
             </div>
             <div className='clt_home-myapnt-show-apnt'>
-                {leftArrow()}
                 <div className='clt_home-myapnt-blocks'>
                     {showBlocks(tempTest)}
                 </div>
-                {rightArrow()}
-                <a className='clt_home-myapnt-show-all-link' >
+                <div className='clt_home-myapnt-show-all-link' >
                     <span className='clt_home-myapnt-link-text'>查看全部諮詢</span>
                     <img className='clt_home-myapnt-link-arrow1' src={gotoarrow} />
                     <img className='clt_home-myapnt-link-arrow2' src={gotoarrow}/>
-                </a>
+                </div>
             </div>
         </div>
     )
