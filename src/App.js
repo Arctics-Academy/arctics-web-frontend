@@ -5,7 +5,7 @@ import LandingPage from './LandingPage/Containers/LandingPage'
 import ConsulHome from './Consultant/Home/Container/ConsulHome';
 import ConsulSchedule from './Consultant/Schedule/Container/ConsulSchedule';
 import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
-import ConsulMonoCancel from './Consultant/Cancel/Container/ConsulMonoCancel';
+import ConsulCancelSuccess from './Consultant/Cancel/Container/ConsulCancelSuccess';
 import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
 import { Switch, Route } from 'react-router-dom';
 import './style.css';
@@ -24,7 +24,7 @@ const App = () => {
           <Route exact path="/consultant-home" component={ConsulHome} />
           <Route exact path="/consultant-schedule" component={ConsulSchedule} />
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
-          <Route exact path="/consultant-mono-cancel/:cancelId" component={ConsulMonoCancel} />
+          <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
         </Switch>
         <Foot />
