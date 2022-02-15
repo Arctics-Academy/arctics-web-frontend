@@ -23,7 +23,7 @@ export default function Header () {
         }
     }
 
-    const validateInput = (input) => {
+    const validateEmail = (input) => {
         const valid = /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/.test(input);
         if (valid) return true
         else return false
@@ -38,7 +38,7 @@ export default function Header () {
                 setPopVis(false)
             }, 750)
         } else{    
-            if (validateInput(email)) {
+            if (validateEmail(email)) {
                 const {status, msg} = await submitSubscriber(email)
                 // console.log(status, msg)
                 setConfirmText("已送出！")
