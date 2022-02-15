@@ -134,21 +134,20 @@
     max-width: 860px;
     height: 290px;
     top: 16px;
+    overflow: hidden;
+}
+
+.clt_home-myapnt-blocks:hover {
     overflow: auto;
 }
 
-.clt_home-myapnt-blocks:hover > .clt_home-myapnt-blocks::-webkit-scrollbar-thumb {
-    display: inline;
-    background: #888;
-}
-
-.clt_home-myapnt-show-all-link {
+.clt_home-myapnt-show-all-link-block {
     position: absolute;
-    color: #003b6b;
     top: 308px;
     width: 100%;
     height: 20px;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .clt_home-myapnt-left-arrow {
@@ -162,6 +161,14 @@
     left: 96.7%;
 }
 
+.clt_home-myapnt-show-all-link {
+    display: inline-flex;
+}
+
+.clt_home-myapnt-show-all-link:hover {
+    cursor: pointer;
+}
+
 .clt_home-myapnt-left-arrow:hover {
     border: solid 1px #003b6b;
 }
@@ -172,12 +179,22 @@
 
 .clt_home-myapnt-link-text {
     font-size: 18px;
-    padding-bottom: 2px;
+    color: #003b6b;
 }
 
-.clt_home-myapnt-link-text:hover {
-    cursor: pointer;
+.clt_home-myapnt-show-all-link:hover > .clt_home-myapnt-link-text {
     color: #4bb3cc;
+}
+
+.clt_home-myapnt-link-arrow {
+    margin-top: 1px;
+    height: 20px;
+    width: auto;
+    fill: #003b6b;
+}
+
+.clt_home-myapnt-show-all-link:hover > .clt_home-myapnt-link-arrow {
+    fill: #4bb3cc;
 }
 
 .clt_home-myapnt-link-arrow1 {
@@ -268,8 +285,8 @@
     text-align: center;
     border: none;
     position: absolute;
-    right: 106.4px;
-    bottom: 18px;
+    right: 125px;
+    bottom: 30px;
     font-family: var(--heading-font);
 }
 
@@ -283,8 +300,8 @@
     text-align: center;
     border: none;
     position: absolute;
-    right: 16.5px;
-    bottom: 18px;
+    right: 33.6px;
+    bottom: 30px;
     font-family: var(--heading-font);
 }
 
@@ -346,15 +363,17 @@
 
 }
 
+.clt_home-purse-list-body {
+    height: 280px;
+    overflow: hidden;
+}
+
 .clt_home-purse-list-out {
     list-style: none;
     padding: 5px 0;
     color: #4bb3cc;
     font-size: 16px;
     width: 310px;
-}
-
-.clt_home-purse-list-out-date {
 }
 
 .clt_home-purse-list-out-name {
@@ -383,6 +402,10 @@
     bottom: 48px;
 }
 
+.clt_home-purse-show-receipt:hover {
+    cursor: pointer;
+}
+
 .clt_home-purse-goto-withdraw {
     width: 90px;
     height: 30px;
@@ -395,4 +418,8 @@
     position: absolute;
     left: 280px;
     bottom: 48px;    
+}
+
+.clt_home-purse-goto-withdraw:hover {
+    cursor: pointer;
 }

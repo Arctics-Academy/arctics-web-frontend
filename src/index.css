@@ -31,8 +31,7 @@ div::-webkit-scrollbar-track:hover {
 
 /* Handle */
 div::-webkit-scrollbar-thumb {
-  background: #888;
-  display: none;
+  background: rgb(187, 187, 187);
   border-radius: 8px;
 }
 
