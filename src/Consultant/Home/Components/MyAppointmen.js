@@ -1,60 +1,13 @@
+import { useContext } from 'react'
 import bellIcon from '../img/bell.png'
 import darkarrow from '../img/darkArrow-right.png'
 import palearrow from '../img/paleArrow-left.png'
-import gotoarrow from '../img/gotoArrow.png'
-import doubleArrowSvg from '../img/angles-right-solid.svg'
 import '../clt_home.css'
-
-/* Appointment Format
-date: String => parsed date string (time.toLoacaleString)
-time: String => preferred time span => parse into string
-name: String => who makes the appointment
-grade: String => grade of the appointment maker => parse into string
-features: [String] =>list of features
-*/
-
-const tempTest = [{
-    date: '2022/01/30 (日)',
-    time: '18:00~19:00',
-    name: 'PolarBear',
-    grade: '高二',
-    features: ['面試', '學習歷程']
-}, {
-    date: '2022/01/30 (日)',
-    time: '18:00~19:00',
-    name: 'PolarBear',
-    grade: '高二',
-    features: ['面試', '學習歷程']
-}, {
-    date: '2022/01/30 (日)',
-    time: '18:00~19:00',
-    name: 'PolarBear',
-    grade: '高二',
-    features: ['面試', '學習歷程']
-}, {
-    date: '2022/01/30 (日)',
-    time: '18:00~19:00',
-    name: 'PolarBear',
-    grade: '高二',
-    features: ['面試', '學習歷程']
-}]
-
-const leftArrow  = () => {
-    return(
-        <img className='clt_home-myapnt-left-arrow' src={palearrow} />
-    )
-}
-
-const rightArrow = () => {
-    return (
-        <img className='clt_home-myapnt-right-arrow' src={darkarrow} />
-    )
-}
+import { ParamContext } from '../../../ContextReducer'
 
 const showBlocks = (appointments) => {
     return (
         appointments.map((e) => {
-            console.log(e)
             return (
                 <div className='clt_home-myapnt-card'>
                     <div className='card-date-time'>
@@ -62,11 +15,11 @@ const showBlocks = (appointments) => {
                         <p className='card-time'>{e.time}</p>
                     </div>
                     <div className='card-maker-info'>
-                        <p className='card-name'>{e.name}</p>
+                        <p className='card-name'>{e.student}</p>
                         <p className='card-grade'>{e.grade}</p>
                     </div>
                     <div className='card-specified-features'>
-                        {e.features.map((f) => (<span className='card-feature'>{f}</span>))}
+                        {e.content.map((f) => (<span className='card-feature'>{f}</span>))}
                     </div>
                     <button className='card-unavailable-button' >請假</button>
                     <button className='card-open-meeting'>開啟會議</button>
@@ -76,9 +29,8 @@ const showBlocks = (appointments) => {
     ))
 }
 
-console.log(showBlocks(tempTest))
-
 const MyAppointment = () => {
+    const context = useContext(ParamContext)
     return(
         <div className='clt_home-myapnt'>
             <div className='clt_home-myapnt-title'>
@@ -87,7 +39,7 @@ const MyAppointment = () => {
             </div>
             <div className='clt_home-myapnt-show-apnt'>
                 <div className='clt_home-myapnt-blocks'>
-                    {showBlocks(tempTest)}
+                    {showBlocks(context.Info.meetingsByStatus.future)}
                 </div>
                 <div className='clt_home-myapnt-show-all-link-block' >
                     <div className='clt_home-myapnt-show-all-link'>

@@ -1,24 +1,19 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import '../clt_purse.css'
 import { getSortedList } from './sortUtils'
-
-const testReceipt = [
-    {id: 123451, student: 'Alexar', amount: 900, paytime: '2022/01/05', consultime: '2022/01/09', paystatus: '已提領'}, 
-    {id: 123456, student: 'Alexa', amount: 500, paytime: '2022/02/05', consultime: '2022/02/09', paystatus: '未提領'},
-    {id: 123411, student: 'Alexon', amount: 1500, paytime: '2022/12/05', consultime: '2022/12/09', paystatus: '未付款'},
-    {id: 123421, student: 'Alexy', amount: 150, paytime: '2022/12/11', consultime: '2022/12/19', paystatus: '已提領'},
-    {id: 123441, student: 'Alexara', amount: 250, paytime: '2022/02/05', consultime: '2022/02/10', paystatus: '已提領'},
-    {id: 123431, student: 'Alexary', amount: 500, paytime: '2022/02/01', consultime: '2022/02/06', paystatus: '未付款'},
-    {id: 123401, student: 'Alexaron', amount: 1500, paytime: '2022/02/01', consultime: '2022/02/11', paystatus: '未提領'}
-]
-
+import { ParamContext } from '../../../ContextReducer'
 
 const Receipt = () => {
-
+    const context = useContext(ParamContext)
     const [sortTarget, setSortTarget] = useState('id')
-    const [receipt, setReceipt] = useState(getSortedList(sortTarget, testReceipt))
+    const [receipt, setReceipt] = useState(getSortedList(sortTarget, context.Info.receipts))
+    useEffect(() => {
+        setReceipt(getSortedList(sortTarget, context.Info.receipts))
+    }, [context.Info.receipts])
+
 
     const handleOnclickId = () => {
+        console.log(receipt, context.Info.receipts)
         if (sortTarget === 'id') setSortTarget('id-r')           
         else setSortTarget('id')
         setReceipt(getSortedList(sortTarget, receipt))
@@ -92,10 +87,10 @@ const Receipt = () => {
         <div className='clt_purse-receipt-body'>
             <div className='clt_purse-display-amount'>
                 <div className='clt_purse-receipt-display-available'>
-                    <DisplayMoney title={'可提領金額'} amount={1000} />
+                    <DisplayMoney title={'可提領金額'} amount={context.Info.withdrawableAmount} />
                 </div>
                 <div className='clt_purse-receipt-display-unwithdrawed'>
-                    <DisplayMoney title={'已提領'} amount={1000} />
+                    <DisplayMoney title={'已提領'} amount={context.Info.withdrawedAmount} />
                 </div>
             </div>
             <div className='clt_purse-sep-line' />

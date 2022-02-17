@@ -1,14 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import meeting from './ListComponent'
 import "../clt_schedule.css"
+import { ParamContext } from '../../../ContextReducer'
 
-/*temp test list*/
-const testlist = {
-    future: [{time: '2022/02/18（五）18:00~18:30', exp: 2, student: 'Alexa', remark: 'Speek slower plz...', content: ['學習歷程', '面試準備'], lastPaymentStatus: '2022/02/02 未付款'}],
-    past: [{time: '2022/01/20 18:00', exp: 2, student: 'Alexy', remark: 'Speek slower plz...', content: ['學習歷程'], feedback: 'Like it!', lastPaymentStatus: '2022/01/15 已付款'}],
-    canceled: [{time: '2022/01/05 18:00', exp: 2, student: 'Alexon', remark: 'Speek slower plz...', content: ['學習歷程'], lastPaymentStatus: '2022/01/06 已取消'}]
-}
-/* temp test end */
 const { FutureMeeting, PastMeeting, CanceledMeeting } = meeting
 
 const showListItem = (status, lists) => {
@@ -41,6 +35,7 @@ const MeetingList = () => {
     const [futureStyle, setFutureStyle] = useState(clickedStyle)
     const [pastStyle, setPastStyle] = useState(unclickStyle)
     const [cancelStyle, setCancelStyle] = useState(unclickStyle)
+    const context = useContext(ParamContext)
     const handleModeToFuture = () => {
         if (mode === 'future') return
         else if (mode === 'past') {
@@ -79,7 +74,7 @@ const MeetingList = () => {
                 <span className="clt_schedule-list-mode" onClick={handleModeToCancel} style={cancelStyle}>取消紀錄</span>
             </div>
             <div className="clt_schedule-list-items">
-                {showListItem(mode, testlist)}
+                {showListItem(mode, context.Info.meetingsByStatus)}
             </div>
         </div>
     )
