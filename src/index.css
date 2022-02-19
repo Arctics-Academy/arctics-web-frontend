@@ -40,3 +40,15 @@ div::-webkit-scrollbar-thumb:hover {
   display: inline;
   background: #555;
 }
+
+::placeholder {
+  color: inherit;
+  font-family: var(--heading-font);
+  opacity: 0.3;
+}
+
+::-ms-input-placeholder {
+  color: inherit;
+  font-family: var(--heading-font);
+  opacity: 0.3;
+}

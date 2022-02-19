@@ -7,6 +7,10 @@ import ConsulSchedule from './Consultant/Schedule/Container/ConsulSchedule';
 import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
 import ConsulCancelSuccess from './Consultant/Cancel/Container/ConsulCancelSuccess';
 import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
+import RegisterIdentity from './Register/RegisterIdentity';
+import Register from './Register/Register';
+import RegisterValidation from './Register/RegisterValidation';
+import Login from './Login/Login';
 import { Switch, Route } from 'react-router-dom';
 import './style.css';
 //import './responsive.css';
@@ -21,6 +25,10 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register-identity" component={RegisterIdentity} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/register-validation" component={RegisterValidation} />
           <Route exact path="/consultant-home" component={ConsulHome} />
           <Route exact path="/consultant-schedule" component={ConsulSchedule} />
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
