@@ -8,7 +8,7 @@ import image3 from '../img/function-three.png';
 export default function Function () {
     return (
         <section id="function">
-            <h2 className="function__heading">產品功能</h2>
+            <h2 className="function__heading">平台優勢</h2>
             <div className="function__flexbox">
                 <div className="function__one">
 					<h3 className="function__one-heading"><span className="function__one-number">01<br></br></span>尋找<span className="function__highlight">夢想學校<br className="rwd-hide"></br>科系</span>的學長姐</h3>
