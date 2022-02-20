@@ -19,7 +19,7 @@ const FutureMeeting = ({meetingInfo}) => {
                 <div className='clt_schedule-list-time'>
                     <img className='clt_schedule-list-time-icon' src={clockIcon} />
                     <span className='clt_schedule-list-time-title'>時間</span>
-                    <span className='clt_schedule-list-time-text'>{meetingInfo.time}</span>
+                    <span className='clt_schedule-list-time-text'>{meetingInfo.date+meetingInfo.time}</span>
                 </div>
                 <div className='clt_schedule-list-exp'>
                     <img className='clt_schedule-list-exp-icon' src={expIcon} />
@@ -65,7 +65,7 @@ const PastMeeting = ({meetingInfo}) => {
                 <div className='clt_schedule-list-time'>
                     <img className='clt_schedule-list-time-icon' src={clockIcon} />
                     <span className='clt_schedule-list-time-title'>時間</span>
-                    <span className='clt_schedule-list-time-text'>{meetingInfo.time}</span>
+                    <span className='clt_schedule-list-time-text'>{meetingInfo.date+meetingInfo.time}</span>
                 </div>
                 <div className='clt_schedule-list-exp'>
                     <img className='clt_schedule-list-exp-icon' src={expIcon} />
@@ -111,7 +111,7 @@ const CanceledMeeting = ({meetingInfo}) => {
                 <div className='clt_schedule-list-time'>
                     <img className='clt_schedule-list-time-icon' src={clockIcon} />
                     <span className='clt_schedule-list-time-title'>時間</span>
-                    <span className='clt_schedule-list-time-text'>{meetingInfo.time}</span>
+                    <span className='clt_schedule-list-time-text'>{meetingInfo.date+meetingInfo.time}</span>
                 </div>
                 <div className='clt_schedule-list-exp'>
                     <img className='clt_schedule-list-exp-icon' src={expIcon} />

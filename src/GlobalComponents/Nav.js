@@ -3,6 +3,7 @@ import './style.css';
 import './responsive.css';
 import logo from './img/nav-arctics-logo.png';
 import { ParamContext } from '../ContextReducer';
+import { demoConsultant } from '../TestData'
 
 export default function Nav() {
 	const context = useContext(ParamContext)
@@ -16,11 +17,7 @@ export default function Nav() {
 		const tempHandleLogin = () => {
 			context.setInfo({
 				type: 'login',
-				payload: {
-					email: 's@mail.com',
-					username: 'Alex',
-					identity: 'consultant'
-				}
+				payload: demoConsultant
 			})
 			context.setLogin(true)
 		}
@@ -47,7 +44,7 @@ export default function Nav() {
 		    		<img className="nav__logo" src={logo} alt="arctics" width="224px" height="41px"></img>
 		    		<div className="nav__right">
 			    		<ul className="nav__menu">
-				   		 	<li className="nav__menu-item"><a>首頁</a></li>
+				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><a>首頁</a></li>
 				   		 	<li className="nav__menu-item">
 									<a>
 									通知 <span className='nav__notify-count'>9</span>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import '../clt_purse.css'
 import Receipt from '../Components/Receipt'
 
@@ -14,20 +14,24 @@ const unClickStyle = {
 
 const ConsulPurse = () => {
     const { mode } = useParams()
+    const history = useHistory()
+    
+    const jumpToReceipt = () => {history.push('/consultant-purse/receipt')}
+    const jumpToWithdraw = () => {history.push('/consultant-purse/withdraw')}
 
     const modeBtns = () => {
         if (mode === 'receipt') {
             return (
                 <>
-                    <button className='clt_purse-mode-btn' style={onClickStyle}>明細</button>
-                    <button className='clt_purse-mode-btn' style={unClickStyle}>提領</button>
+                    <button className='clt_purse-mode-btn' onClick={jumpToReceipt} style={onClickStyle}>明細</button>
+                    <button className='clt_purse-mode-btn' onClick={jumpToWithdraw} style={unClickStyle}>提領</button>
                 </>
             )
         } else {
             return (
                 <>
-                    <button className='clt_purse-mode-btn' style={unClickStyle}>明細</button> 
-                    <button className='clt_purse-mode-btn' style={onClickStyle}>提領</button>
+                    <button className='clt_purse-mode-btn' onClick={jumpToReceipt} style={unClickStyle}>明細</button> 
+                    <button className='clt_purse-mode-btn' onClick={jumpToWithdraw} style={onClickStyle}>提領</button>
                 </>
             )
         }
