@@ -58,14 +58,14 @@ export default function Header () {
     return (
         <header id="top">
             <p className="header__slogan">
-                <span className="rwd-hide">「 </span>
+                <span className="rwd-hide">「</span>
                 陪您找尋
                 <br></br>
                 <span className="header__slogan-break">
                     進入
                     <span className="header__highlight">理想校系</span>
                     的最佳辦法
-                <span className="rwd-hide"> 」</span>
+                <span className="rwd-hide">」</span>
                 </span>
                 {/*
                 <span className="rwd-hide">「</span>
