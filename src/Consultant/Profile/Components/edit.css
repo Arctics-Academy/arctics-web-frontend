@@ -1,0 +1,137 @@
+form .title {
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left;
+  color: #4bb3cc;
+}
+form .ps {
+  margin: 15px 0px;
+  font-family: GenSenRoundedTW-M;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: #003b6b;
+}
+td:first-child {
+  /* width: 27vw; */
+}
+
+select {
+  /* margin: 10px; */
+  /* width: 20vw; */
+  padding: 4px 20px 4px 18px;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.13;
+  text-align: left;
+  color: #003b6b;
+}
+.education select {
+  width: 15vw;
+}
+.major {
+  width: 13vw;
+  padding: 4px 20px;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #003b6b;
+  text-align: left;
+}
+.grade {
+  width: 4vw;
+  padding: 4px 20px 4px 18px;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #003b6b;
+  text-align: left;
+}
+::placeholder {
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.33;
+  text-align: left;
+  color: #4bb3cc;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-button {
+  cursor: pointer;
+  font-family: GenSenRoundedTW-M;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4bb3cc;
+  margin: 5px;
+  padding: 3px 14px;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  display: inline-block;
+}
+input:checked + .toggle-button {
+  color: #f5f5f5;
+  background-color: #4bb3cc;
+}
+textarea {
+  width: 30vw;
+  height: 300px;
+  padding: 8px;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  margin: 15px;
+}
+.add-major {
+  width: 15vw;
+  height: 27.8px;
+  margin: 6px 0 0;
+  border-radius: 8px;
+  border: 0;
+  font-family: GenSenRoundedTW-M;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4bb3cc;
+}
+table div {
+  margin: 10px;
+}
+.submit {
+  float: right;
+}
+.card {
+  /* position: relative;
+  top: 2vw;
+  right: 12vw; */
+  width: 15vw;
+  height: 9vw;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.33;
+  text-align: center;
+  color: #4bb3cc;
+}
+.section {
+  display: inline-block;
+}
+.renew {
+  padding: 3px;
+  border: 0;
+  font-family: GenSenRoundedTW-B;
+  font-size: 16px;
+  color: #003b6b;
+  background-color: #f2d60f;
+  border-radius: 12px;
+}
