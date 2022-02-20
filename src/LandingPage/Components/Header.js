@@ -66,7 +66,7 @@ export default function Header () {
                 */}
             </p>
 		    <img className="header__logo" src={LogoImg} alt="arctics"></img>
-		    <h1>升大學顧問媒合平台</h1>
+		    <h1>升大學<br className="rwd-show"></br>顧問媒合平台</h1>
 		    <p className="header__subtitle">
                 一個APP與上百名來自不同科系、
                 <br className="rwd-show"></br>
