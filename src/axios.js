@@ -1,22 +1,20 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: "https://arctics-web-app.herokuapp.com/"
+  baseURL: "https://arctics.academy/api/"
 })
 
 const submitSubscriber = async (email) => {
-  const { data: { status, message } } = await instance.post('/api/demo/subscriber-form', {
+  const { data: { status, message } } = await instance.post('/demo/subscriber-form', {
     email
   })
-  console.log('email', email)
   return { status, msg: message }
 }
 
 const submitMessageForm = async (form) => {
-  const { data: { status, message } } = await instance.post('/api/demo/message-form', {
+  const { data: { status, message } } = await instance.post('/demo/message-form', {
     form
   })
-  console.log('form', form)
   return { status, msg: message }
 }
 

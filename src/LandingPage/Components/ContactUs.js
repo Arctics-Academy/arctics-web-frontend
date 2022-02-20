@@ -25,11 +25,11 @@ export default function ContactUs () {
 		};
 		console.log(allValue);
 		const {status, msg} = await submitMessageForm(allValue);
-		console.log(status, msg)
+		// console.log(status, msg)
 		resetAllValue();
-		//feedbackModal();
+		// feedbackModal();
 		setConfirmText("成功送出！")
-		setTimeout(()=>{setConfirmText("提交")}, 1000)
+		setTimeout(()=>{setConfirmText("提交")}, 2000)
 	}
     return(
         <section id="contact-us">

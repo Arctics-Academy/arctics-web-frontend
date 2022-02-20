@@ -3,7 +3,7 @@ import NavMobile from '../src/GlobalComponents/NavMobile';
 import Foot from '../src/GlobalComponents/Foot';
 import LandingPage from './LandingPage/Containers/LandingPage'
 import ConsulHome from './Consultant/Home/Container/ConsulHome';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './style.css';
 //import './responsive.css';
 import ContextReducer from './ContextReducer';
@@ -17,7 +17,9 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/consultant-home" component={ConsulHome} />
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
         </Switch>
         <Foot />
       </ContextReducer>
@@ -26,3 +28,5 @@ const App = () => {
 }
 
 export default App
+
+// temporary removed => <Route exact path="/consultant-home" component={ConsulHome} />

@@ -40,9 +40,9 @@ export default function Header () {
         } else{    
             if (validateInput(email)) {
                 const {status, msg} = await submitSubscriber(email)
-                console.log(status, msg)
+                // console.log(status, msg)
                 setConfirmText("已送出！")
-                setTimeout(()=>{setConfirmText("通知我")}, 750)
+                setTimeout(()=>{setConfirmText("通知我")}, 2000)
             } else {
                 setConfirmText("輸入格式不符！")
                 setPopVis(true)
