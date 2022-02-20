@@ -46,12 +46,10 @@ nav {
 }
 
 .nav__menu-submenu-item {
-    padding-left: 0;
-    width: 150px;
-    height: 30px;
+    width: 120px;
     font-size: 16px;
     background-color: #fff;
-    padding: 8px 10px 6px 20px;
+    padding: 10px 10px;
 }
 
 .nav__menu-item:hover > .nav__menu-submenu {
@@ -60,6 +58,7 @@ nav {
 
 .nav__menu-submenu-item:hover {
     border: solid 0.3px var(--tertiary);
+    cursor: pointer;
 }
 
 
@@ -72,10 +71,16 @@ a:visited {
 }
 
 a:hover {
+    cursor: pointer;
     color: var(--tertiary);
 }
 
 .nav__menu-submenu-link:hover {
+    border-bottom: solid 3px var(--tertiary);
+}
+
+.nav__menu-item:hover > .nav__menu-submenu-link {
+    color: var(--tertiary);
     border-bottom: solid 3px var(--tertiary);
 }
 
