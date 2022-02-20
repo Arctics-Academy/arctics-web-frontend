@@ -381,3 +381,64 @@
     cursor: pointer;
 }
 
+.reg-success-main {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-success-message {
+    position: absolute;
+    left: 50%;
+    top: 25vh;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+
+.reg-success-text {
+    color: #003b6b;
+    margin: 0;
+    font-size: 90px;
+    letter-spacing: 5px;
+}
+
+.reg-success-welcome {
+    margin-top: 0;
+    margin-bottom: 7%;
+    color: #003b6b;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.reg-success-btn {
+    border: none;
+    background-color: #f2d60f;
+    color: #003b6b;
+    font-family: var(--heading-font);
+    font-size: 24px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 16px;
+}
+
+.reg-success-btn:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.reg-success-iceland {
+    position: absolute;
+    left: -10vw;
+    bottom: 7vh;
+    width: 55vw;
+}
+
+.reg-success-icelandbear {
+    position: absolute;
+    right: -4.5vw;
+    bottom: -10vh;
+    width: 55vw;
+}
