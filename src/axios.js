@@ -1,14 +1,17 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: "https://arctics.academy/api/"
+  baseURL: "https://preview.arctics.academy/api"
 })
 
 const submitSubscriber = async (email) => {
-  const { data: { status, message } } = await instance.post('/demo/subscriber-form', {
-    email
-  })
-  return { status, msg: message }
+  try {
+    const { data: { status, message } } = await instance.post('/demo/subscriber-form', { email })
+    return { status, msg: message }
+  }
+  catch (e) {
+    return { status: "error", msg: e }
+  }
 }
 
 const submitMessageForm = async (form) => {

@@ -6,21 +6,16 @@ import { submitSubscriber } from '../../axios';
 //import { successSubscribe, invalidSubmission } from './modal/subscribeModal';
 
 export default function Header () {
-
     const [email, setEmail] = useState("");
     const [confirmText, setConfirmText] = useState("通知我")
-    const [popVis, setPopVis] = useState(false)
-    const blankValue = (value)=>{
-        if (value==="") return true;
-        else return false;
-    }
+    const [popVis, setPopVis] = useState("0")
 
-    const popText = (vis) => {
-        if (vis) {
-            return (
-                <p className="popText" style={{marginLeft:'150px', color:'red'}}>請輸入正確email地址！</p>
-            )
-        }
+    const popText = (state) => {
+        console.log()
+        if (state === "3") return <p className="header__pop-text" style={{color:'red', fontWeight:'bold'}}><span className="rwd-hide" style={{margin:'0 0 0 140px'}}></span>請輸入正確Email地址！</p>
+        else if (state === "2") return <p className="header__pop-text" style={{color:'white', fontWeight:'bold'}}><span className="rwd-hide" style={{margin:'0 0 0 140px'}}></span>您的Email地址已有記錄！</p>
+        else if (state === "1") return <p className="header__pop-text" style={{color:'white', fontWeight:'bold'}}><span className="rwd-hide" style={{margin:'0 0 0 140px'}}></span>成功送出！</p>
+        else return <p className="header__pop-text" style={{color: 'transparent'}}>.</p>
     }
 
     const validateEmail = (input) => {
@@ -30,28 +25,19 @@ export default function Header () {
     }
 
     const handleButton = async () => {
-        if (blankValue(email)) {
-            setConfirmText("輸入格式不符！")
-            setPopVis(true)
-            setTimeout(()=> {
-                setConfirmText("通知我")
-                setPopVis(false)
-            }, 750)
-        } else{    
-            if (validateEmail(email)) {
-                const {status, msg} = await submitSubscriber(email)
-                // console.log(status, msg)
-                setConfirmText("已送出！")
-                setTimeout(()=>{setConfirmText("通知我")}, 2000)
-            } else {
-                setConfirmText("輸入格式不符！")
-                setPopVis(true)
-                setTimeout(()=> {
-                    setConfirmText("通知我")
-                    setPopVis(false)
-                }, 750)
-            }
-        }   
+        if (validateEmail(email)) {
+            const {status, msg} = await submitSubscriber(email)
+            if (status === "success") setPopVis("1")
+            if (status === "error") setPopVis("2")
+
+            setTimeout(() => { setPopVis("0") }, 1000)
+        } 
+        else {
+            // setConfirmText("輸入格式不符！")
+            setPopVis("3")
+
+            setTimeout(() => { setPopVis("0") }, 1000)
+        } 
         setEmail('');
     }
 

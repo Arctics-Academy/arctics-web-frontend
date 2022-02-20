@@ -203,6 +203,10 @@
         display: inline;
     }
 
+    .header__pop-text {
+        margin-top: 0px;
+    }
+
     #about-us {
         padding: 88px 8vw 182px 8vw;
     }
