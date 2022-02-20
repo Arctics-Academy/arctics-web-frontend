@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Intro from "../Components/intro";
 import Edit from "../Components/edit";
 
@@ -19,23 +20,24 @@ const tempProfile = {
   intro:
     "我也不知道可以寫什麼，大概請他們寫一些諮詢風格、諮詢經歷、教學理念、簡述自己的升學歷程之類的吧......嗎？",
 };
-
+const showPage = (page) => {
+  if (page === "intro") return <Intro profile={tempProfile} />;
+  else if (page === "edit") return <Edit profile={tempProfile} />;
+};
 const ConsulProfile = () => {
+  const [page, setPage] = useState("intro");
   return (
     <div class="main">
       <div>
         <span class="title">個人檔案</span>
         <div class="Line-1"></div>
         <div class="menu">
-          <button>基本資料</button>
-          <button>帳戶設定</button>
+          <button onClick={() => setPage("intro")}>基本資料</button>
+          <button onClick={() => setPage("edit")}>帳戶設定</button>
           <button>時間表</button>
         </div>
       </div>
-      <div class="content">
-        {/* <Intro profile={tempProfile} /> */}
-        <Edit profile={tempProfile} />
-      </div>
+      <div class="content">{showPage(page)}</div>
     </div>
   );
 };
