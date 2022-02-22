@@ -1,15 +1,15 @@
-.intro-top {
+.introTop {
   display: inline-block;
   margin: 10px 20px;
 }
 
-.intro-top span {
+.introTop span {
   margin: 15px;
 }
-.intro-top-avatar {
+.introTop-avatar {
   border-radius: 10%;
 }
-.intro-top-photo {
+.introTop-photo {
   position: relative;
   top: 20px;
   right: 20px;
@@ -17,31 +17,31 @@
   margin: 0;
   padding: 0;
 }
-.intro-top-name {
+.introTop-name {
   font-family: GenSenRoundedTW-B;
   font-size: 20px;
   text-align: left;
   color: #003b6b;
 }
 
-.intro-top-already {
+.introTop-already {
   font-family: GenSenRoundedTW-M;
   font-size: 18px;
   line-height: 1.5;
   color: #4bb3cc;
 }
-.intro-top-times {
+.introTop-times {
   font-family: GenSenRoundedTW-M;
   font-size: 24px;
   color: #003b6b;
 }
 
-.intro-top-point {
+.introTop-point {
   font-family: GenSenRoundedTW-B;
   font-size: 48px;
   color: #003b6b;
 }
-.intro-top button {
+.introTop button {
   margin: 3.7px;
   font-family: GenSenRoundedTW-B;
   font-size: 16px;
@@ -50,16 +50,15 @@
   border: 0;
   padding: 5px 10px;
 }
-.intro-top-edit {
-  background-color: #f2d60f;
-  color: #003b6b;
-}
-.intro-top-student {
+
+.introTop-eye,
+.introTop-quit,
+.introTop-cancel {
   background-color: #4bb3cc;
   color: #f5f5f5;
 }
-.Line-2 {
-  height: 2px;
-  margin: 20px 0;
-  background-color: #003b6b;
+.introTop-pen,
+.introTop-confirm {
+  background-color: #f2d60f;
+  color: #003b6b;
 }

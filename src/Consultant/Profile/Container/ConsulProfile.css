@@ -1,29 +1,22 @@
-.main {
-  padding: 120px 280px 353px 240px;
+.consulProfile {
+  padding: 120px;
   background-color: #f5f5f5;
 }
-.title {
-  width: 128px;
-  height: 43px;
+.consulProfile-title {
   margin: 0 0 9px;
   font-family: GenSenRoundedTW-B;
   font-size: 32px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
   text-align: left;
   color: #003b6b;
 }
-.Line-1 {
-  width: 132px;
+.consulProfile-line-1 {
+  width: 7.5vw;
   height: 2px;
   margin: 9px 123.5px 16px 0.5px;
   background-color: #003b6b;
 }
 
-.menu button {
+.consulProfile-menu button {
   width: 100px;
   margin: 16px 13.3px 37.6px 0;
   padding: 3px 9.7px 8.4px 9px;
@@ -32,19 +25,19 @@
   font-family: GenSenRoundedTW-B;
   font-size: 18px;
   color: #4bb3cc;
-}
-
-.menu button:hover {
-  background-color: #4bb3cc;
-  color: white;
   cursor: pointer;
 }
-.menu button:focus {
+
+.consulProfile-menu button:hover {
   background-color: #4bb3cc;
   color: white;
 }
-.content {
-  padding: 80px;
+
+.consulProfile-content {
+  padding: 60px;
   border-radius: 20px;
   background-color: #fff;
+}
+button {
+  cursor: pointer;
 }
