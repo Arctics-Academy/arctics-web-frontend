@@ -1,0 +1,39 @@
+.introTable td {
+  vertical-align: top;
+  padding: 20px;
+}
+.introTable td:first-child {
+  width: 10vw;
+}
+.introTable-main span {
+  font-family: GenSenRoundedTW-M;
+  text-align: left;
+  line-height: 1.5;
+}
+.introTable-title {
+  font-size: 18px;
+  color: #4bb3cc;
+}
+.introTable-data {
+  font-size: 24px;
+  color: #003b6b;
+  white-space: pre-line;
+}
+
+.introTable-unit {
+  font-size: 16px;
+  color: #003b6b;
+}
+
+.introTable-block {
+  display: inline-block;
+  color: #003b6b;
+  font-size: 14px;
+  margin: 3px;
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: solid 1px #003b6b;
+}
+.introTable button {
+  cursor: pointer;
+}
