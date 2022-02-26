@@ -8,3 +8,4 @@ const ConsulAnnounce = () => {
     </div>
   );
 };
+export default ConsulAnnounce;

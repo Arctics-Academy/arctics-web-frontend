@@ -41,7 +41,7 @@
   border: solid 1px #4bb3cc;
   background-color: #fff;
 }
-.clt_announce-line-title-1 {
+.clt_announce-line-title {
   width: 120px;
   height: 32px;
   margin: 0 25.8px 46.7px 0;
@@ -55,7 +55,7 @@
   text-align: left;
   color: #003b6b;
 }
-.clt_announce-line-main-1 {
+.clt_announce-line-main {
   width: 192px;
   height: 32px;
   margin: 0 34px 46.7px 25.8px;
@@ -69,7 +69,7 @@
   text-align: left;
   color: #003b6b;
 }
-.clt_announce-line-content-1 {
+.clt_announce-line-content {
   width: 599px;
   height: 21px;
   margin: 11px 77px 46.7px 34px;
@@ -83,178 +83,10 @@
   text-align: left;
   color: #4bb3cc;
 }
-.clt_announce-line-time-1 {
+.clt_announce-line-time {
   width: 251px;
   height: 32px;
   margin: 0 0 46.7px 77px;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #707070;
-}
-.clt_announce-line-title-2 {
-  width: 120px;
-  height: 32px;
-  margin: 46.7px 25.8px 47px 0;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
-}
-.clt_announce-line-main-2 {
-  width: 120px;
-  height: 32px;
-  margin: 47px 26px 46.7px 25.8px;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
-}
-.clt_announce-line-content-2 {
-  width: 679px;
-  height: 21px;
-  margin: 58px 77px 46.7px 26px;
-  font-family: GenSenRoundedTW-B;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #4bb3cc;
-}
-.clt_announce-line-time-2 {
-  width: 251px;
-  height: 32px;
-  margin: 47px 0 46.7px 77px;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #707070;
-}
-.clt_announce-line-title-3 {
-  width: 120px;
-  height: 32px;
-  margin: 46.7px 25.8px 42px 0;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
-}
-.clt_announce-line-main-3 {
-  width: 120px;
-  height: 32px;
-  margin: 47px 26px 41.7px 25.8px;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
-}
-.clt_announce-line-content-3 {
-  width: 679px;
-  height: 21px;
-  margin: 58px 77px 41.7px 26px;
-  font-family: GenSenRoundedTW-B;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #4bb3cc;
-}
-.clt_announce-line-time-3 {
-  width: 251px;
-  height: 32px;
-  margin: 51px 0 37.7px 77px;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #707070;
-}
-.clt_announce-line-title-4 {
-  width: 120px;
-  height: 32px;
-  margin: 37.7px 25.8px 9.3px 0;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
-}
-.clt_announce-line-main-4 {
-  width: 120px;
-  height: 32px;
-  margin: 47px 26px 41.7px 25.8px;
-  font-family: GenSenRoundedTW-M;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
-}
-.clt_announce-line-content-4 {
-  width: 679px;
-  height: 21px;
-  margin: 58px 77px 41.7px 26px;
-  font-family: GenSenRoundedTW-B;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #4bb3cc;
-}
-.clt_announce-line-time-4 {
-  width: 251px;
-  height: 32px;
-  margin: 47px 0 0 77px;
   font-family: GenSenRoundedTW-M;
   font-size: 24px;
   font-weight: normal;
