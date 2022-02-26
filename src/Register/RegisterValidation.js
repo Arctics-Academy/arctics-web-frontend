@@ -19,7 +19,7 @@ const RegisterValidation = () => {
     const [vcode, setVcode] = useState({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '})
 
     const handleKeyboardOnkeydown = (event) => {
-        if (inputCount === 6 && event.keyCode != 8) return
+        if (inputCount === 6 && event.keyCode !== 8) return
         if (event.keyCode >= 48 && event.keyCode <= 57 ) {
             let tempVcode = {...vcode}
             tempVcode[inputCount+1] = event.key

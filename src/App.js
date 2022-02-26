@@ -1,7 +1,7 @@
 import Nav from '../src/GlobalComponents/Nav';
 import NavMobile from '../src/GlobalComponents/NavMobile';
 import Foot from '../src/GlobalComponents/Foot';
-import LandingPage from './LandingPage/Containers/LandingPage'
+import LandingPage from './LandingPage/Containers/LandingPage';
 import ConsulHome from './Consultant/Home/Container/ConsulHome';
 import ConsulSchedule from './Consultant/Schedule/Container/ConsulSchedule';
 import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
@@ -12,7 +12,9 @@ import RegisterIdentity from './Register/RegisterIdentity';
 import Register from './Register/Register';
 import RegisterValidation from './Register/RegisterValidation';
 import RegisterSuccess from './Register/RegisterSuccess';
+import OpenMeetingModal from './Modals/consultant/openMeetingModal';
 import Login from './Login/Login';
+import StudentHome from './Student/Home/Container/StudentHome';
 import { Switch, Route } from 'react-router-dom';
 import './style.css';
 //import './responsive.css';
@@ -38,6 +40,8 @@ const App = () => {
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
+          <Route exact path="/student-home" component={StudentHome} />
+          <Route exact path="/modal-test" component={OpenMeetingModal} />
         </Switch>
         <Foot />
       </ContextReducer>
