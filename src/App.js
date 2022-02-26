@@ -17,7 +17,7 @@ const App = () => {
         <NavMobile />
         <Nav />
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          {/* <Route exact path="/" component={LandingPage} /> */}
           <Route
             exact
             path="/consultant-announcement"
@@ -33,3 +33,4 @@ const App = () => {
 export default App;
 
 // temporary removed => <Route exact path="/consultant-home" component={ConsulHome} />
+// temporary removed => Landing page
