@@ -23,6 +23,11 @@ const App = () => {
             path="/consultant-announcement"
             component={ConsulAnnounce}
           />
+          <Route
+            exact
+            path="/consultant-home"
+            component={ConsulHome}
+          />
         </Switch>
         <Foot />
       </ContextReducer>

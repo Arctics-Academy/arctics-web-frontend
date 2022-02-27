@@ -3,7 +3,7 @@ import Announcement from "../Component/Announcement";
 
 const ConsulAnnounce = () => {
   return (
-    <div>
+    <div className="clt_announce-main">
       <Announcement />;
     </div>
   );
