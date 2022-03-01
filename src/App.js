@@ -36,7 +36,7 @@ const App = () => {
           <Route exact path='/register-success' component={RegisterSuccess} />
           <Route exact path="/consultant-home" component={ConsulHome} />
           <Route exact path="/consultant-profile" component={ConsulProfile} />
-          <Route exact path="/consultant-schedule" component={ConsulSchedule} />
+          <Route exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />

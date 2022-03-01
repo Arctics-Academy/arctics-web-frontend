@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import MeetingList from "../Components/MeetingList";
 import Calender from "../Components/Calender";
 import calenderIcon from "../img/calender.png";
 import listIcon from "../img/list.png";
 
 const ConsulSchedule = () => {
-  const [displayMode, setDisplayMode] = useState("calender");
+  const { mode } = useParams(); 
+  const [displayMode, setDisplayMode] = useState(mode);
 
   const handleCalenderBtnOnclick = () => {
     if (displayMode === "calender") return;
