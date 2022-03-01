@@ -111,8 +111,25 @@
     transform: scale(1.01);
 }
 
-.register-name-inputbox {
+.register-name {
+    display: flex;
+}
+
+.register-firstname {
     width: 50%;
+    margin-right: 4%;
+}
+
+.register-firstname-inputbox {
+    width: 100%;
+}
+
+.register-lastname {
+    width: 45%;
+}
+
+.register-lastname-inputbox {
+    width: 100%;
 }
 
 .register-institution {
@@ -120,13 +137,21 @@
     margin-top: 3%;
 }
 
-.register-school-inputbox {
+.register-school {
     width: 50%;
     margin-right: 4%;
 }
 
+.register-school-inputbox {
+    width: 100%;
+}
+
+.register-grade {
+    width: 45%;   
+}
+
 .register-grade-inputbox {
-    width: 45%;
+    width: 100%;
 }
 
 .register-email {
@@ -167,7 +192,7 @@
     letter-spacing: 2px;
     border: none;
     color: #003b6b;
-    background: #f2d60f;
+    background-color: #f2d60f;
 }
 
 .register-submit-button:hover {
@@ -441,4 +466,10 @@
     right: -4.5vw;
     bottom: -10vh;
     width: 55vw;
+}
+
+.register-error-message {
+    margin: 0;
+    margin-top: 4px;
+    color: red;
 }

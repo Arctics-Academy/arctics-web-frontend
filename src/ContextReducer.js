@@ -4,7 +4,7 @@ export const ParamContext = React.createContext()
 
 /* context state doc
     email: String - user email
-    username: String - username
+    name: String - name
     identity: String - 'consultant', 'student', 'pending'(wait for validation)
     meetings: Object - info of loaded meetings grouped by year/month -> {year: {month: [...]}}
     furture/finished/canceled Meetings: [Object] - meetings grouped by different status
@@ -12,9 +12,12 @@ export const ParamContext = React.createContext()
 */
 
 const initState = {
+    id: '',
     email: '',
-    username: '',
+    name: '',
+    surname: '',
     identity: '',
+    mobile: '',
     meetingsByTime: {},
     meetingsByStatus: {future: [], past: [], canceled: []},
     receipts: [],
@@ -32,11 +35,24 @@ const sumAmount = (type, list) => {
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case 'register':
+            return {
+                ...state,
+                id: action.payload.id,
+                email: action.payload.email,
+                name: action.payload.name,
+                surname: action.payload.surname,
+                identity: action.payload.identity,
+                mobile: action.payload.mobile
+            }
         case 'login':
             return {
+                id: action.payload.id,
                 email: action.payload.email,
-                username: action.payload.username,
+                name: action.payload.name,
+                surname: action.payload.surname,
                 identity: action.payload.identity,
+                mobile: action.payload.mobile,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
                 receipts: action.payload.receipts,

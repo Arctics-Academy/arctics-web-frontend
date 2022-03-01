@@ -1,5 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './register.css'
+import { useHistory } from 'react-router-dom'
+import { sendMobileOTP, verifyMobileOTP } from '../axios'
+import { ParamContext } from '../ContextReducer'
 
 const ShowValidCode = ({ input }) => {
     return (
@@ -14,9 +17,21 @@ const ShowValidCode = ({ input }) => {
     )
 }
 
-const RegisterValidation = () => {
+const wrapCode = (codearr, id) => {
+    let code = codearr[1]+codearr[2]+codearr[3]+codearr[4]+codearr[5]+codearr[6]
+    let data = {
+        code, id
+    }
+    return data
+}
+
+const RegisterMobileOTP = () => {
     const [inputCount, setInputCount] = useState(0)
     const [vcode, setVcode] = useState({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '})
+    const context = useContext(ParamContext)
+    const history = useHistory()
+
+    const clearVcode = () => { setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) }
 
     const handleKeyboardOnkeydown = (event) => {
         if (inputCount === 6 && event.keyCode !== 8) return
@@ -34,6 +49,22 @@ const RegisterValidation = () => {
         } else return
     }
 
+    const handleSubmitOTP = async () => {
+        const payload = wrapCode(vcode, context.Info.id)
+        const { status, msg } = await verifyMobileOTP(payload)
+        if (status === 'fail') {
+            clearVcode()
+        } else {
+            console.log(msg)
+            history.push('/register-success')
+        }
+    }
+
+    const handleResendOTP = async () => {
+        const { status, msg } = await sendMobileOTP({id:context.Info.id})
+        clearVcode()
+    }
+
     return (
         <div className='reg-validate-main' tabIndex={0} onKeyDown={handleKeyboardOnkeydown}>
             <div className='reg-validate-body'>
@@ -45,10 +76,10 @@ const RegisterValidation = () => {
                     <ShowValidCode input={vcode} />
                 </div>
                 <div className='reg-validate-submit'>
-                    <button className='reg-validate-submit-button'>送出</button>
+                    <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>送出</button>
                 </div>
                 <div className='reg-validate-resend-request'>
-                    <p className='reg-validate-resend-request-text'>沒有收到驗證碼嗎?按<span className='reg-validate-resend-request-link'>此鍵</span>再重新發送一次!</p>
+                    <p className='reg-validate-resend-request-text'>沒有收到驗證碼嗎?按<span className='reg-validate-resend-request-link' onClick={handleResendOTP}>此鍵</span>再重新發送一次!</p>
                 </div>
             </div>
             <input style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
@@ -56,4 +87,4 @@ const RegisterValidation = () => {
     )
 }
 
-export default RegisterValidation
+export default RegisterMobileOTP
