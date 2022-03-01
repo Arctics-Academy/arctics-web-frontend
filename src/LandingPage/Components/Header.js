@@ -44,29 +44,48 @@ export default function Header () {
     return (
         <header id="top">
             <p className="header__slogan">
+<<<<<<< HEAD
                 <span className="rwd-hide">「</span>
+=======
+                <span className="rwd-hide">「 </span>
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
                 陪您找尋
                 <br></br>
                 <span className="header__slogan-break">
                     進入
                     <span className="header__highlight">理想校系</span>
                     的最佳辦法
+<<<<<<< HEAD
                 <span className="rwd-hide">」</span>
                 </span>
                 {/*
                 <span className="rwd-hide">「</span>
+=======
+                <span className="rwd-hide"> 」</span>
+                </span>
+                {/*
+                
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
                 大學生的
                 <span className="header__highlight">30分鐘</span>
                 <br></br>
                 <span className="header__slogan-break">
                     改變高中生的
                     <span className="header__highlight">30年人生</span>
+<<<<<<< HEAD
                     <span className="rwd-hide">」</span>
                 </span>
                 */}
             </p>
 		    <img className="header__logo" src={LogoImg} alt="arctics"></img>
 		    <h1>升大學<br className="rwd-show"></br>顧問媒合平台</h1>
+=======
+                    
+                </span>*/}
+            </p>
+		    <img className="header__logo" src={LogoImg} alt="arctics"></img>
+		    <h1>升大學顧問媒合平台</h1>
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
 		    <p className="header__subtitle">
                 一個APP與上百名來自不同科系、
                 <br className="rwd-show"></br>

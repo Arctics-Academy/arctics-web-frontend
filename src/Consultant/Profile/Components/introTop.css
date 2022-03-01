@@ -1,0 +1,64 @@
+.introTop {
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+.introTop span {
+  margin: 15px;
+}
+.introTop-avatar {
+  border-radius: 10%;
+}
+.introTop-photo {
+  position: relative;
+  top: 20px;
+  right: 20px;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+}
+.introTop-name {
+  font-family: GenSenRoundedTW-B;
+  font-size: 20px;
+  text-align: left;
+  color: #003b6b;
+}
+
+.introTop-already {
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #4bb3cc;
+}
+.introTop-times {
+  font-family: GenSenRoundedTW-M;
+  font-size: 24px;
+  color: #003b6b;
+}
+
+.introTop-point {
+  font-family: GenSenRoundedTW-B;
+  font-size: 48px;
+  color: #003b6b;
+}
+.introTop button {
+  margin: 3.7px;
+  font-family: GenSenRoundedTW-B;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 10px;
+  border: 0;
+  padding: 5px 10px;
+}
+
+.introTop-eye,
+.introTop-quit,
+.introTop-cancel {
+  background-color: #4bb3cc;
+  color: #f5f5f5;
+}
+.introTop-pen,
+.introTop-confirm {
+  background-color: #f2d60f;
+  color: #003b6b;
+}

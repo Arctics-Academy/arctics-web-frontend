@@ -1,0 +1,106 @@
+.account {
+  font-family: GenSenRoundedTW-M;
+  line-height: 1.5;
+}
+.account td {
+  vertical-align: top;
+  padding: 20px;
+}
+.account td:first-child {
+  width: 10vw;
+}
+
+.account-title {
+  font-size: 18px;
+
+  text-align: left;
+  color: #4bb3cc;
+}
+.account-data {
+  font-size: 24px;
+  color: #003b6b;
+}
+
+.account-backup,
+.account-edit-backup {
+  border: 0;
+  font-family: GenSenRoundedTW-B;
+  font-size: 14px;
+  color: #4bb3cc;
+  padding: 4px;
+  border-radius: 10px;
+}
+.account-pen {
+  margin-left: 30px;
+  border: 0;
+  background-color: #fff;
+  float: right;
+}
+.account-backup {
+  width: 100%;
+}
+.account-edit-backup {
+  width: 75%;
+}
+.account-edit-verify {
+  font-family: GenSenRoundedTW-B;
+  font-size: 14px;
+  background-color: #f2d60f;
+  color: #003b6b;
+  border: 0;
+  padding: 4px;
+  width: 20%;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.account-edit-verify-pw {
+  font-family: GenSenRoundedTW-B;
+  font-size: 14px;
+  background-color: #f2d60f;
+  color: #003b6b;
+  border: 0;
+  padding: 4px;
+  width: 20%;
+  border-radius: 5px;
+  float: right;
+  margin: 5px;
+}
+.account-edit-button {
+  margin: auto;
+  width: 95%;
+}
+.account-edit-input {
+  margin: 5px;
+  color: #003b6b;
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 8px;
+  border: solid 1px #4bb3cc;
+  width: 40vw;
+}
+
+.account-eye-icon {
+  position: relative;
+  right: 40px;
+}
+.account-edit-input,
+.account-data {
+  width: 35vw;
+}
+::placeholder {
+  font-family: GenSenRoundedTW-M;
+  font-size: 18px;
+  color: #4bb3cc;
+}
+.account-edit-ps {
+  margin: 6px;
+  font-family: GenSenRoundedTW-M;
+  font-size: 16px;
+  text-align: left;
+  color: #003b6b;
+}
+.account img {
+  display: inline;
+}

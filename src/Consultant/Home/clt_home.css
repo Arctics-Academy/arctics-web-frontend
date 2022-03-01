@@ -123,6 +123,7 @@
 }
 
 .clt_home-myapnt-blocks {
+<<<<<<< HEAD
   position: absolute;
   display: flex;
   /*width: 790px;*/
@@ -140,6 +141,31 @@
   top: 308px;
   width: 133px;
   height: 20px;
+=======
+    position: absolute;
+    display: flex;
+    /*width: 790px;
+    width: 41.1vw;
+    max-width: 790px;*/
+    width: 44.6vw;
+    max-width: 860px;
+    height: 290px;
+    top: 16px;
+    overflow: hidden;
+}
+
+.clt_home-myapnt-blocks:hover {
+    overflow: auto;
+}
+
+.clt_home-myapnt-show-all-link-block {
+    position: absolute;
+    top: 308px;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
 }
 
 .clt_home-myapnt-left-arrow {
@@ -153,6 +179,14 @@
   left: 96.7%;
 }
 
+.clt_home-myapnt-show-all-link {
+    display: inline-flex;
+}
+
+.clt_home-myapnt-show-all-link:hover {
+    cursor: pointer;
+}
+
 .clt_home-myapnt-left-arrow:hover {
   border: solid 1px #003b6b;
 }
@@ -162,12 +196,32 @@
 }
 
 .clt_home-myapnt-link-text {
+<<<<<<< HEAD
   font-size: 18px;
   padding-bottom: 2px;
 }
 
 .clt_home-myapnt-show-all-link:hover {
   color: #4bb3cc;
+=======
+    font-size: 18px;
+    color: #003b6b;
+}
+
+.clt_home-myapnt-show-all-link:hover > .clt_home-myapnt-link-text {
+    color: #4bb3cc;
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
+}
+
+.clt_home-myapnt-link-arrow {
+    margin-top: 1px;
+    height: 20px;
+    width: auto;
+    fill: #003b6b;
+}
+
+.clt_home-myapnt-show-all-link:hover > .clt_home-myapnt-link-arrow {
+    fill: #4bb3cc;
 }
 
 .clt_home-myapnt-link-arrow1 {
@@ -182,6 +236,7 @@
 /* block card */
 
 .clt_home-myapnt-card {
+<<<<<<< HEAD
   position: relative;
   width: 250px;
   height: 275px;
@@ -189,6 +244,16 @@
   border: solid 1px #4bb3cc;
   background-color: #fff;
   font-family: var(--heading-font);
+=======
+    position: relative;
+    min-width: 250px;
+    height: 275px;
+    border-radius: 16px;
+    border: solid 1px #4bb3cc;
+    background-color: #fff;
+    font-family: var(--heading-font);
+    margin-right: 1vw;
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
 }
 
 .card-date-time {
@@ -248,6 +313,7 @@
 }
 
 .card-unavailable-button {
+<<<<<<< HEAD
   width: 51px;
   height: 30px;
   background-color: #4bb3cc;
@@ -275,6 +341,35 @@
   right: 16.5px;
   bottom: 18px;
   font-family: var(--heading-font);
+=======
+    width: 51px;
+    height: 30px;
+    background-color: #4bb3cc;
+    border-radius: 8px;
+    color: #f5f5f5;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 125px;
+    bottom: 30px;
+    font-family: var(--heading-font);
+}
+
+.card-open-meeting {
+    width: 80px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    color: #003b6b;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 33.6px;
+    bottom: 30px;
+    font-family: var(--heading-font);
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
 }
 
 /* block card end */
@@ -334,15 +429,17 @@
   margin: 10px 32px;
 }
 
+.clt_home-purse-list-body {
+    height: 280px;
+    overflow: hidden;
+}
+
 .clt_home-purse-list-out {
   list-style: none;
   padding: 5px 0;
   color: #4bb3cc;
   font-size: 16px;
   width: 310px;
-}
-
-.clt_home-purse-list-out-date {
 }
 
 .clt_home-purse-list-out-name {
@@ -371,7 +468,12 @@
   bottom: 48px;
 }
 
+.clt_home-purse-show-receipt:hover {
+    cursor: pointer;
+}
+
 .clt_home-purse-goto-withdraw {
+<<<<<<< HEAD
   width: 90px;
   height: 30px;
   background-color: #f2d60f;
@@ -384,3 +486,21 @@
   left: 280px;
   bottom: 48px;
 }
+=======
+    width: 90px;
+    height: 30px;
+    background-color: #f2d60f;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: #003b6b;
+    font-family: var(--heading-font);
+    position: absolute;
+    left: 280px;
+    bottom: 48px;    
+}
+
+.clt_home-purse-goto-withdraw:hover {
+    cursor: pointer;
+}
+>>>>>>> 0dc142e0b1287380bf0f53cc69177e823a185c81
