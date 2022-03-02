@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const instance = axios.create({
+const demo = axios.create({
   baseURL: "https://arctics.academy/api"
 })
 
 const submitSubscriber = async (email) => {
   try {
-    const { data: { status, message } } = await instance.post('/demo/subscriber-form', { email })
+    const { data: { status, message } } = await demo.post('/demo/subscriber-form', { email })
     return { status, msg: message }
   }
   catch (e) {
@@ -15,7 +15,7 @@ const submitSubscriber = async (email) => {
 }
 
 const submitMessageForm = async (form) => {
-  const { data: { status, message } } = await instance.post('/demo/message-form', {
+  const { data: { status, message } } = await demo.post('/demo/message-form', {
     form
   })
   return { status, msg: message }
