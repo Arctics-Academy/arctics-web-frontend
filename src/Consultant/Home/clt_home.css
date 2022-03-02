@@ -130,7 +130,6 @@
 }
 
 .clt_home-myapnt-blocks {
-<<<<<<< HEAD
     position: absolute;
     display: flex;
     /*width: 790px;
@@ -154,25 +153,6 @@
     height: 20px;
     display: flex;
     justify-content: flex-end;
-=======
-  position: absolute;
-  display: flex;
-  /*width: 790px;*/
-  width: 41.1vw;
-  max-width: 790px;
-  top: 16px;
-  left: 35px;
-  overflow: hidden;
-}
-
-.clt_home-myapnt-show-all-link {
-  position: absolute;
-  color: #003b6b;
-  left: 82%;
-  top: 308px;
-  width: 133px;
-  height: 20px;
->>>>>>> origin/alex
 }
 
 .clt_home-myapnt-left-arrow {
@@ -203,21 +183,12 @@
 }
 
 .clt_home-myapnt-link-text {
-<<<<<<< HEAD
     font-size: 18px;
     color: #003b6b;
 }
 
 .clt_home-myapnt-show-all-link:hover > .clt_home-myapnt-link-text {
     color: #4bb3cc;
-=======
-  font-size: 18px;
-  padding-bottom: 2px;
-}
-
-.clt_home-myapnt-show-all-link:hover {
-  color: #4bb3cc;
->>>>>>> origin/alex
 }
 
 .clt_home-myapnt-link-arrow {
@@ -243,7 +214,6 @@
 /* block card */
 
 .clt_home-myapnt-card {
-<<<<<<< HEAD
     position: relative;
     min-width: 250px;
     height: 275px;
@@ -252,15 +222,6 @@
     background-color: #fff;
     font-family: var(--heading-font);
     margin-right: 1vw;
-=======
-  position: relative;
-  width: 250px;
-  height: 275px;
-  border-radius: 16px;
-  border: solid 1px #4bb3cc;
-  background-color: #fff;
-  font-family: var(--heading-font);
->>>>>>> origin/alex
 }
 
 .card-date-time {
@@ -320,7 +281,6 @@
 }
 
 .card-unavailable-button {
-<<<<<<< HEAD
     width: 51px;
     height: 30px;
     background-color: #4bb3cc;
@@ -348,35 +308,6 @@
     right: 33.6px;
     bottom: 30px;
     font-family: var(--heading-font);
-=======
-  width: 51px;
-  height: 30px;
-  background-color: #4bb3cc;
-  border-radius: 8px;
-  color: #f5f5f5;
-  font-size: 16px;
-  text-align: center;
-  border: none;
-  position: absolute;
-  right: 106.4px;
-  bottom: 18px;
-  font-family: var(--heading-font);
-}
-
-.card-open-meeting {
-  width: 80px;
-  height: 30px;
-  background-color: #f2d60f;
-  border-radius: 8px;
-  color: #003b6b;
-  font-size: 16px;
-  text-align: center;
-  border: none;
-  position: absolute;
-  right: 16.5px;
-  bottom: 18px;
-  font-family: var(--heading-font);
->>>>>>> origin/alex
 }
 
 /* block card end */
@@ -488,7 +419,6 @@
 }
 
 .clt_home-purse-goto-withdraw {
-<<<<<<< HEAD
     width: 90px;
     height: 30px;
     background-color: #f2d60f;
@@ -505,17 +435,3 @@
 .clt_home-purse-goto-withdraw:hover {
     cursor: pointer;
 }
-=======
-  width: 90px;
-  height: 30px;
-  background-color: #f2d60f;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  color: #003b6b;
-  font-family: var(--heading-font);
-  position: absolute;
-  left: 280px;
-  bottom: 48px;
-}
->>>>>>> origin/alex
