@@ -16,6 +16,7 @@ import RegisterSuccess from './Register/RegisterSuccess';
 import OpenMeetingModal from './Modals/consultant/openMeetingModal';
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
+import StudentCartList from './Student/CartList/Container/CartList'
 import { Switch, Route } from 'react-router-dom';
 import './style.css';
 
@@ -47,6 +48,7 @@ const App = () => {
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
           <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
           <Route exact path="/student-home" component={StudentHome} />
+          <Route exact path="/student-cart" component={StudentCartList} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
 
         </Switch>
