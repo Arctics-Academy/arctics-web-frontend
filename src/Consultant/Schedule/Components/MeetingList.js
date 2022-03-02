@@ -57,14 +57,14 @@ const MeetingList = () => {
         setmode('past')
     }
     const handleModeToCancel = () => {
-        if (mode === 'canceled') return
+        if (mode === 'cancelled') return
         else if (mode === 'past') {
             setPastStyle(unclickStyle)
         } else {
             setFutureStyle(unclickStyle)
         }
         setCancelStyle(clickedStyle)
-        setmode('canceled')
+        setmode('cancelled')
     }
     return (
         <div className="clt_schedule-list">

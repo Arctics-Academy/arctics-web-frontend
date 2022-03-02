@@ -126,3 +126,7 @@
 .login_register_link:hover {
     cursor: pointer;
 }
+
+.login-loading {
+    margin-top: 10px;
+}

@@ -363,6 +363,14 @@
     font-size: 32px;
 }
 
+.reg-validate-err-msg {
+    color: red;
+    text-align: center;
+    margin: 0;
+    margin-top: 8px;
+    font-size: 18px;
+}
+
 .reg-validate-submit {
     margin-top: 7%;
     text-align: center;

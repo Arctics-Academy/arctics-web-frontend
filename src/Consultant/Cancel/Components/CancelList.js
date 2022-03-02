@@ -20,7 +20,7 @@ const CancelList = ({meetingInfo}) => {
                     <span className='clt_cancel-list-exp-title'>諮詢次數</span>
                     <span className='clt_cancel-list-exp-text'>{meetingInfo.exp}</span>
                 </div>
-                <span className='clt_cancel-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>
+                {/*<span className='clt_cancel-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>*/}
             </div>
             <div className='clt_cancel-list-cancel-row2'>
                 <div className='clt_cancel-list-student'>

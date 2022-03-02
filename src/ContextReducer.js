@@ -7,7 +7,7 @@ export const ParamContext = React.createContext()
     name: String - name
     identity: String - 'consultant', 'student', 'pending'(wait for validation)
     meetings: Object - info of loaded meetings grouped by year/month -> {year: {month: [...]}}
-    furture/finished/canceled Meetings: [Object] - meetings grouped by different status
+    furture/finished/cancelled Meetings: [Object] - meetings grouped by different status
     receipts: [Object] - info of loaded meetings
 */
 
@@ -19,7 +19,7 @@ const initState = {
     identity: '',
     mobile: '',
     meetingsByTime: {},
-    meetingsByStatus: {future: [], past: [], canceled: []},
+    meetingsByStatus: {future: [], past: [], cancelled: []},
     receipts: [],
     withdrawableAmount: 0,
     withdrawedAmount: 0,

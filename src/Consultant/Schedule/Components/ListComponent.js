@@ -26,7 +26,7 @@ const FutureMeeting = ({meetingInfo}) => {
                     <span className='clt_schedule-list-exp-title'>諮詢次數</span>
                     <span className='clt_schedule-list-exp-text'>{meetingInfo.exp}</span>
                 </div>
-                <span className='clt_schedule-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>
+                {/*<span className='clt_schedule-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>*/}
             </div>
             <div className='clt_schedule-list-future-row2'>
                 <div className='clt_schedule-list-student'>
@@ -72,7 +72,7 @@ const PastMeeting = ({meetingInfo}) => {
                     <span className='clt_schedule-list-exp-title'>諮詢次數</span>
                     <span className='clt_schedule-list-exp-text'>{meetingInfo.exp}</span>
                 </div>
-                <span className='clt_schedule-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>
+                {/*<span className='clt_schedule-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>*/}
             </div>
             <div className='clt_schedule-list-past-row2'>
                 <div className='clt_schedule-list-student'>
@@ -118,7 +118,7 @@ const CanceledMeeting = ({meetingInfo}) => {
                     <span className='clt_schedule-list-exp-title'>諮詢次數</span>
                     <span className='clt_schedule-list-exp-text'>{meetingInfo.exp}</span>
                 </div>
-                <span className='clt_schedule-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>
+                {/*<span className='clt_schedule-list-payment-status'>{meetingInfo.lastPaymentStatus}</span>*/}
             </div>
             <div className='clt_schedule-list-cancel-row2'>
                 <div className='clt_schedule-list-student'>

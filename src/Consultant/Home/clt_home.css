@@ -124,6 +124,13 @@
     position: relative;
 }
 
+.clt_home-myapnt-empty-msg {
+    margin-top: 100px;
+    font-size: 30px;
+    text-align: center;
+    color: #003b6b;
+}
+
 .clt_home-myapnt-blocks {
     position: absolute;
     display: flex;
@@ -366,6 +373,14 @@
 .clt_home-purse-list-body {
     height: 280px;
     overflow: hidden;
+}
+
+.clt_home-purse-empty-list {
+    list-style: none;
+    color: #4bb3cc;
+    font-size: 20px;
+    width: 310px;
+    text-align: center;
 }
 
 .clt_home-purse-list-out {

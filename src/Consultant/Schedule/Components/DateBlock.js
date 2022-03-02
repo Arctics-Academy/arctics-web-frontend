@@ -7,11 +7,11 @@ const showMeeting = (meetings) => {
     return (
         meetings.map((element) => {
             switch (element.status) {
-                case 'finished' :
+                case 'past' :
                     return <p className="clt_schedule-calender-meeting-info-finished">{element.time} 已完成</p>
-                case 'canceled' :
+                case 'cancelled' :
                     return <p className="clt_schedule-calender-meeting-info-canceled">{element.time} 已取消</p>
-                case 'todo' :
+                case 'future' :
                     return <p className="clt_schedule-calender-meeting-info-todo">{element.time} 已排定</p>
                 case 'ready' :
                     return <p className="clt_schedule-calender-meeting-info-ready">{element.time} 開始會議</p>

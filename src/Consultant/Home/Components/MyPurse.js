@@ -2,17 +2,24 @@ import { useContext } from 'react'
 import moneySign from '../img/$.png'
 import '../clt_home.css'
 import { ParamContext } from '../../../ContextReducer'
+import { Link } from 'react-router-dom'
 
 const listBody = (receipt) => {
-    return (
-        receipt.map((e) => (
-            <li className='clt_home-purse-list-out'>
-                <span className='clt_home-purse-list-out-date'>{e.consultime}</span>
-                <span className='clt_home-purse-list-out-name'>{e.student}</span>
-                <span className='clt_home-purse-list-out-amount'>{e.amount}元</span>
-            </li>
-        ))
-    )
+    if (receipt[0] === undefined) {
+        return (
+            <li className='clt_home-purse-empty-list'>目前尚未有任何明細!</li>
+        )
+    } else {
+        return (
+            receipt.map((e) => (
+                <li className='clt_home-purse-list-out'>
+                    <span className='clt_home-purse-list-out-date'>{e.consultime}</span>
+                    <span className='clt_home-purse-list-out-name'>{e.student}</span>
+                    <span className='clt_home-purse-list-out-amount'>{e.amount}元</span>
+                </li>
+            ))
+        )
+    }
 }
 
 const MyPurse = () => {
@@ -37,7 +44,7 @@ const MyPurse = () => {
                         {listBody(context.Info.receipts.filter((e)=>(e.paystatus==='未提領')))}
                     </ul>
                 </div>
-                <button className='clt_home-purse-show-receipt'>查看明細</button>
+                <button className='clt_home-purse-show-receipt'><Link to='/consultant-purse/receipt'>查看明細</Link></button>
                 <button className='clt_home-purse-goto-withdraw'>前往提領</button>
             </div>
         </div>

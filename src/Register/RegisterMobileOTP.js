@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import './register.css'
 import { useHistory } from 'react-router-dom'
 import { sendMobileOTP, verifyMobileOTP } from '../axios'
@@ -28,10 +28,20 @@ const wrapCode = (codearr, id) => {
 const RegisterMobileOTP = () => {
     const [inputCount, setInputCount] = useState(0)
     const [vcode, setVcode] = useState({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '})
+    const [displayErrMsg, setDisplayErrMsg] = useState(true)
+    const [timerLeft, setTimerLeft] = useState(180)
+    const [counting, setCounting] = useState(true)
     const context = useContext(ParamContext)
     const history = useHistory()
 
     const clearVcode = () => { setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) }
+    
+    const displayTimer = () => {
+        let sec = timerLeft%60
+        let min = Math.floor(timerLeft/60)
+        let secDisplay = (sec>=10)? `${sec}`:`0${sec}`
+        return `${min}:${secDisplay}`
+    }
 
     const handleKeyboardOnkeydown = (event) => {
         if (inputCount === 6 && event.keyCode !== 8) return
@@ -52,7 +62,8 @@ const RegisterMobileOTP = () => {
     const handleSubmitOTP = async () => {
         const payload = wrapCode(vcode, context.Info.id)
         const { status, msg } = await verifyMobileOTP(payload)
-        if (status === 'fail') {
+        if (status === 'failed') {
+            setDisplayErrMsg(false)
             clearVcode()
         } else {
             console.log(msg)
@@ -61,9 +72,36 @@ const RegisterMobileOTP = () => {
     }
 
     const handleResendOTP = async () => {
+        setCounting(true)
         const { status, msg } = await sendMobileOTP({id:context.Info.id})
+        console.log(status, msg)
         clearVcode()
     }
+
+    const displayResendTimer = () => {
+        return (
+            <>
+                <p className='reg-validate-resend-request-text'>沒有收到驗證碼嗎?按
+                    <span className='reg-validate-resend-request-link' style={counting? {opacity:'0.3'}:{}} onClick={counting? ()=>{return}:handleResendOTP}>此鍵</span>
+                    再重新發送一次!
+                </p>
+                <p className='reg-validate-resend-request-text' hidden={!counting}>再等待 {displayTimer()} 可再次發送驗證碼</p>
+            </>
+        )
+    }
+
+    useEffect(() => {
+        if (counting) {
+            if (timerLeft === 0) {
+                setTimerLeft(10)
+                setCounting(false)
+            } else {
+                window.setTimeout(() => {
+                    setTimerLeft(timerLeft-1);
+                }, 1000)
+            }
+        }
+    }, [timerLeft, counting])
 
     return (
         <div className='reg-validate-main' tabIndex={0} onKeyDown={handleKeyboardOnkeydown}>
@@ -75,11 +113,12 @@ const RegisterMobileOTP = () => {
                 <div className='reg-validate-codes'>
                     <ShowValidCode input={vcode} />
                 </div>
+                <p className='reg-validate-err-msg' hidden={displayErrMsg}>驗證碼錯誤!</p>
                 <div className='reg-validate-submit'>
                     <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>送出</button>
                 </div>
                 <div className='reg-validate-resend-request'>
-                    <p className='reg-validate-resend-request-text'>沒有收到驗證碼嗎?按<span className='reg-validate-resend-request-link' onClick={handleResendOTP}>此鍵</span>再重新發送一次!</p>
+                    {displayResendTimer()}
                 </div>
             </div>
             <input style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
