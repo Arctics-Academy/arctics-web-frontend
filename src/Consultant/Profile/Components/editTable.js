@@ -1,5 +1,7 @@
 import "./editTable.css";
 
+import { ReactComponent as Upload } from "../img/black-upload.svg"
+
 const EditTable = ({ profile }) => {
   const consulItems = ["面試技巧", "筆試技巧", "備審資料", "生涯規劃"];
   const feeOptions = [250, 300, 350, 400, 450, 500];
@@ -82,7 +84,7 @@ const EditTable = ({ profile }) => {
             <img src="" alt="學生證照片"></img>
           </div>
           <label class="editTable-filebutton">
-            <img src="" alt="upload" />
+            <Upload />
             更新學生證
             <span>
               <input type="file" id="myfile" name="myfile" />
