@@ -1,23 +1,23 @@
 import axios from 'axios'
 
-/* demo run on landing page */
-const demo = axios.create({
-  baseURL: "https://arctics-web-app.herokuapp.com/"
+const instance = axios.create({
+  baseURL: "https://arctics.academy/api"
 })
 
 const submitSubscriber = async (email) => {
-  const { data: { status, message } } = await demo.post('/api/demo/subscriber-form', {
-    email
-  })
-  console.log('email', email)
-  return { status, msg: message }
+  try {
+    const { data: { status, message } } = await instance.post('/demo/subscriber-form', { email })
+    return { status, msg: message }
+  }
+  catch (e) {
+    return { status: "error", msg: e }
+  }
 }
 
 const submitMessageForm = async (form) => {
-  const { data: { status, message } } = await demo.post('/api/demo/message-form', {
+  const { data: { status, message } } = await instance.post('/demo/message-form', {
     form
   })
-  console.log('form', form)
   return { status, msg: message }
 }
 
