@@ -12,6 +12,7 @@ import RegisterIdentity from './Register/RegisterIdentity';
 import Register from './Register/Register';
 import RegisterSuccess from './Register/RegisterSuccess';
 import OpenMeetingModal from './Modals/consultant/openMeetingModal';
+import ProfilePhotoModal from './Modals/consultant/profilePhotoModal';
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
 import { Switch, Route } from 'react-router-dom';
@@ -45,6 +46,7 @@ const App = () => {
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
           <Route exact path="/student-home" component={StudentHome} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
+          <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
         </Switch>
         <Foot />
       </ContextReducer>
