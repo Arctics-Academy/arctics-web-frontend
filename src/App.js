@@ -13,6 +13,9 @@ import Register from './Register/Register';
 import RegisterSuccess from './Register/RegisterSuccess';
 import OpenMeetingModal from './Modals/consultant/openMeetingModal';
 import ProfilePhotoModal from './Modals/consultant/profilePhotoModal';
+import EmptyFunctionModal from './Modals/system/emptyFunctionModal';
+import NotFoundException from './Exception/NotFoundException';
+import InternalServerErrorException from './Exception/InternalServerErrorException'
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
 import { Switch, Route } from 'react-router-dom';
@@ -47,6 +50,9 @@ const App = () => {
           <Route exact path="/student-home" component={StudentHome} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
+          <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
+          <Route exact path="/exception/404" component={NotFoundException} />
+          <Route exact path="/exception/500" component={InternalServerErrorException} />
         </Switch>
         <Foot />
       </ContextReducer>

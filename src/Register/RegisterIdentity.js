@@ -3,9 +3,14 @@ import './register.css'
 import BearStudent from './img/bearStudent.png'
 import BearConsultant from './img/bearConsultant.png'
 
+import MetaTags from 'react-meta-tags'
+
 const RegisterIdentity = () => {
     return (
         <div className='register_identity-main'>
+            <MetaTags>
+                <title>請選擇身份 | Arctics</title>
+            </MetaTags>
             <div className='register_identity-title'>
                 <span className='register_identity-title-text'>請先選擇你的身份</span>
             </div>

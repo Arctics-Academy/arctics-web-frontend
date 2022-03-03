@@ -1,0 +1,53 @@
+.sys_modal-open-meeting {
+    background-color: rgba(245, 245, 245, 0.7);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sys_modal-open-meeting-info {
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border-radius: 16px;
+    width: 350px;
+}
+
+.sys_modal-empty-function-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.sys_modal-empty-function-icon-area {
+    margin: 30px 0 30px 0;
+    text-align: center;
+}
+
+.sys_modal-empty-function-subheading {
+    color: #ce5d59;
+    font-weight: bold;
+}
+
+.sys_modal-empty-function-text {
+    color: #003b6b;
+}
+
+.sys_modal-empty-function-button {
+    /* Button Display */
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 12px 0 12px 0;
+    border: 0;
+    border-radius: 8px;
+    /* Button Color */
+    background-color: #f2d60f;
+    color: #003b6b;
+    /* Button Font */
+    font-size: 100%;
+    font-family: var(--heading-font);
+}
