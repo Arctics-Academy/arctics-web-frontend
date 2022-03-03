@@ -78,3 +78,44 @@
     border-radius: 8px;
 }
 
+.clt_modal-profile-photo-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.clt_modal-profile-photo-icon-area {
+    margin: 30px 0 30px 0;
+    text-align: center;
+}
+
+.clt_modal-upload-button {
+    /* Button Display */
+    display: block;
+    width: 100%;
+    margin: 0 0 8px 0;
+    padding: 12px 0 12px 0;
+    border: 0;
+    border-radius: 8px;
+    /* Button Color */
+    background-color: #f2d60f;
+    color: #003b6b;
+    /* Button Font */
+    font-size: 100%;
+    font-family: var(--heading-font);
+}
+
+.clt_modal-delete-button {
+    /* Button Display */
+    display: block;
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 12px 0 12px 0;
+    border: 0;
+    border-radius: 8px;
+    /* Button Color */
+    background-color: #4bb3cc;
+    color: #fff;
+    /* Button Font */
+    font-size: 100%;
+    font-family: var(--heading-font);
+}

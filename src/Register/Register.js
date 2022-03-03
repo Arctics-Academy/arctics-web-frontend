@@ -58,11 +58,11 @@ const Register = () => {
                 <div className="register-form">
                     <div className="register-name">
                         <div className="register-firstname">
-                            <input className="register-firstname-inputbox" placeholder="名" {...register('name', {required: true})} />
+                            <input className="register-firstname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
                             {errors.name && <span className="register-error-message" id='name'>請填入名字!</span>}
                         </div>
                         <div className="register-lastname">
-                            <input className="register-lastname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
+                            <input className="register-lastname-inputbox" placeholder="名" {...register('name', {required: true})} />
                             {errors.surname && <span className="register-error-message" id='surname'>請填入姓氏!</span>}
                         </div>    
                     </div>
@@ -92,25 +92,6 @@ const Register = () => {
                         <button type='submit' className="register-submit-button">註冊</button>
                         <p className="register-to-login">已經有帳號了嗎, 點選<Link to='/login'><span className="register-login-link">登入</span></Link></p>
                     </div>
-                    <div className="register-other">
-                        <div className="register-other-header">
-                            <div className="register-other-header-line" />
-                            <span className="register-other-header-text">使用其他帳號登入</span>
-                            <div className="register-other-header-line" />
-                        </div>
-                        <div className="register-google">
-                            <div className="register-google-button">
-                                <GoogleIcon className="register-google-icon" />
-                                <p className="register-google-text">用Google帳號登入</p>
-                            </div>
-                        </div>
-                        <div className="register-facebook">
-                            <div className="register-facebook-button">
-                                <FacebookIcon className="register-facebook-icon" />
-                                <p className="register-facebook-text">用Facebook帳號登入</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </form>
         </div>
@@ -118,3 +99,26 @@ const Register = () => {
 }
 
 export default Register
+
+/* Removed temporarily */
+/*
+<div className="register-other">
+<div className="register-other-header">
+    <div className="register-other-header-line" />
+    <span className="register-other-header-text">使用其他帳號登入</span>
+    <div className="register-other-header-line" />
+</div>
+<div className="register-google">
+    <div className="register-google-button">
+        <GoogleIcon className="register-google-icon" />
+        <p className="register-google-text">用Google帳號登入</p>
+    </div>
+</div>
+<div className="register-facebook">
+    <div className="register-facebook-button">
+        <FacebookIcon className="register-facebook-icon" />
+        <p className="register-facebook-text">用Facebook帳號登入</p>
+    </div>
+</div>
+</div>
+*/
