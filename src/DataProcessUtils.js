@@ -167,4 +167,41 @@ const wrapLoginData = (data, identity) => {
     return wrappedData
 }
 
-export { wrapLoginData }
+const labelToTime = (label) => {
+    let basicHour = 9, half = false
+    if (label%2 === 0) {
+        basicHour += label/2-1
+        half = true
+    } else basicHour += (label+1)/2-1
+
+    return `${basicHour}:${half? '30':'00'}`
+}
+
+const timeToLabel = (time) => {
+    let ppos = time.indexOf(':')
+    let h = parseInt(time.substring(0, ppos)), m = parseInt(time.substring(ppos+1))
+    return (m===0)? (h-9)*2+1:(h-8)*2
+}
+
+const resolveTimetable = (timetable) => {
+    let checked = []
+    const weeday = {0:'sun', 1:'mon', 2:'tue', 3:'wed', 4:'thu', 5:'fri', 6:'sat'}
+    for (let i=0; i<7; i++) {
+        timetable[i].map((t) => {
+            checked.push(`${weeday[i]}${labelToTime(t)}`)
+        })
+    }
+    return checked
+}
+
+const wrapTimetable = (timeslot) => {
+    let timetable = [[], [], [], [], [], [], []]
+    const weekdayMap = {'sun': 0, 'mon': 1, 'tue': 2, 'wed': 3, 'thu': 4, 'fri': 5, 'sat': 6}
+    timeslot.map((t) => {
+        timetable[weekdayMap[t.substring(0, 3)]].push(timeToLabel(t.substring(3)))
+    })
+
+    return timetable
+}
+
+export { wrapLoginData, resolveTimetable, wrapTimetable }

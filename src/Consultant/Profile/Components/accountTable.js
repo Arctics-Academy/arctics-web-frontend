@@ -14,7 +14,7 @@ const Account = ({ profile }) => {
   const [editingPhone, setEditingPhone] = useState(false);
   const [editingPw, setEditingPw] = useState(false);
   const [myEmail, setMyEmail] = useState(profile.email);
-  const [myPhone, setMyPhone] = useState(profile.phone);
+  const [myPhone, setMyPhone] = useState(profile.mobile);
   const [myPw, setMyPw] = useState(profile.password);
 
   const myAccount = {

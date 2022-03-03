@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./calendar.css";
+import { useFormContext } from "react-hook-form";
 const weekDays = [
   {
     name: "日",
@@ -45,6 +46,7 @@ const getTimeArray = () => {
 };
 
 const Calendar = ({ editing, timeslot }) => {
+  const { register } = useFormContext();
   console.log(timeslot);
   const [checkedItems, setCheckedItems] = useState(() =>
     timeslot.reduce((m, v) => ((m[v] = true), m), {})
@@ -57,6 +59,32 @@ const Calendar = ({ editing, timeslot }) => {
     });
     console.log("checkedItems: ", checkedItems);
   };
+
+  const displayCheckbox = (day, time) => {
+    if (editing) {
+      return (
+        <input
+          type="checkbox"
+          value={day.key + time}
+          name={day.key + time}
+          disabled={editing ? false : true}
+          checked={checkedItems[day.key + time]}
+          onChange={handleChange}
+          {...register('selected')}
+        />
+      )
+    } else {
+      return (
+        <input
+          type="checkbox"
+          value={day.key + time}
+          name={day.key + time}
+          disabled={editing ? false : true}
+          checked={checkedItems[day.key + time]}
+        />
+      )
+    }
+  }
 
   return (
     <table>
@@ -75,14 +103,7 @@ const Calendar = ({ editing, timeslot }) => {
           {weekDays.map((day) => (
             <td>
               <label class="calendar-switch ">
-                <input
-                  type="checkbox"
-                  value={day.key + time}
-                  name={day.key + time}
-                  disabled={editing ? false : true}
-                  checked={checkedItems[day.key + time]}
-                  onChange={handleChange}
-                />
+                {displayCheckbox(day, time)}
                 <span class="calendar-block calendar-toggleButton">
                   {/* {day.key}-{time} */}
                 </span>

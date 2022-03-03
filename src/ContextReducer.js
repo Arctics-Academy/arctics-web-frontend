@@ -33,6 +33,15 @@ const sumAmount = (type, list) => {
     return sum
 }
 
+const editProfile = (init, changes) => {
+    let update = { ...init }
+    for (let key in changes) {
+        if (key === 'studentIdScan') continue
+        update[key] = changes[key]
+    }
+    return update
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
         case 'register':
@@ -61,6 +70,19 @@ const reducer = (state, action) => {
                 receipts: action.payload.receipts,
                 withdrawableAmount: sumAmount('未提領', action.payload.receipts),
                 withdrawedAmount: sumAmount('已提領', action.payload.receipts)
+            }
+        case 'editProfile':
+            return {
+                ...state,
+                profile: editProfile(state.profile, action.payload)
+            }
+        case 'editTimetable':
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    timetable: action.payload
+                }
             }
         default:
             return state
