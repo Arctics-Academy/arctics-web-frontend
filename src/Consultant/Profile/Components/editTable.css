@@ -162,3 +162,29 @@ input:checked + .editTable-toggleButton {
   color: #f5f5f5;
   background-color: #4bb3cc;
 }
+
+/* buttons at bottom */
+
+.editTable-btns {
+  text-align: right;
+  width: 66.6vw;
+}
+
+.editTable-btns button {
+  font-size: 20px;
+  font-family: var(--heading-font);
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+}
+
+.editTable-submit {
+  color: #003b6b;
+  background-color: #f2d60f;
+  margin-left: 1vw;
+}
+
+.editTable-exit {
+  color: #fff;
+  background-color: #003b6b;
+}

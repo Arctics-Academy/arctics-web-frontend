@@ -49,12 +49,14 @@ const IntroTop = ({ profile, page, changePage }) => {
         key: "cancel",
         onClick: () => handleClickCancel(),
       },
+      /*
       {
         text: "確認",
         src: Check,
         key: "confirm",
         onClick: () => handleClickConfirm(),
       },
+      */
     ],
     view: [
       {

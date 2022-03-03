@@ -47,6 +47,7 @@ const ConsulProfile = () => {
     if (page === "intro")
       return (
         <Intro
+          id={context.Info.id}
           profile={context.Info.profile}
           handleStudentView={(e) => setStudentView(e)}
         />

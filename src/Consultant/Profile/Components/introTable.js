@@ -1,5 +1,7 @@
 import Calendar from "../Components/calendar";
 import "./introTable.css";
+import { resolveTimetable } from "../../../DataProcessUtils";
+import { useForm, FormProvider } from "react-hook-form";
 
 const showBlocks = (items) => {
   return items.map((e) => {
@@ -8,6 +10,8 @@ const showBlocks = (items) => {
 };
 
 const IntroTable = ({ profile, studentView }) => {
+  const form = useForm()
+  //form to prevent calender crash...
   return (
     <>
       <table class="introTable">
@@ -69,7 +73,9 @@ const IntroTable = ({ profile, studentView }) => {
             <span class="introTable-title">可預約時間表</span>
           </td>
           <td>
-            <Calendar timeslot={profile.timetable} editing={false} />
+            <FormProvider {...form}>
+              <Calendar timeslot={resolveTimetable(profile.timetable)} editing={false} />
+            </FormProvider>
           </td>
         </tr>
       )}
