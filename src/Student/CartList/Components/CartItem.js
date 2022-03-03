@@ -52,8 +52,7 @@ const CartItem = ({name=""}) => {
         <p className="std_cartitem-intro-title">個人簡介</p>
         <div className="std_cartitem-intro">
           <p className="std_cartitem-intro-content">我也不知道可以寫什麼，大概請他們寫一些
-諮詢風格、諮詢經歷、教學理念、簡述自己
-的升學歷程之類的吧......嗎？</p>
+諮詢風格、諮詢經歷、教學理念、簡述自己的升學歷程之類的吧......嗎？</p>
           <span className="std_cartitem-intro-check">
             查看完整簡介
             <ArrowIcon className="std_cartitem-arrow-icon" />
@@ -62,15 +61,16 @@ const CartItem = ({name=""}) => {
         <div className="std_cartitem-button-group">
           <div className="std_cartitem-level">
             <Star className="std_cartitem-level-star" />
-            <p>4<span>.8</span></p>
+            <p>4</p>
+            <span className="std_cartitem-level-float">.8</span>
           </div>
           <button className="std_cartitem-delete-button">
             <DeleteIcon className="std_cartitem-delete-icon"/>
-            移除
+            <p>移除</p>
           </button>
           <button className="std_cartitem-info-button">
             <InfoIcon className="std_cartitem-info-icon"/>
-            求詳細
+            <p>求詳細</p>
           </button>
           <button className="std_cartitem-appmt-button">立即預約</button>
         </div>
