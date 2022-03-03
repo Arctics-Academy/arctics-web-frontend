@@ -1,6 +1,6 @@
 import "./editTable.css";
 import { updateStudentID } from "../../../axios";
-import { ReactComponent as Upload } from "../img/black-upload.svg"
+import { ReactComponent as Upload } from "../img/black-upload.svg";
 
 const EditTable = ({ profile }) => {
   const consulItems = ["面試技巧", "筆試技巧", "備審資料", "生涯規劃"];
@@ -22,6 +22,7 @@ const EditTable = ({ profile }) => {
     "教育學群",
     "法政學群",
   ];
+  const studentCard = undefined;
   const showCheckedDscp = (dscp) => {
     if (profile.disciplines.includes(dscp)) return true;
     else return false;
@@ -81,7 +82,11 @@ const EditTable = ({ profile }) => {
 
         <div class="editTable-education">
           <div class="editTable-card">
-            <img src="" alt="學生證照片"></img>
+            {studentCard ? (
+              <img src={studentCard} alt="學生證照片"></img>
+            ) : (
+              <span>學生證照片</span>
+            )}
           </div>
           <label class="editTable-filebutton">
             <Upload />

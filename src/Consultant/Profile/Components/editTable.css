@@ -23,7 +23,7 @@
 }
 
 .editTable-ps {
-  margin: 15px 0px;
+  margin: 15px 15px 15px 0px;
   font-size: 16px;
   color: #003b6b;
 }
@@ -49,12 +49,13 @@
 
 /*education*/
 .editTable-education {
-  margin: 10px;
+  /* margin: 10px; */
   display: inline-block;
   vertical-align: top;
 }
 .editTable-education > * {
-  margin: 20px;
+  margin-right: 40px;
+  margin-bottom: 20px;
 }
 .editTable-education-major {
   width: 13vw;
@@ -115,17 +116,17 @@ label.editTable-filebutton {
 label span input {
   z-index: 999;
   line-height: 0;
-  font-size: 50px;
+  /* font-size: 50px; */
   position: absolute;
   top: -2px;
-  left: -700px;
+  left: -60px;
   opacity: 0;
   filter: alpha(opacity = 0);
   -ms-filter: "alpha(opacity=0)";
   cursor: pointer;
-  _cursor: hand;
-  margin: 0;
+
   padding: 0;
+  width: 170%;
 }
 /* toggle-button (checkbox) */
 .editTable-switch {
@@ -143,7 +144,7 @@ label span input {
   cursor: pointer;
   font-size: 14px;
   color: #4bb3cc;
-  margin: 5px;
+  margin: 5px 5px 5px 0px;
   padding: 3px 14px;
   border-radius: 8px;
   border: solid 1px #4bb3cc;

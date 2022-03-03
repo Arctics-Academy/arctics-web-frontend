@@ -8,6 +8,7 @@ import { ParamContext } from "../../../ContextReducer";
 
 const tempProfile = {
   name: "梁芮瑄",
+  surname: "Wang",
   times: 5,
   star: 4.8,
   fee: 250,
@@ -39,7 +40,7 @@ const tempProfile = {
 
 const ConsulProfile = () => {
   const [page, setPage] = useState("intro");
-  const context = useContext(ParamContext)
+  const context = useContext(ParamContext);
   const [studentView, setStudentView] = useState(false);
 
   const showPage = (page) => {
@@ -47,10 +48,11 @@ const ConsulProfile = () => {
       return (
         <Intro
           profile={context.Info.profile}
-          handleSudentView={(e) => setStudentView(e)}
+          handleStudentView={(e) => setStudentView(e)}
         />
       );
-    else if (page === "account") return <Account profile={context.Info.profile} />;
+    else if (page === "account")
+      return <Account profile={context.Info.profile} />;
     else if (page === "time") return <Time profile={context.Info.profile} />;
   };
 
