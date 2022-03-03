@@ -58,11 +58,11 @@ const Register = () => {
                 <div className="register-form">
                     <div className="register-name">
                         <div className="register-firstname">
-                            <input className="register-firstname-inputbox" placeholder="名" {...register('name', {required: true})} />
+                            <input className="register-firstname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
                             {errors.name && <span className="register-error-message" id='name'>請填入名字!</span>}
                         </div>
                         <div className="register-lastname">
-                            <input className="register-lastname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
+                            <input className="register-lastname-inputbox" placeholder="名" {...register('name', {required: true})} />
                             {errors.surname && <span className="register-error-message" id='surname'>請填入姓氏!</span>}
                         </div>    
                     </div>
