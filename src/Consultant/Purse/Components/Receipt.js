@@ -5,12 +5,12 @@ import { ParamContext } from '../../../ContextReducer'
 
 const Receipt = () => {
     const context = useContext(ParamContext)
+    /*
     const [sortTarget, setSortTarget] = useState('id')
     const [receipt, setReceipt] = useState(getSortedList(sortTarget, context.Info.receipts))
     useEffect(() => {
         setReceipt(getSortedList(sortTarget, context.Info.receipts))
     }, [context.Info.receipts])
-
 
     const handleOnclickId = () => {
         console.log(receipt, context.Info.receipts)
@@ -41,7 +41,7 @@ const Receipt = () => {
         if (sortTarget === 'paystatus') setSortTarget('paystatus-r')
         else setSortTarget('paystatus')
         setReceipt(getSortedList(sortTarget, receipt))
-    }
+    }*/
 
     const DisplayMoney = ({title, amount}) => {
         return (
@@ -53,6 +53,7 @@ const Receipt = () => {
         )
     }
 
+    /*
     const displayHeader = () => {
         return (
             <>
@@ -65,22 +66,38 @@ const Receipt = () => {
             </>
         )
     }
+    */
+
+    const displayHeader = () => {
+        return (
+            <>
+                <span className='clt_purse-list-header-timestamp'>付款時間</span>
+                <span className='clt_purse-list-header-content'>付款項目</span>
+                <span className='clt_purse-list-header-amount'>交易金額</span>
+                <span className='clt_purse-list-header-balance'>帳戶餘額</span>
+            </>
+        )
+    }
 
     const displayList = (data) => {
-        return (
-            data.map((e) => {
-                return (
-                    <div className='clt_purse-list-item'>
-                        <span className='clt_purse-list-item-id'>{e.id}</span>
-                        <span className='clt_purse-list-item-student'>{e.student}</span>
-                        <span className='clt_purse-list-item-amount'>{e.amount}</span>
-                        <span className='clt_purse-list-item-pay-time'>{e.paytime}</span>
-                        <span className='clt_purse-list-item-consul-time'>{e.consultime}</span>
-                        <span className='clt_purse-list-item-pay-status'>{e.paystatus}</span>
-                    </div>
-                )
-            })
-        )
+        if (data[0] !== undefined) {
+            return (
+                data.map((e) => {
+                    return (
+                        <div className='clt_purse-list-item'>
+                            <span className='clt_purse-list-item-timestamp'>{e.timestamp}</span>
+                            <span className='clt_purse-list-item-content'>{e.content}</span>
+                            <span className='clt_purse-list-item-amount'>{e.amount}</span>
+                            <span className='clt_purse-list-item-balance'>{e.balance}</span>
+                        </div>
+                    )
+                })
+            )
+        } else {
+            return (
+                <p className='clt_purse-list-empty-msg'>目前尚無任何明細!</p>
+            )
+        }
     }
     
     return (
@@ -99,7 +116,7 @@ const Receipt = () => {
                     {displayHeader()}
                 </div>
                 <div className='clt_purse-list-body'>
-                    {displayList(receipt)}
+                    {displayList(context.Info.purse.transactions)}
                 </div>
             </div>
         </div>

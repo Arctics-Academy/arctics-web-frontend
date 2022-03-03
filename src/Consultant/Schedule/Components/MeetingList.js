@@ -7,14 +7,29 @@ const { FutureMeeting, PastMeeting, CanceledMeeting } = meeting
 
 const showListItem = (status, lists) => {
     if (status === 'future') {
+        if (lists[status][0] === undefined) {
+            return (
+                <p className='clt_list-empty-msg'>目前尚未有任何紀錄!</p>
+            )
+        }
         return (
             lists[status].map((e) => (<FutureMeeting meetingInfo={e} />))
         )
     } else if (status === 'past') {
+        if (lists[status][0] === undefined) {
+            return (
+                <p className='clt_list-empty-msg'>目前尚未有任何紀錄!</p>
+            )
+        }
         return (
             lists[status].map((e) => (<PastMeeting meetingInfo={e} />))
         )
     } else {
+        if (lists[status][0] === undefined) {
+            return (
+                <p className='clt_list-empty-msg'>目前尚未有任何紀錄!</p>
+            )
+        }
         return (
             lists[status].map((e) => (<CanceledMeeting meetingInfo={e} />))
         )

@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react'
-
+import { sortTransactions } from './DataProcessUtils'
 export const ParamContext = React.createContext()
 
 /* context state doc
@@ -13,14 +13,19 @@ export const ParamContext = React.createContext()
 
 const initState = {
     id: '',
-    email: '',
-    name: '',
-    surname: '',
+    announcement: {unreadCount: 0, list: []},
+    notifications: {unreadCount: 0, list: []},
     identity: '',
     mobile: '',
     meetingsByTime: {},
     meetingsByStatus: {future: [], past: [], cancelled: []},
-    receipts: [],
+    purse: {
+        balance: 0, withdrawn: 0, transaction: [], bankList: []
+    },
+    profile: {
+        count: 0, email: '', emailVerified: false, experiences: '', intro: '', field: [], labels: [], mobile: '', mobileVerified: true,
+        major: '', name: '', surname: '', school: '', year: '', studentCardVerified: false, timetable: [],
+    },
     withdrawableAmount: 0,
     withdrawedAmount: 0,
 }
@@ -46,30 +51,31 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'register':
             return {
-                ...state,
-                id: action.payload.id,
-                email: action.payload.email,
-                name: action.payload.name,
-                surname: action.payload.surname,
-                identity: action.payload.identity,
-                mobile: action.payload.mobile
-            }
-        case 'login':
-            return {
+                ...state, 
                 id: action.payload.id,
                 announcement: action.payload.announcement,
-                name: action.payload.profile.name,
-                surname: action.payload.profile.surname,
                 identity: action.payload.identity,
-                mobile: action.payload.profile.mobile,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
                 purse: action.payload.purse,
                 profile: action.payload.profile,
                 notifications: action.payload.notifications,
-                receipts: action.payload.receipts,
-                withdrawableAmount: sumAmount('未提領', action.payload.receipts),
-                withdrawedAmount: sumAmount('已提領', action.payload.receipts)
+            }
+        case 'login':
+            return {
+                id: action.payload.id,
+                announcement: action.payload.announcement,
+                identity: action.payload.identity,
+                meetingsByTime: action.payload.meetingsByTime,
+                meetingsByStatus: action.payload.meetingsByStatus,
+                purse: {
+                    ...action.payload.purse,
+                    transactions: sortTransactions(action.payload.purse.transactions)
+                },
+                profile: action.payload.profile,
+                notifications: action.payload.notifications,
+                withdrawableAmount: sumAmount('未提領', action.payload.purse.transactions),
+                withdrawedAmount: sumAmount('已提領', action.payload.purse.transaction)
             }
         case 'editProfile':
             return {
@@ -83,6 +89,11 @@ const reducer = (state, action) => {
                     ...state.profile,
                     timetable: action.payload
                 }
+            }
+        case 'addMonthForView':
+            return {
+                ...state,
+                meetingsByTime: action.payload
             }
         default:
             return state

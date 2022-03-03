@@ -4,6 +4,7 @@ import DateRow from "./DateRow"
 import rightArrow from "../img/rightArrow.png"
 import leftArrow from "../img/leftArrow.png"
 import { ParamContext } from '../../../ContextReducer'
+import { buildMonthArr } from '../../../DataProcessUtils'
 
 /* calender should be a 7 * 6 array 
    format:
@@ -37,20 +38,44 @@ const Calender = () => {
     const [month, setMonth] = useState(curDate.getMonth()+1)
     const context = useContext(ParamContext)
     const handleAddMonth = () => {
+        let m = month, y = year
         if (month === 12) {
-            setMonth(1)
-            setYear(year+1)
+            m = 1
+            y++
         } else {
-            setMonth(month+1)
+            m++
         }
+        if (context.Info.meetingsByTime[y] === undefined || context.Info.meetingsByTime[y][m] === undefined) {
+            let temp = context.Info.meetingsByTime
+            if (context.Info.meetingsByTime[y] === undefined) temp[y] = {}
+            temp[y][m] = buildMonthArr(y, m)
+            context.setInfo({
+                type: 'addMonthForView',
+                payload: temp
+            })
+        }
+        setMonth(m)
+        setYear(y)
     }
     const handleMinusMonth = () => {
+        let m = month, y = year
         if (month === 1) {
-            setMonth(12)
-            setYear(year-1)
+            m = 12
+            y--
         } else {
-            setMonth(month-1)
+            m--
         }
+        if (context.Info.meetingsByTime[y] === undefined || context.Info.meetingsByTime[y][m] === undefined) {
+            let temp = context.Info.meetingsByTime
+            if (context.Info.meetingsByTime[y] === undefined) temp[y] = {}
+            temp[y][m] = buildMonthArr(y, m)
+            context.setInfo({
+                type: 'addMonthForView',
+                payload: temp
+            })
+        }
+        setMonth(m)
+        setYear(y)
     }
     return (
         <>

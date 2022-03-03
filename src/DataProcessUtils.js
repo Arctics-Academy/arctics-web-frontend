@@ -87,7 +87,13 @@ const transformStatusListIntoCalender  = (list) => {
     const dayDetail = { year: current.getFullYear(), month: current.getMonth()+1, date: current.getDate() }
     let calender = {}
     let concatnated = list.future.concat(list.past.concat(list.cancelled))
-    console.log(concatnated)
+    if (concatnated[0] === undefined) {
+        calender[dayDetail.year] = {}
+        calender[dayDetail.year][dayDetail.month-1] = buildMonthArr(dayDetail.year, dayDetail.month-1)
+        calender[dayDetail.year][dayDetail.month] = buildMonthArr(dayDetail.year, dayDetail.month)
+        calender[dayDetail.year][dayDetail.month+1] = buildMonthArr(dayDetail.year, dayDetail.month+1)
+        return calender
+    }
     concatnated.sort(timeComp)
     let smallest = {year: concatnated[0].startTimestamp.getFullYear(), month: concatnated[0].startTimestamp.getMonth()+1}
     let largest = {year: concatnated[concatnated.length-1].startTimestamp.getFullYear(), month: concatnated[concatnated.length-1].startTimestamp.getMonth()+1}
@@ -161,7 +167,6 @@ const wrapLoginData = (data, identity) => {
         profile: data.profile,
         purse: data.purse,
         identity: identity,
-        receipts: data.purse.transactions
     }
 
     return wrappedData
@@ -204,4 +209,16 @@ const wrapTimetable = (timeslot) => {
     return timetable
 }
 
-export { wrapLoginData, resolveTimetable, wrapTimetable }
+const timeComp2 = (a, b) => {
+    if (a.timestamp > b.timestamp) return 1
+    else if (a.timestamp < b.timestamp) return -1
+    else return 0
+}
+
+const sortTransactions = (trans) => {
+    let sorted = [...trans]
+    sorted.sort(timeComp2)
+    return sorted
+}
+
+export { buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions }

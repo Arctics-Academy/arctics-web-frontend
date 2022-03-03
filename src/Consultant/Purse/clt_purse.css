@@ -118,7 +118,7 @@
 }
 
 .clt_purse-list-header span:hover {
-    cursor: pointer;
+    /*cursor: pointer;*/
     color: #003b6b;
 }
 
@@ -131,10 +131,28 @@
     left: 11vw;
 }
 
+/*Current Headers*/
+
 .clt_purse-list-header-amount {
     position: absolute;
-    left: 20vw;
+    left: 40vw;
 }
+
+.clt_purse-list-header-timestamp {
+    position: absolute;
+}
+
+.clt_purse-list-header-content {
+    position: absolute;
+    left: 15vw;
+}
+
+.clt_purse-list-header-balance {
+    position: absolute;
+    left: 54vw;
+}
+
+/* Ends */
 
 .clt_purse-list-header-pay-time {
     position: absolute;
@@ -171,10 +189,28 @@
     left: 11vw;
 }
 
+/* Current Item */
+
 .clt_purse-list-item-amount {
     position: absolute;
-    left: 20vw;
+    left: 40vw;
 }
+
+.clt_purse-list-item-content {
+    position: absolute;
+    left: 15vw;
+}
+
+.clt_purse-list-item-balance {
+    position: absolute;
+    left: 54vw;
+}
+
+.clt_purse-list-item-timestamp {
+    position: absolute;
+}
+
+/* Ends */
 
 .clt_purse-list-item-pay-time {
     position: absolute;
@@ -189,4 +225,10 @@
 .clt_purse-list-item-pay-status {
     position: absolute;
     left: 53.3vw;
+}
+
+.clt_purse-list-empty-msg {
+    color: #4bb3cc;
+    font-size: 18px;
+    margin-left: 0.5vw;
 }

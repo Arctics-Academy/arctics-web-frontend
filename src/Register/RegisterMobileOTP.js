@@ -3,6 +3,7 @@ import './register.css'
 import { useHistory } from 'react-router-dom'
 import { sendMobileOTP, verifyMobileOTP } from '../axios'
 import { ParamContext } from '../ContextReducer'
+import Loading from '../Login/img/loading48.gif'
 
 const ShowValidCode = ({ input }) => {
     return (
@@ -31,6 +32,7 @@ const RegisterMobileOTP = () => {
     const [displayErrMsg, setDisplayErrMsg] = useState(true)
     const [timerLeft, setTimerLeft] = useState(180)
     const [counting, setCounting] = useState(true)
+    const [loading, setLoading] = useState(false)
     const context = useContext(ParamContext)
     const history = useHistory()
 
@@ -61,7 +63,9 @@ const RegisterMobileOTP = () => {
 
     const handleSubmitOTP = async () => {
         const payload = wrapCode(vcode, context.Info.id)
+        setLoading(true)
         const { status, msg } = await verifyMobileOTP(payload)
+        setLoading(false)
         if (status === 'failed') {
             setDisplayErrMsg(false)
             clearVcode()
@@ -115,7 +119,9 @@ const RegisterMobileOTP = () => {
                 </div>
                 <p className='reg-validate-err-msg' hidden={displayErrMsg}>驗證碼錯誤!</p>
                 <div className='reg-validate-submit'>
-                    <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>送出</button>
+                    <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
+                        {loading? (<img className='register-email-otp-loading' src={Loading} />):'送出'}
+                    </button>
                 </div>
                 <div className='reg-validate-resend-request'>
                     {displayResendTimer()}

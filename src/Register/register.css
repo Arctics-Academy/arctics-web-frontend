@@ -113,6 +113,20 @@
     transform: scale(1.01);
 }
 
+.register-form div select {
+    color: #003b6b;
+    border: none;
+    font-family: var(--heading-font);
+    height: 36px;
+    border-bottom: solid 2px #003b6b;
+    font-size: 20px;
+}
+
+.register-form div select:focus {
+    background: #f5f5f5;
+    transform: scale(1.01);
+}
+
 .register-name {
     display: flex;
 }
@@ -140,7 +154,7 @@
 }
 
 .register-school {
-    width: 50%;
+    width: 51%;
     margin-right: 4%;
 }
 
@@ -482,4 +496,8 @@
     margin: 0;
     margin-top: 4px;
     color: red;
+}
+
+.register-loading {
+    margin-top: 10px;
 }
