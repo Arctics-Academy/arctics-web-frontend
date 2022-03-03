@@ -3,23 +3,28 @@ import Avatar from "../img/tmp_avatar.png";
 import Star from "../img/star.svg";
 import Pen from "../img/edit-pen.svg";
 import Eye from "../img/eye-no-lash.svg";
-import Calendar from "../img/calendar.svg";
+
 import "./introTop.css";
 
-const IntroTop = ({ profile, page, toEditMode }) => {
+const IntroTop = ({ profile, page, changePage }) => {
   const { name, times, star } = profile;
   const handleClickEdit = () => {
-    toEditMode(true);
+    changePage("intro-edit");
   };
   const handleClickCancel = () => {
-    toEditMode(false);
+    changePage("intro-main");
   };
   const handleClickConfirm = () => {
-    toEditMode(false);
+    changePage("intro-main");
   };
-  const handleClickEye = () => {};
+  const handleClickQuit = () => {
+    changePage("intro-main");
+  };
+  const handleClickEye = () => {
+    changePage("intro-view");
+  };
   const topButton = {
-    intro: [
+    main: [
       {
         text: "學生角度檢視",
         src: Eye,
@@ -47,6 +52,14 @@ const IntroTop = ({ profile, page, toEditMode }) => {
         onClick: () => handleClickConfirm(),
       },
     ],
+    view: [
+      {
+        text: "退出檢視",
+        src: Eye,
+        key: "quit",
+        onClick: () => handleClickQuit(),
+      },
+    ],
   };
   const showButton = (buttons) => {
     return (
@@ -55,15 +68,17 @@ const IntroTop = ({ profile, page, toEditMode }) => {
           <button class={"introTop-".concat(e.key)} onClick={e.onClick}>
             <img src={e.src} alt={e.key} />
             {e.text}
-            {console.log(e.onClick)}
           </button>
         ))}
       </div>
     );
   };
   const showButtonByPage = (page) => {
-    if (page === "intro") return showButton(topButton.intro);
+    console.log(page);
+    if (page === "intro-main") return showButton(topButton.main);
     else if (page === "intro-edit") return showButton(topButton.edit);
+    else if (page === "intro-view") return showButton(topButton.view);
+    else return;
   };
   return (
     <div class="introTop">

@@ -1,8 +1,8 @@
 import TimeTable from "../Components/timeTable";
-const Time = () => {
+const Time = ({ profile }) => {
   return (
     <>
-      <TimeTable />
+      <TimeTable profile={profile} />
     </>
   );
 };

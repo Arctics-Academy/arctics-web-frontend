@@ -1,3 +1,4 @@
+import Calendar from "../Components/calendar";
 import "./introTable.css";
 
 const showBlocks = (items) => {
@@ -6,61 +7,73 @@ const showBlocks = (items) => {
   });
 };
 
-const IntroTable = ({ profile }) => {
+const IntroTable = ({ profile, studentView }) => {
   return (
-    <table class="introTable">
-      <tr>
-        <td>
-          <span class="introTable-title">費用</span>
-        </td>
-        <td>
-          <span class="introTable-data">{profile.fee}</span>
-          <span class="introTable-unit">/半小時</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span class="introTable-title">就讀/畢業</span>
-        </td>
-        <td>
-          <span class="introTable-data">
-            {profile.education.school}
-            <br />
-            {profile.education.major}
-            <br />
-            {profile.education.grade}
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span class="introTable-title">學群</span>
-        </td>
-        <td>{showBlocks(profile.disciplines)}</td>
-      </tr>
-      <tr>
-        <td>
-          <span class="introTable-title">諮詢項目</span>
-        </td>
-        <td>{showBlocks(profile.items)}</td>
-      </tr>
-      <tr>
-        <td>
-          <span class="introTable-title">相關經歷/ 能力證明</span>
-        </td>
-        <td>
-          <span class="introTable-data">{profile.experiences}</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span class="introTable-title">個人簡介</span>
-        </td>
-        <td>
-          <span class="introTable-data">{profile.intro}</span>
-        </td>
-      </tr>
-    </table>
+    <>
+      <table class="introTable">
+        <tr>
+          <td>
+            <span class="introTable-title">費用</span>
+          </td>
+          <td>
+            <span class="introTable-data">{profile.fee}</span>
+            <span class="introTable-unit">/半小時</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="introTable-title">就讀/畢業</span>
+          </td>
+          <td>
+            <span class="introTable-data">
+              {profile.education.school}
+              <br />
+              {profile.education.major}
+              <br />
+              {profile.education.grade}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="introTable-title">學群</span>
+          </td>
+          <td>{showBlocks(profile.disciplines)}</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="introTable-title">諮詢項目</span>
+          </td>
+          <td>{showBlocks(profile.items)}</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="introTable-title">相關經歷/ 能力證明</span>
+          </td>
+          <td>
+            <span class="introTable-data">{profile.experiences}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="introTable-title">個人簡介</span>
+          </td>
+          <td>
+            <span class="introTable-data">{profile.intro}</span>
+          </td>
+        </tr>
+      </table>
+      {studentView && (
+        <tr class="introTable-calendar">
+          <td id="introTable-calendar">
+            <span class="introTable-title">可預約時間表</span>
+          </td>
+          <td>
+            <Calendar timeslot={profile.timeslot} editing={false} />
+          </td>
+        </tr>
+      )}
+    </>
   );
 };
 
