@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import Intro from "../Card/intro";
 import Account from "../Card/account";
 import Time from "../Card/time";
-
+import Announcement from "../img/announcement.svg";
 import "./ConsulProfile.css";
 import { ParamContext } from "../../../ContextReducer";
 
@@ -25,29 +25,58 @@ const tempProfile = {
   email: "b09102035@ntu.edu.tw",
   phone: "0966750761",
   password: "12345678abcde",
-};
-const showPage = (page, data) => {
-  if (page === "intro") return <Intro profile={data} />;
-  else if (page === "account") return <Account profile={data} />;
-  else if (page === "time") return <Time profile={data} />;
+  timeslot: [
+    "mon9:30",
+    "tue10:00",
+    "wed10:00",
+    "thu10:00",
+    "fri10:00",
+    "sat22:30",
+    "sat23:00",
+    "sat23:30",
+  ],
 };
 
 const ConsulProfile = () => {
   const [page, setPage] = useState("intro");
   const context = useContext(ParamContext)
+  const [studentView, setStudentView] = useState(false);
+
+  const showPage = (page) => {
+    if (page === "intro")
+      return (
+        <Intro
+          profile={tempProfile}
+          handleSudentView={(e) => setStudentView(e)}
+        />
+      );
+    else if (page === "account") return <Account profile={tempProfile} />;
+    else if (page === "time") return <Time profile={tempProfile} />;
+  };
 
   return (
     <div class="consulProfile">
-      <div>
-        <span class="consulProfile-title">個人檔案</span>
-        <div class="consulProfile-line"></div>
-        <div class="consulProfile-menu">
-          <button onClick={() => setPage("intro")}>基本資料</button>
-          <button onClick={() => setPage("account")}>帳戶設定</button>
-          <button onClick={() => setPage("time")}>時間表</button>
+      {studentView ? (
+        <div class="consulProfile-viewMode">
+          <div>
+            <img src={Announcement} alt="announce" />
+            <span>尋找顧問</span>
+          </div>
+          <div>顧問簡介</div>
         </div>
-      </div>
-      <div class="consulProfile-content">{showPage(page, context.Info.profile)}</div>
+      ) : (
+        <div>
+          <span class="consulProfile-title">個人檔案</span>
+          <div class="consulProfile-line"></div>
+          <div class="consulProfile-menu">
+            <button onClick={() => setPage("intro")}>基本資料</button>
+            <button onClick={() => setPage("account")}>帳戶設定</button>
+            <button onClick={() => setPage("time")}>時間表</button>
+          </div>
+        </div>
+      )}
+
+      <div class="consulProfile-content">{showPage(page)}</div>
     </div>
   );
 };

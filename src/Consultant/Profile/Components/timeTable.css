@@ -1,75 +1,8 @@
-.timeTable table {
-  /* width: 60%; */
-  margin-top: 50px;
-}
-
-.timeTable-weekday {
-  margin: 0 0 16px;
-  padding: 15px !important;
-  border-radius: 8px;
-  border: solid 1px #fff;
-  background-color: #80bccd;
-  font-family: GenSenRoundedTW-B;
-  font-size: 18px;
-  text-align: center;
-  color: #f5f5f5;
-}
 .timeTable-title {
   font-family: GenSenRoundedTW-B;
   font-size: 20px;
   color: #003b6b;
-}
-.timeTable-block,
-.timeTable-switch {
-  width: 72px;
-  height: 28px;
-}
-.timeTable-block {
-  border-radius: 4px;
-  border: solid 1px #fff;
-  background-color: #f5f5f5;
-}
-.timeTable-time {
-  font-family: GenSenRoundedTW-M;
-  font-size: 12px;
-  position: relative;
-  bottom: 16px;
-  left: 30px;
-  color: #003b6b;
-}
-.timetable-time-last {
-  bottom: 12px;
-}
-/* toggle-button (checkbox) */
-.timeTable-switch {
-  position: relative;
-  display: block;
-}
-
-.timeTable-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.timeTable-switch span {
-  cursor: pointer;
-  padding: auto;
-  border-radius: 8px;
-}
-
-.timeTable-toggleButton {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-input:checked + .timeTable-toggleButton {
-  background-color: #b0dde2;
+  padding: 30px;
 }
 div.timeTable {
   display: flex;

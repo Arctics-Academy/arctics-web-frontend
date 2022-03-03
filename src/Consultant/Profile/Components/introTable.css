@@ -5,11 +5,7 @@
 .introTable td:first-child {
   width: 10vw;
 }
-.introTable-main span {
-  font-family: GenSenRoundedTW-M;
-  text-align: left;
-  line-height: 1.5;
-}
+
 .introTable-title {
   font-size: 18px;
   color: #4bb3cc;
@@ -36,4 +32,10 @@
 }
 .introTable button {
   cursor: pointer;
+}
+
+#introTable-calendar {
+  padding: 20px;
+  vertical-align: top;
+  width: 10vw;
 }
