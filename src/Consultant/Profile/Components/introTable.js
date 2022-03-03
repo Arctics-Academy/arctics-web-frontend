@@ -16,7 +16,7 @@ const IntroTable = ({ profile, studentView }) => {
             <span class="introTable-title">費用</span>
           </td>
           <td>
-            <span class="introTable-data">{profile.fee}</span>
+            <span class="introTable-data">{profile.price}</span>
             <span class="introTable-unit">/半小時</span>
           </td>
         </tr>
@@ -26,11 +26,11 @@ const IntroTable = ({ profile, studentView }) => {
           </td>
           <td>
             <span class="introTable-data">
-              {profile.education.school}
+              {profile.school}
               <br />
-              {profile.education.major}
+              {profile.major}
               <br />
-              {profile.education.grade}
+              {profile.year}
             </span>
           </td>
         </tr>
@@ -38,13 +38,13 @@ const IntroTable = ({ profile, studentView }) => {
           <td>
             <span class="introTable-title">學群</span>
           </td>
-          <td>{showBlocks(profile.disciplines)}</td>
+          <td>{showBlocks(profile.field)}</td>
         </tr>
         <tr>
           <td>
             <span class="introTable-title">諮詢項目</span>
           </td>
-          <td>{showBlocks(profile.items)}</td>
+          <td>{showBlocks(profile.labels)}</td>
         </tr>
         <tr>
           <td>
@@ -69,7 +69,7 @@ const IntroTable = ({ profile, studentView }) => {
             <span class="introTable-title">可預約時間表</span>
           </td>
           <td>
-            <Calendar timeslot={profile.timeslot} editing={false} />
+            <Calendar timeslot={profile.timetable} editing={false} />
           </td>
         </tr>
       )}

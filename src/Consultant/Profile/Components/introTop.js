@@ -6,11 +6,12 @@ import Eye from "../img/eye-no-lash.svg";
 import Check from "../img/black-check.svg";
 import X from "../img/white-x.svg";
 import Calendar from "../img/calendar.svg";
+import { updateProfileData, updateStudentID } from "../../../axios";
 
 import "./introTop.css";
 
-const IntroTop = ({ profile, page, toEditMode }) => {
-  const { name, count, star } = profile;
+const IntroTop = ({ profile, page, changePage }) => {
+  const { surname, name, count, star } = profile;
   const handleClickEdit = () => {
     changePage("intro-edit");
   };
@@ -90,13 +91,13 @@ const IntroTop = ({ profile, page, toEditMode }) => {
         <img class="introTop-photo" src={Photo} alt="camera" />
       </div>
       <div class="introTop">
-        <span class="introTop-name">{name}</span>
+        <span class="introTop-name">{surname}{name}</span>
         <div>
           <span class="introTop-already">已諮詢</span>
           <span class="introTop-times">{count}次</span>
         </div>
         {page !== "account" && (
-          <div>
+          <div hidden={(star<=3 || star===undefined)? true:false}>
             <span>
               <img class="introTop-star" src={Star} alt="star" />
             </span>

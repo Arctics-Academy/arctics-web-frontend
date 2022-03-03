@@ -69,7 +69,21 @@ const verifyMobileOTP = async (payload) => {
   return { status, msg: message }
 }
 
+const updateProfileData = async (payload) => {
+  const { data: { status, message } } = await instance.post('/api/consultant/profile/update', {
+    ...payload
+  })
+  return { status, msg: message }
+}
+
+const updateStudentID = async (payload) => {
+  const { data: { status, message } } = await instance.post('/api/consultant/profile/student-id/update', payload)
+  console.log(status, message)
+  return { status, msg: message }
+}
+
 export { submitSubscriber, submitMessageForm, 
   submitConsultantRegistrationData, submitConsultantLoginData,
-  sendEmailOTP, verifyEmailOTP, sendMobileOTP, verifyMobileOTP
+  sendEmailOTP, verifyEmailOTP, sendMobileOTP, verifyMobileOTP,
+  updateProfileData, updateStudentID
 }

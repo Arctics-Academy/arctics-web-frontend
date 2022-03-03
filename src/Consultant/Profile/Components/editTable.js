@@ -1,5 +1,5 @@
 import "./editTable.css";
-
+import { updateStudentID } from "../../../axios";
 import { ReactComponent as Upload } from "../img/black-upload.svg"
 
 const EditTable = ({ profile }) => {
@@ -87,7 +87,7 @@ const EditTable = ({ profile }) => {
             <Upload />
             更新學生證
             <span>
-              <input type="file" id="myfile" name="myfile" />
+              <input type="file" id="myfile" name="studentIdScan" />
             </span>
           </label>
         </div>

@@ -46,12 +46,12 @@ const ConsulProfile = () => {
     if (page === "intro")
       return (
         <Intro
-          profile={tempProfile}
+          profile={context.Info.profile}
           handleSudentView={(e) => setStudentView(e)}
         />
       );
-    else if (page === "account") return <Account profile={tempProfile} />;
-    else if (page === "time") return <Time profile={tempProfile} />;
+    else if (page === "account") return <Account profile={context.Info.profile} />;
+    else if (page === "time") return <Time profile={context.Info.profile} />;
   };
 
   return (
