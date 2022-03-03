@@ -48,13 +48,16 @@ const reducer = (state, action) => {
         case 'login':
             return {
                 id: action.payload.id,
-                email: action.payload.email,
-                name: action.payload.name,
-                surname: action.payload.surname,
+                announcement: action.payload.announcement,
+                name: action.payload.profile.name,
+                surname: action.payload.profile.surname,
                 identity: action.payload.identity,
-                mobile: action.payload.mobile,
+                mobile: action.payload.profile.mobile,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
+                purse: action.payload.purse,
+                profile: action.payload.profile,
+                notifications: action.payload.notifications,
                 receipts: action.payload.receipts,
                 withdrawableAmount: sumAmount('未提領', action.payload.receipts),
                 withdrawedAmount: sumAmount('已提領', action.payload.receipts)

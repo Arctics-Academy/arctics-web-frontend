@@ -7,7 +7,7 @@ import Calendar from "../img/calendar.svg";
 import "./introTop.css";
 
 const IntroTop = ({ profile, page, toEditMode }) => {
-  const { name, times, star } = profile;
+  const { name, count, star } = profile;
   const handleClickEdit = () => {
     toEditMode(true);
   };
@@ -75,7 +75,7 @@ const IntroTop = ({ profile, page, toEditMode }) => {
         <span class="introTop-name">{name}</span>
         <div>
           <span class="introTop-already">已諮詢</span>
-          <span class="introTop-times">{times}次</span>
+          <span class="introTop-times">{count}次</span>
         </div>
         {page !== "account" && (
           <div>

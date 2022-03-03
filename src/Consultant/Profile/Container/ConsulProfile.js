@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Intro from "../Card/intro";
 import Account from "../Card/account";
 import Time from "../Card/time";
 
 import "./ConsulProfile.css";
+import { ParamContext } from "../../../ContextReducer";
 
 const tempProfile = {
   name: "梁芮瑄",
@@ -25,14 +26,16 @@ const tempProfile = {
   phone: "0966750761",
   password: "12345678abcde",
 };
-const showPage = (page) => {
-  if (page === "intro") return <Intro profile={tempProfile} />;
-  else if (page === "account") return <Account profile={tempProfile} />;
-  else if (page === "time") return <Time profile={tempProfile} />;
+const showPage = (page, data) => {
+  if (page === "intro") return <Intro profile={data} />;
+  else if (page === "account") return <Account profile={data} />;
+  else if (page === "time") return <Time profile={data} />;
 };
 
 const ConsulProfile = () => {
   const [page, setPage] = useState("intro");
+  const context = useContext(ParamContext)
+
   return (
     <div class="consulProfile">
       <div>
@@ -44,7 +47,7 @@ const ConsulProfile = () => {
           <button onClick={() => setPage("time")}>時間表</button>
         </div>
       </div>
-      <div class="consulProfile-content">{showPage(page)}</div>
+      <div class="consulProfile-content">{showPage(page, context.Info.profile)}</div>
     </div>
   );
 };

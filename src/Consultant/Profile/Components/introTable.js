@@ -14,7 +14,7 @@ const IntroTable = ({ profile }) => {
           <span class="introTable-title">費用</span>
         </td>
         <td>
-          <span class="introTable-data">{profile.fee}</span>
+          <span class="introTable-data">{profile.price}</span>
           <span class="introTable-unit">/半小時</span>
         </td>
       </tr>
@@ -24,11 +24,11 @@ const IntroTable = ({ profile }) => {
         </td>
         <td>
           <span class="introTable-data">
-            {profile.education.school}
+            {profile.school}
             <br />
-            {profile.education.major}
+            {profile.major===undefined? '':profile.major}
             <br />
-            {profile.education.grade}
+            {profile.year}
           </span>
         </td>
       </tr>
@@ -36,20 +36,20 @@ const IntroTable = ({ profile }) => {
         <td>
           <span class="introTable-title">學群</span>
         </td>
-        <td>{showBlocks(profile.disciplines)}</td>
+        <td>{showBlocks(profile.field)}</td>
       </tr>
       <tr>
         <td>
           <span class="introTable-title">諮詢項目</span>
         </td>
-        <td>{showBlocks(profile.items)}</td>
+        <td>{showBlocks(profile.labels)}</td>
       </tr>
       <tr>
         <td>
           <span class="introTable-title">相關經歷/ 能力證明</span>
         </td>
         <td>
-          <span class="introTable-data">{profile.experiences}</span>
+          <span class="introTable-data">{profile.experiences===undefined? '':profile.experiences}</span>
         </td>
       </tr>
       <tr>
@@ -57,7 +57,7 @@ const IntroTable = ({ profile }) => {
           <span class="introTable-title">個人簡介</span>
         </td>
         <td>
-          <span class="introTable-data">{profile.intro}</span>
+          <span class="introTable-data">{profile.intro===undefined? '':profile.intro}</span>
         </td>
       </tr>
     </table>

@@ -31,7 +31,7 @@ const weekDays = [
     key: "sat",
   },
 ];
-
+//TODO: return => preselected->checked, rest->unchecked
 const myTimeTable = (timeArray) => {
   return (
     <>
@@ -77,11 +77,10 @@ const Time = ({ profile }) => {
         }
       }
     }
-
     setTimeArr(timeArray);
   };
   const [timeArr, setTimeArr] = useState([]);
-  useEffect(genTimeArray, [timeArr]);
+  //useEffect(genTimeArray, [timeArr]);
   return (
     <div class="timeTable">
       <div class="timeTable-section">
