@@ -52,8 +52,69 @@
     border-radius: 8px;
 }
 
+.exp_internal-error-main {
+    padding: 200px 10% 120px 10%;
+    background-color: #003B6B;
+}
+
+.exp_internal-error-background {
+    width: 1000px;
+    position: absolute;
+    bottom: 0px;
+    right: -150px;
+}
+
+.exp_internal-error-heading {
+    color: #fff;
+    font-size: 1200%;
+    text-shadow: 6px 0px #F2D60F;
+    padding-bottom: 64px;
+}
+
+.exp_internal-error-text {
+    font-size: 120%;
+    padding-bottom: 4px;
+    color: #fff;
+}
+
+.exp_internal-error-list {
+    font-size: 120%;
+    padding-bottom: 16px;
+    color: #fff;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.exp_internal-error-list-item {
+    margin-bottom: 8px;
+}
+
+.exp_internal-error-action {
+    text-decoration: underline;
+    color: #F2D60F;
+}
+.exp_internal-error-action:hover {
+    text-decoration: underline;
+    color: #F2D60F;
+}
+
+.exp_internal-error-link {
+    text-decoration: underline;
+    color: #AFEFF0;
+}
+.exp_internal-error-link:hover {
+    text-decoration: underline;
+    color: #AFEFF0;
+}
+
 @media only screen and (max-width: 1100px) {
     .exp_not-found-background {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .exp_internal-error-background {
         display: none;
     }
 }
