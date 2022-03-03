@@ -3,7 +3,10 @@ import Avatar from "../img/tmp_avatar.png";
 import Star from "../img/star.svg";
 import Pen from "../img/edit-pen.svg";
 import Eye from "../img/eye-no-lash.svg";
+import Check from "../img/black-check.svg";
+import X from "../img/white-x.svg";
 import Calendar from "../img/calendar.svg";
+
 import "./introTop.css";
 
 const IntroTop = ({ profile, page, toEditMode }) => {
@@ -36,13 +39,13 @@ const IntroTop = ({ profile, page, toEditMode }) => {
     edit: [
       {
         text: "取消",
-        src: "",
+        src: X,
         key: "cancel",
         onClick: () => handleClickCancel(),
       },
       {
         text: "確認",
-        src: "",
+        src: Check,
         key: "confirm",
         onClick: () => handleClickConfirm(),
       },
