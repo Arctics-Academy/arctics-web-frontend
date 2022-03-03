@@ -9,6 +9,8 @@ import { submitConsultantRegistrationData } from "../axios"
 import { sendEmailOTP } from "../axios"
 import { ParamContext } from "../ContextReducer"
 
+import MetaTags from 'react-meta-tags'
+
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -51,6 +53,9 @@ const Register = () => {
 
     return (
         <div className="register-main">
+            <MetaTags>
+                <title>註冊 | Arctics</title>
+            </MetaTags>
             <form className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
                 <div className="register-image-block">
                     <img className="register-image" src={IcebergImage} />

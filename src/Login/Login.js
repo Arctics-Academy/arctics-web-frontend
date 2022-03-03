@@ -7,6 +7,8 @@ import Loading from './img/loading48.gif'
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
 
+import MetaTags from 'react-meta-tags'
+
 const Login = () => {
     const [account, setAccount] = useState('')
     const [password, setPassword] = useState('')
@@ -58,6 +60,9 @@ const Login = () => {
 
     return (
         <div className="login_main">
+            <MetaTags>
+                <title>登入 | Arctics</title>
+            </MetaTags>
             <div className="login_form">
                 <div className="login_title">
                     <Lock className="login_lock_icon"/>

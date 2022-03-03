@@ -5,10 +5,15 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { ParamContext } from '../ContextReducer'
 
+import MetaTags from 'react-meta-tags'
+
 const RegisterSuccess = () => {
     const context = useContext(ParamContext)
     return (
         <div className='reg-success-main'>
+            <MetaTags>
+                <title>註冊成功 | Arctics</title>
+            </MetaTags>
             <img className='reg-success-iceland' src={IcelandImg} />
             <img className='reg-success-icelandbear' src={IcelandBearImg} />
             <div className='reg-success-message'>

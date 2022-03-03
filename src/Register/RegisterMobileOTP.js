@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { sendMobileOTP, verifyMobileOTP } from '../axios'
 import { ParamContext } from '../ContextReducer'
 
+import MetaTags from 'react-meta-tags'
+
 const ShowValidCode = ({ input }) => {
     return (
         <>
@@ -105,6 +107,9 @@ const RegisterMobileOTP = () => {
 
     return (
         <div className='reg-validate-main' tabIndex={0} onKeyDown={handleKeyboardOnkeydown}>
+            <MetaTags>
+                <title>驗證手機號碼 | Arctics</title>
+            </MetaTags>
             <div className='reg-validate-body'>
                 <div className='reg-validate-message'>
                     <p className='reg-validate-text'>我們會寄出一組驗證碼到你的手機</p>

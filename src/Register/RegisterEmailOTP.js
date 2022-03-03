@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { sendEmailOTP, verifyEmailOTP, sendMobileOTP } from '../axios'
 import { ParamContext } from '../ContextReducer'
 
+import MetaTags from 'react-meta-tags'
+
 const ShowValidCode = ({ input }) => {
     return (
         <>
@@ -107,6 +109,9 @@ const RegisterEmailOTP = () => {
 
     return (
         <div className='reg-validate-main' tabIndex={0} onKeyDown={handleKeyboardOnkeydown}>
+            <MetaTags>
+                <title>驗證電子郵件 | Arctics</title>
+            </MetaTags>
             <div className='reg-validate-body'>
                 <div className='reg-validate-message'>
                     <p className='reg-validate-text'>我們會寄出一組驗證碼到你的Email</p>
