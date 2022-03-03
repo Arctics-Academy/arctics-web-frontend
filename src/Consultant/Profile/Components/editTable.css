@@ -102,7 +102,7 @@
 /*upload file*/
 
 label.editTable-filebutton {
-  padding: 3px;
+  padding: 5px 15px;
   border: 0;
   overflow: hidden;
   position: relative;
@@ -124,8 +124,6 @@ label span input {
   filter: alpha(opacity = 0);
   -ms-filter: "alpha(opacity=0)";
   cursor: pointer;
-
-  padding: 0;
   width: 170%;
 }
 /* toggle-button (checkbox) */
