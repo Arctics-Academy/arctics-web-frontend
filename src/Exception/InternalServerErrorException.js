@@ -1,9 +1,14 @@
 import './exception.css'
 import { ReactComponent as Background } from './img/internal-error-background.svg'
 
+import MetaTags from 'react-meta-tags'
+
 const NotFoundException = () => {
     return (
         <div className='exp_internal-error-main'>
+            <MetaTags>
+                <title>內部伺服器錯誤 | Arctics</title>
+            </MetaTags>
             <Background className='exp_internal-error-background'/>
             <div>
                 <h1 className='exp_internal-error-heading'>500</h1>
@@ -15,7 +20,7 @@ const NotFoundException = () => {
                     <li className='exp_internal-error-list-item'>2 重新載入頁面</li>
                     <li className='exp_internal-error-list-item'>3 回到<a className='exp_internal-error-link'>首頁</a></li>
                 </ul>
-                <p className='exp_internal-error-text'>如果您持續遇到問題，也可以<a className='exp_internal-error-link'>寫信回報</a>給我們。我們會盡快處理！</p>
+                <p className='exp_internal-error-text'>如果您持續遇到問題，麻煩您<a className='exp_internal-error-link'>寫信回報</a>給我們。我們會盡快處理！</p>
             </div>
         </div>
     )
