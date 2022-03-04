@@ -30,11 +30,7 @@ const IntroTable = ({ profile, studentView }) => {
           </td>
           <td>
             <span class="introTable-data">
-              {profile.school}
-              <br />
-              {profile.major}
-              <br />
-              {profile.year}
+              {profile.school} {profile.major} {profile.year}
             </span>
           </td>
         </tr>
@@ -52,7 +48,7 @@ const IntroTable = ({ profile, studentView }) => {
         </tr>
         <tr>
           <td>
-            <span class="introTable-title">相關經歷/ 能力證明</span>
+            <span class="introTable-title">相關經歷/<br />能力證明</span>
           </td>
           <td>
             <span class="introTable-data">{profile.experiences}</span>
