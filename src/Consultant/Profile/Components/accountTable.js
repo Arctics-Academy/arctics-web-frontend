@@ -67,18 +67,18 @@ const Account = ({ profile, hidden, setHidden }) => {
                 <>
                   <div class="account-data">
                     {myEmail}
-                    <button
+                    {/* <button
                       class="account-pen"
                       onClick={() => {
                         setEditingEmail(true);
                       }}
                     >
                       <img src={Pen} alt="pen" />
-                    </button>
+                    </button> */}
                   </div>
-                  <button class="account-backup" onClick={displayDisableModal}>
+                  {/* <button class="account-backup" onClick={displayDisableModal}>
                     {myAccount.email.backupText}
-                  </button>
+                  </button> */}
                 </>
               )}
             </td>
@@ -112,18 +112,18 @@ const Account = ({ profile, hidden, setHidden }) => {
                 <>
                   <div class="account-data">
                     {myPhone}
-                    <button
+                    {/* <button
                       class="account-pen"
                       onClick={() => {
                         setEditingPhone(true);
                       }}
                     >
                       <img src={Pen} alt="pen" />
-                    </button>
+                    </button> */}
                   </div>
-                  <button class="account-backup" onClick={displayDisableModal}>
+                  {/* <button class="account-backup" onClick={displayDisableModal}>
                     {myAccount.phone.backupText}
-                  </button>
+                  </button> */}
                 </>
               )}
             </td>
@@ -170,15 +170,16 @@ const Account = ({ profile, hidden, setHidden }) => {
               ) : (
                 <>
                   <div class="account-data">
-                    {hidePassword(myPw)}
-                    <button
+                    ●●●●●●●●
+                    {/* {hidePassword(myPw)} */}
+                    {/* <button
                       class="account-pen"
                       onClick={() => {
                         setEditingPw(true);
                       }}
                     >
                       <img src={Pen} alt="pen" />
-                    </button>
+                    </button> */}
                   </div>
                 </>
               )}
