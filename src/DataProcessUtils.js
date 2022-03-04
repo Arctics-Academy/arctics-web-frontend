@@ -76,6 +76,16 @@ const stringToDateObject = (list) => {
     return newList
 }
 
+const stringToDateObject2 = (list) => {
+    let newList = []
+    list.map((e) => {
+        let ne = {...e}
+        ne.timestamp = new Date(e.timestamp)
+        newList.push(ne)
+    })
+    return newList
+}
+
 const retrieveDateObject = (list) => {
     let future = stringToDateObject(list.future), past = stringToDateObject(list.past), cancelled = stringToDateObject(list.cancelled)
     return { future, past, cancelled }
@@ -156,6 +166,16 @@ const resolveListData = (list) => {
     return { future, past, cancelled }
 }
 
+const convertBase64ForImage = (photo) => {
+    /*
+    const str = photo.data.toString('base64')
+    return `data:${photo.type};base64,${str}`
+    */
+    let imgEncodedString = (new Buffer(photo.data)).toString('base64')
+    let srcString = `data:${photo.type};base64,${imgEncodedString}`
+    return srcString
+}
+
 const wrapLoginData = (data, identity) => {
     const meetings = retrieveDateObject(data.meetings)
     const wrappedData = {
@@ -164,8 +184,14 @@ const wrapLoginData = (data, identity) => {
         meetingsByTime: transformStatusListIntoCalender(meetings),
         meetingsByStatus: resolveListData(meetings),
         notifications: data.notifications,
-        profile: data.profile,
-        purse: data.purse,
+        profile: {
+            ...data.profile,
+            photo: convertBase64ForImage(data.profile.photo)
+        },
+        purse: {
+            ...data.purse,
+            transactions: stringToDateObject2(data.purse.transactions)
+        },
         identity: identity,
     }
 
@@ -210,8 +236,8 @@ const wrapTimetable = (timeslot) => {
 }
 
 const timeComp2 = (a, b) => {
-    if (a.timestamp > b.timestamp) return 1
-    else if (a.timestamp < b.timestamp) return -1
+    if (a.timestamp > b.timestamp) return -1
+    else if (a.timestamp < b.timestamp) return 1
     else return 0
 }
 

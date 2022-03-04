@@ -13,7 +13,7 @@ const listBody = (receipt) => {
         return (
             receipt.map((e) => (
                 <li className='clt_home-purse-list-out'>
-                    <span className='clt_home-purse-list-out-date'>{e.timestamp}</span>
+                    <span className='clt_home-purse-list-out-date'>{e.timestamp.toLocaleString()}</span>
                     <span className='clt_home-purse-list-out-amount'>{e.amount}元</span>
                 </li>
             ))

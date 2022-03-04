@@ -7,11 +7,14 @@ import Check from "../img/black-check.svg";
 import X from "../img/white-x.svg";
 import Calendar from "../img/calendar.svg";
 import { updateProfileData, updateStudentID } from "../../../axios";
+import { useContext } from "react";
+import { ParamContext } from "../../../ContextReducer";
 
 import "./introTop.css";
 
-const IntroTop = ({ profile, page, changePage }) => {
+const IntroTop = ({ profile, page, changePage, setHidden }) => {
   const { surname, name, count, star } = profile;
+  const context = useContext(ParamContext)
   const handleClickEdit = () => {
     changePage("intro-edit");
   };
@@ -87,29 +90,31 @@ const IntroTop = ({ profile, page, changePage }) => {
     else return;
   };
   return (
-    <div class="introTop">
+    <>
       <div class="introTop">
-        <img class="introTop-avatar" src={Avatar} alt="my avatar" />
-        <img class="introTop-photo" src={Photo} alt="camera" />
-      </div>
-      <div class="introTop">
-        <span class="introTop-name">{surname}{name}</span>
-        <div>
-          <span class="introTop-already">已諮詢</span>
-          <span class="introTop-times">{count}次</span>
+        <div class="introTop">
+          <img class="introTop-avatar" src={context.Info.profile.photo} alt="my avatar" />
+          <img class="introTop-photo" src={Photo} alt="camera" onClick={()=>setHidden(false)} />
         </div>
-        {page !== "account" && (
-          <div hidden={(star<=3 || star===undefined)? true:false}>
-            <span>
-              <img class="introTop-star" src={Star} alt="star" />
-            </span>
-            <span class="introTop-point">{star}</span>
+        <div class="introTop">
+          <span class="introTop-name">{surname}{name}</span>
+          <div>
+            <span class="introTop-already">已諮詢</span>
+            <span class="introTop-times">{count}次</span>
           </div>
-        )}
-      </div>
+          {page !== "account" && (
+            <div hidden={(star<=3 || star===undefined)? true:false}>
+              <span>
+                <img class="introTop-star" src={Star} alt="star" />
+              </span>
+              <span class="introTop-point">{star}</span>
+            </div>
+          )}
+        </div>
 
-      {showButtonByPage(page)}
-    </div>
+        {showButtonByPage(page)}
+      </div>
+    </>
   );
 };
 

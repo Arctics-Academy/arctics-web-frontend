@@ -82,8 +82,19 @@ const updateStudentID = async (payload) => {
   return { status, msg: message }
 }
 
+const updateProfilePhoto = async (payload) => {
+  const { data: {status, message } } = await instance.post('/api/consultant/profile/photo/update', payload)
+  console.log(status, message)
+  return { status, msg: message }
+}
+
+const authFetchAllData = async () => {
+  const { status, data } = await instance.get('/api/system/consultant')
+  return { status, data }
+}
+
 export { submitSubscriber, submitMessageForm, 
   submitConsultantRegistrationData, submitConsultantLoginData,
   sendEmailOTP, verifyEmailOTP, sendMobileOTP, verifyMobileOTP,
-  updateProfileData, updateStudentID
+  updateProfileData, updateStudentID, updateProfilePhoto, authFetchAllData
 }

@@ -32,7 +32,6 @@ const Register = () => {
                 payload: wrapLoginData(data, 'consultant'),
             })
             context.setLogin(true)
-            history.push('/consultant-home')
             const otpRequest = await sendEmailOTP({id:data.id})
             console.log(otpRequest.status, otpRequest.msg)
             setLoading(false)

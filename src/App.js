@@ -18,16 +18,30 @@ import NotFoundException from './Exception/NotFoundException';
 import InternalServerErrorException from './Exception/InternalServerErrorException'
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 import './style.css';
 //import './responsive.css';
 import ContextReducer from "./ContextReducer";
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
+import { useEffect, useState } from 'react';
+import { authFetchAllData } from './axios';
 
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json !
 const App = () => {
+  const [auth, setAuth] = useState(false)
+  useEffect(async () => {
+    console.log('reload')
+    const { status, data } = await authFetchAllData();
+    console.log(status, data.status, data.message)
+    if (status === 'success') {
+      setAuth(true)
+    } else {
+      setAuth(false)
+    }
+  }, [])
   return (
     <div className="App">
       <ContextReducer>
@@ -53,6 +67,7 @@ const App = () => {
           <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
           <Route exact path="/exception/404" component={NotFoundException} />
           <Route exact path="/exception/500" component={InternalServerErrorException} />
+          <Redirect from='*' to='/exception/404' />
         </Switch>
         <Foot />
       </ContextReducer>

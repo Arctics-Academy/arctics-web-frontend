@@ -3,8 +3,9 @@ import IntroTop from "../Components/introTop";
 import EditTable from "../Components/editTable";
 import IntroTable from "../Components/introTable";
 import Line1 from "../Components/line1";
+import ProfilePhotoModal from "../../../Modals/consultant/profilePhotoModal";
 
-const Intro = ({ id, profile, handleStudentView }) => {
+const Intro = ({ id, profile, handleStudentView, setHidden }) => {
   const [mode, setMode] = useState("intro-main");
   const getMode = (mode, profile) => {
     if (mode === "intro-main") {
@@ -21,7 +22,7 @@ const Intro = ({ id, profile, handleStudentView }) => {
 
   return (
     <>
-      <IntroTop profile={profile} page={mode} changePage={(e) => setMode(e)} />
+      <IntroTop profile={profile} page={mode} changePage={(e) => setMode(e)} setHidden={setHidden} />
       <Line1 />
       {getMode(mode, profile)}
     </>

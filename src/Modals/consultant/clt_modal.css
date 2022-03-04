@@ -90,6 +90,7 @@
 
 .clt_modal-upload-button {
     /* Button Display */
+    text-align: center;
     display: block;
     width: 100%;
     margin: 0 0 8px 0;
@@ -104,6 +105,14 @@
     font-family: var(--heading-font);
 }
 
+.clt_modal-upload-button:hover {
+    cursor: pointer;
+}
+
+#upload {
+    display: none;
+}
+
 .clt_modal-delete-button {
     /* Button Display */
     display: block;
@@ -115,6 +124,23 @@
     /* Button Color */
     background-color: #4bb3cc;
     color: #fff;
+    /* Button Font */
+    font-size: 100%;
+    font-family: var(--heading-font);
+}
+
+.clt_modal-cancel-button {
+    /* Button Display */
+    display: block;
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 12px 0 12px 0;
+    border: 0;
+    border-radius: 8px;
+    /* Button Color */
+    background-color: #fff;
+    border: solid 1px #f2d60f;
+    color: #f2d60f;
     /* Button Font */
     font-size: 100%;
     font-family: var(--heading-font);

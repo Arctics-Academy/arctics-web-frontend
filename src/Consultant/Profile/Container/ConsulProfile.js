@@ -5,6 +5,7 @@ import Time from "../Card/time";
 import Announcement from "../img/announcement.svg";
 import "./ConsulProfile.css";
 import { ParamContext } from "../../../ContextReducer";
+import ProfilePhotoModal from "../../../Modals/consultant/profilePhotoModal";
 
 const tempProfile = {
   name: "梁芮瑄",
@@ -40,6 +41,7 @@ const tempProfile = {
 
 const ConsulProfile = () => {
   const [page, setPage] = useState("intro");
+  const [hidden, setHidden] = useState(true)
   const context = useContext(ParamContext);
   const [studentView, setStudentView] = useState(false);
 
@@ -50,6 +52,7 @@ const ConsulProfile = () => {
           id={context.Info.id}
           profile={context.Info.profile}
           handleStudentView={(e) => setStudentView(e)}
+          setHidden={setHidden}
         />
       );
     else if (page === "account")
@@ -58,29 +61,32 @@ const ConsulProfile = () => {
   };
 
   return (
-    <div class="consulProfile">
-      {studentView ? (
-        <div class="consulProfile-viewMode">
+    <>
+      <ProfilePhotoModal hidden={hidden} setHidden={setHidden} />
+      <div class="consulProfile"> 
+        {studentView ? (
+          <div class="consulProfile-viewMode">
+            <div>
+              <img src={Announcement} alt="announce" />
+              <span>尋找顧問</span>
+            </div>
+            <div>顧問簡介</div>
+          </div>
+        ) : (
           <div>
-            <img src={Announcement} alt="announce" />
-            <span>尋找顧問</span>
+            <span class="consulProfile-title">個人檔案</span>
+            <div class="consulProfile-line"></div>
+            <div class="consulProfile-menu">
+              <button onClick={() => setPage("intro")}>基本資料</button>
+              <button onClick={() => setPage("account")}>帳戶設定</button>
+              <button onClick={() => setPage("time")}>時間表</button>
+            </div>
           </div>
-          <div>顧問簡介</div>
-        </div>
-      ) : (
-        <div>
-          <span class="consulProfile-title">個人檔案</span>
-          <div class="consulProfile-line"></div>
-          <div class="consulProfile-menu">
-            <button onClick={() => setPage("intro")}>基本資料</button>
-            <button onClick={() => setPage("account")}>帳戶設定</button>
-            <button onClick={() => setPage("time")}>時間表</button>
-          </div>
-        </div>
-      )}
+        )}
 
-      <div class="consulProfile-content">{showPage(page)}</div>
-    </div>
+        <div class="consulProfile-content">{showPage(page)}</div>
+      </div>
+    </>
   );
 };
 

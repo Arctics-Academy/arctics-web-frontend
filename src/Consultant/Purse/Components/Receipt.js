@@ -85,7 +85,7 @@ const Receipt = () => {
                 data.map((e) => {
                     return (
                         <div className='clt_purse-list-item'>
-                            <span className='clt_purse-list-item-timestamp'>{e.timestamp}</span>
+                            <span className='clt_purse-list-item-timestamp'>{e.timestamp.toLocaleString()}</span>
                             <span className='clt_purse-list-item-content'>{e.content}</span>
                             <span className='clt_purse-list-item-amount'>{e.amount}</span>
                             <span className='clt_purse-list-item-balance'>{e.balance}</span>
@@ -104,10 +104,10 @@ const Receipt = () => {
         <div className='clt_purse-receipt-body'>
             <div className='clt_purse-display-amount'>
                 <div className='clt_purse-receipt-display-available'>
-                    <DisplayMoney title={'可提領金額'} amount={context.Info.withdrawableAmount} />
+                    <DisplayMoney title={'可提領金額'} amount={context.Info.purse.balance} />
                 </div>
                 <div className='clt_purse-receipt-display-unwithdrawed'>
-                    <DisplayMoney title={'已提領'} amount={context.Info.withdrawedAmount} />
+                    <DisplayMoney title={'已提領'} amount={context.Info.purse.withdrawn} />
                 </div>
             </div>
             <div className='clt_purse-sep-line' />
