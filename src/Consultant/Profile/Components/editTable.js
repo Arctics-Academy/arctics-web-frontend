@@ -31,6 +31,8 @@ const EditTable = ({ id, profile, changePage }) => {
 
   const handleFilledData = async (data) => {
     console.log(data)
+    if (data.labels === false) data.labels = []
+    if (data.field === false) data.field = []
     if (data.studentIdScan !== undefined && data.studentIdScan[0] !== undefined && data.studentIdScan[0] !== lastSubmittedFile) {
       const fdt = new FormData()
       fdt.append('studentIdScan', data.studentIdScan[0])

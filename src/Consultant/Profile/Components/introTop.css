@@ -1,6 +1,7 @@
 .introTop {
   display: inline-block;
   margin: 10px 20px;
+  font-family: var(--heading-font);
 }
 
 .introTop span {
@@ -9,6 +10,7 @@
 .introTop-avatar {
   border-radius: 10%;
   max-width: 225px;
+  opacity: 0.5;
 }
 .introTop-photo {
   position: relative;
@@ -25,32 +27,32 @@
 }
 
 .introTop-name {
-  font-family: GenSenRoundedTW-B;
+  /*font-family: GenSenRoundedTW-B;*/
   font-size: 20px;
   text-align: left;
   color: #003b6b;
 }
 
 .introTop-already {
-  font-family: GenSenRoundedTW-M;
+  /*font-family: GenSenRoundedTW-M;*/
   font-size: 18px;
   line-height: 1.5;
   color: #4bb3cc;
 }
 .introTop-times {
-  font-family: GenSenRoundedTW-M;
+  /*font-family: GenSenRoundedTW-M;*/
   font-size: 24px;
   color: #003b6b;
 }
 
 .introTop-point {
-  font-family: GenSenRoundedTW-B;
+  /*font-family: GenSenRoundedTW-B;*/
   font-size: 48px;
   color: #003b6b;
 }
 .introTop button {
   margin: 3.7px;
-  font-family: GenSenRoundedTW-B;
+  /*font-family: GenSenRoundedTW-B;*/
   font-size: 16px;
   text-align: left;
   border-radius: 10px;

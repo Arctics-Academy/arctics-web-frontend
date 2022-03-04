@@ -2,9 +2,9 @@ import './system_modal.css'
 import { ReactComponent as RedExclamationPoint } from '../img/red-exclamation-point.svg'
 
 
-const ProfilePhotoModal = () => {
+const EmptyFunctionModal = ({hidden, setHidden}) => {
     return (
-        <div className='sys_modal-open-meeting'>
+        <div className='sys_modal-open-meeting' style={hidden? {display:'none'}:{}}>
             <div className='sys_modal-open-meeting-info'>
                 <div className='sys_modal-empty-function-icon-area'>
                     <RedExclamationPoint className='sys_modal-empty-function-icon' />
@@ -12,11 +12,11 @@ const ProfilePhotoModal = () => {
                     <p className='sys_modal-empty-function-text'>進階功能還在努力開發中，請以後再回來看看！</p>
                 </div>
                 <div className='sys_modal-empty-function-button-area'>
-                    <button className='sys_modal-empty-function-button'>回上一頁</button>
+                    <button className='sys_modal-empty-function-button' onClick={()=>setHidden(true)}>回上一頁</button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default ProfilePhotoModal
+export default EmptyFunctionModal

@@ -171,6 +171,7 @@ const convertBase64ForImage = (photo) => {
     const str = photo.data.toString('base64')
     return `data:${photo.type};base64,${str}`
     */
+    if (photo === undefined || photo === null || photo.data === undefined || photo.type === undefined) return 'NotFound' 
     let imgEncodedString = (new Buffer(photo.data)).toString('base64')
     let srcString = `data:${photo.type};base64,${imgEncodedString}`
     return srcString

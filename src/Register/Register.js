@@ -91,22 +91,22 @@ const Register = () => {
                     </div>
                     <div className="register-institution">
                         <div className="register-school">
-                            <select className="register-school-inputbox" placeholder="就讀學校" {...register('school', {required: true})}>
-                                <option selected disabled >請選擇就讀學校</option>
+                            <select className="register-school-inputbox" placeholder="就讀學校" {...register('school', {required: true, validate: {checkOption: (val)=>(val!=="就讀學校")}})}>
+                                {<option selected disabled>就讀學校</option>}
                                 {displayOptions(schoolList)}
                             </select>
-                            {errors.school && <span className="register-error-message" id='school'>請填入就讀學校!</span>}
+                            {errors.school && <span className="register-error-message" id='school'>請選擇就讀學校!</span>}
                         </div>
                         <div className="register-grade">
-                            <select className="register-grade-inputbox" placeholder="年級" {...register('year', {required: true})}>
-                                <option selected disabled >請選擇年級</option>
+                            <select className="register-grade-inputbox" placeholder="年級" {...register('year', {required: true, validate: {checkOption: (val)=>(val!=="年級")}})}>
+                                <option selected disabled >年級</option>
                                 <option value={'一年級'} >一年級</option>
                                 <option value={'二年級'} >二年級</option>
                                 <option value={'三年級'} >三年級</option>
                                 <option value={'四年級'} >四年級</option>
                                 <option value={'四年級以上'} >四年級以上</option>
                             </select>
-                            {errors.year && <span className="register-error-message" id='grade'>請填入年級!</span>}
+                            {errors.year && <span className="register-error-message" id='grade'>請選擇年級!</span>}
                         </div>    
                     </div>
                     <div className="register-email">

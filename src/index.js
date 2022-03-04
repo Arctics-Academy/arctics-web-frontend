@@ -7,6 +7,7 @@ import './style.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import ContextReducer from '../src/ContextReducer'
 
 // kick off the polyfill!
 smoothscroll.polyfill();
@@ -15,7 +16,9 @@ smoothscroll.polyfill();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ContextReducer>
+        <App />
+      </ContextReducer>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

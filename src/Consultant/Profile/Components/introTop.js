@@ -9,6 +9,7 @@ import Calendar from "../img/calendar.svg";
 import { updateProfileData, updateStudentID } from "../../../axios";
 import { useContext } from "react";
 import { ParamContext } from "../../../ContextReducer";
+import DefaultAvatar from "../img/profile-replacer.png"
 
 import "./introTop.css";
 
@@ -93,7 +94,7 @@ const IntroTop = ({ profile, page, changePage, setHidden }) => {
     <>
       <div class="introTop">
         <div class="introTop">
-          <img class="introTop-avatar" src={context.Info.profile.photo} alt="my avatar" />
+          <img class="introTop-avatar" src={(context.Info.profile.photo==='NotFound')? DefaultAvatar:context.Info.profile.photo} alt="my avatar" />
           <img class="introTop-photo" src={Photo} alt="camera" onClick={()=>setHidden(false)} />
         </div>
         <div class="introTop">

@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .clt_modal-open-meeting-info {
@@ -134,13 +135,12 @@
     display: block;
     width: 100%;
     margin: 8px 0 0 0;
-    padding: 12px 0 12px 0;
+    padding: 6px 0 6px 0;
     border: 0;
     border-radius: 8px;
     /* Button Color */
     background-color: #fff;
-    border: solid 1px #f2d60f;
-    color: #f2d60f;
+    color: #003b6b;
     /* Button Font */
     font-size: 100%;
     font-family: var(--heading-font);

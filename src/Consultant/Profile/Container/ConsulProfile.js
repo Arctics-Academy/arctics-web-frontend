@@ -6,6 +6,7 @@ import Announcement from "../img/announcement.svg";
 import "./ConsulProfile.css";
 import { ParamContext } from "../../../ContextReducer";
 import ProfilePhotoModal from "../../../Modals/consultant/profilePhotoModal";
+import EmptyFunctionModal from "../../../Modals/system/emptyFunctionModal";
 
 const tempProfile = {
   name: "梁芮瑄",
@@ -42,6 +43,7 @@ const tempProfile = {
 const ConsulProfile = () => {
   const [page, setPage] = useState("intro");
   const [hidden, setHidden] = useState(true)
+  const [hidden2, setHidden2] = useState(true)
   const context = useContext(ParamContext);
   const [studentView, setStudentView] = useState(false);
 
@@ -56,12 +58,13 @@ const ConsulProfile = () => {
         />
       );
     else if (page === "account")
-      return <Account profile={context.Info.profile} />;
+      return <Account profile={context.Info.profile} hidden={hidden} setHidden={setHidden} hidden2={hidden2} setHidden2={setHidden2} />;
     else if (page === "time") return <Time profile={context.Info.profile} />;
   };
 
   return (
     <>
+      <EmptyFunctionModal hidden={hidden2} setHidden={setHidden2} />
       <ProfilePhotoModal hidden={hidden} setHidden={setHidden} />
       <div class="consulProfile"> 
         {studentView ? (

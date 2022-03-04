@@ -1,6 +1,8 @@
 import { useParams, useHistory } from 'react-router-dom'
+import EmptyFunctionModal from '../../../Modals/system/emptyFunctionModal'
 import '../clt_purse.css'
 import Receipt from '../Components/Receipt'
+import { useState } from 'react'
 
 const onClickStyle = {
     color: '#f5f5f5',
@@ -13,11 +15,17 @@ const unClickStyle = {
 }
 
 const ConsulPurse = () => {
+    const [hidden, setHidden] = useState(true)
     const { mode } = useParams()
     const history = useHistory()
     
     const jumpToReceipt = () => {history.push('/consultant-purse/receipt')}
-    const jumpToWithdraw = () => {history.push('/consultant-purse/withdraw')}
+    const jumpToWithdraw = () => {
+        console.log('jump')
+        console.log(hidden)
+        setHidden(false)
+        //history.push('/consultant-purse/withdraw')
+    }
 
     const modeBtns = () => {
         if (mode === 'receipt') {
@@ -46,18 +54,21 @@ const ConsulPurse = () => {
     }
 
     return (
-        <div className='clt_purse-main'>
-            <div className='clt_purse-title'>
-                <span className='clt_purse-title-text'>我的錢包</span>
-                <div className='clt_purse-title-underline' />
+        <>
+            <EmptyFunctionModal hidden={hidden} setHidden={setHidden} />
+            <div className='clt_purse-main'>
+                <div className='clt_purse-title'>
+                    <span className='clt_purse-title-text'>我的錢包</span>
+                    <div className='clt_purse-title-underline' />
+                </div>
+                <div className='clt_purse-mode-bottons'>
+                    {modeBtns()}
+                </div>
+                <div className='clt_purse-content'>
+                    {displayContent()}
+                </div>
             </div>
-            <div className='clt_purse-mode-bottons'>
-                {modeBtns()}
-            </div>
-            <div className='clt_purse-content'>
-                {displayContent()}
-            </div>
-        </div>
+        </>
     )
 }
 

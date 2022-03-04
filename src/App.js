@@ -8,6 +8,7 @@ import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
 import ConsulCancelSuccess from './Consultant/Cancel/Container/ConsulCancelSuccess';
 import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
 import ConsulProfile from './Consultant/Profile/Container/ConsulProfile'
+import ConsulAnnounce from './Consultant/Announcements/Container/ConsulAnnounce';
 import RegisterIdentity from './Register/RegisterIdentity';
 import Register from './Register/Register';
 import RegisterSuccess from './Register/RegisterSuccess';
@@ -25,17 +26,21 @@ import './style.css';
 import ContextReducer from "./ContextReducer";
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './axios';
+import { ParamContext } from './ContextReducer';
 
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json !
 const App = () => {
   const [auth, setAuth] = useState(false)
+  const context = useContext(ParamContext)
   useEffect(async () => {
     console.log('reload')
     const { status, data } = await authFetchAllData();
     console.log(status, data.status, data.message)
+    console.log(context.Info, context.isLogin)
+    //set account context here
     if (status === 'success') {
       setAuth(true)
     } else {
@@ -43,8 +48,8 @@ const App = () => {
     }
   }, [])
   return (
-    <div className="App">
-      <ContextReducer>
+    <>
+      <div className="App">  
         <NavMobile />
         <Nav />
         <Switch>
@@ -61,6 +66,7 @@ const App = () => {
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
+          <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
           <Route exact path="/student-home" component={StudentHome} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
@@ -70,8 +76,8 @@ const App = () => {
           <Redirect from='*' to='/exception/404' />
         </Switch>
         <Foot />
-      </ContextReducer>
-    </div>
+      </div>
+    </>
   );
 };
 
