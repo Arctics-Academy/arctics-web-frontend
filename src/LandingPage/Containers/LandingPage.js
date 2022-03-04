@@ -4,6 +4,7 @@ import Function from '../Components/Function';
 // import Members from '../Components/Members';
 import ContactUs from '../Components/ContactUs';
 import LeaderIntro from '../Components/LeaderIntro';
+import Foot from '../../GlobalComponents/Foot';
 
 import MetaTags from 'react-meta-tags';
 
@@ -21,6 +22,7 @@ function LandingPage() {
         <LeaderIntro />
         <ContactUs />
       </main>
+      <Foot />
     </>
   );
 }

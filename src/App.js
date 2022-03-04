@@ -77,7 +77,6 @@ const App = () => {
           <Route exact path="/exception/500" component={InternalServerErrorException} />
           <Redirect from='*' to='/exception/404' />
         </Switch>
-        <Foot />
       </div>
     </>
   );
