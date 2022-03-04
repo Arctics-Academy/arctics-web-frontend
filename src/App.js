@@ -20,7 +20,7 @@ import NotFoundException from './Exception/NotFoundException';
 import InternalServerErrorException from './Exception/InternalServerErrorException'
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import './style.css';
 //import './responsive.css';
@@ -30,24 +30,33 @@ import RegisterEmailOTP from './Register/RegisterEmailOTP';
 import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './axios';
 import { ParamContext } from './ContextReducer';
+import { wrapLoginData } from './DataProcessUtils';
 
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json !
 const App = () => {
   const [auth, setAuth] = useState(false)
   const context = useContext(ParamContext)
+  const history = useHistory()
+  const getIdentity = (id) => {
+    if (id.subString(0, 2) === 'TR') return 'consultant'
+    else return 'student'
+  }
+
   useEffect(async () => {
     console.log('reload')
-    const { status, data } = await authFetchAllData();
-    console.log(status, data.status, data.message)
-    console.log(context.Info, context.isLogin)
-    //set account context here
+    const { status, data, message } = await authFetchAllData();
+    console.log(status, data, message)
     if (status === 'success') {
       setAuth(true)
+      context.setLogin(true)
+      context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+      history.push('/consultant-home')
     } else {
       setAuth(false)
     }
   }, [])
+
   return (
     <>
       <div className="App">  

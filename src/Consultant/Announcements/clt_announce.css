@@ -1,5 +1,6 @@
 .clt_announce-main {
-  width:100vw;
+  width: 100vw;
+  height: 100vh;
   padding-top: 15vh;
   padding-bottom: 5vh;
   background: #f5f5f5;
@@ -131,4 +132,10 @@
   letter-spacing: normal;
   text-align: right;
   color: #707070;
+}
+
+.clt_notif_empty {
+  margin-left: 28px;
+  color: #4bb3cc;
+  font-family: var(--heading-font);
 }

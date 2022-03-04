@@ -1,43 +1,42 @@
+import { ParamContext } from "../../../ContextReducer";
+import { useContext } from 'react'
 import "../clt_announce.css";
 import icon from '../img/announcement_icon.png';
+import { readNotificationsOrAnnouncements } from "../../../axios";
 
-const notifs = [
-  {
-    title: "[付款通知]",
-    main: "xxx同學已於2021/08/12付款，詳細資料可至帳戶明細確認",
-    read: true,
-    time: "2021/08/17（二）15:34"
-  },
-  {
-    title: "[問卷]",
-    main: "xxx同學問卷送達，確認有助於諮詢的進行喔！",
-    read: false,
-    time: "2021/08/17（二）15:34"
-  },
-  {
-    title: "[新預約！]",
-    main: "xxx同學已預約2021/08/25（三）19:00~19:30，x天內未確認將自動取消xxx同學已預約2021/08/25（三）19:00~19:30，x天內未確認將自動取消xxx同學已預約2021/08/25（三）19:00~19:30，x天內未確認將自動取消",
-    read: true,
-    time: "2021/08/17（二）15:34"
-  }
-];
 
-const notifItems = notifs.map( (obj, idx)=>{
-  return(
-    <div className={(obj.read ? "clt_notif-line-wrapper clt_notif-line-wrapper-read" : "clt_notif-line-wrapper")} key={idx}>
-      <p className="clt_notif-line-content"><span className={(obj.read ? "clt_notif-line-title-read" : "clt_notif-line-title-unread")}>{obj.title}</span><span className={(obj.read ? "clt_notif-line-main-read" : "clt_notif-line-main-unread")}>&nbsp;&nbsp;&#8212;&nbsp;&nbsp;{obj.main}</span></p>
-      <p className="clt_notif-line-time">{obj.time}</p>
-    </div>
-  );
-})
 
 const Notification = () => {
+  const context = useContext(ParamContext)
+  const handleOnRead = async (evt) => {
+    const payload = {
+      id: context.Info.id,
+      announcementId: [],
+      notificationId: [evt.target.id]
+    }
+    //const { status, message } = await readNotificationsOrAnnouncements(payload)
+    //console.log(status, message)
+    console.log(payload)
+  }
+  const displayNotifications = (notifs) => {
+    return notifs.map( (obj)=>{
+      let time = new Date(obj.timestamp).toLocaleString()
+      return(
+        <div className={(obj.read ? "clt_notif-line-wrapper clt_notif-line-wrapper-read" : "clt_notif-line-wrapper")} id={obj.id} onClick={handleOnRead}>
+          <p className="clt_notif-line-content"><span className={(obj.read ? "clt_notif-line-title-read" : "clt_notif-line-title-unread")}>{obj.title}</span><span className={(obj.read ? "clt_notif-line-main-read" : "clt_notif-line-main-unread")}>&nbsp;&nbsp;&#8212;&nbsp;&nbsp;{obj.content}</span></p>
+          <p className="clt_notif-line-time">{time}</p>
+        </div>
+      )
+    })
+  }
   return (
     <div className="clt_notif-wrapper">
       <img src={icon} alt="icon"/>
       <span className="clt_notif-head">個人通知</span>
       <div className="clt_notif-display-frame">
-        {notifItems}
+        {context.Info.notifications.list.length>0? displayNotifications(context.Info.notifications.list):
+          <p className="clt_notif_empty">目前尚無任何通知!</p>
+        }
       </div>
     </div>
   );
