@@ -485,6 +485,10 @@
     cursor: pointer;
 }
 
+.clt_schedule-list-future-check:disabled {
+    opacity: 60%;
+}
+
 .clt_schedule-list-future-cancel {
     font-size: 16px;
     font-family: var(--heading-font);
@@ -515,6 +519,10 @@
 
 .clt_schedule-list-future-open:hover {
     cursor: pointer;
+}
+
+.clt_schedule-list-future-open:disabled {
+    opacity: 60%;
 }
 
 .clt_schedule-list-past-component {

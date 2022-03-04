@@ -50,9 +50,9 @@ const FutureMeeting = ({meetingInfo}) => {
                 </div>
             </div>
             <div className='clt_schedule-list-future-action-btn'>
-                <button className='clt_schedule-list-future-check'>查看問卷</button>
+                <button className='clt_schedule-list-future-check' disabled>查看問卷</button>
                 {/* <button className='clt_schedule-list-future-cancel'>請假</button> */}
-                <button className='clt_schedule-list-future-open'>開啟會議</button>
+                <button className='clt_schedule-list-future-open' disabled>開啟會議</button>
             </div>
         </div>
     )
