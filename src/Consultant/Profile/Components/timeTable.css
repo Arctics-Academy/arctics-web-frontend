@@ -50,7 +50,7 @@ div.timeTable-caution {
 .timeTable-submit > button {
   border: 0;
   border-radius: 8px;
-  padding: 5px;
+  padding: 12px;
   letter-spacing: 1px;
   margin: 10px;
   font-family: var(--heading-font);
