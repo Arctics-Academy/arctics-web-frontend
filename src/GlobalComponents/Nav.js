@@ -55,7 +55,7 @@ export default function Nav() {
 									通知 <span className='nav__notify-count'>9</span>
 									</a></Link>
 							</li>
-				   		 	<li className="nav__menu-item"><a>我的諮詢</a>
+				   		 	<li className="nav__menu-item"><Link to='/consultant-schedule/list'><a>我的諮詢</a></Link>
 								<ul className='nav__menu-submenu'>
 									<Link to='/consultant-schedule/calender'><li className='nav__menu-submenu-item'>行事曆</li></Link>
 									<Link to='/consultant-schedule/list'><li className='nav__menu-submenu-item'>所有諮詢</li></Link>
