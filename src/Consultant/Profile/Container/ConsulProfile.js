@@ -67,7 +67,7 @@ const ConsulProfile = () => {
       <EmptyFunctionModal hidden={hidden2} setHidden={setHidden2} />
       <ProfilePhotoModal hidden={hidden} setHidden={setHidden} />
       <div class="consulProfile"> 
-        {studentView ? (
+        {/*{studentView ? (
           <div class="consulProfile-viewMode">
             <div>
               <img src={Announcement} alt="announce" />
@@ -75,7 +75,7 @@ const ConsulProfile = () => {
             </div>
             <div>顧問簡介</div>
           </div>
-        ) : (
+        ) : (*/}
           <div>
             <span class="consulProfile-title">個人檔案</span>
             <div class="consulProfile-line"></div>
@@ -85,7 +85,7 @@ const ConsulProfile = () => {
               <button onClick={() => setPage("time")}>時間表</button>
             </div>
           </div>
-        )}
+        {/*)}*/}
 
         <div class="consulProfile-content">{showPage(page)}</div>
       </div>

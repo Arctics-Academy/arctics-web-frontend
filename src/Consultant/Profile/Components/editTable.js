@@ -2,14 +2,21 @@ import "./editTable.css";
 import { updateStudentID, updateProfileData } from "../../../axios";
 import { ReactComponent as Upload } from "../img/black-upload.svg";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ParamContext } from "../../../ContextReducer";
 
 const EditTable = ({ id, profile, changePage }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors }, watch } = useForm()
   const context = useContext(ParamContext)
+  const [stdIdBuffer, setStdIdBuffer] = useState(false)
   const consulItems = ["面試技巧", "筆試技巧", "備審資料", "生涯規劃"];
-  let lastSubmittedFile = null
+  let lastSubmittedFile = undefined
+  let uploadFile = watch('studentIdScan')
+  useEffect(() => {
+    if (uploadFile != undefined && uploadFile[0] !== undefined) {
+      setStdIdBuffer(URL.createObjectURL(uploadFile[0]))
+    }
+  }, [uploadFile])
   const feeOptions = [250, 300, 350, 400, 450, 500];
   const schoolOptions = [
     "國立臺灣大學",
@@ -39,6 +46,7 @@ const EditTable = ({ id, profile, changePage }) => {
       const fdt = new FormData()
       fdt.append('studentIdScan', data.studentIdScan[0])
       fdt.append('id', id)
+      setStdIdBuffer(false)
       delete data.studentIdScan
       try {
         const { status, msg } = await updateStudentID(fdt)
@@ -61,6 +69,11 @@ const EditTable = ({ id, profile, changePage }) => {
       payload: payload.profile
     })
     changePage('intro-main')
+  }
+
+  const handleDisplaySIDPreview = (e) => {
+    console.log('upload!')
+    setStdIdBuffer(URL.createObjectURL(e.target.files[0]))
   }
 
   const studentCard = undefined;
@@ -108,9 +121,10 @@ const EditTable = ({ id, profile, changePage }) => {
               })}
             </select>
             <br />
-            <button class="editTable-education-add-major">
+            {/*<button class="editTable-education-add-major">
               + 新增雙輔科系
             </button>
+            */}
           </div>
           <div>
             <label>年級</label>
@@ -127,8 +141,8 @@ const EditTable = ({ id, profile, changePage }) => {
 
         <div class="editTable-education">
           <div class="editTable-card">
-            {studentCard ? (
-              <img src={studentCard} alt="學生證照片"></img>
+            {stdIdBuffer!==false ? (
+              <img className="editTable-preview-sid" src={stdIdBuffer} alt="學生證照片"></img>
             ) : (
               <span>學生證照片</span>
             )}
@@ -137,7 +151,7 @@ const EditTable = ({ id, profile, changePage }) => {
             <Upload />
             更新學生證
             <span>
-              <input type="file" id="myfile" name="studentIdScan" {...register('studentIdScan')}/>
+              <input type="file" id="myfile" onChange={handleDisplaySIDPreview} name="studentIdScan" {...register('studentIdScan')}/>
             </span>
           </label>
         </div>

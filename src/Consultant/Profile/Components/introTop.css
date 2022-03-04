@@ -9,8 +9,8 @@
 }
 .introTop-avatar {
   border-radius: 10%;
-  max-width: 225px;
-  opacity: 0.5;
+  width: 180px;
+  height: 180px;
 }
 .introTop-photo {
   position: relative;

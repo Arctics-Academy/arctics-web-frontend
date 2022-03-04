@@ -1,16 +1,21 @@
 import Calendar from "./calendar";
 import Bear from "../img/timetable-bear.png";
+import Loading from '../../../Login/img/loading48.gif'
 import "./timeTable.css";
 import { resolveTimetable, wrapTimetable } from "../../../DataProcessUtils";
 import { useForm, FormProvider } from "react-hook-form";
 import { updateProfileData } from "../../../axios";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { ParamContext } from "../../../ContextReducer";
 
 const TimeTable = ({ profile }) => {
   const methods = useForm()
+  const [loading, setLoading] = useState(false)
+  const [msgVisible, setMsgVisible] = useState(false)
   const context = useContext(ParamContext)
+
   const updateTimetable = async (data) => {
+    setLoading(true)
     console.log(wrapTimetable(data.selected))
     let payload = {
       profile: {
@@ -19,15 +24,19 @@ const TimeTable = ({ profile }) => {
     }
     try {
       const { status, msg } = await updateProfileData(payload)
+      setLoading(false)
+      setMsgVisible(true)
       console.log(status, msg)
       context.setInfo({
         type: 'editTimetable',
         payload: payload.profile.timetable
       })
+      setTimeout(() => {setMsgVisible(false)}, 3000)
     } catch (e) {
       console.log(e)
     }
-  } 
+  }
+
   return (
     <FormProvider {...methods} >
       <form class="timeTable" onSubmit={methods.handleSubmit(updateTimetable)} >
@@ -36,7 +45,10 @@ const TimeTable = ({ profile }) => {
           <Calendar editing={true} timeslot={resolveTimetable(profile.timetable)} />
         </div>
         <div class="timeTable-section">
-          <button type='submit'>確認變更</button>
+          <div className="timeTable-submit">
+            <button type='submit'>{loading? (<img src={Loading} />):'確認變更'}</button>
+            <p className="timeTable-submitted-message" style={msgVisible? {}:{display:'none'}}>時間表已成功更新!</p>
+          </div>
         <div class="timeTable-caution">
             <p>注意事項</p>
             <ol>

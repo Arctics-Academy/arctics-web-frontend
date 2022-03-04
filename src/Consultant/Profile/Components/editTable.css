@@ -188,3 +188,9 @@ input:checked + .editTable-toggleButton {
   color: #fff;
   background-color: #003b6b;
 }
+
+.editTable-preview-sid {
+  width: 203px;
+  height: 122px;
+  border-radius: 8px;
+}

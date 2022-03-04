@@ -95,6 +95,14 @@ const reducer = (state, action) => {
                 ...state,
                 meetingsByTime: action.payload
             }
+        case 'updateAvatar':
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    photo: action.payload.photo
+                }
+            }
         default:
             return state
     }

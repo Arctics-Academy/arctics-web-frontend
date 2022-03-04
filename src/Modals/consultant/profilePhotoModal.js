@@ -12,22 +12,34 @@ const ProfilePhotoModal = ({ hidden, setHidden }) => {
         const fdt = new FormData()
         fdt.append('profilePhoto', event.target.files[0])
         fdt.append('id', context.Info.id)
+        setHidden(true)
         try{
             const { status, msg } = await updateProfilePhoto(fdt)
             console.log(status, msg)
         } catch (e) {
             console.log(e)
         }
-        setHidden(true)
+        context.setInfo({
+            type: 'updateAvatar',
+            payload: {
+                photo: URL.createObjectURL(event.target.files[0])
+            }
+        })       
     }
     const handleDeletePhoto = async () => {
+        setHidden(true)
         try {
             const { status, msg } = await updateProfilePhoto({id:context.Info.id})
             console.log(status, msg)
         } catch (e) {
             console.log(e)
         }
-        setHidden(true)
+        context.setInfo({
+            type: 'updateAvatar',
+            payload: {
+                photo: 'NotFound'
+            }
+        })   
     }
     return (
         <div className='clt_modal-open-meeting' style={hidden? {display:'none'}:{display:'flex'}}>
