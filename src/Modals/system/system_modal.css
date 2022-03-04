@@ -52,3 +52,29 @@
     font-size: 100%;
     font-family: var(--heading-font);
 }
+
+.sys_modal-notif-subheading {
+    color: #003b6b;
+    font-weight: bold;
+}
+
+.sys_modal-notif-text {
+    color: #4BB3CC;
+    margin-bottom: 32px;
+}
+
+.sys_modal-notif-button {
+    /* Button Display */
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 12px 0 12px 0;
+    border: 0;
+    border-radius: 8px;
+    /* Button Color */
+    background-color: #f2d60f;
+    color: #003b6b;
+    /* Button Font */
+    font-size: 100%;
+    font-family: var(--heading-font);
+}

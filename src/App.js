@@ -15,6 +15,7 @@ import RegisterSuccess from './Register/RegisterSuccess';
 import OpenMeetingModal from './Modals/consultant/openMeetingModal';
 import ProfilePhotoModal from './Modals/consultant/profilePhotoModal';
 import EmptyFunctionModal from './Modals/system/emptyFunctionModal';
+import NotifModal from './Modals/system/notifModal';
 import NotFoundException from './Exception/NotFoundException';
 import InternalServerErrorException from './Exception/InternalServerErrorException'
 import Login from './Login/Login';
@@ -71,6 +72,7 @@ const App = () => {
           <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
           <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
+          <Route exact path="/notif-modal" component={NotifModal} />
           <Route exact path="/exception/404" component={NotFoundException} />
           <Route exact path="/exception/500" component={InternalServerErrorException} />
           <Redirect from='*' to='/exception/404' />
