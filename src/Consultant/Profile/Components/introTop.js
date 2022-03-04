@@ -98,7 +98,9 @@ const IntroTop = ({ profile, page, changePage, setHidden }) => {
           <img class="introTop-photo" src={Photo} alt="camera" onClick={()=>setHidden(false)} />
         </div>
         <div class="introTop">
-          <span class="introTop-name">{surname}{name}</span>
+          <div class="introTop-name-wrapper">
+            <span class="introTop-name">{surname}{name}</span>
+          </div>
           <div>
             <span class="introTop-already">已諮詢</span>
             <span class="introTop-times">{count}次</span>
