@@ -89,12 +89,41 @@ const updateProfilePhoto = async (payload) => {
 }
 
 const authFetchAllData = async () => {
-  const { status, data } = await instance.get('/api/system/consultant')
-  return { status, data }
+  const { data: { status, data, message } } = await instance.get('/api/system/consultant')
+  return { status, data, msg: message }
+}
+
+const updateEmail = async (payload) => {
+  const { data: { status, message } } = await instance.post('/api.consultant/profile/email/update', {
+    ...payload
+  })
+  return { status, message }
+}
+
+const updateMobile = async (payload) => {
+  const { data: { status, message } } = await instance.post('/api/consultant/profile/mobile/update', {
+    ...payload
+  })
+  return { status, message }
+}
+
+const getNotificationCount = async (payload) => {
+  const { data: { status, data, message } } = await instance.post('/api/consultant/notification-count/get', {
+    ...payload
+  })
+  return { status, data, message }
+}
+
+const readNotificationsOrAnnouncements = async (payload) => {
+  const { data: { status, message } } = await instance.post('/api/consultant/notification/read', {
+    ...payload
+  })
+  return { status, message }
 }
 
 export { submitSubscriber, submitMessageForm, 
   submitConsultantRegistrationData, submitConsultantLoginData,
   sendEmailOTP, verifyEmailOTP, sendMobileOTP, verifyMobileOTP,
-  updateProfileData, updateStudentID, updateProfilePhoto, authFetchAllData
+  updateProfileData, updateStudentID, updateProfilePhoto, authFetchAllData,
+  updateEmail, updateMobile, getNotificationCount, readNotificationsOrAnnouncements
 }

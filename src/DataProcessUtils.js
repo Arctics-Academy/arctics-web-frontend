@@ -181,7 +181,7 @@ const wrapLoginData = (data, identity) => {
     const meetings = retrieveDateObject(data.meetings)
     const wrappedData = {
         id: data.id,
-        announcement: data.announcement,
+        announcements: data.announcements,
         meetingsByTime: transformStatusListIntoCalender(meetings),
         meetingsByStatus: resolveListData(meetings),
         notifications: data.notifications,

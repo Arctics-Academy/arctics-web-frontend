@@ -12,6 +12,21 @@ export default function Nav() {
 
 	const navigateToLogin = () => {history.push('/login')}
 	const navigateToProfile = () => {history.push(`/${context.Info.identity}-profile`)}
+	const displayUnreadNumber = (a, n) => {
+		if (a + n <= 0) {
+			return []
+		} else {
+			if (a + n > 9) {
+				return (
+					<span className='nav__notify-count'>{'n'}</span>
+				)
+			} else {
+				return (
+					<span className='nav__notify-count'>{a + n}</span>
+				)
+			}
+		}
+	}
 
 	if (!context.isLogin) {
 		const handleScrollTop = (evt)=>document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
@@ -19,13 +34,6 @@ export default function Nav() {
 		const handleScrollFunction = (evt)=>document.querySelector('#function').scrollIntoView({ behavior: 'smooth' });
 		const handleScrollMembers = (evt)=>document.querySelector('#members').scrollIntoView({ behavior: 'smooth' });
 		const handleScrollContact = (evt)=>document.querySelector('#contact-us').scrollIntoView({ behavior: 'smooth' });
-		const tempHandleLogin = () => {
-			context.setInfo({
-				type: 'login',
-				payload: demoConsultant
-			})
-			context.setLogin(true)
-		}
 
 	    return(
         	<nav className="rwd-hide">
@@ -52,8 +60,9 @@ export default function Nav() {
 				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><Link to='/consultant-home'>首頁</Link></li>
 				   		 	<li className="nav__menu-item">
 								<Link to='/consultant-announcement'><a>
-									通知 <span className='nav__notify-count'>9</span>
-									</a></Link>
+									通知 
+									{displayUnreadNumber(context.Info.announcements.unreadCount,context.Info.notifications.unreadCount)}
+								</a></Link>
 							</li>
 				   		 	<li className="nav__menu-item"><Link to='/consultant-schedule/list'><a>我的諮詢</a></Link>
 								<ul className='nav__menu-submenu'>

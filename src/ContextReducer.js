@@ -13,7 +13,7 @@ export const ParamContext = React.createContext()
 
 const initState = {
     id: '',
-    announcement: {unreadCount: 0, list: []},
+    announcements: {unreadCount: 0, list: []},
     notifications: {unreadCount: 0, list: []},
     identity: '',
     mobile: '',
@@ -53,7 +53,7 @@ const reducer = (state, action) => {
             return {
                 ...state, 
                 id: action.payload.id,
-                announcement: action.payload.announcement,
+                announcements: action.payload.announcements,
                 identity: action.payload.identity,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
@@ -62,9 +62,10 @@ const reducer = (state, action) => {
                 notifications: action.payload.notifications,
             }
         case 'login':
+            console.log(action.payload.announcements)
             return {
                 id: action.payload.id,
-                announcement: action.payload.announcement,
+                announcements: action.payload.announcements,
                 identity: action.payload.identity,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
