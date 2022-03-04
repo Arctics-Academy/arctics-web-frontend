@@ -130,7 +130,7 @@ const Register = () => {
                     </div>
                     <div className="register-submit">
                         <button type='submit' className="register-submit-button">{submitButtonContent()}</button>
-                        <p className="register-to-login">已經有帳號了嗎, 點選<Link to='/login'><span className="register-login-link">登入</span></Link></p>
+                        <p className="register-to-login">已經有帳號了嗎？<Link to='/login'><span className="register-login-link">點我登入</span></Link></p>
                     </div>
                 </div>
             </form>

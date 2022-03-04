@@ -79,7 +79,7 @@ const Login = () => {
                     <div className="login_submit">
                         <button className="login_submit_btn" onClick={handleLogin}>{loading? (<img className="login-loading" src={Loading}/>):'登入'}</button>
                     </div>
-                    <p className="login_to_register">還沒有帳號嗎, 點選<Link to='/register-identity'><span className="login_register_link">註冊</span></Link></p>
+                    <p className="login_to_register">還沒有帳號嗎？<Link to='/register-identity'><span className="login_register_link">點我註冊</span></Link></p>
                 </div>
             </div>
         </div>

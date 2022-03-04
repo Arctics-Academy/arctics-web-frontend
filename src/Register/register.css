@@ -217,7 +217,7 @@
 
 .register-submit-button:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
 }
 
 .register-to-login {
@@ -412,7 +412,7 @@
 
 .reg-validate-submit-button:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
 }
 
 .reg-validate-resend-request {
