@@ -5,6 +5,8 @@ import Calender from "../Components/Calender";
 import calenderIcon from "../img/calender.png";
 import listIcon from "../img/list.png";
 
+import { MetaTags } from "react-meta-tags";
+
 const ConsulSchedule = () => {
   const { mode } = useParams(); 
   const [displayMode, setDisplayMode] = useState(mode);
@@ -69,6 +71,9 @@ const ConsulSchedule = () => {
 
   return (
     <div className="clt_schedule-main">
+      <MetaTags>
+        <title>我的諮詢 | Arctics</title>
+      </MetaTags>
       <div className="clt_schedule-title">
         <span className="clt_schedule-title-text">我的諮詢</span>
         <div className="clt_schedule-title-underline" />

@@ -8,6 +8,8 @@ import { ParamContext } from "../../../ContextReducer";
 import ProfilePhotoModal from "../../../Modals/consultant/profilePhotoModal";
 import EmptyFunctionModal from "../../../Modals/system/emptyFunctionModal";
 
+import { MetaTags } from "react-meta-tags";
+
 const tempProfile = {
   name: "梁芮瑄",
   surname: "Wang",
@@ -64,6 +66,9 @@ const ConsulProfile = () => {
 
   return (
     <>
+      <MetaTags>
+        <title>個人檔案 | Arctics</title>
+      </MetaTags>
       <EmptyFunctionModal hidden={hidden2} setHidden={setHidden2} />
       <ProfilePhotoModal hidden={hidden} setHidden={setHidden} />
       <div class="consulProfile"> 
