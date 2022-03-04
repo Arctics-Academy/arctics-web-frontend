@@ -1,5 +1,4 @@
 .editTable {
-  font-family: GenSenRoundedTW-M;
   text-align: left;
   line-height: 1.5;
 }
@@ -37,7 +36,7 @@
 }
 
 .editTable textarea {
-  font-family: GenSenRoundedTW-M;
+  font-family: var(--heading-font);
   font-size: 18px;
   width: 50vw;
   height: 300px;
@@ -102,12 +101,11 @@
 /*upload file*/
 
 label.editTable-filebutton {
-  padding: 5px 15px;
+  padding: 12px 12px;
   border: 0;
   overflow: hidden;
   position: relative;
   border-radius: 12px;
-  font-family: GenSenRoundedTW-B;
   font-size: 16px;
   color: #003b6b;
   background-color: #f2d60f;
@@ -171,7 +169,7 @@ input:checked + .editTable-toggleButton {
 }
 
 .editTable-btns button {
-  font-size: 20px;
+  font-size: 16px;
   font-family: var(--heading-font);
   padding: 10px;
   border: none;
@@ -186,11 +184,15 @@ input:checked + .editTable-toggleButton {
 
 .editTable-exit {
   color: #fff;
-  background-color: #003b6b;
+  background-color: #4bb3cc;
 }
 
 .editTable-preview-sid {
   width: 203px;
   height: 122px;
   border-radius: 8px;
+}
+
+textarea {
+  resize: none;
 }
