@@ -121,7 +121,7 @@ const Register = () => {
                         {errors.email?.message && <span className="register-error-message" id='email'>{errors.email.message}</span>}
                     </div>
                     <div className="register-phone">
-                        <input className="register-phone-inputbox" placeholder="手機號碼 輸入範例: 0912345678" {...register('mobile', {required: '請填入手機號碼!', pattern: phoneValidatePattern})} />
+                        <input className="register-phone-inputbox" placeholder="手機號碼（例：0912345678）" {...register('mobile', {required: '請填入手機號碼!', pattern: phoneValidatePattern})} />
                         {errors.mobile?.message && <span className="register-error-message" id='phone'>{errors.mobile.message}</span>}
                     </div>
                     <div className="register-password">
