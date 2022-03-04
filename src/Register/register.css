@@ -1,19 +1,20 @@
 .register_identity-main {
     background: #b0dde2;
     width: 100vw;
-    height: 110vh;
+    height: 100vh;
     font-family: var(--heading-font);
 }
 
 .register_identity-title {
     width: 100%;
-    padding-top: 120px;
+    padding-top: 160px;
     text-align: center;
 }
 
 .register_identity-title-text {
     color: #003b6b;
-    font-size: 6vh;
+    font-size: 5vh;
+    margin-bottom: 64px;
 }
 
 .register_identity-choices {
@@ -27,7 +28,7 @@
 }
 
 .register_identity-consultant-title {
-    font-size: 5vh;
+    font-size: 4vh;
     color: #003b6b;
 }
 
@@ -46,7 +47,7 @@
 }
 
 .register_identity-student-title {
-    font-size: 5vh;
+    font-size: 4vh;
     color: #003b6b;
 }
 
@@ -70,7 +71,7 @@
     display: flex;
     justify-content: center;
     padding: 3%;
-    padding-top: 20vh;
+    padding-top: 15vh;
 }
 
 .register-image-block {
