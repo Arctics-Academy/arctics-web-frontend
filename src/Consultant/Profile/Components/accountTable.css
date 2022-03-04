@@ -1,5 +1,4 @@
 .account {
-  font-family: GenSenRoundedTW-M;
   line-height: 1.5;
 }
 .account td {
@@ -12,19 +11,17 @@
 
 .account-title {
   font-size: 18px;
-
   text-align: left;
   color: #4bb3cc;
 }
 .account-data {
-  font-size: 24px;
+  font-size: 18px;
   color: #003b6b;
 }
 
 .account-backup,
 .account-edit-backup {
   border: 0;
-  font-family: GenSenRoundedTW-B;
   font-size: 14px;
   color: #4bb3cc;
   padding: 4px;
@@ -43,7 +40,6 @@
   width: 75%;
 }
 .account-edit-verify {
-  font-family: GenSenRoundedTW-B;
   font-size: 14px;
   background-color: #f2d60f;
   color: #003b6b;
@@ -55,7 +51,6 @@
 }
 
 .account-edit-verify-pw {
-  font-family: GenSenRoundedTW-B;
   font-size: 14px;
   background-color: #f2d60f;
   color: #003b6b;
@@ -73,7 +68,6 @@
 .account-edit-input {
   margin: 5px;
   color: #003b6b;
-  font-family: GenSenRoundedTW-M;
   font-size: 18px;
   padding: 5px;
   border-radius: 8px;
@@ -90,13 +84,11 @@
   width: 35vw;
 }
 ::placeholder {
-  font-family: GenSenRoundedTW-M;
   font-size: 18px;
   color: #4bb3cc;
 }
 .account-edit-ps {
   margin: 6px;
-  font-family: GenSenRoundedTW-M;
   font-size: 16px;
   text-align: left;
   color: #003b6b;

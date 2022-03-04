@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { useContext, useState, useEffect } from "react";
 import { ParamContext } from "../../../ContextReducer";
 
+import { ReactComponent as Check } from "../img/black-check.svg";
+import { ReactComponent as X } from "../img/white-x.svg";
+
 const EditTable = ({ id, profile, changePage }) => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm()
   const context = useContext(ParamContext)
@@ -20,10 +23,10 @@ const EditTable = ({ id, profile, changePage }) => {
   const feeOptions = [250, 300, 350, 400, 450, 500];
   const schoolOptions = [
     "國立臺灣大學",
-    "國立清華大學",
-    "國立交通大學",
-    "國立政治大學",
-    "國立成功大學",
+    // "國立清華大學",
+    // "國立交通大學",
+    // "國立政治大學",
+    // "國立成功大學",
   ];
   const displines = [
     "資訊學群",
@@ -185,10 +188,10 @@ const EditTable = ({ id, profile, changePage }) => {
     },
     {
       key: "experiences",
-      label: "相關經歷/能力證明",
-      ps: "家教經歷、曾錄取校系、語言能力證明、獲獎紀錄等等",
+      label: `相關經歷 /        能力證明`,
+      ps: "家教經歷、曾錄取校系、語言能力證明、獲獎紀錄等",
       component: (
-        <textarea type="text" placeholder="輸入文字" {...register('experiences')}>
+        <textarea type="text" placeholder="輸入文字" {...register('experiences')} resiz>
           {profile.experiences}
         </textarea>
       ),
@@ -196,7 +199,7 @@ const EditTable = ({ id, profile, changePage }) => {
     {
       key: "intro",
       label: "個人簡介",
-      ps: "如果不知道要寫什麼的話，可以簡述諮詢風格、諮詢經歷、教學理念、升學歷程等等！",
+      ps: "如果不知道要寫什麼的話，可以簡述諮詢風格、諮詢經歷、教學理念、升學歷程等",
       component: (
         <textarea type="text" placeholder="輸入文字" {...register('intro')}>
           {profile.intro}
@@ -209,8 +212,8 @@ const EditTable = ({ id, profile, changePage }) => {
     <form class="editTable" onSubmit={handleSubmit(handleFilledData)}>
       {showTable(editTableObj)}
       <div className="editTable-btns">
-        <button className="editTable-exit" onClick={()=>{changePage('intro-main')}}>取消</button>
-        <button className="editTable-submit" type="submit">確認</button>
+        <button className="editTable-exit" onClick={()=>{changePage('intro-main')}}><X /> 取消</button>
+        <button className="editTable-submit" type="submit"><Check /> 確認</button>
       </div>
     </form>
   )

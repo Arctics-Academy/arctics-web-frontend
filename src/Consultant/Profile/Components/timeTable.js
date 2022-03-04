@@ -1,5 +1,6 @@
 import Calendar from "./calendar";
 import Bear from "../img/timetable-bear.png";
+import {ReactComponent as DarkCalendarIcon} from '../img/dark-calendar-icon.svg'
 import Loading from '../../../Login/img/loading48.gif'
 import "./timeTable.css";
 import { resolveTimetable, wrapTimetable } from "../../../DataProcessUtils";
@@ -41,13 +42,13 @@ const TimeTable = ({ profile }) => {
     <FormProvider {...methods} >
       <form class="timeTable" onSubmit={methods.handleSubmit(updateTimetable)} >
         <div class="timeTable-section">
-          <div class="timeTable-title">可預約時間表</div>
+          <div class="timeTable-title"><DarkCalendarIcon /> 可預約時間表</div>
           <Calendar editing={true} timeslot={resolveTimetable(profile.timetable)} />
         </div>
         <div class="timeTable-section">
           <div className="timeTable-submit">
-            <button type='submit'>{loading? (<img src={Loading} />):'確認變更'}</button>
             <p className="timeTable-submitted-message" style={msgVisible? {}:{display:'none'}}>時間表已成功更新!</p>
+            <button type='submit'>{loading? (<img src={Loading} />):'確認變更'}</button>
           </div>
         <div class="timeTable-caution">
             <p>注意事項</p>
@@ -55,7 +56,7 @@ const TimeTable = ({ profile }) => {
               <li>請選擇自己一定可以的時間</li>
               <li>時間表變更不會影響已預約時段</li>
             </ol>
-            <img alt="bear" src={Bear} />
+            {/* <img alt="bear" src={Bear} /> */}
           </div>
         </div>
       </form>

@@ -4,6 +4,8 @@ import '../clt_purse.css'
 import Receipt from '../Components/Receipt'
 import { useState } from 'react'
 
+import { MetaTags } from 'react-meta-tags'
+
 const onClickStyle = {
     color: '#f5f5f5',
     backgroundColor: '#c0ac49'
@@ -55,6 +57,9 @@ const ConsulPurse = () => {
 
     return (
         <>
+            <MetaTags>
+                <title>我的錢包 | Arctics</title>
+            </MetaTags>
             <EmptyFunctionModal hidden={hidden} setHidden={setHidden} />
             <div className='clt_purse-main'>
                 <div className='clt_purse-title'>
