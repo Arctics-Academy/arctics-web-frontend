@@ -87,8 +87,8 @@ const Receipt = () => {
                         <div className='clt_purse-list-item'>
                             <span className='clt_purse-list-item-timestamp'>{e.timestamp.toLocaleString()}</span>
                             <span className='clt_purse-list-item-content'>{e.content}</span>
-                            <span className='clt_purse-list-item-amount'>{e.amount}</span>
-                            <span className='clt_purse-list-item-balance'>{e.balance}</span>
+                            <span className='clt_purse-list-item-amount'>新台幣 {e.amount} 元</span>
+                            <span className='clt_purse-list-item-balance'>新台幣 {e.balance} 元</span>
                         </div>
                     )
                 })

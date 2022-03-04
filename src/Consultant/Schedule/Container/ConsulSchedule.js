@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MeetingList from "../Components/MeetingList";
 import Calender from "../Components/Calender";
@@ -8,6 +8,9 @@ import listIcon from "../img/list.png";
 const ConsulSchedule = () => {
   const { mode } = useParams(); 
   const [displayMode, setDisplayMode] = useState(mode);
+  useEffect(() => {
+    setDisplayMode(mode)
+  }, [mode])
 
   const handleCalenderBtnOnclick = () => {
     if (displayMode === "calender") return;
@@ -70,7 +73,7 @@ const ConsulSchedule = () => {
         <span className="clt_schedule-title-text">我的諮詢</span>
         <div className="clt_schedule-title-underline" />
       </div>
-      {modeBtn()}
+      {/* {modeBtn()} */}
       <div className="clt_schedule-display">{showSchedule()}</div>
     </div>
   );

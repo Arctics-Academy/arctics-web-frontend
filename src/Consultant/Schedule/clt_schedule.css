@@ -99,7 +99,7 @@
 
 .clt_schedule-display {
     position: absolute;
-    top: 186px;
+    top: 140px;
     left: 10%;
 }
 
@@ -255,12 +255,13 @@
 }
 
 .clt_schedule-list-mode {
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     padding: 5px;
     text-align: center;
     align-items: center;
     border-radius: 8px;
-    border: solid 0.5px #4bb3cc;
+    border: solid 2px #4bb3cc;
     margin-right: 0.5vw;
     font-family: var(--heading-font);
 }
@@ -315,7 +316,7 @@
 }
 
 .clt_schedule-list-time-title {
-    font-size: 16px;
+    font-size: 100%;
     position: absolute;
     color: #4bb3cc;
     align-items: center;
@@ -394,7 +395,7 @@
     position: absolute;
     left: 10vw;
     color: #003b6b;
-    font-size: 24px;
+    font-size: 100%;
     top: 0.5px;
 }
 
@@ -419,9 +420,9 @@
 }
 
 .clt_schedule-list-remark-text {
+    font-size: normal;
     position: absolute;
     left: 10vw;
-    font-size: 24px;
     color: #003b6b;
     top: 0.5px;
 }
@@ -484,6 +485,10 @@
     cursor: pointer;
 }
 
+.clt_schedule-list-future-check:disabled {
+    opacity: 60%;
+}
+
 .clt_schedule-list-future-cancel {
     font-size: 16px;
     font-family: var(--heading-font);
@@ -514,6 +519,10 @@
 
 .clt_schedule-list-future-open:hover {
     cursor: pointer;
+}
+
+.clt_schedule-list-future-open:disabled {
+    opacity: 60%;
 }
 
 .clt_schedule-list-past-component {
@@ -570,7 +579,7 @@
     position: absolute;
     left: 10vw;
     top: 1px;
-    font-size: 24px;
+    font-size: 16px;
     color: #003b6b;
 }
 

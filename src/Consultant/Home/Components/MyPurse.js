@@ -55,8 +55,8 @@ const MyPurse = () => {
                         {listBody(getFirstTen(context.Info.purse.transactions))}
                     </ul>
                 </div>
-                <button className='clt_home-purse-show-receipt'><Link to='/consultant-purse/receipt'>查看明細</Link></button>
-                <button className='clt_home-purse-goto-withdraw'>前往提領</button>
+                {/* <button className='clt_home-purse-show-receipt'>前往提領</button> */}
+                <button className='clt_home-purse-goto-withdraw'><Link to='/consultant-purse/receipt'>查看明細</Link></button>
             </div>
         </div>
     )

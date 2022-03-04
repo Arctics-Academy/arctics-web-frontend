@@ -1,8 +1,6 @@
 .clt_home__main {
   margin-top: 80px;
   background: #f5f5f5;
-  width: 105vw;
-  height: 100vh;
   min-height: 1000px;
 }
 
@@ -60,7 +58,8 @@
 }
 
 .clt_home-ancmt-title-content {
-  margin-left: 35px;
+  margin-left: 30px;
+  font-weight: bold;
 }
 
 .clt_home-ancmt-banner {
@@ -109,8 +108,9 @@
 
 .clt_home-myapnt-title-text {
   color: #003b6b;
+  margin-left: 30px;
   font-size: 20px;
-  margin-left: 35px;
+  font-weight: bold;
 }
 
 .clt_home-myapnt-title-icon {
@@ -310,6 +310,10 @@
     font-family: var(--heading-font);
 }
 
+.card-open-meeting:disabled {
+  opacity: 60%;
+}
+
 /* block card end */
 
 .clt_home-purse {
@@ -328,6 +332,7 @@
   color: #003b6b;
   top: 1px;
   margin-left: 35px;
+  font-weight: bold;
   min-width: 80px;
   display: flex;
 }
@@ -337,6 +342,7 @@
   width: 400px;
   height: 535px;
   border: solid 2px #c0ac49;
+  background-color: white;
   border-radius: 16px;
 }
 
@@ -432,6 +438,7 @@
     bottom: 48px;    
 }
 
-.clt_home-purse-goto-withdraw:hover {
+.clt_home-purse-goto-withdraw a:hover {
     cursor: pointer;
+    color: #003b6b;
 }
