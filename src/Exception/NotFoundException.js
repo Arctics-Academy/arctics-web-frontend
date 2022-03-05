@@ -18,7 +18,7 @@ const NotFoundException = () => {
             <div>
                 <p className='exp_not-found-text'>糟糕！找不到你想要找的頁面...</p>
                 <button className='exp_not-found-back-button' onClick={goToLastPage}>回上一頁</button>
-                <button className='exp_not-found-main-page-button'><Link to='/'>回首頁</Link></button>
+                <Link to='/'><button className='exp_not-found-main-page-button'>回首頁</button></Link>
             </div>
         </div>
     )
