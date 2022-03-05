@@ -24,7 +24,7 @@ const submitMessageForm = async (form) => {
 /* APIs */
 
 const instance = axios.create({
-  baseURL: "https://preview.arctics.academy/"
+  baseURL: "https://arctics.academy/"
 })
 
 const submitConsultantRegistrationData = async (payload) => {
