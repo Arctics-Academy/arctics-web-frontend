@@ -48,11 +48,11 @@ export default function Nav() {
 		    	<img className="nav__logo" src={logo} alt="arctics" width="224px" height="41px"></img>
 		    	<div className="nav__right">
 			    	<ul className="nav__menu">
-				    	<li className="nav__menu-item"><a href="/#top" onClick={handleScrollTop}>首頁</a></li>
-				    	<li className="nav__menu-item"><a href="/#about-us" onClick={handleScrollAbout}>關於我們</a></li>
-				    	<li className="nav__menu-item"><a href="/#function" onClick={handleScrollFunction}>產品功能</a></li>
-				    	<li className="nav__menu-item"><a href="/#members" onClick={handleScrollMembers}>團隊成員</a></li>
-				    	<li className="nav__menu-item" ><a href="/#contact-us" onClick={handleScrollContact}>聯絡我們</a></li>
+				    	<li className="nav__menu-item"><a href="#top" onClick={handleScrollTop}>首頁</a></li>
+				    	<li className="nav__menu-item"><a href="#about-us" onClick={handleScrollAbout}>關於我們</a></li>
+				    	<li className="nav__menu-item"><a href="#function" onClick={handleScrollFunction}>平台優勢</a></li>
+				    	<li className="nav__menu-item"><a href="#members" onClick={handleScrollMembers}>團隊成員</a></li>
+				    	<li className="nav__menu-item" ><a href="#contact-us" onClick={handleScrollContact}>聯絡我們</a></li>
 			    	</ul>
 					<button className="nav__action-button" onClick={navigateToLogin}>註冊 / 登入</button>
 		    	</div>

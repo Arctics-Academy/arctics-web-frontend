@@ -20,7 +20,7 @@ export default function NavMobile () {
 					<ul className="r-nav__menu rwd-show">
 						<li className="r-nav__menu-item"><a href="#top" onClick={handleOnClick}>首頁</a></li>
 						<li className="r-nav__menu-item"><a href="#about-us" onClick={handleOnClick}>關於我們</a></li>
-						<li className="r-nav__menu-item"><a href="#function" onClick={handleOnClick}>產品功能</a></li>
+						<li className="r-nav__menu-item"><a href="#function" onClick={handleOnClick}>平台優勢</a></li>
 						<li className="r-nav__menu-item"><a href="#members" onClick={handleOnClick}>團隊成員</a></li>
 						<li className="r-nav__menu-item" ><a href="#contact-us" onClick={handleOnClick}>聯絡我們</a></li>
 					</ul>
