@@ -204,16 +204,17 @@
 }
 
 .register-submit-button {
-    font-size: 20px;
-    padding-right: 23px;
+    font-size: 18px;
+    padding-right: 24px;
     padding-left: 24px;
-    padding-top: 3px;
-    padding-bottom: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 8px;
-    letter-spacing: 2px;
     border: none;
+    margin-bottom: 24px;
     color: #003b6b;
-    background-color: #f2d60f;
+    background: #f2d60f;
+    font-family: var(--heading-font);
 }
 
 .register-submit-button:hover {
@@ -398,17 +399,16 @@
 }
 
 .reg-validate-submit-button {
-    font-size: 20px;
-    color: #003b6b;
-    font-family: var(--heading-font);
-    background-color: #f2d60f;
-    padding-right: 23px;
+    font-size: 18px;
+    padding-right: 24px;
     padding-left: 24px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 8px;
-    letter-spacing: 2px;
     border: none;
+    color: #003b6b;
+    background: #f2d60f;
+    font-family: var(--heading-font);
 }
 
 .reg-validate-submit-button:hover {
