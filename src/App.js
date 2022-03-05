@@ -67,20 +67,20 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register-identity" component={RegisterIdentity} />
           <Route exact path="/register/:identity" component={Register} />
-          <ProtectedRoute exact path="/register-mobile-otp" component={RegisterMobileOTP} />
-          <ProtectedRoute exact path="/register-email-otp" component={RegisterEmailOTP} />
-          <ProtectedRoute exact path='/register-success' component={RegisterSuccess} />
-          <ProtectedRoute exact path="/consultant-home" component={ConsulHome} />
-          <ProtectedRoute exact path="/consultant-profile" component={ConsulProfile} />
-          <ProtectedRoute exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
-          <ProtectedRoute exact path="/consultant-purse/:mode" component={ConsulPurse} />
-          <ProtectedRoute exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
-          <ProtectedRoute exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
-          <ProtectedRoute exact path="/consultant-announcement" component={ConsulAnnounce} />
-          <ProtectedRoute exact path="/student-home" component={StudentHome} />
-          <ProtectedRoute exact path="/modal-test" component={OpenMeetingModal} />
-          <ProtectedRoute exact path="/profile-photo-modal" component={ProfilePhotoModal} />
-          <ProtectedRoute exact path="/empty-function-modal" component={EmptyFunctionModal} />
+          <ProtectedRoute exact path="/register-mobile-otp" auth={auth} component={RegisterMobileOTP} />
+          <ProtectedRoute exact path="/register-email-otp" auth={auth} component={RegisterEmailOTP} />
+          <ProtectedRoute exact path='/register-success' auth={auth} component={RegisterSuccess} />
+          <ProtectedRoute exact path="/consultant-home" auth={auth} component={ConsulHome} />
+          <ProtectedRoute exact path="/consultant-profile" auth={auth} component={ConsulProfile} />
+          <ProtectedRoute exact path="/consultant-schedule/:mode" auth={auth} component={ConsulSchedule} />
+          <ProtectedRoute exact path="/consultant-purse/:mode" auth={auth} component={ConsulPurse} />
+          <ProtectedRoute exact path="/consultant-success-cancel" auth={auth} component={ConsulCancelSuccess} />
+          <ProtectedRoute exact path="/consultant-multi-cancel" auth={auth} component={ConsulMultiCancel} />
+          <ProtectedRoute exact path="/consultant-announcement" auth={auth} component={ConsulAnnounce} />
+          <ProtectedRoute exact path="/student-home" auth={auth} component={StudentHome} />
+          <ProtectedRoute exact path="/modal-test" auth={auth} component={OpenMeetingModal} />
+          <ProtectedRoute exact path="/profile-photo-modal" auth={auth} component={ProfilePhotoModal} />
+          <ProtectedRoute exact path="/empty-function-modal" auth={auth} component={EmptyFunctionModal} />
           <ProtectedRoute exact path="/notif-modal" component={NotifModal} />
           <Route exact path="/exception/404" component={NotFoundException} />
           <Route exact path="/exception/500" component={InternalServerErrorException} />
