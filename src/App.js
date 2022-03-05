@@ -50,6 +50,7 @@ const App = () => {
       setAuth(true)
       context.setLogin(true)
       context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+      console.log(context.isLogin, context.Info)
       history.push('/consultant-home')
     } else {
       setAuth(false)
