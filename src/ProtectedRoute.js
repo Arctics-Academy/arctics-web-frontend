@@ -8,10 +8,11 @@ const ProtectedRoute = ({component: Component, auth, ...rest}) => {
         <Route
             {...rest}
             render={(props) => {
-                if (auth && context.isLogin) {
+                console.log(auth, context.isLogin)
+                if (auth || context.isLogin) {
                     return <Component {...props} />
                 } else {
-                    return <Redirect to='\login' />
+                    return <Redirect to='/login' />
                 }
             }}
         />

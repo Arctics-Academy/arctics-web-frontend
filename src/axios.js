@@ -121,9 +121,15 @@ const readNotificationsOrAnnouncements = async (payload) => {
   return { status, message }
 }
 
+const handleLogout = async () => {
+  const { data: { status, message } } = await instance.post('/api/user/consultant/logout')
+  console.log(status, message)
+  return { status, message }
+}
+
 export { submitSubscriber, submitMessageForm, 
   submitConsultantRegistrationData, submitConsultantLoginData,
   sendEmailOTP, verifyEmailOTP, sendMobileOTP, verifyMobileOTP,
   updateProfileData, updateStudentID, updateProfilePhoto, authFetchAllData,
-  updateEmail, updateMobile, getNotificationCount, readNotificationsOrAnnouncements
+  updateEmail, updateMobile, getNotificationCount, readNotificationsOrAnnouncements, handleLogout
 }

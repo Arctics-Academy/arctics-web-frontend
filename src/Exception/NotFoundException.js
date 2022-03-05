@@ -1,9 +1,11 @@
 import './exception.css'
 import { ReactComponent as Background } from './img/not-found-background.svg'
-
+import { Link, useHistory } from 'react-router-dom'
 import MetaTags from 'react-meta-tags'
 
 const NotFoundException = () => {
+    const history = useHistory()
+    const goToLastPage = () => history.goBack()
     return (
         <div className='exp_not-found-main'>
             <MetaTags>
@@ -15,8 +17,8 @@ const NotFoundException = () => {
             </div>
             <div>
                 <p className='exp_not-found-text'>糟糕！找不到你想要找的頁面...</p>
-                <button className='exp_not-found-back-button'>回上一頁</button>
-                <button className='exp_not-found-main-page-button'>回首頁</button>
+                <button className='exp_not-found-back-button' onClick={goToLastPage}>回上一頁</button>
+                <button className='exp_not-found-main-page-button'><Link to='/'>回首頁</Link></button>
             </div>
         </div>
     )

@@ -3,8 +3,8 @@ import './style.css';
 import './responsive.css';
 import logo from './img/nav-arctics-logo.png';
 import { ParamContext } from '../ContextReducer';
-import { demoConsultant, demoStudent } from '../TestData'
 import { Link, useHistory } from 'react-router-dom';
+import { handleLogout } from '../axios';
 
 export default function Nav() {
 	const context = useContext(ParamContext)
@@ -26,6 +26,14 @@ export default function Nav() {
 				)
 			}
 		}
+	}
+	const Logout = async () => {
+		const {status, message} = await handleLogout()
+		context.setLogin(false)
+		context.setInfo({
+			type: 'logout'
+		})
+		history.push('/')
 	}
 
 	if (!context.isLogin) {
@@ -84,7 +92,7 @@ export default function Nav() {
 									<li className='nav__menu-submenu-item'>問題回報</li>
 								</ul> */}
 			    		</ul>
-						<button className="nav__action-button">登出</button>
+						<button className="nav__action-button" onClick={Logout}>登出</button>
 		    		</div>
 	    		</nav>
 			)

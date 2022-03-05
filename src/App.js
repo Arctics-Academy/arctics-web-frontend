@@ -24,7 +24,6 @@ import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import './style.css';
 //import './responsive.css';
-import ContextReducer from "./ContextReducer";
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
 import { useEffect, useState, useContext } from 'react';
@@ -67,21 +66,21 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register-identity" component={RegisterIdentity} />
           <Route exact path="/register/:identity" component={Register} />
-          <Route exact path="/register-mobile-otp" component={RegisterMobileOTP} />
-          <Route exact path="/register-email-otp" component={RegisterEmailOTP} />
-          <Route exact path='/register-success' component={RegisterSuccess} />
-          <Route exact path="/consultant-home" component={ConsulHome} />
-          <Route exact path="/consultant-profile" component={ConsulProfile} />
-          <Route exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
-          <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
-          <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
-          <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
-          <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
-          <Route exact path="/student-home" component={StudentHome} />
-          <Route exact path="/modal-test" component={OpenMeetingModal} />
-          <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
-          <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
-          <Route exact path="/notif-modal" component={NotifModal} />
+          <ProtectedRoute exact path="/register-mobile-otp" component={RegisterMobileOTP} />
+          <ProtectedRoute exact path="/register-email-otp" component={RegisterEmailOTP} />
+          <ProtectedRoute exact path='/register-success' component={RegisterSuccess} />
+          <ProtectedRoute exact path="/consultant-home" component={ConsulHome} />
+          <ProtectedRoute exact path="/consultant-profile" component={ConsulProfile} />
+          <ProtectedRoute exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
+          <ProtectedRoute exact path="/consultant-purse/:mode" component={ConsulPurse} />
+          <ProtectedRoute exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
+          <ProtectedRoute exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
+          <ProtectedRoute exact path="/consultant-announcement" component={ConsulAnnounce} />
+          <ProtectedRoute exact path="/student-home" component={StudentHome} />
+          <ProtectedRoute exact path="/modal-test" component={OpenMeetingModal} />
+          <ProtectedRoute exact path="/profile-photo-modal" component={ProfilePhotoModal} />
+          <ProtectedRoute exact path="/empty-function-modal" component={EmptyFunctionModal} />
+          <ProtectedRoute exact path="/notif-modal" component={NotifModal} />
           <Route exact path="/exception/404" component={NotFoundException} />
           <Route exact path="/exception/500" component={InternalServerErrorException} />
           <Redirect from='*' to='/exception/404' />
