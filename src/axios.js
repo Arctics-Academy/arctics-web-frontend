@@ -115,7 +115,7 @@ const getNotificationCount = async (payload) => {
 }
 
 const readNotificationsOrAnnouncements = async (payload) => {
-  const { data: { status, message } } = await instance.post('/api/consultant/notification/read', {
+  const { data: { status, message } } = await instance.post('/api/consultant/notifications/read', {
     ...payload
   })
   return { status, message }

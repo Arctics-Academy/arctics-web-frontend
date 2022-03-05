@@ -104,6 +104,20 @@ const reducer = (state, action) => {
                     photo: action.payload.photo
                 }
             }
+        case 'readNotification':
+            return {
+                ...state,
+                notifications: {
+                    unreadCount: state.notifications.unreadCount-1,
+                    list: state.notifications.list.map((e)=>{
+                        let k = {...e}
+                        if (e.id === action.payload.nid) {
+                            k.read = true
+                        }
+                        return k
+                    })
+                }
+            }
         default:
             return state
     }
