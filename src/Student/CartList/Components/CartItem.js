@@ -1,21 +1,73 @@
 import "../std_cartlist.css"
+import { useState } from "react"
 import { ReactComponent as CoinIcon } from '../img/coin.svg'
 import { ReactComponent as SchoolIcon } from '../img/school.svg'
 import { ReactComponent as ExpIcon } from '../img/exp.svg'
 import { ReactComponent as HashtagIcon } from '../img/hashtag.svg'
-import { ReactComponent as ArrowIcon } from '../img/right_arrow.svg'
+import { ReactComponent as UpIcon } from '../img/arrow_up.svg'
+import { ReactComponent as DownIcon } from '../img/arrow_down.svg'
 import { ReactComponent as Star } from '../img/star.svg'
 import { ReactComponent as DeleteIcon } from '../img/delete.svg'
 import { ReactComponent as InfoIcon } from '../img/info.svg'
 import img_path from '../img/tmp_avatar.png';
 
 
-const CartItem = ({name=""}) => {
+const CartItem = ( {clt} ) => {
+  const [introOpen, setIntroOpen] = useState(false);
+  let hashtag_converted = clt.hashtags;
+  if (clt.hashtags.length<3){
+    for(let i=clt.hashtags.length; i<3; i++){
+      hashtag_converted.push("n");
+    }
+  }
+
+  const Hashtag = hashtag_converted.map((e, i)=>{
+    if (e==="n")
+      return (<p key={i} style={{opacity: 0}} >{e}</p>)
+    else return ( <p key={i} >{e}</p> )
+  })
+
+  const level_int = parseInt(clt.star);
+  const level_fl = Math.round((clt.star-level_int)*10);
+
+  const intro_component = ( intro )=>{
+    if (intro.length <= 50){
+      return(
+        <div className="std_cartitem-intro">
+          <p className="std_cartitem-intro-content">{intro}</p>
+        </div>
+      )
+    }
+    else {
+      const short_intro = intro.slice(0, 50);
+      if (!introOpen){
+        return(
+          <div className="std_cartitem-intro">
+            <p className="std_cartitem-intro-content">{short_intro} ⋯⋯</p>
+            <button className="std_cartitem-intro-check" onClick={()=>setIntroOpen(true)}>
+              查看完整簡介
+              <DownIcon className="std_cartitem-arrow-icon" />
+            </button>
+          </div>
+        )
+      }
+      else return(
+        <div className="std_cartitem-intro">
+          <p className="std_cartitem-intro-content">{ intro }</p>
+          <button className="std_cartitem-intro-check" onClick={()=>setIntroOpen(false)}>
+            隱藏
+            <UpIcon className="std_cartitem-arrow-icon" />
+          </button>
+        </div>
+      )
+    }
+  }
+
   return (
       <div className="std_cartitem-wrapper">
         <div className="std_cartitem-col1">
           <img src={img_path} className="std_cartitem-img"></img>
-          <p className="std_cartitem-name">{name}</p>
+          <p className="std_cartitem-name">{clt.name}</p>
         </div>
         <div className="std_cartitem-col2">
           <CoinIcon className="std_cartitem-coin-icon" />
@@ -24,13 +76,13 @@ const CartItem = ({name=""}) => {
         <div className="std_cartitem-col3">
           <div className="std_cartitem-fee">
             <span className="std_cartitem-number">
-              200<span className="std_cartitem-unit"> /半小時</span>
+              {clt.fee}<span className="std_cartitem-unit"> /半小時</span>
             </span>
           </div>
           <div className="std_cartitem-edu-hashtag">
-            <p>國立臺灣大學</p>
-            <p>機械學系</p>
-            <p>二年級</p>
+            <p>{clt.education.school}</p>
+            <p>{clt.education.major}</p>
+            <p>{clt.education.year}</p>
           </div>
         </div>
         <div className="std_cartitem-col4">
@@ -40,29 +92,20 @@ const CartItem = ({name=""}) => {
         <div className="std_cartitem-col5">
           <div className="std_cartitem-exp">
             <span className="std_cartitem-number">
-              15<span className="std_cartitem-unit"> 次</span>
+              {clt.exp}<span className="std_cartitem-unit"> 次</span>
             </span>
           </div>
           <div className="std_cartitem-edu-hashtag">
-            <p>學習歷程檔案</p>
-            <p>筆試準備</p>
-            <p>社團</p>
+            {Hashtag}
           </div>
         </div>
         <p className="std_cartitem-intro-title">個人簡介</p>
-        <div className="std_cartitem-intro">
-          <p className="std_cartitem-intro-content">我也不知道可以寫什麼，大概請他們寫一些
-諮詢風格、諮詢經歷、教學理念、簡述自己的升學歷程之類的吧......嗎？</p>
-          <span className="std_cartitem-intro-check">
-            查看完整簡介
-            <ArrowIcon className="std_cartitem-arrow-icon" />
-          </span>
-        </div>
+        { intro_component(clt.intro) }
         <div className="std_cartitem-button-group">
           <div className="std_cartitem-level">
             <Star className="std_cartitem-level-star" />
-            <p>4</p>
-            <span className="std_cartitem-level-float">.8</span>
+            <p>{level_int}</p>
+            <span className="std_cartitem-level-float">.{level_fl}</span>
           </div>
           <button className="std_cartitem-delete-button">
             <DeleteIcon className="std_cartitem-delete-icon"/>
