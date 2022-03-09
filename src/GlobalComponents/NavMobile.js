@@ -18,11 +18,11 @@ export default function NavMobile () {
 					<span className="r-nav__meat"></span>
 					<span className="r-nav__meat"></span>
 					<ul className="r-nav__menu rwd-show">
-						<li className="r-nav__menu-item"><a href="#top" onClick={handleOnClick}>首頁</a></li>
-						<li className="r-nav__menu-item"><a href="#about-us" onClick={handleOnClick}>關於我們</a></li>
-						<li className="r-nav__menu-item"><a href="#function" onClick={handleOnClick}>平台優勢</a></li>
-						<li className="r-nav__menu-item"><a href="#members" onClick={handleOnClick}>團隊成員</a></li>
-						<li className="r-nav__menu-item" ><a href="#contact-us" onClick={handleOnClick}>聯絡我們</a></li>
+						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#top" onClick={handleOnClick}>首頁</a></li>
+						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#about" onClick={handleOnClick}>關於我們</a></li>
+						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#function" onClick={handleOnClick}>平台優勢</a></li>
+						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#members" onClick={handleOnClick}>團隊成員</a></li>
+						<li className="r-nav__menu-item" ><a href="https://www.arctics.academy/#contact-us" onClick={handleOnClick}>聯絡我們</a></li>
 					</ul>
 				</div>
 	    	</nav>
