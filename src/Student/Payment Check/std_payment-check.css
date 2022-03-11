@@ -25,6 +25,14 @@
   text-align: left;
   color: #003b6b;
 }
+
+.std_payment-check-line {
+  width: 128px;
+  height: 0;
+  margin: 10px 330.5px 0 0.5px;
+  border: solid 1px #003b6b;
+}
+
 .std_payment-check-content {
   align-items: center;
   width: 160px;
