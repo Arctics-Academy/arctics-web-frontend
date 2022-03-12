@@ -140,15 +140,12 @@ const EditTable = ({ id, profile, changePage }) => {
               <option value={'四年級以上'} >四年級以上</option>
             </select>
           </div>
-        </div>
-
-        <div class="editTable-education">
           <div class="editTable-card">
-            {stdIdBuffer!==false ? (
-              <img className="editTable-preview-sid" src={stdIdBuffer} alt="學生證照片"></img>
-            ) : (
-              <span>學生證照片</span>
-            )}
+              {stdIdBuffer!==false ? (
+                <img className="editTable-preview-sid" src={stdIdBuffer} alt="學生證照片"></img>
+              ) : (
+                <span>學生證照片</span>
+              )}
           </div>
           <label class="editTable-filebutton">
             <Upload />
@@ -158,6 +155,11 @@ const EditTable = ({ id, profile, changePage }) => {
             </span>
           </label>
         </div>
+        
+
+        {/* <div class="editTable-education">
+
+        </div> */}
       </>
     );
   };

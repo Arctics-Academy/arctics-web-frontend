@@ -75,8 +75,8 @@ const App = () => {
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
           <Route exact path="/exception/404" component={NotFoundException} />
           <Route exact path="/exception/500" component={InternalServerErrorException} />
-          <Redirect from='*' to='/exception/404' />
           <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
+          <Redirect from='*' to='/exception/404' />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
           <Route exact path="/student-home" component={StudentHome} />

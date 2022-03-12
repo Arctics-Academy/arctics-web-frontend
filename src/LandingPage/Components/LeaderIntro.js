@@ -6,7 +6,7 @@ import "../responsive.css"
 export default function LeaderIntro () {
   return (
     <section id='members'>
-      <h2 className="members__heading">團隊<br className="rwd-hide"></br><span className="members__heading-indent">成員</span></h2>
+      <h2 className="members__heading">團隊成員</h2>
       <div className='leader-intro'>
         <div className='leader-intro-bkg'>
           <div className='lit-upper'>
