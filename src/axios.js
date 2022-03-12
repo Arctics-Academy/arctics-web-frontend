@@ -1,12 +1,12 @@
 import axios from 'axios'
 
 const demo = axios.create({
-  baseURL: "https://arctics.academy/api"
+  baseURL: process.env.REACT_APP_BASE_URL
 })
 
 const submitSubscriber = async (email) => {
   try {
-    const { data: { status, message } } = await demo.post('/demo/subscriber-form', { email })
+    const { data: { status, message } } = await demo.post('/api/demo/subscriber-form', { email })
     return { status, msg: message }
   }
   catch (e) {
@@ -15,7 +15,7 @@ const submitSubscriber = async (email) => {
 }
 
 const submitMessageForm = async (form) => {
-  const { data: { status, message } } = await demo.post('/demo/message-form', {
+  const { data: { status, message } } = await demo.post('/api/demo/message-form', {
     form
   })
   return { status, msg: message }
@@ -24,7 +24,7 @@ const submitMessageForm = async (form) => {
 /* APIs */
 
 const instance = axios.create({
-  baseURL: "https://arctics.academy/"
+  baseURL: process.env.REACT_APP_BASE_URL
 })
 
 const submitConsultantRegistrationData = async (payload) => {
