@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+console.log(process.env)
+console.log(process.env.BASE_URL)
+
 const demo = axios.create({
-  baseURL: "https://arctics.academy/api"
+  baseURL: process.env.BASE_URL + "/api"
 })
 
 const submitSubscriber = async (email) => {
@@ -24,7 +27,7 @@ const submitMessageForm = async (form) => {
 /* APIs */
 
 const instance = axios.create({
-  baseURL: "https://arctics.academy/"
+  baseURL: process.env.BASE_URL
 })
 
 const submitConsultantRegistrationData = async (payload) => {
