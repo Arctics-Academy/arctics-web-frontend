@@ -10,14 +10,14 @@
  */
 
  
- @media only screen and (min-width: 800px) {
+ @media only screen and (min-width: 940px) {
     .rwd-show {
         display: none;
     }
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 940px) {
     
     .rwd-hide {
         display: none;
