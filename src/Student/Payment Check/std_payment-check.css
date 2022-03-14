@@ -12,9 +12,17 @@
   padding: 70px 0 20px 10%;
 }
 
+.std_payment-check-headimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+
 .std_payment-check-head {
   width: 80px;
-  margin-left: 0.5%;
+  margin-left: 0%;
+  margin-bottom: 0.5em;
   font-family: GenSenRoundedTW-B;
   font-size: 24px;
   font-weight: normal;
@@ -29,13 +37,12 @@
 .std_payment-check-line {
   width: 128px;
   height: 0;
-  margin: 10px 330.5px 0 0.5px;
+  margin: 0 330.5px 0 0.5px;
   border: solid 1px #003b6b;
 }
 
 .std_payment-check-content {
   align-items: center;
-  width: 160px;
   height: 18px;
   font-family: GenSenRoundedTW-M;
   font-size: 18px;
@@ -46,11 +53,4 @@
   letter-spacing: normal;
   text-align: left;
   color: #003b6b;
-}
-
-.std_payment-check-headimg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
 }

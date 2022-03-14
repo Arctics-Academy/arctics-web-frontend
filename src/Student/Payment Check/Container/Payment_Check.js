@@ -4,7 +4,7 @@ import StandardDisplay from "../Component/Standard_Display";
 const paymentCheck = () => {
   return (
     <div className="std_payment-check-main">
-      <StandardDisplay />;
+      <StandardDisplay />
     </div>
   );
 };
