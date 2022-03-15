@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const text1 =
   "請於兩個工作天午夜前自行匯款至Arctics帳號並回到Arctics網站提交證明。";
 const text2 =
-  "若為銀行轉帳，請提供匯款帳戶末五碼；若為超商／郵局／銀行現金付款等其它繳費方式，請上傳匯款收據照片。";
+  "若為銀行轉帳，請提供匯款帳戶末五碼；若為超商 / 郵局 / 銀行現金付款等其它繳費方式，請上傳匯款收據照片。";
 const text3 = "若兩日內未完成，系統將自動取消訂單。";
 
 const standard_display = () => {

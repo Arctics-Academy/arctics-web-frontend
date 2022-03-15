@@ -75,7 +75,6 @@
 
 .std_payment-check-content {
   align-items: center;
-  height: 18px;
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -86,4 +85,26 @@
   color: #003b6b;
 }
 
+.std_personal-details-container {
+  background-color: white;
+  border-radius: 16px;
+  margin: 0 10vw 0 10vw;
+}
 
+.std_personal-details {
+  padding: 32px;
+}
+
+.std_personal-details-line {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.std_personal-details-left {
+  margin-right: 300px;
+}
+
+.std_personal-details-bottom-container {
+  text-align: right;
+}
