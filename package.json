@@ -21,11 +21,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "REACT_APP_BASE_URL='https://preview.arctics.academy' react-scripts start",
+    "start": "REACT_APP_BASE_URL='http://localhost:4000' react-scripts start",
     "start:alex": "REACT_APP_BASE_URL='https://preview.arctics.academy' react-scripts --openssl-legacy-provider start",
     "start:staging": "REACT_APP_BASE_URL='https://preview.arctics.academy' react-scripts start",
     "start:production": "REACT_APP_BASE_URL='https://arctics.academy' react-scripts start",
-    "build": "REACT_APP_BASE_URL='https://preview.arctics.academy' react-scripts build",
+    "build": "REACT_APP_BASE_URL='http://localhost:4000' react-scripts build",
     "build:staging": "REACT_APP_BASE_URL='https://preview.arctics.academy' react-scripts build",
     "build:production": "REACT_APP_BASE_URL='https://arctics.academy' react-scripts build",
     "test": "react-scripts test",
@@ -51,5 +51,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://local"
+  "proxy": "http://localhost:4000"
 }
