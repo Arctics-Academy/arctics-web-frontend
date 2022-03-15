@@ -19,6 +19,38 @@
   margin-top: 3px;
 }
 
+.std_payment-check-heading-label-container {
+  position: relative;
+  text-align: center;
+}
+
+.std_payment-check-heading-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 28px;
+}
+
+.std_payment-check-heading-bar {
+  padding-bottom: 45px;
+}
+
+.std_payment-check-heading-label-bottom {
+  align-items: center;
+  height: 18px;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #003b6b;
+  margin-top: 4px;
+}
+
 .std_payment-check-head {
   width: 80px;
   margin-left: 0%;
@@ -44,7 +76,6 @@
 .std_payment-check-content {
   align-items: center;
   height: 18px;
-  font-family: GenSenRoundedTW-M;
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -54,4 +85,5 @@
   text-align: left;
   color: #003b6b;
 }
+
 

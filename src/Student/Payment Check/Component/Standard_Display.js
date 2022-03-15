@@ -14,11 +14,23 @@ const standard_display = () => {
   return (
     <div className="std_payment-check-wrapper">
       <div className="std_payment-check-headimg">
-        <img src={Dark_Circle} alt="step 1" />
-        <img src={Dark_Line} alt="to step 2" />
-        <img src={Light_Circle} alt="step 2" />
-        <span className="std_payment-check-content">確認課程</span>
-        <span className="std_payment-check-content">確認付款</span>
+        <div>
+          <div className="std_payment-check-heading-label-container">
+            <img src={Dark_Circle} alt="step 1" />
+            <span className="std_payment-check-heading-label">1</span>
+          </div>
+          <p className="std_payment-check-heading-label-bottom">確認課程</p>
+        </div>
+        <div className="std_payment-check-heading-bar">
+          <img src={Dark_Line} alt="" />
+        </div>
+        <div >
+          <div className="std_payment-check-heading-label-container">
+            <img src={Light_Circle} alt="step 2" />
+            <span className="std_payment-check-heading-label">2</span>
+          </div>
+          <p className="std_payment-check-heading-label-bottom">確認付款</p>
+        </div>
       </div>
       <p className="std_payment-check-head">付款</p>
       <p className="std_payment-check-line"></p>
