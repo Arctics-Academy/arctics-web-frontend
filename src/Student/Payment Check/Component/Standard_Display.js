@@ -17,6 +17,8 @@ const standard_display = () => {
         <img src={Dark_Circle} alt="step 1" />
         <img src={Dark_Line} alt="to step 2" />
         <img src={Light_Circle} alt="step 2" />
+        <span className="std_payment-check-content">確認課程</span>
+        <span className="std_payment-check-content">確認付款</span>
       </div>
       <p className="std_payment-check-head">付款</p>
       <p className="std_payment-check-line"></p>
