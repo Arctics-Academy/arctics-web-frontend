@@ -40,7 +40,7 @@ const App = () => {
     if (id.subString(0, 2) === 'TR') return 'consultant'
     else return 'student'
   }
-  /*
+  
   useEffect(async () => {
     console.log('reload')
     const { status, data, message } = await authFetchAllData();
@@ -54,7 +54,6 @@ const App = () => {
       setAuth(false)
     }
   }, [])
-  */
 
   return (
     <>
