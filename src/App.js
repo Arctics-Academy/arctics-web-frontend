@@ -29,6 +29,7 @@ import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './axios';
 import { ParamContext } from './ContextReducer';
 import { wrapLoginData } from './DataProcessUtils';
+import ProtectedRoute from './ProtectedRoute'
 
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json !
@@ -40,17 +41,20 @@ const App = () => {
     if (id.subString(0, 2) === 'TR') return 'consultant'
     else return 'student'
   }
-  
+
   useEffect(async () => {
     console.log('reload')
     const { status, data, message } = await authFetchAllData();
     console.log(status, data, message)
     if (status === 'success') {
+      console.log("in status success if")
       setAuth(true)
       context.setLogin(true)
       context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+      console.log("App.js context", context)
       history.push('/consultant-home')
     } else {
+      console.log("in status else if")
       setAuth(false)
     }
   }, [])
@@ -68,7 +72,7 @@ const App = () => {
           <Route exact path="/register-mobile-otp" component={RegisterMobileOTP} />
           <Route exact path="/register-email-otp" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
-          <Route exact path="/consultant-home" component={ConsulHome} />
+          <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
           <Route exact path="/consultant-profile" component={ConsulProfile} />
           <Route exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
