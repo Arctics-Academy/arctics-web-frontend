@@ -102,9 +102,34 @@
 }
 
 .std_personal-details-left {
-  margin-right: 300px;
+  margin-right: 0px;
+  width: 450px;
 }
 
 .std_personal-details-bottom-container {
   text-align: right;
+}
+
+.std_personal-detail-title {
+  font-size: 16px;
+  position: relative;
+  color: #4bb3cc;
+  align-items: center;
+  top: 0px;
+  left: 10px;
+}
+
+.std_personal-detail-icon {
+  position: relative;
+  width: 20px;
+  top: 2.5px;
+}
+
+.std_personal-detail-content {
+  color: #003b6b;
+  margin-left: 60px;
+}
+.std_personal-detail-content-2ndrow {
+  color: #003b6b;
+  margin-left: 111px;
 }
