@@ -75,7 +75,7 @@
 
 .std_payment-check-content {
   align-items: center;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -88,11 +88,12 @@
 .std_personal-details-container {
   background-color: white;
   border-radius: 16px;
-  margin: 0 10vw 0 10vw;
+  margin: 0vw 15vw 5vw 15vw;
 }
 
 .std_personal-details {
-  padding: 32px;
+  padding: 5%;
+  padding-bottom: 2%;
 }
 
 .std_personal-details-line {
@@ -103,15 +104,16 @@
 
 .std_personal-details-left {
   margin-right: 0px;
-  width: 450px;
+  width: 700px;
 }
 
 .std_personal-details-bottom-container {
   text-align: right;
+  margin-right: 150px;
 }
 
 .std_personal-detail-title {
-  font-size: 16px;
+  font-size: 18px;
   position: relative;
   color: #4bb3cc;
   align-items: center;
@@ -123,13 +125,46 @@
   position: relative;
   width: 20px;
   top: 2.5px;
+  margin-left: 10px;
 }
 
 .std_personal-detail-content {
   color: #003b6b;
-  margin-left: 60px;
+  margin-left: 100px;
+  font-size: 24px;
+  line-height: 1em;
 }
 .std_personal-detail-content-2ndrow {
   color: #003b6b;
-  margin-left: 111px;
+  margin-left: 155px;
+  font-size: 24px;
+}
+
+.std_personal-detail-bottom-line {
+  width: 70%;
+  height: 0;
+  margin: 10px 10vw 0 10vw;
+  border: solid 1px #003b6b;
+}
+
+.std_personal-detail-buttom-content {
+  width: 185px;
+  height: 32px;
+  font-family: GenSenRoundedTW-M;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 1.2px;
+  text-align: center;
+  color: #003b6b;
+}
+.std_personal-detail-buttom {
+  border: none;
+  width: 150px;
+  height: 40px;
+  padding: inherit;
+  border-radius: 4px;
+  background-color: #f2d60f;
 }
