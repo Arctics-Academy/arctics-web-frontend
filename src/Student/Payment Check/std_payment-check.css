@@ -88,7 +88,7 @@
 .std_personal-details-container {
   background-color: white;
   border-radius: 16px;
-  margin: 0vw 15vw 5vw 15vw;
+  margin: 0vw 23vw 5vw 10vw;
 }
 
 .std_personal-details {
@@ -108,8 +108,7 @@
 }
 
 .std_personal-details-bottom-container {
-  text-align: right;
-  margin-right: 150px;
+  margin-left: 70%;
 }
 
 .std_personal-detail-title {
@@ -131,12 +130,14 @@
 .std_personal-detail-content {
   color: #003b6b;
   margin-left: 100px;
+  margin-bottom: 3%;
   font-size: 24px;
   line-height: 1em;
 }
+
 .std_personal-detail-content-2ndrow {
   color: #003b6b;
-  margin-left: 155px;
+  margin-left: 165px;
   font-size: 24px;
 }
 
@@ -145,6 +146,12 @@
   height: 0;
   margin: 10px 10vw 0 10vw;
   border: solid 1px #003b6b;
+}
+.std_personal-detail-bottom-content {
+  color: #003b6b;
+  margin-bottom: 3%;
+  font-size: 24px;
+  line-height: 1em;
 }
 
 .std_personal-detail-buttom-content {
@@ -160,8 +167,10 @@
   text-align: center;
   color: #003b6b;
 }
+
 .std_personal-detail-buttom {
   border: none;
+  margin-bottom: 5%;
   width: 150px;
   height: 40px;
   padding: inherit;

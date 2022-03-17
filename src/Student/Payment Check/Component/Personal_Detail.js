@@ -89,7 +89,7 @@ const personal_detail = () => {
       </div>
       <p className="std_personal-detail-bottom-line "></p>
       <div className="std_personal-details-bottom-container">
-        <p className="std_personal-detail-content">
+        <p className="std_personal-detail-bottom-content">
           總金額<span>{dummy.actualPrice}</span>元
         </p>
 
