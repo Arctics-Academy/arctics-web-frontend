@@ -14,9 +14,20 @@ const dummy = {
 const payment =() =>{
 
     return(
-        <div className="std_payment-proof-wrapper">
-            <p >提交付款證明</p>
-            <p className="std_payment-proof-line"></p>
+        <div>
+            <div className="std_payment-proof-wrapper">
+                <p className="std_payment-proof-head">提交付款證明</p>
+                <p className="std_payment-proof-line"></p>
+            </div>
+            <div className="std_personal-details-container">
+            <div className="std_personal-details">
+            <div className="std_personal-details-line">
+                <div className="std_personal-details-left">
+                    
+                </div>?
+            </div>
+            </div>
+            </div>
         </div>
     )
 };

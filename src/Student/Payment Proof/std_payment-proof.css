@@ -1,4 +1,4 @@
-.std_payment-check-main {
+.std_payment-proof-main {
   margin-top: 80px;
   background: #f5f5f5;
   width: 105vw;
@@ -6,53 +6,14 @@
   min-height: 1000px;
 }
 
-.std_payment-check-wrapper {
+.std_payment-proof-wrapper {
   width: 80%;
   height: auto;
   padding: 70px 0 20px 10%;
 }
 
-.std_payment-check-headimg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3px;
-}
-
-.std_payment-check-heading-label-container {
-  position: relative;
-  text-align: center;
-}
-
-.std_payment-check-heading-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 28px;
-}
-
-.std_payment-check-heading-bar {
-  padding-bottom: 45px;
-}
-
-.std_payment-check-heading-label-bottom {
-  align-items: center;
-  height: 18px;
-  font-size: 18px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: center;
-  color: #003b6b;
-  margin-top: 4px;
-}
-
-.std_payment-check-head {
-  width: 80px;
+.std_payment-proof-head {
+  width: 160px;
   margin-left: 0%;
   margin-bottom: 0.5em;
   font-family: GenSenRoundedTW-B;
@@ -66,23 +27,11 @@
   color: #003b6b;
 }
 
-.std_payment-check-line {
-  width: 128px;
+.std_payment-proof-line {
+  width: 160px;
   height: 0;
   margin: 0 330.5px 0 0.5px;
   border: solid 1px #003b6b;
-}
-
-.std_payment-check-content {
-  align-items: center;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #003b6b;
 }
 
 .std_personal-details-container {
