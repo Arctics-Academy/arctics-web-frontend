@@ -1,6 +1,5 @@
-import { useState } from "react";
 import StandardDisplay from "../Component/Standard_Display";
-import PersonalDetails from "../Component/Personal_Detail"
+import PersonalDetails from "../Component/Personal_Detail";
 
 const paymentCheck = () => {
   return (

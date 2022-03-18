@@ -15,6 +15,7 @@ import OpenMeetingModal from "./Modals/consultant/openMeetingModal";
 import Login from "./Login/Login";
 import StudentHome from "./Student/Home/Container/StudentHome";
 import PaymentCheck from "./Student/Payment Check/Container/Payment_Check";
+import PaymentProof from "./Student/Payment Proof/Container/Payment_Proof"
 import { Switch, Route } from "react-router-dom";
 import "./style.css";
 //import './responsive.css';
@@ -67,6 +68,7 @@ const App = () => {
           <Route exact path="/student-home" component={StudentHome} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Route exact path="/student-payment-check" component={PaymentCheck} />
+          <Route exact path="/student-payment-proof" component={PaymentProof} />
         </Switch>
         <Foot />
       </ContextReducer>
