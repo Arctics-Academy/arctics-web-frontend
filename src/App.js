@@ -33,7 +33,7 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} />
           <Route exact path="/register-identity" component={RegisterIdentity} />
           <Route exact path="/register/:identity" component={Register} />
           <Route
@@ -66,7 +66,7 @@ const App = () => {
             component={ConsulMultiCancel}
           />
           <Route exact path="/student-home" component={StudentHome} />
-          <Route exact path="/modal-test" component={OpenMeetingModal} />
+          <Route exact path="/modal-test" component={OpenMeetingModal} /> */}
           <Route exact path="/student-payment-check" component={PaymentCheck} />
           <Route exact path="/student-payment-proof" component={PaymentProof} />
         </Switch>

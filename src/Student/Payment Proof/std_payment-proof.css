@@ -53,11 +53,12 @@
 
 .std_personal-details-left {
   margin-right: 0px;
+  margin-bottom: inherit;
   width: 700px;
 }
 
 .std_personal-details-bottom-container {
-  margin-left: 70%;
+  margin-left: 86%;
 }
 
 .std_personal-detail-title {
@@ -91,38 +92,61 @@
 }
 
 .std_personal-detail-bottom-line {
-  width: 70%;
-  height: 0;
-  margin: 10px 10vw 0 10vw;
+  margin: inherit;
+  width: 100%;
   border: solid 1px #003b6b;
 }
 .std_personal-detail-bottom-content {
   color: #003b6b;
   margin-bottom: 3%;
+  margin-top: inherit;
   font-size: 24px;
   line-height: 1em;
 }
 
-.std_personal-detail-buttom-content {
+.std_transfer-detail-row1 {
+  color: #003b6b;
+  margin-left: 80px;
+  margin-bottom: inherit;
+  margin-top: 0px;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+.std_transfer-detail-row2 {
+  color: #003b6b;
+  margin-left: 98px;
+  margin-bottom: inherit;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+.std_transfer-detail-row3 {
+  color: #003b6b;
+  margin-left: 44px;
+  margin-bottom: inherit;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+.std_transfer-detail-button {
+  cursor: pointer;
+  margin-left: 60px;
+  padding: inherit;
+  border: none;
+  color: #4bb3cc;
+}
+
+.std_transfer-detail-button-content {
   width: 185px;
   height: 32px;
   font-family: GenSenRoundedTW-M;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.33;
   letter-spacing: 1.2px;
   text-align: center;
-  color: #003b6b;
-}
-
-.std_personal-detail-buttom {
-  border: none;
-  margin-bottom: 5%;
-  width: 150px;
-  height: 40px;
-  padding: inherit;
-  border-radius: 4px;
-  background-color: #f2d60f;
+  color: #fff;
 }
