@@ -75,7 +75,6 @@
 
 .std_payment-check-content {
   align-items: center;
-  font-size: 24px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -113,7 +112,6 @@
 }
 
 .std_personal-detail-title {
-  font-size: 18px;
   position: relative;
   color: #4bb3cc;
   align-items: center;
@@ -132,7 +130,6 @@
   color: #003b6b;
   margin-left: 100px;
   margin-bottom: 3%;
-  font-size: 24px;
   line-height: 1em;
 }
 
