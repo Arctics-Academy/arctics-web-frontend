@@ -1,0 +1,208 @@
+/* Booking Top Display */
+.std_booking-display-wrapper {
+  padding: 120px 10vw 0 10vw;
+  background: #f5f5f5;
+  width: 80vw;
+}
+
+.std_booking-display-top-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+}
+
+.std_booking-display-heading-label-container {
+  position: relative;
+  text-align: center;
+}
+
+.std_booking-display-heading-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 28px;
+}
+
+.std_booking-display-heading-bar {
+  padding-bottom: 45px;
+}
+
+.std_booking-display-heading-label-bottom {
+  align-items: center;
+  height: 18px;
+  font-size: 18px;
+  line-height: 1.33;
+  text-align: center;
+  color: #003b6b;
+  margin-top: 4px;
+}
+
+.std_booking-display-reminder-container {
+  width: 80vw;
+  padding-bottom: 16px;
+}
+
+.std_booking-display-reminder-head {
+  width: 80px;
+  margin-left: 0%;
+  margin-bottom: 0.5em;
+  font-size: 24px;
+  text-align: left;
+  color: #003b6b;
+}
+
+.std_booking-display-reminder-line {
+  width: 128px;
+  height: 0;
+  margin: 0 330.5px 0 0.5px;
+  border: solid 1px #003b6b;
+}
+
+.std_booking-display-reminder-content {
+  align-items: center;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #003b6b;
+}
+
+
+/* Meeting Details Card Top */
+.std_meeting-details-container {
+  background: #f5f5f5;
+}
+
+.std_meeting-details-card-container {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  width: 80vw;
+}
+
+.std_meeting-details {
+  padding: 10vh 5vw 0 5vw;
+}
+
+.std_meeting-details-line {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 32px;
+}
+
+.std_meeting-details-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0px;
+  width: 35vw;
+}
+
+.std_meeting-details-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0px;
+  width: 35vw;
+}
+
+.std_meeting-details-icon {
+  width: 20px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.std_meeting-details-title {
+  color: #4bb3cc;
+  margin: 0;
+  margin-right: 60px;
+}
+
+.std_meeting-details-content {
+  color: #003b6b;
+  margin: 0;
+}
+
+.std_meeting-details-input {
+  box-sizing: border-box;
+  background-color: white;
+  margin-right: 8px;
+  border: 2px solid #4bb3cc;
+  border-radius: 8px;
+  height: 40px;
+  width: 250px;
+}
+
+.std_meeting-details-button {
+  box-sizing: border-box;
+  background-color: #4bb3cc;
+  font-size: 16px;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--heading-font);
+}
+
+.std_meeting-details-title-discount {
+  margin-right: 75px;
+}
+
+.std_meeting-details-bottom-line {
+  width: 70vw;
+  height: 0;
+  margin: auto;
+  border: solid 1px #003b6b;
+}
+
+
+/* Meeting Details Card Bottom */
+.std_meeting-details-bottom-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: bottom;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.std_meeting-details-bottom-container:last-child {
+  padding-bottom: 5vh;
+}
+
+.std_meeting-details-bottom-icon {
+  align-self: bottom;
+}
+
+.std_meeting-details-bottom-content {
+  color: #003b6b;
+}
+
+.std_meeting-details-bottom-content-span {
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 24px;
+}
+
+.std_meeting-details-buttom-button {
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 120px;
+  background-color: #f2d60f;
+  color: #003b6b;
+  font-family: var(--heading-font);
+}
+
+
+/* Blank Footer */
+footer {
+  background-color: #f5f5f5;
+}
