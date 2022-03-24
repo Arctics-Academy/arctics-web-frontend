@@ -37,7 +37,7 @@ const App = () => {
   const context = useContext(ParamContext)
   const history = useHistory()
   const getIdentity = (id) => {
-    if (id.subString(0, 2) === 'TR') return 'consultant'
+    if (id.substring(0, 2) === 'TR') return 'consultant'
     else return 'student'
   }
   /*
