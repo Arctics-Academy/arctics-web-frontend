@@ -36,6 +36,8 @@ export default function Nav() {
 		history.push('/')
 	}
 
+	console.log("Nav context: ", context)
+
 	if (!context.isLogin) {
 		// const handleScrollTop = (evt)=>document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
 		// const handleScrollAbout = (evt)=>document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
