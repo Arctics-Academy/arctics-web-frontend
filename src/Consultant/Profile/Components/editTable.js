@@ -71,6 +71,7 @@ const EditTable = ({ id, profile, changePage }) => {
       type: 'editProfile',
       payload: payload.profile
     })
+    context.setLogin(true)
     changePage('intro-main')
   }
 

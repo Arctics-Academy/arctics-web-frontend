@@ -19,6 +19,7 @@ const ProfilePhotoModal = ({ hidden, setHidden }) => {
         } catch (e) {
             console.log(e)
         }
+        context.setLogin(true)
         context.setInfo({
             type: 'updateAvatar',
             payload: {
@@ -39,7 +40,8 @@ const ProfilePhotoModal = ({ hidden, setHidden }) => {
             payload: {
                 photo: 'NotFound'
             }
-        })   
+        })
+        context.setLogin(true)
     }
     return (
         <div className='clt_modal-open-meeting' style={hidden? {display:'none'}:{display:'flex'}}>

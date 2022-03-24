@@ -32,6 +32,7 @@ const TimeTable = ({ profile }) => {
         type: 'editTimetable',
         payload: payload.profile.timetable
       })
+      context.setLogin(true)
       setTimeout(() => {setMsgVisible(false)}, 3000)
     } catch (e) {
       console.log(e)

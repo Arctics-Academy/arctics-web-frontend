@@ -22,6 +22,7 @@ const Notification = ({setContent, setTitle, setHidden}) => {
         nid: evt.target.dataset.nid
       }
     })
+    context.setLogin(true)
     const payload = {
       id: context.Info.id,
       announcementId: [],

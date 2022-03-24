@@ -20,7 +20,7 @@ import NotFoundException from './Exception/NotFoundException';
 import InternalServerErrorException from './Exception/InternalServerErrorException'
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
-import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
+import { Switch, Route, Redirect, useHistory, useLocation } from 'react-router-dom';
 import './style.css';
 //import './responsive.css';
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
@@ -37,6 +37,7 @@ const App = () => {
   const [auth, setAuth] = useState(false)
   const context = useContext(ParamContext)
   const history = useHistory()
+  const location = useLocation()
   const getIdentity = (id) => {
     if (id.substring(0, 2) === 'TR') return 'consultant'
     else return 'student'
@@ -46,14 +47,15 @@ const App = () => {
     console.log('reload')
     const { status, data, message } = await authFetchAllData();
     console.log(status, data, message)
+    console.log(location)
     if (status === 'success') {
       try {
         setAuth(true)
-        // context.setLogin(true)
         context.isLogin = true
-        // context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+        //context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+        //context.setLogin(true)
         context.Info = wrapLoginData(data, getIdentity(data.id))
-        history.push('/consultant-home')
+        history.push(location.pathname)
         console.log("App.js context: ", context)
         return
       }
@@ -82,13 +84,13 @@ const App = () => {
           <Route exact path="/register-mobile-otp" component={RegisterMobileOTP} />
           <Route exact path="/register-email-otp" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
-          <ProtectedRoute exact path="/consultant-home" component={ConsulHome} auth={auth} />
-          <Route exact path="/consultant-profile" component={ConsulProfile} />
-          <Route exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
-          <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
-          <Route exact path="/exception/404" component={NotFoundException} />
-          <Route exact path="/exception/500" component={InternalServerErrorException} />
-          <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
+          <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
+          <ProtectedRoute auth={auth} exact path="/consultant-profile" component={ConsulProfile} />
+          <ProtectedRoute auth={auth} exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
+          <ProtectedRoute auth={auth} exact path="/consultant-purse/:mode" component={ConsulPurse} />
+          <ProtectedRoute auth={auth} exact path="/exception/404" component={NotFoundException} />
+          <ProtectedRoute auth={auth} exact path="/exception/500" component={InternalServerErrorException} />
+          <ProtectedRoute auth={auth} exact path="/consultant-announcement" component={ConsulAnnounce} />
           <Redirect from='*' to='/exception/404' />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
