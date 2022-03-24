@@ -29,6 +29,7 @@ import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './axios';
 import { ParamContext } from './ContextReducer';
 import { wrapLoginData } from './DataProcessUtils';
+import ProtectedRoute from './ProtectedRoute';
 
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json !
@@ -40,21 +41,32 @@ const App = () => {
     if (id.substring(0, 2) === 'TR') return 'consultant'
     else return 'student'
   }
-  /*
+  
   useEffect(async () => {
     console.log('reload')
     const { status, data, message } = await authFetchAllData();
     console.log(status, data, message)
     if (status === 'success') {
-      setAuth(true)
-      context.setLogin(true)
-      context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
-      history.push('/consultant-home')
+      try {
+        setAuth(true)
+        // context.setLogin(true)
+        context.isLogin = true
+        context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+        history.push('/consultant-home')
+        console.log(context)
+        return
+      }
+      catch (e) {
+        console.log(e)
+        setAuth(false)
+        return
+      }
     } else {
       setAuth(false)
+      return
     }
   }, [])
-  */
+  
 
   return (
     <>
@@ -69,7 +81,7 @@ const App = () => {
           <Route exact path="/register-mobile-otp" component={RegisterMobileOTP} />
           <Route exact path="/register-email-otp" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
-          <Route exact path="/consultant-home" component={ConsulHome} />
+          <ProtectedRoute exact path="/consultant-home" component={ConsulHome} auth={auth} />
           <Route exact path="/consultant-profile" component={ConsulProfile} />
           <Route exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
           <Route exact path="/consultant-purse/:mode" component={ConsulPurse} />
