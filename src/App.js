@@ -51,9 +51,10 @@ const App = () => {
         setAuth(true)
         // context.setLogin(true)
         context.isLogin = true
-        context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+        // context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+        context.Info = wrapLoginData(data, getIdentity(data.id))
         history.push('/consultant-home')
-        console.log(context)
+        console.log("App.js context: ", context)
         return
       }
       catch (e) {
