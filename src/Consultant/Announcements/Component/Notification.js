@@ -2,7 +2,7 @@ import { ParamContext } from "../../../ContextReducer";
 import { useContext } from 'react'
 import "../clt_announce.css";
 import icon from '../img/announcement_icon.png';
-import { readNotificationsOrAnnouncements } from "../../../axios";
+import { readNotificationsOrAnnouncements } from "../../../Axios/consulAxios";
 
 
 

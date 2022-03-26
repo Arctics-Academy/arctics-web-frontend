@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { updateProfileData, verifyEmailOTP, verifyMobileOTP } from "../../../axios";
+import { updateProfileData, verifyEmailOTP, verifyMobileOTP } from "../../../Axios/consulAxios";
 import EmptyFunctionModal from "../../../Modals/system/emptyFunctionModal";
 import Pen from "../img/edit-pen.svg";
 import Eye from "../img/blue-eye-open.svg";

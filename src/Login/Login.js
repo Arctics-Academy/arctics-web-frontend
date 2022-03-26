@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import './login.css'
 import { ReactComponent as Lock } from './img/lock.svg'
 import { Link, useHistory } from "react-router-dom"
-import { submitConsultantLoginData } from "../axios"
+import { submitConsultantLoginData } from "../Axios/consulAxios"
 import Loading from './img/loading48.gif'
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"

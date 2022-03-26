@@ -1,5 +1,5 @@
 import "./editTable.css";
-import { updateStudentID, updateProfileData } from "../../../axios";
+import { updateStudentID, updateProfileData } from "../../../Axios/consulAxios";
 import { ReactComponent as Upload } from "../img/black-upload.svg";
 import { useForm } from "react-hook-form";
 import { useContext, useState, useEffect } from "react";

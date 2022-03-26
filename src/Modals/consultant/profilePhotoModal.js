@@ -1,6 +1,6 @@
 import './clt_modal.css'
 import { ReactComponent as BlackCircleCamera } from '../img/black-circle-camera.svg'
-import { updateProfilePhoto } from '../../axios'
+import { updateProfilePhoto } from '../../Axios/consulAxios'
 import { useContext } from 'react'
 import { ParamContext } from '../../ContextReducer'
 

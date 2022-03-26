@@ -6,7 +6,7 @@ import Eye from "../img/eye-no-lash.svg";
 import Check from "../img/black-check.svg";
 import X from "../img/white-x.svg";
 import Calendar from "../img/calendar.svg";
-import { updateProfileData, updateStudentID } from "../../../axios";
+import { updateProfileData, updateStudentID } from "../../../Axios/consulAxios";
 import { useContext } from "react";
 import { ParamContext } from "../../../ContextReducer";
 import DefaultAvatar from "../img/profile-replacer.png"

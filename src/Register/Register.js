@@ -6,8 +6,8 @@ import IcebergImage from './img/Iceberg.png'
 import { ReactComponent as GoogleIcon} from './img/google-brands.svg'
 import { ReactComponent as FacebookIcon } from './img/facebook-brands.svg'
 import Loading from '../Login/img/loading48.gif'
-import { submitConsultantRegistrationData } from "../axios"
-import { sendEmailOTP } from "../axios"
+import { submitConsultantRegistrationData } from "../Axios/consulAxios"
+import { sendEmailOTP } from "../Axios/consulAxios"
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
 

@@ -26,7 +26,7 @@ import './style.css';
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
 import { useEffect, useState, useContext } from 'react';
-import { authFetchAllData } from './axios';
+import { authFetchAllData } from './Axios/consulAxios';
 import { ParamContext } from './ContextReducer';
 import { wrapLoginData } from './DataProcessUtils';
 import ProtectedRoute from './ProtectedRoute';
