@@ -22,6 +22,7 @@ const listBody = (receipt) => {
 }
 
 const getFirstTen = (list) => {
+    if (!list) return []
     let output = []
     for (let i=0; i<10; i++) {
         if (list[i] === undefined) {
