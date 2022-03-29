@@ -107,3 +107,6 @@ const App = () => {
 };
 
 export default App;
+
+// comment everything except landing page and payment check
+// <Foot />

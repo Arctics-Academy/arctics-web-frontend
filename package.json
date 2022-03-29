@@ -30,7 +30,7 @@
     "build:production": "REACT_APP_BASE_URL='https://www.arctics.academy' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "quick-start": "yarn install && yarn start",
+    "quick-start": "yarn install && react-scripts start",
     "quick-serve": "yarn install && yarn build && serve -s build"
   },
   "eslintConfig": {
