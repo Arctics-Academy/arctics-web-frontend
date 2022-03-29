@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import './register.css'
 import { useHistory } from 'react-router-dom'
-import { sendMobileOTP, verifyMobileOTP } from '../axios'
+import { sendMobileOTP, verifyMobileOTP } from '../Axios/consulAxios'
 import { ParamContext } from '../ContextReducer'
 import Loading from '../Login/img/loading48.gif'
 

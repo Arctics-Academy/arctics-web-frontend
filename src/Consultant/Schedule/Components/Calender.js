@@ -49,6 +49,7 @@ const Calender = () => {
             let temp = context.Info.meetingsByTime
             if (context.Info.meetingsByTime[y] === undefined) temp[y] = {}
             temp[y][m] = buildMonthArr(y, m)
+            context.setLogin(true)
             context.setInfo({
                 type: 'addMonthForView',
                 payload: temp
@@ -73,6 +74,7 @@ const Calender = () => {
                 type: 'addMonthForView',
                 payload: temp
             })
+            context.setLogin(true)
         }
         setMonth(m)
         setYear(y)

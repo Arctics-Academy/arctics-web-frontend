@@ -6,8 +6,8 @@ import IcebergImage from './img/Iceberg.png'
 import { ReactComponent as GoogleIcon} from './img/google-brands.svg'
 import { ReactComponent as FacebookIcon } from './img/facebook-brands.svg'
 import Loading from '../Login/img/loading48.gif'
-import { submitConsultantRegistrationData } from "../axios"
-import { sendEmailOTP } from "../axios"
+import { submitConsultantRegistrationData } from "../Axios/consulAxios"
+import { sendEmailOTP } from "../Axios/consulAxios"
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
 
@@ -58,8 +58,8 @@ const Register = () => {
         message: "請輸入正確的電話號碼格式,勿輸入非數字字元"
     }
     const passwordValidatePattern = {
-        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,150}$/,
-        message: "正確的密碼格式須包含至少1大寫英文字母,1小寫英文字母,1數字,1特殊字元,長度至少為8"
+        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,150}$/,
+        message: "正確的密碼格式須包含至少1大寫英文字母,1小寫英文字母,1數字,1特殊字元(如:@$!%*?&_),長度至少為8"
     }
 
     const submitButtonContent = () => {

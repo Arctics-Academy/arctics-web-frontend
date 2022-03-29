@@ -5,7 +5,7 @@ import Loading from '../../../Login/img/loading48.gif'
 import "./timeTable.css";
 import { resolveTimetable, wrapTimetable } from "../../../DataProcessUtils";
 import { useForm, FormProvider } from "react-hook-form";
-import { updateProfileData } from "../../../axios";
+import { updateProfileData } from "../../../Axios/consulAxios";
 import { useState, useContext } from "react";
 import { ParamContext } from "../../../ContextReducer";
 
@@ -32,6 +32,7 @@ const TimeTable = ({ profile }) => {
         type: 'editTimetable',
         payload: payload.profile.timetable
       })
+      context.setLogin(true)
       setTimeout(() => {setMsgVisible(false)}, 3000)
     } catch (e) {
       console.log(e)

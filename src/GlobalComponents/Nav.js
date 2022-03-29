@@ -4,7 +4,7 @@ import './responsive.css';
 import logo from './img/nav-arctics-logo.png';
 import { ParamContext } from '../ContextReducer';
 import { Link, useHistory } from 'react-router-dom';
-import { handleLogout } from '../axios';
+import { handleLogout } from '../Axios/consulAxios';
 
 export default function Nav() {
 	const context = useContext(ParamContext)
@@ -35,6 +35,8 @@ export default function Nav() {
 		})
 		history.push('/')
 	}
+
+	console.log("Nav context: ", context)
 
 	if (!context.isLogin) {
 		// const handleScrollTop = (evt)=>document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
