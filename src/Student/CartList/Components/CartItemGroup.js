@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import CartItem from "./CartItem";
 import NotifModal from "./NotifModal";
-import Data from "../TestData.json"
+import Data from "../TestData.json";
 
 const CartItemGroup = ({hidden, setHidden}) => {
 
   // const [ data, setData ] = useState(Data);
 
-  const filtered = Data.filter( item => item.deleted )
+  const filtered = Data.filter( item => !item.deleted )
   const cart_item = filtered.map( item => {
     return(
       <CartItem key={item.id + item.name} clt={item} />

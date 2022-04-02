@@ -1,4 +1,4 @@
-import '../std_cartlist_notifModal.css'
+import '../std_cartlist_notifModal.css';
 
 const NotifModal = ({title, content, hidden, setHidden, mode, id}) => {
 

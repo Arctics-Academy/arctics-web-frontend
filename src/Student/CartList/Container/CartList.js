@@ -14,7 +14,7 @@ const CartList = () => {
         <ListIcon className="std_cartlist-title-icon"/>
         <p className="std_cartlist-title">好奇清單</p>
       </div>
-      <button className="std_cartlist-button-clear-all"  onClick={setHidden(!hidden)}>
+      <button className="std_cartlist-button-clear-all"  onClick={()=>setHidden(!hidden)}>
         <ClearAll className="std_cartlist-icon-clear-all"/>
         清空全部
       </button>

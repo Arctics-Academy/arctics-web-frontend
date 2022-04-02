@@ -1,19 +1,21 @@
-import "../std_cartlist.css"
-import { useState } from "react"
-import { ReactComponent as CoinIcon } from '../img/coin.svg'
-import { ReactComponent as SchoolIcon } from '../img/school.svg'
-import { ReactComponent as ExpIcon } from '../img/exp.svg'
-import { ReactComponent as HashtagIcon } from '../img/hashtag.svg'
-import { ReactComponent as UpIcon } from '../img/arrow_up.svg'
-import { ReactComponent as DownIcon } from '../img/arrow_down.svg'
-import { ReactComponent as Star } from '../img/star.svg'
-import { ReactComponent as DeleteIcon } from '../img/delete.svg'
-import { ReactComponent as InfoIcon } from '../img/info.svg'
+import "../std_cartlist.css";
+import { useState } from "react";
+import { ReactComponent as CoinIcon } from '../img/coin.svg';
+import { ReactComponent as SchoolIcon } from '../img/school.svg';
+import { ReactComponent as ExpIcon } from '../img/exp.svg';
+import { ReactComponent as HashtagIcon } from '../img/hashtag.svg';
+import { ReactComponent as UpIcon } from '../img/arrow_up.svg';
+import { ReactComponent as DownIcon } from '../img/arrow_down.svg';
+import { ReactComponent as Star } from '../img/star.svg';
+import { ReactComponent as DeleteIcon } from '../img/delete.svg';
+import { ReactComponent as InfoIcon } from '../img/info.svg';
 import img_path from '../img/tmp_avatar.png';
-import NotifModal from "./NotifModal"
+import NotifModal from "./NotifModal";
 
 
-const CartItem = ( {clt, hidden, setHidden} ) => {
+const CartItem = ( {clt} ) => {
+
+  const [itemHidden, setItemHidden] = useState(true);
   const [introOpen, setIntroOpen] = useState(false);
   let hashtag_converted = clt.hashtags;
   if (clt.hashtags.length<3){
@@ -64,13 +66,9 @@ const CartItem = ( {clt, hidden, setHidden} ) => {
     }
   }
 
-  // const handleDelete = () => {
-  //   setHidden(!hidden);
-  // }
-
   return (
       <div className="std_cartitem-wrapper">
-        <NotifModal title={"移除 顧問：" + clt.name} content={"確定要將這位顧問從清單中移除嗎？"} hidden={hidden} setHidden={setHidden} mode={"clearAll"} id={ clt.id } />
+        <NotifModal title={"移除 顧問：" + clt.name} content={"確定要將這位顧問從清單中移除嗎？"} hidden={itemHidden} setHidden={setItemHidden} mode={"clearAll"} id={ clt.id } />
         <div className="std_cartitem-col1">
           <img src={img_path} className="std_cartitem-img"></img>
           <p className="std_cartitem-name">{clt.name}</p>
@@ -113,7 +111,7 @@ const CartItem = ( {clt, hidden, setHidden} ) => {
             <p>{level_int}</p>
             <span className="std_cartitem-level-float">.{level_fl}</span>
           </div>
-          <button className="std_cartitem-delete-button" onClick={()=>setHidden(!hidden)}>
+          <button className="std_cartitem-delete-button" onClick={()=>setItemHidden(!itemHidden)}>
             <DeleteIcon className="std_cartitem-delete-icon"/>
             <p>移除</p>
           </button>
