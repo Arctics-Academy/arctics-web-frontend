@@ -59,7 +59,8 @@
 
 .std_cartitem-col1{
   width: 13.5%;
-  height: auto;
+  height: 150px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
