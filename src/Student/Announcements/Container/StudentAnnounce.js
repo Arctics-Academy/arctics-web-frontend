@@ -1,12 +1,12 @@
 import Announcement from "../Component/Announcement";
 import Notification from "../Component/Notification";
 
-const ConsulAnnounce = () => {
+const StudentAnnounce = () => {
   return (
-    <div className="clt_announce-main">
+    <div className="std_announce-main">
       <Announcement />;
-      <Notification />
+      <Notification />;
     </div>
   );
 };
-export default ConsulAnnounce;
+export default StudentAnnounce;
