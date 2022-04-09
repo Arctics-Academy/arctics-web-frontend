@@ -24,11 +24,11 @@ export default function NavMobile () {
 					<span className="r-nav__meat"></span>
 					<span className="r-nav__meat"></span>
 					<ul className="r-nav__menu rwd-show">
-						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#top" onClick={handleOnClick}>首頁</a></li>
-						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#about" onClick={handleOnClick}>關於我們</a></li>
-						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#function" onClick={handleOnClick}>平台優勢</a></li>
-						<li className="r-nav__menu-item"><a href="https://www.arctics.academy/#members" onClick={handleOnClick}>團隊成員</a></li>
-						<li className="r-nav__menu-item" ><a href="https://www.arctics.academy/#contact-us" onClick={handleOnClick}>聯絡我們</a></li>
+						<li className="r-nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#top"} onClick={handleOnClick}>首頁</a></li>
+						<li className="r-nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#about-us"} onClick={handleOnClick}>關於我們</a></li>
+						<li className="r-nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#function"} onClick={handleOnClick}>平台優勢</a></li>
+						<li className="r-nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#members"} onClick={handleOnClick}>團隊成員</a></li>
+						<li className="r-nav__menu-item" ><a href={process.env.REACT_APP_BASE_URL+"#contact-us"} onClick={handleOnClick}>聯絡我們</a></li>
 						<li><button className="r-nav__action-button" onClick={handleOnLoginClick}>註冊 / 登入</button></li>
 					</ul>
 				</div>

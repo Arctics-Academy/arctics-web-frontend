@@ -50,11 +50,11 @@ export default function Nav() {
 		    	<img className="nav__logo" src={logo} alt="arctics" width="224px" height="41px"></img>
 		    	<div className="nav__right">
 			    	<ul className="nav__menu">
-				    	<li className="nav__menu-item"><a href="https://www.arctics.academy/#top">首頁</a></li>
-				    	<li className="nav__menu-item"><a href="https://www.arctics.academy/#about-us">關於我們</a></li>
-				    	<li className="nav__menu-item"><a href="https://www.arctics.academy/#function">平台優勢</a></li>
-				    	<li className="nav__menu-item"><a href="https://www.arctics.academy/#members">團隊成員</a></li>
-				    	<li className="nav__menu-item" ><a href="https://www.arctics.academy/#contact-us">聯絡我們</a></li>
+				    	<li className="nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#top"}>首頁</a></li>
+				    	<li className="nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#about-us"}>關於我們</a></li>
+				    	<li className="nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#function"}>平台優勢</a></li>
+				    	<li className="nav__menu-item"><a href={process.env.REACT_APP_BASE_URL+"#members"}>團隊成員</a></li>
+				    	<li className="nav__menu-item" ><a href={process.env.REACT_APP_BASE_URL+"#contact-us"}>聯絡我們</a></li>
 			    	</ul>
 					<button className="nav__action-button" onClick={navigateToLogin}>註冊 / 登入</button>
 		    	</div>
