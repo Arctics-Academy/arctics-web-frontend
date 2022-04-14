@@ -7,6 +7,7 @@ import { ReactComponent as GoogleIcon} from './img/google-brands.svg'
 import { ReactComponent as FacebookIcon } from './img/facebook-brands.svg'
 import Loading from '../Login/img/loading48.gif'
 import { submitConsultantRegistrationData } from "../Axios/consulAxios"
+import { studentRegister } from "../Axios/studentAxios"
 import { sendEmailOTP } from "../Axios/consulAxios"
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
@@ -38,8 +39,18 @@ const Register = () => {
             setLoading(false)
             history.push('/register-email-otp')
         } else {
+            setLoading(true)
+            const { status, data } = await studentRegister(payload);
+            console.log(status, data)
+            await context.setInfo({
+                type: 'register',
+                payload: wrapLoginData(data, 'consultant'),
+            })
+            context.setLogin(true)
+            const otpRequest = await sendEmailOTP({id:data.id})
+            console.log(otpRequest.status, otpRequest.msg)
             setLoading(false)
-            console.log('std')
+            history.push('/register-email-otp')
         }
     }
 
@@ -69,73 +80,135 @@ const Register = () => {
             )
         } else return '註冊'
     }
-
-    return (
-        <div className="register-main">
-            <MetaTags>
-                <title>註冊 | Arctics</title>
-            </MetaTags>
-            <form className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
-                <div className="register-image-block">
-                    <img className="register-image" src={IcebergImage} />
-                </div>
-                <div className="register-form">
-                    <div className="register-name">
-                        <div className="register-firstname">
-                            <input className="register-firstname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
-                            {errors.name && <span className="register-error-message" id='name'>請填入名字!</span>}
+    if (identity === 'consultant') {
+        return (
+            <div className="register-main">
+                <MetaTags>
+                    <title>註冊 | Arctics</title>
+                </MetaTags>
+                <form className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
+                    <div className="register-image-block">
+                        <img className="register-image" src={IcebergImage} />
+                    </div>
+                    <div className="register-form">
+                        <div className="register-name">
+                            <div className="register-firstname">
+                                <input className="register-firstname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
+                                {errors.name && <span className="register-error-message" id='name'>請填入名字!</span>}
+                            </div>
+                            <div className="register-lastname">
+                                <input className="register-lastname-inputbox" placeholder="名" {...register('name', {required: true})} />
+                                {errors.surname && <span className="register-error-message" id='surname'>請填入姓氏!</span>}
+                            </div>    
                         </div>
-                        <div className="register-lastname">
-                            <input className="register-lastname-inputbox" placeholder="名" {...register('name', {required: true})} />
-                            {errors.surname && <span className="register-error-message" id='surname'>請填入姓氏!</span>}
-                        </div>    
-                    </div>
-                    <div className="register-institution">
-                        <div className="register-school">
-                            <select className="register-school-inputbox" placeholder="就讀學校" 
-                                {...register('school', {required: true, validate: {checkOption: (val)=>(val!=="就讀學校")}})}
-                                style={schoolBoxStyle} onChange={()=>{setSchoolBoxStyle({})}}
-                            >
-                                {<option selected disabled>就讀學校</option>}
-                                {displayOptions(schoolList)}
-                            </select>
-                            {errors.school && <span className="register-error-message" id='school'>請選擇就讀學校!</span>}
+                        <div className="register-institution">
+                            <div className="register-school">
+                                <select className="register-school-inputbox" placeholder="就讀學校" 
+                                    {...register('school', {required: true, validate: {checkOption: (val)=>(val!=="就讀學校")}})}
+                                    style={schoolBoxStyle} onChange={()=>{setSchoolBoxStyle({})}}
+                                >
+                                    {<option selected disabled>就讀學校</option>}
+                                    {displayOptions(schoolList)}
+                                </select>
+                                {errors.school && <span className="register-error-message" id='school'>請選擇就讀學校!</span>}
+                            </div>
+                            <div className="register-grade">
+                                <select className="register-grade-inputbox" placeholder="年級" 
+                                    {...register('year', {required: true, validate: {checkOption: (val)=>(val!=="年級")}})}
+                                    style={yearBoxStyle} onChange={()=>{setYearBoxStyle({})}}
+                                >
+                                    <option selected disabled >年級</option>
+                                    <option value={'一年級'} >一年級</option>
+                                    <option value={'二年級'} >二年級</option>
+                                    <option value={'三年級'} >三年級</option>
+                                    <option value={'四年級'} >四年級</option>
+                                    <option value={'四年級以上'} >四年級以上</option>
+                                </select>
+                                {errors.year && <span className="register-error-message" id='grade'>請選擇年級!</span>}
+                            </div>    
                         </div>
-                        <div className="register-grade">
-                            <select className="register-grade-inputbox" placeholder="年級" 
-                                {...register('year', {required: true, validate: {checkOption: (val)=>(val!=="年級")}})}
-                                style={yearBoxStyle} onChange={()=>{setYearBoxStyle({})}}
-                            >
-                                <option selected disabled >年級</option>
-                                <option value={'一年級'} >一年級</option>
-                                <option value={'二年級'} >二年級</option>
-                                <option value={'三年級'} >三年級</option>
-                                <option value={'四年級'} >四年級</option>
-                                <option value={'四年級以上'} >四年級以上</option>
-                            </select>
-                            {errors.year && <span className="register-error-message" id='grade'>請選擇年級!</span>}
-                        </div>    
+                        <div className="register-email">
+                            <input className="register-email-inputbox" placeholder="電子郵件" {...register('email', {required: '請填入Email!', pattern: emailValidatePattern})}/>
+                            {errors.email?.message && <span className="register-error-message" id='email'>{errors.email.message}</span>}
+                        </div>
+                        <div className="register-phone">
+                            <input className="register-phone-inputbox" placeholder="手機號碼（例：0912345678）" {...register('mobile', {required: '請填入手機號碼!', pattern: phoneValidatePattern})} />
+                            {errors.mobile?.message && <span className="register-error-message" id='phone'>{errors.mobile.message}</span>}
+                        </div>
+                        <div className="register-password">
+                            <input type='password' className="register-password-inputbox" placeholder="密碼" {...register('password', {required: '請填入密碼!', pattern: passwordValidatePattern})} />
+                            {errors.password?.message && <span className="register-error-message" id='pwd'>{errors.password.message}</span>}
+                        </div>
+                        <div className="register-submit">
+                            <button type='submit' className="register-submit-button">{submitButtonContent()}</button>
+                            <p className="register-to-login">已經有帳號了嗎？<Link to='/login'><span className="register-login-link">點我登入</span></Link></p>
+                        </div>
                     </div>
-                    <div className="register-email">
-                        <input className="register-email-inputbox" placeholder="電子郵件" {...register('email', {required: '請填入Email!', pattern: emailValidatePattern})}/>
-                        {errors.email?.message && <span className="register-error-message" id='email'>{errors.email.message}</span>}
+                </form>
+            </div>
+        )
+    } else {
+        return (
+            <div className="register-main">
+                <MetaTags>
+                    <title>註冊 | Arctics</title>
+                </MetaTags>
+                <form className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
+                    <div className="register-image-block">
+                        <img className="register-image" src={IcebergImage} />
                     </div>
-                    <div className="register-phone">
-                        <input className="register-phone-inputbox" placeholder="手機號碼（例：0912345678）" {...register('mobile', {required: '請填入手機號碼!', pattern: phoneValidatePattern})} />
-                        {errors.mobile?.message && <span className="register-error-message" id='phone'>{errors.mobile.message}</span>}
+                    <div className="register-form">
+                        <div className="register-name">
+                            <div className="register-firstname">
+                                <input className="register-firstname-inputbox" placeholder="姓" {...register('surname', {required: true})} />
+                                {errors.name && <span className="register-error-message" id='name'>請填入名字!</span>}
+                            </div>
+                            <div className="register-lastname">
+                                <input className="register-lastname-inputbox" placeholder="名" {...register('name', {required: true})} />
+                                {errors.surname && <span className="register-error-message" id='surname'>請填入姓氏!</span>}
+                            </div>    
+                        </div>
+                        <div className="register-institution">
+                            <div className="register-school">
+                                <input className="register-school-inputbox" placeholder="就讀學校" 
+                                    {...register('school', {required: true})}
+                                />
+                                {errors.school && <span className="register-error-message" id='school'>請填寫就讀學校!</span>}
+                            </div>
+                            <div className="register-grade">
+                                <select className="register-grade-inputbox" placeholder="年級" 
+                                    {...register('year', {required: true, validate: {checkOption: (val)=>(val!=="年級")}})}
+                                    style={yearBoxStyle} onChange={()=>{setYearBoxStyle({})}}
+                                >
+                                    <option selected disabled >年級</option>
+                                    <option value={'一年級'} >一年級</option>
+                                    <option value={'二年級'} >二年級</option>
+                                    <option value={'三年級'} >三年級</option>
+                                </select>
+                                {errors.year && <span className="register-error-message" id='grade'>請選擇年級!</span>}
+                            </div>    
+                        </div>
+                        <div className="register-email">
+                            <input className="register-email-inputbox" placeholder="電子郵件" {...register('email', {required: '請填入Email!', pattern: emailValidatePattern})}/>
+                            {errors.email?.message && <span className="register-error-message" id='email'>{errors.email.message}</span>}
+                        </div>
+                        <div className="register-phone">
+                            <input className="register-phone-inputbox" placeholder="手機號碼（例：0912345678）" {...register('mobile', {required: '請填入手機號碼!', pattern: phoneValidatePattern})} />
+                            {errors.mobile?.message && <span className="register-error-message" id='phone'>{errors.mobile.message}</span>}
+                        </div>
+                        <div className="register-password">
+                            <input type='password' className="register-password-inputbox" placeholder="密碼" {...register('password', {required: '請填入密碼!', pattern: passwordValidatePattern})} />
+                            {errors.password?.message && <span className="register-error-message" id='pwd'>{errors.password.message}</span>}
+                        </div>
+                        <div className="register-submit">
+                            <button type='submit' className="register-submit-button">{submitButtonContent()}</button>
+                            <p className="register-to-login">已經有帳號了嗎？<Link to='/login'><span className="register-login-link">點我登入</span></Link></p>
+                        </div>
                     </div>
-                    <div className="register-password">
-                        <input type='password' className="register-password-inputbox" placeholder="密碼" {...register('password', {required: '請填入密碼!', pattern: passwordValidatePattern})} />
-                        {errors.password?.message && <span className="register-error-message" id='pwd'>{errors.password.message}</span>}
-                    </div>
-                    <div className="register-submit">
-                        <button type='submit' className="register-submit-button">{submitButtonContent()}</button>
-                        <p className="register-to-login">已經有帳號了嗎？<Link to='/login'><span className="register-login-link">點我登入</span></Link></p>
-                    </div>
-                </div>
-            </form>
-        </div>
-    )
+                </form>
+            </div>
+        )
+    }
 }
 
 export default Register

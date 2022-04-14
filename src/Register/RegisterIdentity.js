@@ -26,8 +26,8 @@ const RegisterIdentity = () => {
                     </div>
                     <div className='register_identity-student'>
                         <p className='register_identity-student-title'>學生</p>
-                        <img className='register_identity-student-image' src={BearStudent} onClick={()=>{setHidden(false)}} />
-                        {/*<Link to='/register/student'><img className='register_identity-student-image' src={BearStudent} /></Link>*/}
+                        {/*<img className='register_identity-student-image' src={BearStudent} onClick={()=>{setHidden(false)}} />*/}
+                        <Link to='/register/student'><img className='register_identity-student-image' src={BearStudent} /></Link>
                     </div>
                 </div>            
             </div>
