@@ -82,8 +82,8 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register-identity" component={RegisterIdentity} />
           <Route exact path="/register/:identity" component={Register} />
-          <Route exact path="/register-mobile-otp" component={RegisterMobileOTP} />
-          <Route exact path="/register-email-otp" component={RegisterEmailOTP} />
+          <Route exact path="/register-mobile-otp/:identity" component={RegisterMobileOTP} />
+          <Route exact path="/register-email-otp/:identity" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
           <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
           <ProtectedRoute auth={auth} exact path="/consultant-profile" component={ConsulProfile} />

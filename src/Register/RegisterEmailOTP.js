@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from 'react'
 import './register.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { sendEmailOTP, verifyEmailOTP, sendMobileOTP } from '../Axios/consulAxios'
+import studentApis from '../Axios/studentAxios'
 import { ParamContext } from '../ContextReducer'
 import Loading from '../Login/img/loading48.gif'
 
@@ -35,6 +36,7 @@ const RegisterEmailOTP = () => {
     const [timerLeft, setTimerLeft] = useState(180)
     const [counting, setCounting] = useState(true)
     const [loading, setLoading] = useState(false)
+    const { identity } = useParams()
     const context = useContext(ParamContext)
     const history = useHistory()
 
@@ -45,38 +47,53 @@ const RegisterEmailOTP = () => {
         if (event.keyCode >= 48 && event.keyCode <= 57 ) {
             let tempVcode = {...vcode}
             tempVcode[inputCount+1] = event.key
-            setInputCount(inputCount+1)
             setVcode(tempVcode)
+            setInputCount(inputCount+1)
         } else if (event.keyCode === 8) {
             if (inputCount === 0) return
             let tempVcode = {...vcode}
             tempVcode[inputCount] = ' '
-            setInputCount(inputCount-1)
             setVcode(tempVcode)
+            setInputCount(inputCount-1)
         } else return
     }
 
     const handleSubmitOTP = async () => {
         const payload = wrapCode(vcode, context.Info.id)
         setLoading(true)
-        const { status, msg } = await verifyEmailOTP(payload)      
-        if (status === 'failed') {
+        let res;
+        if (identity === 'consultant') {
+            res = await verifyEmailOTP(payload)
+        } else {
+            res = await studentApis.verifyEmailOTP(payload)
+        }       
+        if (res.status === 'failed') {
             setLoading(false)
             setDisplayErrMsg(false)
             clearVcode()
         } else {
-            console.log(msg)
-            const otpRequest = await sendMobileOTP({id:context.Info.id});
+            console.log(res.msg)
+            let otpRequest 
+            if (identity === 'consultant') {
+                otpRequest = await sendMobileOTP({id:context.Info.id});
+            } else {
+                otpRequest = await studentApis.sendMobileOTP({id:context.Info.id})
+            }
             console.log(otpRequest.status, otpRequest.msg)
             setLoading(false)
-            history.push('/register-mobile-otp')
+            history.push(`/register-mobile-otp/${identity}`)
         }
     }
 
     const handleResendOTP = async () => {
         setCounting(true)
-        const { status, msg } = await sendEmailOTP({id:context.Info.id})
-        console.log(status, msg)
+        let res
+        if (identity === 'consultant') {
+            res = await sendEmailOTP({id:context.Info.id})
+        } else {
+            res = await studentApis.sendEmailOTP({id:context.Info.id})
+        }
+        console.log(res.status, res.msg)
         clearVcode()
     }
 

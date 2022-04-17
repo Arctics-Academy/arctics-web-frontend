@@ -28,6 +28,9 @@ const initState = {
     },
     withdrawableAmount: 0,
     withdrawedAmount: 0,
+    list: {
+        consultants: [],
+    },
 }
 
 const sumAmount = (type, list) => {
@@ -76,7 +79,8 @@ const reducer = (state, action) => {
                 profile: action.payload.profile,
                 notifications: action.payload.notifications,
                 withdrawableAmount: sumAmount('未提領', action.payload.purse.transactions),
-                withdrawedAmount: sumAmount('已提領', action.payload.purse.transaction)
+                withdrawedAmount: sumAmount('已提領', action.payload.purse.transaction),
+                list: (action.payload.list===undefined)? {}:action.payload.list,
             }
         case 'editProfile':
             return {

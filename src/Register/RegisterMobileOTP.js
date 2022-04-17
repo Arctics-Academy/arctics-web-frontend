@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from 'react'
 import './register.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { sendMobileOTP, verifyMobileOTP } from '../Axios/consulAxios'
+import studentApis from '../Axios/studentAxios'
 import { ParamContext } from '../ContextReducer'
 import Loading from '../Login/img/loading48.gif'
 
@@ -35,6 +36,7 @@ const RegisterMobileOTP = () => {
     const [timerLeft, setTimerLeft] = useState(180)
     const [counting, setCounting] = useState(true)
     const [loading, setLoading] = useState(false)
+    const { identity } = useParams()
     const context = useContext(ParamContext)
     const history = useHistory()
 
@@ -66,21 +68,31 @@ const RegisterMobileOTP = () => {
     const handleSubmitOTP = async () => {
         const payload = wrapCode(vcode, context.Info.id)
         setLoading(true)
-        const { status, msg } = await verifyMobileOTP(payload)
+        let res;
+        if (identity === 'consultant') {
+            res = await verifyMobileOTP(payload)
+        } else {
+            res = await studentApis.verifyMobileOTP(payload)
+        }
         setLoading(false)
-        if (status === 'failed') {
+        if (res.status === 'failed') {
             setDisplayErrMsg(false)
             clearVcode()
         } else {
-            console.log(msg)
+            console.log(res.msg)
             history.push('/register-success')
         }
     }
 
     const handleResendOTP = async () => {
         setCounting(true)
-        const { status, msg } = await sendMobileOTP({id:context.Info.id})
-        console.log(status, msg)
+        let res;
+        if (identity === 'consultant') {
+            res = await sendMobileOTP({id:context.Info.id})
+        } else {
+            res = await studentApis.sendMobileOTP({id:context.Info.id})
+        }
+        console.log(res.status, res.msg)
         clearVcode()
     }
 

@@ -143,15 +143,25 @@ const transformStatusListIntoCalender  = (list) => {
     return calender
 }
 
-const resolveByStatus = (list, exp, type) => {
+const resolveByStatus = (list, exp, type, identity) => {
     if (list[0] === undefined) return []
     let output = []
     list.map((e) => {
-        const wrapped = {
-            id: e.id,
-            date: wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
-            student: e.studentName, grade: e.studentYear, exp: exp,
-            content: e.studentItems, remark: e.remark
+        let wrapped;
+        if (identity === 'consultant') { 
+            wrpaaed = {
+                id: e.id,
+                date : wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
+                student: e.studentName, grade: e.studentYear, exp: exp,
+                content: e.studentItems, remark: e.remark
+            }
+        } else {
+            wrpaaed = {
+                id: e.id,
+                date : wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
+                teacher: e.studentName, grade: e.studentYear, exp: exp,
+                content: e.studentItems, remark: e.remark
+            }
         }
         if (type === 'past') wrapped['feedback'] = e.comment
         output.push(wrapped)
@@ -160,9 +170,9 @@ const resolveByStatus = (list, exp, type) => {
     return output
 }
 
-const resolveListData = (list) => {
+const resolveListData = (list, identity) => {
     const exp = list.past.length
-    let future = resolveByStatus(list.future, exp, 'future'), past = resolveByStatus(list.past, exp, 'past'), cancelled = resolveByStatus(list.cancelled, exp, 'cancelled')
+    let future = resolveByStatus(list.future, exp, 'future', identity), past = resolveByStatus(list.past, exp, 'past', identity), cancelled = resolveByStatus(list.cancelled, exp, 'cancelled', identity)
     return { future, past, cancelled }
 }
 
@@ -177,13 +187,28 @@ const convertBase64ForImage = (photo) => {
     return srcString
 }
 
+const resolveStudentListData = (list) => {
+    let data = []
+    list.map((e) => {
+        const consul = {
+            ...e,
+            photo: convertBase64ForImage(e.photo)
+        }
+        data.push(consul)
+    })
+
+    return {
+        consultants: data,
+    }
+}
+
 const wrapLoginData = (data, identity) => {
     const meetings = retrieveDateObject(data.meetings)
-    const wrappedData = {
+    let wrappedData = {
         id: data.id,
         announcements: data.announcements,
         meetingsByTime: transformStatusListIntoCalender(meetings),
-        meetingsByStatus: resolveListData(meetings),
+        meetingsByStatus: resolveListData(meetings, identity),
         notifications: data.notifications,
         profile: {
             ...data.profile,
@@ -194,6 +219,10 @@ const wrapLoginData = (data, identity) => {
             transactions: stringToDateObject2(data.purse.transactions)
         },
         identity: identity,
+    }
+
+    if (identity === 'student') {
+        wrappedData['list'] = resolveStudentListData(data.list);
     }
 
     return wrappedData

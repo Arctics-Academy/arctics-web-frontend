@@ -7,7 +7,7 @@ import { ReactComponent as GoogleIcon} from './img/google-brands.svg'
 import { ReactComponent as FacebookIcon } from './img/facebook-brands.svg'
 import Loading from '../Login/img/loading48.gif'
 import { submitConsultantRegistrationData } from "../Axios/consulAxios"
-import { studentRegister } from "../Axios/studentAxios"
+import studentFuncs from '../Axios/studentAxios'
 import { sendEmailOTP } from "../Axios/consulAxios"
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
@@ -40,17 +40,17 @@ const Register = () => {
             history.push('/register-email-otp')
         } else {
             setLoading(true)
-            const { status, data } = await studentRegister(payload);
+            const { status, data } = await studentFuncs.studentRegister(payload);
             console.log(status, data)
             await context.setInfo({
                 type: 'register',
-                payload: wrapLoginData(data, 'consultant'),
+                payload: wrapLoginData(data, 'student'),
             })
             context.setLogin(true)
-            const otpRequest = await sendEmailOTP({id:data.id})
+            const otpRequest = await studentFuncs.sendEmailOTP({id:data.id})
             console.log(otpRequest.status, otpRequest.msg)
             setLoading(false)
-            history.push('/register-email-otp')
+            history.push(`/register-email-otp/${identity}`)
         }
     }
 
