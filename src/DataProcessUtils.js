@@ -149,14 +149,14 @@ const resolveByStatus = (list, exp, type, identity) => {
     list.map((e) => {
         let wrapped;
         if (identity === 'consultant') { 
-            wrpaaed = {
+            wrapped = {
                 id: e.id,
                 date : wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
                 student: e.studentName, grade: e.studentYear, exp: exp,
                 content: e.studentItems, remark: e.remark
             }
         } else {
-            wrpaaed = {
+            wrapped = {
                 id: e.id,
                 date : wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
                 teacher: e.studentName, grade: e.studentYear, exp: exp,
@@ -189,7 +189,7 @@ const convertBase64ForImage = (photo) => {
 
 const resolveStudentListData = (list) => {
     let data = []
-    list.map((e) => {
+    list.consultants.map((e) => {
         const consul = {
             ...e,
             photo: convertBase64ForImage(e.photo)

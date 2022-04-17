@@ -1,7 +1,8 @@
 import '../std_home.css'
 import { ReactComponent as BellIcon } from '../img/bellicon.svg'
 import { ReactComponent as ShowMore } from '../img/doublearrow.svg'
-
+import { ParamContext } from '../../../ContextReducer'
+import { useContext } from 'react'
 const showMeetings = (appointments) => {
     return (
         appointments.map((e) => {
@@ -44,7 +45,7 @@ const test = [{
 }]
 
 const Appointment = () => {
-    //const context = useContext(ParamContext)
+    const context = useContext(ParamContext)
     return(
         <div className='std_home-myapnt'>
             <div className='std_home-myapnt-title'>
@@ -53,8 +54,8 @@ const Appointment = () => {
             </div>
             <div className='std_home-myapnt-show-apnt'>
                 <div className='std_home-myapnt-blocks'>
-                    {/*showMeetings(context.Info.meetingsByStatus.future)*/}
-                    {showMeetings(test)}
+                    {showMeetings(context.Info.meetingsByStatus.future)}
+                    {/*showMeetings(test)*/}
                 </div>
                 <div className='std_home-myapnt-show-all-link-block' >
                     <div className='std_home-myapnt-show-all-link'>
