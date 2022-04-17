@@ -47,8 +47,8 @@ const EditTable = ({ id, profile, changePage }) => {
     if (data.field === false) data.field = []
     if (data.studentIdScan !== undefined && data.studentIdScan[0] !== undefined && data.studentIdScan[0] !== lastSubmittedFile) {
       const fdt = new FormData()
-      fdt.append('studentIdScan', data.studentIdScan[0])
       fdt.append('id', id)
+      fdt.append('studentIdScan', data.studentIdScan[0])
       setStdIdBuffer(false)
       delete data.studentIdScan
       try {
