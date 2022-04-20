@@ -25,11 +25,14 @@ import './style.css';
 //import './responsive.css';
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
+import BookingSecondStage from './Student/Booking/Container/BookingSecondStage';
+import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
 import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './Axios/consulAxios';
 import { ParamContext } from './ContextReducer';
 import { wrapLoginData } from './DataProcessUtils';
 import ProtectedRoute from './ProtectedRoute';
+import studentApis from './Axios/studentAxios';
 
 //TODO: tidy structure -> move navbar to here and add switch routers
 //TODO: static.json !
@@ -45,7 +48,20 @@ const App = () => {
   
   useEffect(async () => {
     console.log('reload')
-    const { status, data, message } = await authFetchAllData();
+    const resConsultant = await authFetchAllData();
+    const resStudent = await studentApis.studentAuthenticate();
+    let status, data, message
+    if (resConsultant.status === 'success') {
+      status = resConsultant.status
+      data = resConsultant.data
+      message = resConsultant.msg
+    } else if ( resStudent.status === 'successs') {
+      status = resStudent.status
+      data = resStudent.data
+      message = resStudent.message
+    } else {
+      status = 'failed'
+    }
     console.log(status, data, message)
     console.log(location)
     if (status === 'success') {
@@ -85,6 +101,9 @@ const App = () => {
           <Route exact path="/register-mobile-otp/:identity" component={RegisterMobileOTP} />
           <Route exact path="/register-email-otp/:identity" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
+          <Route exact path="/student-home" component={StudentHome} />
+          <Route exact path="/student-booking" component={BookingSecondStage} />
+          <Route exact path="/student-submit-payment" component={SubmitPayment} />
           <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
           <ProtectedRoute auth={auth} exact path="/consultant-profile" component={ConsulProfile} />
           <ProtectedRoute auth={auth} exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
@@ -95,7 +114,6 @@ const App = () => {
           <Redirect from='*' to='/exception/404' />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
-          <Route exact path="/student-home" component={StudentHome} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
           <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />

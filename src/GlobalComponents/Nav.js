@@ -104,10 +104,10 @@ export default function Nav() {
 		    		<img className="nav__logo" src={logo} alt="arctics" width="224px" height="41px"></img>
 		    		<div className="nav__right">
 			    		<ul className="nav__menu">
-				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><a>首頁</a></li>
+				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><Link to='/student-home'>首頁</Link></li>
 				   		 	<li className="nav__menu-item">
 									<a>
-									通知 <span className='nav__notify-count'>9</span>
+									通知{displayUnreadNumber(context.Info.announcements.unreadCount,context.Info.notifications.unreadCount)}
 									</a>
 							</li>
 							<li className="nav__menu-item"><a className='nav__menu-submenu-link'>尋找顧問</a>

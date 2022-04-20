@@ -25,6 +25,7 @@ const Register = () => {
     const history = useHistory()
     const schoolList = ['國立臺灣大學']
     const registerOnSubmit = async (payload) => {
+        console.log(payload)
         if (identity === 'consultant') {
             setLoading(true)
             const { status, data } = await submitConsultantRegistrationData(payload);
@@ -40,8 +41,8 @@ const Register = () => {
             history.push('/register-email-otp')
         } else {
             setLoading(true)
-            const { status, data } = await studentFuncs.studentRegister(payload);
-            console.log(status, data)
+            const { status, data, message } = await studentFuncs.studentRegister(payload);
+            console.log(status, data, message)
             await context.setInfo({
                 type: 'register',
                 payload: wrapLoginData(data, 'student'),

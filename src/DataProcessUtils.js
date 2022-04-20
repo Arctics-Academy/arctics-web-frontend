@@ -203,6 +203,7 @@ const resolveStudentListData = (list) => {
 }
 
 const wrapLoginData = (data, identity) => {
+    console.log(data)
     const meetings = retrieveDateObject(data.meetings)
     let wrappedData = {
         id: data.id,
