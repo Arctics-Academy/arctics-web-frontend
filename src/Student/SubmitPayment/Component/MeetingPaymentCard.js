@@ -9,6 +9,9 @@ import Money from "../img/blue-money.svg";
 import Coupon from "../img/blue-coupon.svg";
 import { ReactComponent as Upload } from "../img/white-upload.svg"
 
+import { ParamContext } from "../../../ContextReducer";
+import { useContext } from "react";
+
 // Placeholder Variable
 const dummy = {
   time: "2021/08/20（五）19:00~19:30",
@@ -25,6 +28,7 @@ const dummy = {
 
 // Component
 const MeetingPaymentCard = () => {
+  const context = useContext(ParamContext)
   return (
     <div className="std_meeting-payment-container">
       <div className="std_meeting-payment-card-container">
@@ -45,20 +49,20 @@ const MeetingPaymentCard = () => {
             <div className="std_meeting-payment-left">
               <img className="std_meeting-payment-icon" src={Consultant} />
               <p className="std_meeting-payment-title">顧問</p>
-              <p className="std_meeting-payment-content">{dummy.consultantSurname}{dummy.consultantFirstname}同學<br />{dummy.consultantSchool} {dummy.consultantMajor}
+              <p className="std_meeting-payment-content">{context.Info.toBook.name}同學<br />{context.Info.toBook.school} {context.Info.toBook.major}
               </p>
             </div>
             <div className="std_meeting-payment-right">
               <img className="std_meeting-payment-icon" src={Coupon} />
               <p className="std_meeting-payment-title std_meeting-payment-title-discount">優惠代碼</p>
-              <p className="std_meeting-payment-content">{dummy.discount}</p>
+              <p className="std_meeting-payment-content">{context.Info.toBook.coupon}</p>
             </div>
           </div>
           <div className="std_meeting-payment-line">
             <div className="std_meeting-payment-left">
               <img className="std_meeting-payment-icon" src={Money} />
               <p className="std_meeting-payment-title">計價</p>
-              <p className="std_meeting-payment-content">{dummy.actualPrice}/半小時</p>
+              <p className="std_meeting-payment-content">{context.Info.toBook.price}/半小時</p>
             </div>
           </div>
         </div>

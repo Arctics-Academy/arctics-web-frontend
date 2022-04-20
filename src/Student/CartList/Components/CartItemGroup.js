@@ -1,16 +1,18 @@
-import {useState} from 'react';
+import { useState, useContext } from 'react';
 import CartItem from "./CartItem";
 import NotifModal from "./NotifModal";
 import Data from "../TestData.json";
+import { ParamContext } from '../../../ContextReducer';
 
 const CartItemGroup = ({hidden, setHidden}) => {
 
   // const [ data, setData ] = useState(Data);
+  const context = useContext(ParamContext)
 
   const filtered = Data.filter( item => !item.deleted )
   const cart_item = filtered.map( item => {
     return(
-      <CartItem key={item.id + item.name} clt={item} />
+      <CartItem key={item.id + item.name} clt={item} setContext={context.setInfo} context={context.Info} />
     )
   } )
 

@@ -1,5 +1,5 @@
 .std_cartlist-main {
-  padding: 150px 0 150px 10%;
+  padding: 135px 0 150px 10%;
   background-color: #b0dde2;
   width: 100vw;
   min-height: 200vh;
@@ -8,16 +8,16 @@
   display: flex;
   flex-direction: row;
   width: 170px;
+  align-items: center;
 }
 .std_cartlist-title-icon{
   height: 27px;
 }
 .std_cartlist-title{
   padding-left: 10px;
-  margin-top: 2px;
-  width: 80px;
-  height: 27px;
-  font-family: GenSenRoundedTW-B;
+  align-items: center;
+  text-align: center;
+  font-family: var(--heading-font);
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -27,16 +27,19 @@
   color: #003b6b;
 }
 .std_cartlist-button-clear-all{
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 125px;
-  height: 36px;
-  margin: 40px 1062px 40px 30px;
-  padding: 7px 0 10px 1.5px;
+  height: 45px;
+  margin: 40px 1062px 40px 0;
+  padding: 10px;
   background-color: #4bb3cc;
   border: none;
   border-radius: 8px;
   color: #f5f5f5;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: var(--heading-font);
 }
 .std_cartlist-button-clear-all:hover{
   background-color: #003b6b;
@@ -76,7 +79,7 @@
   width: 72px;
   height: 32px;
   margin: 15px 0 0 0;
-  font-family: GenSenRoundedTW-B;
+  font-family: var(--heading-font);
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -115,7 +118,7 @@
 .std_cartitem-fee .std_cartitem-exp{
   width: auto;
   height: 80px;
-  font-family: GenSenRoundedTW-M;
+  font-family: var(--heading-font);
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -144,7 +147,7 @@
   margin: 5px 0 5px 0;
   height: auto;
   width: auto;
-  font-family: GenSenRoundedTW-M;
+  font-family: var(--heading-font);
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -187,7 +190,7 @@
   width: 8%;
   height: auto;
   margin: 45px 5px 59px 0;
-  font-family: GenSenRoundedTW-M;
+  font-family: var(--heading-font);
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -210,7 +213,7 @@
   width: auto;
   height: auto;
   margin: 13px 5px 8px 5px;
-  font-family: GenSenRoundedTW-M;
+  font-family: var(--heading-font);
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -229,7 +232,7 @@
   width: 140px;
   margin: 10px 15px 0 0;
   padding: 0 0 0 0;
-  font-family: GenSenRoundedTW-M;
+  font-family: var(--heading-font);
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
@@ -270,7 +273,7 @@
   width: 16px;
   height: 30px;
   margin: 3px 0 1px 1px;
-  font-family: GenSenRoundedTW-R;
+  font-family: var(--heading-font);
   font-size: 26px;
   font-weight: normal;
   font-stretch: normal;
@@ -301,7 +304,7 @@
 
 .std_cartitem-delete-button p{
   align-items: center;
-  font-family: GenSenRoundedTW-B;
+  font-family: var(--heading-font);
   font-size: 16px;
   padding: 0 0 10px 0;
   margin-top: 10px;
@@ -334,7 +337,7 @@
   background-color: #003b6b;
 }
 .std_cartitem-info-button p{
-  font-family: GenSenRoundedTW-B;
+  font-family: var(--heading-font);
   font-size: 15.5px;
   font-weight: normal;
   font-stretch: normal;
@@ -358,7 +361,7 @@
   background-color: #f2d60f;
   border-radius: 8px;
   border: none;
-  font-family: GenSenRoundedTW-B;
+  font-family: var(--heading-font);
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;

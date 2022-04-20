@@ -122,6 +122,22 @@ const reducer = (state, action) => {
                     })
                 }
             }
+        case 'selectBooking':
+            return {
+                ...state,
+                toBook: {
+                    ...action.payload
+                }
+            }
+        case 'setCoupon':
+            return {
+                ...state,
+                toBook: {
+                    ...state.toBook,
+                    coupon: action.payload.coupon
+                }
+            }
+        
         default:
             return state
     }

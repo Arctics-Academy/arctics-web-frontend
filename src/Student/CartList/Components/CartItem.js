@@ -11,12 +11,27 @@ import { ReactComponent as DeleteIcon } from '../img/delete.svg';
 import { ReactComponent as InfoIcon } from '../img/info.svg';
 import img_path from '../img/tmp_avatar.png';
 import NotifModal from "./NotifModal";
+import { useHistory } from "react-router-dom";
 
-
-const CartItem = ( {clt} ) => {
-
+const CartItem = ( {clt, setContext, context } ) => {
   const [itemHidden, setItemHidden] = useState(true);
   const [introOpen, setIntroOpen] = useState(false);
+  const history = useHistory()
+
+  const handleBooking = () => {
+    console.log(context)
+    setContext({
+      type: 'selectBooking',
+      payload: {
+        name: clt.name,
+        school: clt.education.school,
+        major: clt.education.major,
+        price: clt.fee
+      }
+    })
+    history.push('/student-booking')
+  } 
+
   let hashtag_converted = clt.hashtags;
   if (clt.hashtags.length<3){
     for(let i=clt.hashtags.length; i<3; i++){
@@ -119,7 +134,7 @@ const CartItem = ( {clt} ) => {
             <InfoIcon className="std_cartitem-info-icon"/>
             <p>求詳細</p>
           </button>
-          <button className="std_cartitem-appmt-button">立即預約</button>
+          <button className="std_cartitem-appmt-button" onClick={handleBooking} >立即預約</button>
         </div>
       </div>
   )

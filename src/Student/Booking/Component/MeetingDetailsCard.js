@@ -8,6 +8,10 @@ import Consultant from "../img/blue-bear.svg";
 import Money from "../img/blue-money.svg";
 import Coupon from "../img/blue-coupon.svg";
 
+import { ParamContext } from "../../../ContextReducer";
+import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+
 // Placeholder Variable
 const dummy = {
   time: "2021/08/20（五）19:00~19:30",
@@ -23,6 +27,21 @@ const dummy = {
 
 // Component
 const MeetingDetailsCard = () => {
+  const context = useContext(ParamContext)
+  const history = useHistory()
+  const [code, setCode] = useState('')
+  const handleUseCoupon = (code) => {
+    context.setInfo({
+      type: 'setCoupon',
+      payload: {
+        coupon: code
+      }
+    })
+    console.log('Coupon Code:', code)
+  }
+  const handleNextStep = () => {
+    history.push('/student-submit-payment')
+  }
   return (
     <div className="std_meeting-details-container">
       <div className="std_meeting-details-card-container">
@@ -43,21 +62,21 @@ const MeetingDetailsCard = () => {
             <div className="std_meeting-details-left">
               <img className="std_meeting-details-icon" src={Consultant} />
               <p className="std_meeting-details-title">顧問</p>
-              <p className="std_meeting-details-content">{dummy.consultantSurname}{dummy.consultantFirstname}同學<br />{dummy.consultantSchool} {dummy.consultantMajor}
+              <p className="std_meeting-details-content">{context.Info.toBook.name}同學<br />{context.Info.toBook.school} {context.Info.toBook.major}
               </p>
             </div>
             <div className="std_meeting-details-right">
               <img className="std_meeting-details-icon" src={Coupon} />
               <p className="std_meeting-details-title std_meeting-details-title-discount">優惠代碼</p>
-              <input type="text" className="std_meeting-details-input" />
-              <button className="std_meeting-details-button">使用優惠碼</button>
+              <input type="text" className="std_meeting-details-input" value={code} onChange={(e)=>{setCode(e.target.value)}} />
+              <button className="std_meeting-details-button" onClick={()=>{handleUseCoupon(code)}}>使用優惠碼</button>
             </div>
           </div>
           <div className="std_meeting-details-line">
             <div className="std_meeting-details-left">
               <img className="std_meeting-details-icon" src={Money} />
               <p className="std_meeting-details-title">計價</p>
-              <p className="std_meeting-details-content">{dummy.actualPrice}/半小時</p>
+              <p className="std_meeting-details-content">{context.Info.toBook.price}/半小時</p>
             </div>
           </div>
         </div>
@@ -68,7 +87,7 @@ const MeetingDetailsCard = () => {
           <p className="std_meeting-details-bottom-content">總金額<span className="std_meeting-details-bottom-content-span">{dummy.actualPrice}</span>元</p>
         </div>
         <div className="std_meeting-details-bottom-container">
-          <button className="std_meeting-details-buttom-button">確認預約</button>
+          <button className="std_meeting-details-buttom-button" onClick={handleNextStep}>確認預約</button>
         </div>
       </div>
     </div>

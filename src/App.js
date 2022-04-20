@@ -21,7 +21,7 @@ import InternalServerErrorException from './Exception/InternalServerErrorExcepti
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
 import StudentCartList from './Student/CartList/Container/CartList'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation, Redirect } from 'react-router-dom';
 import './style.css';
 
 //import './responsive.css';
@@ -113,7 +113,6 @@ const App = () => {
           <ProtectedRoute auth={auth} exact path="/exception/404" component={NotFoundException} />
           <ProtectedRoute auth={auth} exact path="/exception/500" component={InternalServerErrorException} />
           <ProtectedRoute auth={auth} exact path="/consultant-announcement" component={ConsulAnnounce} />
-          <Redirect from='*' to='/exception/404' />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
@@ -123,7 +122,7 @@ const App = () => {
           <Route exact path="/student-home" component={StudentHome} />
           <Route exact path="/student-cart" component={StudentCartList} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
-
+          <Redirect from='*' to='/exception/404' />
         </Switch>
       </div>
     </>
