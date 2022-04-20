@@ -7,8 +7,13 @@ import ConsulSchedule from './Consultant/Schedule/Container/ConsulSchedule';
 import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
 import ConsulCancelSuccess from './Consultant/Cancel/Container/ConsulCancelSuccess';
 import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
+<<<<<<< HEAD
 import ConsulProfile from './Consultant/Profile/Container/ConsulProfile'
 import ConsulAnnounce from './Consultant/Announcements/Container/ConsulAnnounce';
+=======
+import ConsulProfile from './Consultant/Profile/Container/ConsulProfile';
+import ConsulAnnounce from "./Consultant/Announcements/Container/ConsulAnnounce";
+>>>>>>> origin/avery
 import RegisterIdentity from './Register/RegisterIdentity';
 import Register from './Register/Register';
 import RegisterSuccess from './Register/RegisterSuccess';
@@ -20,8 +25,10 @@ import NotFoundException from './Exception/NotFoundException';
 import InternalServerErrorException from './Exception/InternalServerErrorException'
 import Login from './Login/Login';
 import StudentHome from './Student/Home/Container/StudentHome';
-import { Switch, Route, Redirect, useHistory, useLocation } from 'react-router-dom';
+import StudentCartList from './Student/CartList/Container/CartList'
+import { Switch, Route } from 'react-router-dom';
 import './style.css';
+
 //import './responsive.css';
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
@@ -114,10 +121,14 @@ const App = () => {
           <Redirect from='*' to='/exception/404' />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
-          <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
           <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
           <Route exact path="/notif-modal" component={NotifModal} />
+          <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
+          <Route exact path="/student-home" component={StudentHome} />
+          <Route exact path="/student-cart" component={StudentCartList} />
+          <Route exact path="/modal-test" component={OpenMeetingModal} />
+
         </Switch>
       </div>
     </>
