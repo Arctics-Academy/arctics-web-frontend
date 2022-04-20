@@ -3,6 +3,7 @@ import './login.css'
 import { ReactComponent as Lock } from './img/lock.svg'
 import { Link, useHistory } from "react-router-dom"
 import { submitConsultantLoginData } from "../Axios/consulAxios"
+import studentApis from "../Axios/studentAxios"
 import Loading from './img/loading48.gif'
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
@@ -12,6 +13,7 @@ import MetaTags from 'react-meta-tags'
 const Login = () => {
     const [account, setAccount] = useState('')
     const [password, setPassword] = useState('')
+    const [state, setState] = useState('consultant')
     const [displayWrongAct, setDisplayWrongAct] = useState(false)
     const [displayWrongPwd, setDisplayWrongPwd] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -34,21 +36,23 @@ const Login = () => {
             password
         }
         try {
-            const { status, data } = await submitConsultantLoginData(payload);
+            let res;
+            if (state === 'consultant') res = await submitConsultantLoginData(payload);
+            else res = await studentApis.studentLogin(payload);
             setLoading(false)
-            if (status === 'failed') {
+            if (res.status === 'failed') {
                 setDisplayWrongAct(true)
                 setDisplayWrongPwd(true)
             } else {
-                console.log(status, data)
+                console.log(res.status, res.data)
                 setAccount('')
                 setPassword('')
                 context.setInfo({
                     type: 'login',
-                    payload: wrapLoginData(data, getIdentity(data.id))
+                    payload: wrapLoginData(res.data, getIdentity(res.data.id))
                 })
                 context.setLogin(true)
-                history.push(`/${getIdentity(data.id)}-home`)
+                history.push(`/${getIdentity(res.data.id)}-home`)
             }
         } catch (err) {
             console.log(err)
@@ -58,11 +62,31 @@ const Login = () => {
         }
     }
 
+    const handleChangeMode = (e) => {
+        if (e.target.id === 'tc') setState('consultant')
+        else setState('student')
+    }
+
     return (
         <div className="login_main">
             <MetaTags>
                 <title>登入 | Arctics</title>
             </MetaTags>
+            <div className="login_mode">
+                <div className="login_mode_tc">
+                    <label htmlFor="tc" className="login_tc">
+                        <input className="login_mode_radio" id='tc' type='radio' name='login' onChange={handleChangeMode} defaultChecked/>
+                        <span className="login_tc_text">顧問登入</span>
+                    </label>
+                </div>
+                <div className="login_mode_st">
+                    
+                    <label htmlFor="st" className="login_st">
+                        <input className="login_mode_radio" id='st' type='radio' name='login' onChange={handleChangeMode}/>
+                        <span className="login_st_text">學生登入</span>
+                    </label>
+                </div>
+            </div>
             <div className="login_form">
                 <div className="login_title">
                     <Lock className="login_lock_icon"/>
