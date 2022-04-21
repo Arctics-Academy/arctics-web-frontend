@@ -333,3 +333,14 @@
 .std_filter-condition-submit-btn:hover {
     cursor: pointer;
 }
+
+.std_filter_temp_submit {
+    margin-left: 5vw;
+    font-family: var(--heading-font);
+    font-size: 18px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: #003b6b;
+    background-color: #f2d60f;
+}

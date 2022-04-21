@@ -11,6 +11,7 @@ const admissionHashtags = ['特殊選材', '繁星推薦', '個人申請', '指�
 
 const Filter = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const searcher = useForm()
     const displayDays = () => {
         const sevenDays = ['日', '一', '二', '三', '四', '五', '六']
         return sevenDays.map((e) => {
@@ -46,17 +47,18 @@ const Filter = () => {
                 <div className='std_filter-sf-title'>
                     <p className='std_filter-sf-title-text'>選擇學科領域</p>
                 </div>
-                <div className='std_filter-sf-selects'>
+                <form className='std_filter-sf-selects' onSubmit={searcher.handleSubmit(onSubmit)}>
                     <BachelorIcon className='std_filter-sf-icon' />
-                    <select className='std_filter-sf-select' id='field' {...register('field')}>
+                    <select className='std_filter-sf-select' id='field' {...searcher.register('field')}>
                         <option className='std_sf_option' disabled selected>選擇學群領域</option>
                         <option className='std_sf_option' >CS/IT</option>
                     </select>
-                    <select className='std_filter-sf-select' id='subject' {...register('subject')}>
+                    <select className='std_filter-sf-select' id='subject' {...searcher.register('subject')}>
                         <option className='std_sf_option' disabled selected>選擇學門</option>
                         <option className='std_sf_option' >Computer Science</option>
                     </select>
-                </div>
+                    <button type='submit' className='std_filter_temp_submit'>搜尋</button>
+                </form>
             </div>
             <form className='std_filter-condition' onSubmit={handleSubmit(onSubmit)}>
                 <div className='std_filter-condition-title'>

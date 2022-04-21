@@ -85,6 +85,10 @@
     color: #003b6b;
 }
 
+.std_home-ancmt-banner-link:hover {
+    color: #7ae4ff;
+}
+
 .std_home-myapnt {
     position: absolute;
     left: 48.5vw;
@@ -127,7 +131,9 @@
     background-color: #fff;
     border-radius: 16px;
     width: 155px;
+    height: 150px;
     margin-right: 1vw;
+    line-height: 16px;
 }
 
 .std_home-myapnt-blocks p {
@@ -159,8 +165,8 @@
     padding: 2.5px;
     padding-left: 4px;
     padding-right: 4px;
-    font-size: 7px;
-    border: solid 1px#4bb3cc;
+    font-size: 12px;
+    border: solid 1px #4bb3cc;
     color: #4bb3cc;
     border-radius: 8px;
     margin-right: 4px;
@@ -211,4 +217,10 @@
 
 .std_home-myapnt-show-all-link:hover {
     cursor: pointer;
+}
+
+.std_home-myapnt-empty {
+    text-align: center;
+    font-size: 25px;
+    padding-top: 87.5px;
 }

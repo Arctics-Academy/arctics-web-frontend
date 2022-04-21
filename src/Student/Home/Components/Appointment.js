@@ -44,6 +44,28 @@ const test = [{
     content: ['學習歷程', '面試準備']
 }]
 
+const AppointmentContent = (appointments) => {
+    if (appointments[0] === undefined) {
+        return (
+            <div className='std_home-myapnt-empty'>尚未預約任何諮詢！</div>
+        )
+    } else {
+        return (
+            <>
+                <div className='std_home-myapnt-blocks'>
+                    {showMeetings(appointments)}
+                </div>
+                <div className='std_home-myapnt-show-all-link-block' >
+                    <div className='std_home-myapnt-show-all-link'>
+                        <span className='std_home-myapnt-link-text'>查看全部諮詢</span>
+                        <ShowMore className='std_home-myapnt-link-arrow' />
+                    </div>
+                </div>
+            </>
+        )
+    }
+}
+
 const Appointment = () => {
     const context = useContext(ParamContext)
     return(
@@ -53,16 +75,7 @@ const Appointment = () => {
                 <span className='std_home-myapnt-title-text'>我的諮詢</span>
             </div>
             <div className='std_home-myapnt-show-apnt'>
-                <div className='std_home-myapnt-blocks'>
-                    {showMeetings(context.Info.meetingsByStatus.future)}
-                    {/*showMeetings(test)*/}
-                </div>
-                <div className='std_home-myapnt-show-all-link-block' >
-                    <div className='std_home-myapnt-show-all-link'>
-                        <span className='std_home-myapnt-link-text'>查看全部諮詢</span>
-                        <ShowMore className='std_home-myapnt-link-arrow' />
-                    </div>
-                </div>
+                {AppointmentContent(test)}
             </div>
         </div>
     )
