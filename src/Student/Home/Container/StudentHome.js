@@ -10,7 +10,7 @@ const StudentHome = () => {
             <Greeting />
             <Announcement />
             <Appointment />
-            <SearchBody />
+            <SearchBody place={'home'} />
         </div>
     )
 

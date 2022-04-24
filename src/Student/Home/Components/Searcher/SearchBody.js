@@ -3,9 +3,9 @@ import Filter from './Filter'
 import { ReactComponent as SearchTitleIcon } from '../../img/searchtitle.svg'
 import { ReactComponent as SearchIcon } from '../../img/search.svg'
 
-const SearchBody = () => {
+const SearchBody = ({place}) => {
     return (
-        <div className='std_search-main'>
+        <div className={`std_search-${place}-main`}>
             <div className='std_search-title'>
                 <SearchTitleIcon className='std_search-title-icon' />
                 <span className='std_search-title-text'>尋找顧問</span>
