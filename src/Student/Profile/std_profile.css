@@ -1,0 +1,88 @@
+.std-profile-main {
+  background: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  font-family: var(--heading-font);
+}
+
+.std-profile-title {
+  margin-top: 135px;
+  margin-left: 10%;
+  font-size: 24px;
+  color: #003b6b;
+}
+
+.std-profile-underline {
+  margin-top: 4px;
+  height: 2px;
+  width: 99px;
+  background-color: #003b6b;
+}
+
+.std-profile-content {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40px;
+  display: flex;
+}
+
+.std-profile-body {
+  background-color: #ffffff;
+  width: 60%;
+  padding: 5%;
+  padding-bottom: 2%;
+  border-radius: 24px;
+}
+
+.std-profile-image-block {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.std-profile-image-block img {
+  width: 75%;
+}
+
+.std-profile-name-text {
+  color: #003b6b;
+  font-size: 32px;
+}
+
+.std-profile-content-title {
+  color: #4bb3cc;
+  font-size: 18px;
+}
+
+.std-profile-exp {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.std-profile-exp-count {
+  font-size: 20px;
+  color: #003b6b;
+  margin-left: 2%;
+}
+
+.std-profile-sep-line {
+  width: 100%;
+  height: 3px;
+  background-color: #003b6b;
+  border-radius: 16px;
+}
+
+.std-profile-item {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.std-profile-value {
+  color: #003b6b;
+  font-size: 24px;
+  margin-left: 4%;
+}

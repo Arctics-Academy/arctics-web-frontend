@@ -29,6 +29,7 @@ import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
 import BookingSecondStage from './Student/Booking/Container/BookingSecondStage';
 import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
+import StudentProfile from './Student/Profile/StudentProfile';
 import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './Axios/consulAxios';
 import { ParamContext } from './ContextReducer';
@@ -113,6 +114,7 @@ const App = () => {
           <ProtectedRoute auth={auth} exact path="/exception/404" component={NotFoundException} />
           <ProtectedRoute auth={auth} exact path="/exception/500" component={InternalServerErrorException} />
           <ProtectedRoute auth={auth} exact path="/consultant-announcement" component={ConsulAnnounce} />
+          <Route exact path="/student-profile" component={StudentProfile} />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
