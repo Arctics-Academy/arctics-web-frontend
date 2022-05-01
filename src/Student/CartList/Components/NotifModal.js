@@ -15,10 +15,6 @@ const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
                 type: mode,
                 payload: (mode==='addToList')? {newConsultant: clt}:{deleteId: clt.id}
             })
-            console.log({
-                type: mode,
-                payload: (mode==='addToList')? {newConsultant: clt}:{deleteId: clt.id}
-            })
             setHidden(!hidden);
          }
     }
@@ -31,8 +27,8 @@ const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
                     <p className='std_modal-notif-text'>{content}</p>
                 </div>
                 <div className='std_modal-notif-button-area'>
-                    <button className='std_modal-notif-button' style={{'background-color': '#f5f5f5', 'color': '#003b6b'}} onClick={handleConfirm}>取消</button>
-                    <button className='std_modal-notif-button' style={{'background-color': '#f2d60f', 'color': '#003b6b'}} onClick={handleConfirm}>確定</button>
+                    <button className='std_modal-notif-button' style={{'backgroundColor': '#f5f5f5', 'color': '#003b6b'}} onClick={handleConfirm}>取消</button>
+                    <button className='std_modal-notif-button' style={{'backgroundColor': '#f2d60f', 'color': '#003b6b'}} onClick={handleConfirm}>確定</button>
                 </div>
             </div>
         </div>

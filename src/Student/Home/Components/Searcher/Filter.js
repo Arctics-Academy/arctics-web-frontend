@@ -6,7 +6,9 @@ import { ReactComponent as SchoolIcon } from '../../img/school.svg'
 import { ReactComponent as ExpIcon } from '../../img/exp.svg'
 import { ReactComponent as BachelorIcon } from '../../img/bachelor.svg'
 import { NTUFieldToMajorMap } from './Mapping'
+import studentApi from '../../../../Axios/studentAxios'
 import { useState } from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
 
 const experienceHashtags = ['自然組', '社會組', '轉組', '特殊班', '校隊', '社團', '營隊', '畢聯會', '有補習', '沒補習', '自學', '學生會', '競賽']
 const admissionHashtags = ['特殊選材', '繁星推薦', '個人申請', '指考分發', '學習歷程', '模擬面試', '面試技巧', '二階筆試', '認識校系']
@@ -16,6 +18,8 @@ const Filter = ({modalHidden, setModalHidden}) => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [selectedField, setField] = useState('')
     const searcher = useForm()
+    const location = useLocation()
+    const history = useHistory()
     const displayDays = () => {
         const sevenDays = ['日', '一', '二', '三', '四', '五', '六']
         return sevenDays.map((e) => {
@@ -54,9 +58,13 @@ const Filter = ({modalHidden, setModalHidden}) => {
         })
     }
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         if (data.field === undefined || data.field === "選擇學群領域") setModalHidden(false)
         else console.log("Search on: ", data)
+      
+        const res = await studentApi.getFilterResult({query: {school:["國立臺灣大學"], field:[data.field], major:[data.major]}})
+        console.log(res, location)
+        if (location.pathname === '/student-home') history.push('/student-search-result')
     }
 
     return (
