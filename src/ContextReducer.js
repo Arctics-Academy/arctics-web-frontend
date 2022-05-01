@@ -31,6 +31,7 @@ const initState = {
     list: {
         consultants: [],
     },
+    filterResult: []
 }
 
 const sumAmount = (type, list) => {
@@ -135,6 +136,32 @@ const reducer = (state, action) => {
                 toBook: {
                     ...state.toBook,
                     coupon: action.payload.coupon
+                }
+            }
+        case 'saveFilterResult':
+            return {
+                ...state, 
+                filterResult: action.payload.filterResult
+            }
+        case 'deleteSingleListItem':
+            return {
+                ...state,
+                list: {
+                    consultants: state.list.consultants.filter((e) => (action.payload.deleteId !== e.id))
+                }
+            }
+        case 'clearList':
+            return {
+                ...state,
+                list: {
+                    consultants: []
+                }
+            }
+        case 'addToList':
+            return {
+                ...state,
+                list: {
+                    consultants: [...state.list.consultants, action.payload.newConsultant]
                 }
             }
         

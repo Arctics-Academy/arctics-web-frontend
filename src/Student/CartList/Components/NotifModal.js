@@ -1,21 +1,27 @@
 import '../std_cartlist_notifModal.css';
+import { ParamContext } from '../../../ContextReducer';
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
-const NotifModal = ({title, content, hidden, setHidden, mode, id}) => {
-
-    // const haddleConfirm = ()=>{
-    //     if (mode=="clearAll"){
-    //         // let mapped = data.map( item => { return {...item, deleted: !item.deleted} } );
-    //         //setData(mapped);
-    //         setHidden(!hidden);
-    //     }
-    //     else{
-    //         // let mapped = data.map( item=>{
-    //         //     return item.id==id? {...item, deleted: !item.deleted}:{...item};
-    //         // } )
-    //         //setData(mapped);
-    //         setHidden(!hidden);
-    //     }
-    // }
+const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
+    const context = useContext(ParamContext)
+    const history = useHistory()
+    const handleConfirm = ()=>{
+         if (mode==="clearAll"){
+            context.setInfo({type: 'clearAll'})
+            setHidden(!hidden);
+         } else {
+            context.setInfo({
+                type: mode,
+                payload: (mode==='addToList')? {newConsultant: clt}:{deleteId: clt.id}
+            })
+            console.log({
+                type: mode,
+                payload: (mode==='addToList')? {newConsultant: clt}:{deleteId: clt.id}
+            })
+            setHidden(!hidden);
+         }
+    }
 
     return (
         <div className='std_modal-notif' style={hidden? {display:'none'}:{}}>
@@ -25,8 +31,8 @@ const NotifModal = ({title, content, hidden, setHidden, mode, id}) => {
                     <p className='std_modal-notif-text'>{content}</p>
                 </div>
                 <div className='std_modal-notif-button-area'>
-                    <button className='std_modal-notif-button' style={{'background-color': '#f5f5f5', 'color': '#003b6b'}} onClick={()=>setHidden(!hidden)}>取消</button>
-                    <button className='std_modal-notif-button' style={{'background-color': '#f2d60f', 'color': '#003b6b'}} onClick={()=>setHidden(!hidden)}>確定</button>
+                    <button className='std_modal-notif-button' style={{'background-color': '#f5f5f5', 'color': '#003b6b'}} onClick={handleConfirm}>取消</button>
+                    <button className='std_modal-notif-button' style={{'background-color': '#f2d60f', 'color': '#003b6b'}} onClick={handleConfirm}>確定</button>
                 </div>
             </div>
         </div>

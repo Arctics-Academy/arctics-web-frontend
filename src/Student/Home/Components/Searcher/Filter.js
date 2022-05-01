@@ -12,7 +12,7 @@ const experienceHashtags = ['自然組', '社會組', '轉組', '特殊班', '�
 const admissionHashtags = ['特殊選材', '繁星推薦', '個人申請', '指考分發', '學習歷程', '模擬面試', '面試技巧', '二階筆試', '認識校系']
 const fields = ['文史哲學群', '外語學群', '社會心理學群', '資訊學群', '藝術學群', '數理化學群', '地球環境學群', '法政學群', '財經學群', '醫藥衛生學群', '工程學群', '生物資源學群', '大眾傳播學群', '管理學群', '生命科學學群']
 
-const Filter = () => {
+const Filter = ({modalHidden, setModalHidden}) => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [selectedField, setField] = useState('')
     const searcher = useForm()
@@ -55,7 +55,8 @@ const Filter = () => {
     }
 
     const onSubmit = (data) => {
-        console.log(data)
+        if (data.field === undefined || data.field === "選擇學群領域") setModalHidden(false)
+        else console.log("Search on: ", data)
     }
 
     return (

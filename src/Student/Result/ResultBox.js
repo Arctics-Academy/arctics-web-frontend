@@ -1,19 +1,19 @@
-import "../std_cartlist.css";
+import "../CartList/std_cartlist.css";
 import { useState } from "react";
-import { ReactComponent as CoinIcon } from '../img/coin.svg';
-import { ReactComponent as SchoolIcon } from '../img/school.svg';
-import { ReactComponent as ExpIcon } from '../img/exp.svg';
-import { ReactComponent as HashtagIcon } from '../img/hashtag.svg';
-import { ReactComponent as UpIcon } from '../img/arrow_up.svg';
-import { ReactComponent as DownIcon } from '../img/arrow_down.svg';
-import { ReactComponent as Star } from '../img/star.svg';
-import { ReactComponent as DeleteIcon } from '../img/delete.svg';
-import { ReactComponent as InfoIcon } from '../img/info.svg';
-import img_path from '../img/tmp_avatar.png';
-import NotifModal from "./NotifModal";
+import { ReactComponent as CoinIcon } from '../CartList/img/coin.svg';
+import { ReactComponent as SchoolIcon } from '../CartList/img/school.svg';
+import { ReactComponent as ExpIcon } from '../CartList/img/exp.svg';
+import { ReactComponent as HashtagIcon } from '../CartList/img/hashtag.svg';
+import { ReactComponent as UpIcon } from '../CartList/img/arrow_up.svg';
+import { ReactComponent as DownIcon } from '../CartList/img/arrow_down.svg';
+import { ReactComponent as Star } from '../CartList/img/star.svg';
+import { ReactComponent as DeleteIcon } from '../CartList/img/delete.svg';
+import { ReactComponent as InfoIcon } from '../CartList/img/info.svg';
+import img_path from '../CartList/img/tmp_avatar.png';
+import NotifModal from "../CartList/Components/NotifModal";
 import { useHistory } from "react-router-dom";
 
-const CartItem = ( {clt, setContext, context } ) => {
+const ResultBox = ( {clt, setContext, context } ) => {
   const [itemHidden, setItemHidden] = useState(true);
   const [introOpen, setIntroOpen] = useState(false);
   const history = useHistory()
@@ -83,7 +83,7 @@ const CartItem = ( {clt, setContext, context } ) => {
 
   return (
       <div className="std_cartitem-wrapper">
-        <NotifModal title={"移除 顧問：" + clt.name} content={"確定要將這位顧問從清單中移除嗎？"} hidden={itemHidden} setHidden={setItemHidden} mode={"deleteSingleListItem"} clt={ clt } />
+        <NotifModal title={"在清單中新增顧問：" + clt.name} content={"確定要將這位顧問新增到好奇清單嗎？"} hidden={itemHidden} setHidden={setItemHidden} mode={"addToList"} clt={ clt } />
         <div className="std_cartitem-col1">
           <img src={img_path} className="std_cartitem-img"></img>
           <p className="std_cartitem-name">{clt.name}</p>
@@ -127,8 +127,8 @@ const CartItem = ( {clt, setContext, context } ) => {
             <span className="std_cartitem-level-float">.{level_fl}</span>
           </div>
           <button className="std_cartitem-delete-button" onClick={()=>setItemHidden(!itemHidden)}>
-            <DeleteIcon className="std_cartitem-delete-icon"/>
-            <p>移除</p>
+            {/*<DeleteIcon className="std_cartitem-delete-icon"/>*/}
+            <p>加入清單</p>
           </button>
           <button className="std_cartitem-info-button">
             <InfoIcon className="std_cartitem-info-icon"/>
@@ -140,4 +140,4 @@ const CartItem = ( {clt, setContext, context } ) => {
   )
 }
 
-export default CartItem;
+export default ResultBox;
