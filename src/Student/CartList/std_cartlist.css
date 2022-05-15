@@ -71,8 +71,10 @@
 .std_cartitem-img{
   width: 120px;
   height: 120px;
+  /*
   border: solid 1px #4bb3cc;
   background-color: #4bb3cc;
+  */
   border-radius: 5px;
 }
 .std_cartitem-name{

@@ -14,7 +14,7 @@ import DefaultAvatar from "../img/profile-replacer.png"
 import "./introTop.css";
 
 const IntroTop = ({ profile, page, changePage, setHidden }) => {
-  const { surname, name, count, star } = profile;
+  //const { surname, name, count, star } = profile;
   const context = useContext(ParamContext)
   const handleClickEdit = () => {
     changePage("intro-edit");
@@ -94,23 +94,23 @@ const IntroTop = ({ profile, page, changePage, setHidden }) => {
     <>
       <div class="introTop">
         <div class="introTop">
-          <img class="introTop-avatar" src={(context.Info.profile.photo==='NotFound')? DefaultAvatar:context.Info.profile.photo} alt="my avatar" />
-          <img class="introTop-photo" src={Photo} alt="camera" onClick={()=>setHidden(false)} />
+          <img class="introTop-avatar" src={(profile.photo==='NotFound')? DefaultAvatar:profile.photo} alt="my avatar" />
+          {page==='student-view'? <></>:<img class="introTop-photo" src={Photo} alt="camera" onClick={()=>setHidden(false)} />}
         </div>
         <div class="introTop">
           <div class="introTop-name-wrapper">
-            <span class="introTop-name">{surname}{name}</span>
+            <span class="introTop-name">{profile.surname}{profile.name}</span>
           </div>
           <div>
             <span class="introTop-already">已諮詢</span>
-            <span class="introTop-times">{count}次</span>
+            <span class="introTop-times">{profile.count}次</span>
           </div>
           {page !== "account" && (
-            <div hidden={(star<=3 || star===undefined)? true:false}>
+            <div hidden={(profile.star<=3 || profile.star===undefined || profile.star===null)? true:false}>
               <span>
                 <img class="introTop-star" src={Star} alt="star" />
               </span>
-              <span class="introTop-point">{star}</span>
+              <span class="introTop-point">{profile.star}</span>
             </div>
           )}
         </div>

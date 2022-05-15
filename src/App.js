@@ -30,6 +30,7 @@ import BookingSecondStage from './Student/Booking/Container/BookingSecondStage';
 import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
 import StudentProfile from './Student/Profile/StudentProfile';
 import StudentResult from './Student/Result/Result';
+import Preview from './Student/Preview/Preview';
 import { useEffect, useState, useContext } from 'react';
 import { authFetchAllData } from './Axios/consulAxios';
 import { ParamContext } from './ContextReducer';
@@ -116,6 +117,7 @@ const App = () => {
           <ProtectedRoute auth={auth} exact path="/consultant-announcement" component={ConsulAnnounce} />
           <Route exact path="/student-profile" component={StudentProfile} />
           <Route exact path="/student-search-result" component={StudentResult} />
+          <Route exact path="/student-preview/:cltid" component={Preview} />
           <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
           <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />

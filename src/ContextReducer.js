@@ -31,7 +31,11 @@ const initState = {
     list: {
         consultants: [],
     },
-    filterResult: []
+    filterResult: [],
+    tmpViewForStd: {
+        count: 0, email: '', emailVerified: false, experiences: '', intro: '', field: [], labels: [], mobile: '', mobileVerified: true,
+        major: '', name: '', surname: '', school: '', year: '', studentCardVerified: false, timetable: [[],[],[],[],[],[],[]],
+    }
 }
 
 const sumAmount = (type, list) => {
@@ -163,6 +167,11 @@ const reducer = (state, action) => {
                 list: {
                     consultants: [...state.list.consultants, action.payload.newConsultant]
                 }
+            }
+        case 'storePreviewData':
+            return {
+                ...state,
+                tmpViewForStd: action.payload
             }
         
         default:

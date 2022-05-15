@@ -40,7 +40,7 @@ const StudentResult = () => {
     <div className="std-result-main">
       <SearchBody place={'result'} />
       <div className="std-result-results">
-        {displayResult(test)}
+        {displayResult(context.Info.filterResult)}
       </div>
     </div>
   )

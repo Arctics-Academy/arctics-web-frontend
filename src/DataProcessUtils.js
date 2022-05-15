@@ -277,5 +277,46 @@ const sortTransactions = (trans) => {
     sorted.sort(timeComp2)
     return sorted
 }
+/*
+"id": 2,
+    "name": "李小蓁",
+    "img":"",
+    "fee": 200,
+    "exp": 15,
+    "education": { "school": "國立臺灣大學", "major": "外國語文學系", "year":"二年級" },
+    "hashtags": ["學習歷程檔案", "筆試準備", "社團"],
+    "intro": "我也不知道可以寫什麼，大概請他們寫一些諮詢風格、諮詢經歷、教學理念、簡述自己的升學歷程之類的吧？",
+    "star": 4.8,
+    "deleted": false
+*/
+const wrapFilterResult = (result) => {
+    const pack = result.map((e) => {
+        return {
+            name: e.name || 'CLT',
+            id: e.consultantId,
+            fee: e.price,
+            education: {
+                school: e.school,
+                major: e.major,
+                year: e.year || ''
+            },
+            exp: e.count,
+            intro: e.intro || '',
+            img: e.photo? convertBase64ForImage(e.photo):null,
+            hashtags: e.labels,
+            star: e.star
+        }
+    })
 
-export { buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions }
+    console.log(pack)
+    return pack
+}
+
+const wrapConsultantPreview = (data) => {
+    return {
+        ...data.profile,
+        photo: convertBase64ForImage(data.profile.photo)
+    }
+}
+
+export { buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions, wrapFilterResult, wrapConsultantPreview }

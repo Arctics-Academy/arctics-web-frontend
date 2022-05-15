@@ -78,7 +78,7 @@ const Calendar = ({ editing, timeslot }) => {
           value={day.key + time}
           name={day.key + time}
           disabled={true}
-          checked={checkedItems[day.key + time]}
+          checked={timeslot.includes(day.key + time)}
         />
       )
     }

@@ -9,8 +9,9 @@ import { ReactComponent as DownIcon } from '../CartList/img/arrow_down.svg';
 import { ReactComponent as Star } from '../CartList/img/star.svg';
 import { ReactComponent as DeleteIcon } from '../CartList/img/delete.svg';
 import { ReactComponent as InfoIcon } from '../CartList/img/info.svg';
-import img_path from '../CartList/img/tmp_avatar.png';
+import img_path from '../CartList/img/defaultAvt.png';
 import NotifModal from "../CartList/Components/NotifModal";
+import studentApis from "../../Axios/studentAxios";
 import { useHistory } from "react-router-dom";
 
 const ResultBox = ( {clt, setContext, context } ) => {
@@ -81,11 +82,16 @@ const ResultBox = ( {clt, setContext, context } ) => {
     }
   }
 
+  const checkApi = async () => {
+    const { status, data, message } = await studentApis.getConsultantProfilePreview({consultantId: 'TR00000002'})
+    console.log(status, data)
+  }
+
   return (
       <div className="std_cartitem-wrapper">
         <NotifModal title={"在清單中新增顧問：" + clt.name} content={"確定要將這位顧問新增到好奇清單嗎？"} hidden={itemHidden} setHidden={setItemHidden} mode={"addToList"} clt={ clt } />
         <div className="std_cartitem-col1">
-          <img src={img_path} className="std_cartitem-img"></img>
+          <img src={clt.img? clt.img:img_path} className="std_cartitem-img"></img>
           <p className="std_cartitem-name">{clt.name}</p>
         </div>
         <div className="std_cartitem-col2">
@@ -123,14 +129,13 @@ const ResultBox = ( {clt, setContext, context } ) => {
         <div className="std_cartitem-button-group">
           <div className="std_cartitem-level">
             <Star className="std_cartitem-level-star" />
-            <p>{level_int}</p>
-            <span className="std_cartitem-level-float">.{level_fl}</span>
+            {clt.star? (<><p>{level_int}</p><span className="std_cartitem-level-float">.{level_fl}</span></>):<p></p>}
           </div>
           <button className="std_cartitem-delete-button" onClick={()=>setItemHidden(!itemHidden)}>
             {/*<DeleteIcon className="std_cartitem-delete-icon"/>*/}
             <p>加入清單</p>
           </button>
-          <button className="std_cartitem-info-button">
+          <button className="std_cartitem-info-button" onClick={checkApi}>
             <InfoIcon className="std_cartitem-info-icon"/>
             <p>求詳細</p>
           </button>

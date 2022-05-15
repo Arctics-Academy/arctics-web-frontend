@@ -150,6 +150,7 @@ const verifyDiscountCode = async (payload) => {
 
 const getFilterResult = async (payload) => {
   try {
+    console.log('search on:', payload)
     const { data: { status, data, message } } = await instance.post('/api/student/tools/filter', {
       ...payload
     })   
