@@ -9,9 +9,9 @@ import { ReactComponent as DownIcon } from '../img/arrow_down.svg';
 import { ReactComponent as Star } from '../img/star.svg';
 import { ReactComponent as DeleteIcon } from '../img/delete.svg';
 import { ReactComponent as InfoIcon } from '../img/info.svg';
-import img_path from '../img/tmp_avatar.png';
+import img_path from '../img/defaultAvt.png';
 import NotifModal from "./NotifModal";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const CartItem = ( {clt, setContext, context } ) => {
   const [itemHidden, setItemHidden] = useState(true);
@@ -123,8 +123,7 @@ const CartItem = ( {clt, setContext, context } ) => {
         <div className="std_cartitem-button-group">
           <div className="std_cartitem-level">
             <Star className="std_cartitem-level-star" />
-            <p>{level_int}</p>
-            <span className="std_cartitem-level-float">.{level_fl}</span>
+            {clt.star===null? <p></p>:<><p>{level_int}</p><span className="std_cartitem-level-float">.{level_fl}</span></>}
           </div>
           <button className="std_cartitem-delete-button" onClick={()=>setItemHidden(!itemHidden)}>
             <DeleteIcon className="std_cartitem-delete-icon"/>
@@ -132,7 +131,7 @@ const CartItem = ( {clt, setContext, context } ) => {
           </button>
           <button className="std_cartitem-info-button">
             <InfoIcon className="std_cartitem-info-icon"/>
-            <p>求詳細</p>
+            <Link to={`/student-preview/${clt.id}`}><p>求詳細</p></Link>
           </button>
           <button className="std_cartitem-appmt-button" onClick={handleBooking} >立即預約</button>
         </div>

@@ -10,7 +10,7 @@ const CartItemGroup = ({hidden, setHidden}) => {
   const context = useContext(ParamContext)
 
   const filtered = Data.filter( item => !item.deleted )
-  const cart_item = filtered.map( item => {
+  const cart_item = context.Info.list.consultants.map( item => {
     return(
       <CartItem key={item.id + item.name} clt={item} setContext={context.setInfo} context={context.Info} />
     )

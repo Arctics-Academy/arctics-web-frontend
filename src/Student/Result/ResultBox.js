@@ -12,7 +12,7 @@ import { ReactComponent as InfoIcon } from '../CartList/img/info.svg';
 import img_path from '../CartList/img/defaultAvt.png';
 import NotifModal from "../CartList/Components/NotifModal";
 import studentApis from "../../Axios/studentAxios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const ResultBox = ( {clt, setContext, context } ) => {
   const [itemHidden, setItemHidden] = useState(true);
@@ -137,7 +137,7 @@ const ResultBox = ( {clt, setContext, context } ) => {
           </button>
           <button className="std_cartitem-info-button" onClick={checkApi}>
             <InfoIcon className="std_cartitem-info-icon"/>
-            <p>求詳細</p>
+            <Link to={`/student-preview/${clt.id}`}><p>求詳細</p></Link>
           </button>
           <button className="std_cartitem-appmt-button" onClick={handleBooking} >立即預約</button>
         </div>

@@ -8,7 +8,7 @@ const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
     const history = useHistory()
     const handleConfirm = ()=>{
          if (mode==="clearAll"){
-            context.setInfo({type: 'clearAll'})
+            context.setInfo({type: 'clearList'})
             setHidden(!hidden);
          } else {
             context.setInfo({

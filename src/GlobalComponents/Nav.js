@@ -112,8 +112,8 @@ export default function Nav() {
 							</li>
 							<li className="nav__menu-item"><a className='nav__menu-submenu-link'>尋找顧問</a>
 								<ul className='nav__menu-submenu'>
-									<li className='nav__menu-submenu-item'>搜尋</li>
-									<li className='nav__menu-submenu-item'>好奇清單</li>
+									<Link to="/student-search-result"><li className='nav__menu-submenu-item'>搜尋</li></Link>
+									<Link to="/student-cart"><li className='nav__menu-submenu-item'>好奇清單</li></Link>
 								</ul>
 							</li>
 				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link'>我的諮詢</a>
