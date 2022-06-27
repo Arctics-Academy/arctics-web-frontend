@@ -3,7 +3,6 @@ import "../std_booking.css";
 
 // Icons
 import DarkCircle from "../img/dark-circle.svg";
-import LightCircle from "../img/light-circle.svg";
 import DarkLine from "../img/dark-line.svg";
 
 // Placeholder Variables
@@ -28,7 +27,7 @@ const BookingDisplay = () => {
         </div>
         <div >
           <div className="std_booking-display-heading-label-container">
-            <img src={LightCircle} alt="step 2" />
+            <img src={DarkCircle} alt="step 2" />
             <span className="std_booking-display-heading-label">2</span>
           </div>
           <p className="std_booking-display-heading-label-bottom">確認付款</p>
