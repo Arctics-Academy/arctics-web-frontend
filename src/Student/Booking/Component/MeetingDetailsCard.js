@@ -48,25 +48,25 @@ const MeetingDetailsCard = () => {
         <div className="std_meeting-details">
           <div className="std_meeting-details-line">
             <div className="std_meeting-details-left">
-              <img className="std_meeting-details-icon" src={Clock} />
+              <img className="std_meeting-details-icon" src={Clock} alt="" />
               <p className="std_meeting-details-title">時間</p>
               <p className="std_meeting-details-content">{dummy.time}</p>
             </div>
             <div className="std_meeting-details-right">
-              <img className="std_meeting-details-icon" src={Account} />
+              <img className="std_meeting-details-icon" src={Account} alt="" />
               <p className="std_meeting-details-title">Arctics帳號</p>
               <p className="std_meeting-details-content">{dummy.accountNo}</p>
             </div>
           </div>
           <div className="std_meeting-details-line">
             <div className="std_meeting-details-left">
-              <img className="std_meeting-details-icon" src={Consultant} />
+              <img className="std_meeting-details-icon" src={Consultant} alt="" />
               <p className="std_meeting-details-title">顧問</p>
               <p className="std_meeting-details-content">{context.Info.toBook.name}同學<br />{context.Info.toBook.school} {context.Info.toBook.major}
               </p>
             </div>
             <div className="std_meeting-details-right">
-              <img className="std_meeting-details-icon" src={Coupon} />
+              <img className="std_meeting-details-icon" src={Coupon} alt="" />
               <p className="std_meeting-details-title std_meeting-details-title-discount">優惠代碼</p>
               <input type="text" className="std_meeting-details-input" value={code} onChange={(e)=>{setCode(e.target.value)}} />
               <button className="std_meeting-details-button" onClick={()=>{handleUseCoupon(code)}}>使用優惠碼</button>
@@ -74,7 +74,7 @@ const MeetingDetailsCard = () => {
           </div>
           <div className="std_meeting-details-line">
             <div className="std_meeting-details-left">
-              <img className="std_meeting-details-icon" src={Money} />
+              <img className="std_meeting-details-icon" src={Money} alt="" />
               <p className="std_meeting-details-title">計價</p>
               <p className="std_meeting-details-content">{context.Info.toBook.price}/半小時</p>
             </div>
