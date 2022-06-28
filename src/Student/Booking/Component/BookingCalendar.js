@@ -1,5 +1,6 @@
 // Known Issues
-// 1. No key for array
+// * no key for array
+// * css no bem naming
 
 // Imports
 import { useState } from 'react'
@@ -232,21 +233,21 @@ const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
   // Main Component
   return (
     <>
-      <div className='booking-calendar__header'>
+      <div className='header'>
         {(weekNum === 0 ? 
-          <div className='booking-calendar__week-button-div--invalid'>
-            <img className='booking-calendar__week-button' src={LightLeftAngle} alt='invalid previous week button'/>
+          <div className='week-button-div--invalid'>
+            <img className='week-button' src={LightLeftAngle} alt='invalid previous week button'/>
           </div> : 
-          <div className='booking-calendar__week-button-div' onClick={handlePrevWeek}>
-            <img className='booking-calendar__week-button' src={DarkLeftAngle} alt='previous week button'/>
+          <div className='week-button-div' onClick={handlePrevWeek}>
+            <img className='week-button' src={DarkLeftAngle} alt='previous week button'/>
           </div>)}
-        <div className='booking-calendar__week-string'>{getWeekString(weekNum)}</div>
+        <div className='week-string'>{getWeekString(weekNum)}</div>
         {(weekNum === 3 ? 
-          <div className='booking-calendar__week-button-div--invalid'>
-            <img className='booking-calendar__week-button' src={LightRightAngle} alt='invalid next week button'/>
+          <div className='week-button-div--invalid'>
+            <img className='week-button' src={LightRightAngle} alt='invalid next week button'/>
           </div> : 
-          <div className='booking-calendar__week-button-div' onClick={handleNextWeek}>
-            <img className='booking-calendar__week-button' src={DarkRightAngle} alt='next week button'/>
+          <div className='week-button-div' onClick={handleNextWeek}>
+            <img className='week-button' src={DarkRightAngle} alt='next week button'/>
           </div>)}
       </div>
       {Table()}

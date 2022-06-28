@@ -1,5 +1,5 @@
 /* Header */
-.booking-calendar__header {
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,20 +9,20 @@
     border-radius: 4px;
 }
 
-.booking-calendar__week-button {
+.week-button {
     height: 1em;
 }
 
 
-.booking-calendar__week-button-div {
+.week-button-div {
     display: inline-block;
     cursor: pointer;
 }
 
-.booking-calendar__week-button-div--invalid {
+.week-button-div--invalid {
     cursor: auto;
 }
-.booking-calendar__week-string {
+.week-string {
     display: inline-block;
 
     color: #003B6B;
