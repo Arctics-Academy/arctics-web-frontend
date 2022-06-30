@@ -4,7 +4,7 @@ import MeetingDetailsCard from "../Component/MeetingDetailsCard";
 import BlankFooter from "../Component/BlankFooter";
 
 // Component
-const BookingSecondStage = () => {
+const Booking = () => {
   return (
     <>
       <BookingDisplay />
@@ -14,4 +14,4 @@ const BookingSecondStage = () => {
   );
 };
 
-export default BookingSecondStage;
+export default Booking;

@@ -1,0 +1,24 @@
+.label-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.label-icon-wrapper {
+    width: 2em;
+    margin: 0;
+}
+
+.label-icon {
+    height: 1em;
+}
+
+.label-label {
+    color: #4BB3CC;
+    width: 6em;
+}
+
+.label-content {
+    color: #003B6B;
+    width: 4em;
+}

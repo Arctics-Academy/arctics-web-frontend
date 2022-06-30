@@ -1,0 +1,77 @@
+.booking-card-wrapper {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 16px;
+  padding: 10vh 5vw;
+  background-color: grey;
+}
+
+.booking-card-people-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  margin-bottom: 32px;
+}
+
+.booking-card-people-label {
+  width: 45%;
+}
+
+.booking-card-time-label {
+  margin-bottom: 16px;
+}
+
+.booking-card-time-panel-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.booking-card-time-component {
+  width: 45%;
+}
+
+.booking-card-time-component-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.booking-card-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.booking-card-button {
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-left: 8px;
+
+  font-size: 1em;
+  font-family: var(--heading-font);
+
+  cursor: pointer;
+  
+  color: white;
+  background-color: #4BB3CC;
+  border: none;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.booking-card-button-label-with-icon {
+  margin-left: 4px;
+}
+
+.booking-card-button--action {
+  color: #003B6B;
+  background-color: #F2D60F;
+}

@@ -47,7 +47,7 @@
     /* margin:; */
     border-radius: 4px;
     width: calc((100% - 32px)/8); 
-    height: 40px;
+    aspect-ratio: 1.8;
     display: inline-block;
     background-color: #80BCCD;
 
