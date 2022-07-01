@@ -447,3 +447,124 @@
   margin: 0;
   margin-bottom: 8px;
 }
+
+
+/* CalendarComponent.js */
+/* Header */
+.std-booking-calendar-component__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background-color: #B0DDE2;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.std-booking-calendar-component__week-button {
+  height: 1em;
+}
+
+
+.std-booking-calendar-component__week-button-div {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.std-booking-calendar-component__week-button-div--invalid {
+  cursor: auto;
+}
+.std-booking-calendar-component__week-string {
+  display: inline-block;
+
+  color: #003B6B;
+  font-weight: bold;
+}
+
+/* Rows */
+.std-booking-calendar-component__row {
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rstd-booking-calendar-component__ow--day {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+
+/* Slots */
+.std-booking-calendar-component__slot {
+  /* margin:; */
+  border-radius: 4px;
+  width: calc((100% - 32px)/8); 
+  aspect-ratio: 1.8;
+  display: inline-block;
+  background-color: #80BCCD;
+
+  transition: background-color 0.25s ease-in-out;
+}
+
+
+.std-booking-calendar-component__slot--hide {
+  opacity: 0;
+}
+
+.std-booking-calendar-component__slot--day {
+  height: 50px;
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  color: white;
+  font-weight: bold;
+}
+
+.std-booking-calendar-component__slot--time {
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: space-around;
+}
+
+.std-booking-calendar-component__slot--o {
+  background-color: lightgrey;
+}
+
+.std-booking-calendar-component__slot--n {
+  background-color: #F5F5F5;
+}
+
+.std-booking-calendar-component__slot--s {
+  background-color: #003B6B;
+}
+
+.std-booking-calendar-component__slot--a {
+  background-color: #B0DDE2;
+}
+
+.std-booking-calendar-component__slot--b {
+  background-color: #DE5454;
+}
+
+/* Ckecbox */
+.std-booking-calendar-component__checkbox {
+  opacity: 0%;
+  margin: 0;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(150%);
+  cursor: pointer;
+}
+
+/* Special Text */
+.std-booking-calendar-component__time-label {
+  margin-top: -8px;
+  font-size: 0.75em;
+  color: #003B6B;
+}

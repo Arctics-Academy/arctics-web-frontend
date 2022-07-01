@@ -6,7 +6,7 @@
 import { useState } from 'react'
 
 // Stylesheets
-import './BookingCalendar.css'
+import '../std_booking.css'
 
 // Components
 import LightLeftAngle from '../img/light-left-angle.svg'
@@ -123,7 +123,7 @@ const RawDataDefault = {
   teacherBooked: [[2022, 6, 30, 29]]
 }
 
-const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
+const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
   // States
   const [weekNum, setWeekNum] = useState(0)
   const [displayData, setDisplayData] = useState(generateDataArray(rawData, weekNum))
@@ -166,15 +166,15 @@ const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
   const Slot = (state, dayNo, slotNo) => {
     switch (state) {
       case 'o': // out-of-range
-        return <div className="slot slot--o"></div>
+        return <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--o"></div>
       case 'n': // not-available
-        return <div className="slot slot--n"></div>
+        return <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--n"></div>
       case 'a': // available
         return (
-          <div className="slot slot--a">
+          <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--a">
             <input 
               type="checkbox"
-              className="checkbox"
+              className="std-booking-calendar-component__checkbox"
               value={`${dayNo}-${slotNo}`}
               onChange={handleCheck}
               checked={false}
@@ -183,9 +183,9 @@ const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
         )
       case 's': // selected
         return (
-          <div className="slot slot--s">
+          <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--s">
             <input 
-              className="checkbox"
+              className="std-booking-calendar-component__checkbox"
               type="checkbox" 
               value={`${dayNo}-${slotNo}`}
               onChange={handleUncheck} 
@@ -194,25 +194,25 @@ const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
           </div>
         )
       case 'b': // booked
-        return <div className="slot slot--b"></div>
+        return <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--b"></div>
       default: // error is out-of-range
-        return <div className="slot slot--o"></div>
+        return <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--o"></div>
     }
   }
 
   const Row = (slotNo) => {
     if (slotNo === -1) {
       return (
-        <div className="row row--day">
-          <div className="slot slot--hide"></div>
-          {DayArray.map((day) => (<div className="slot slot--day">{day.name}</div>))}
+        <div className="std-booking-calendar-component__row std-booking-calendar-component__row--day">
+          <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--hide"></div>
+          {DayArray.map((day) => (<div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--day">{day.name}</div>))}
         </div>
       )
     }
     else {
       return (
-        <div className="row">
-          <div className="slot slot--time"><span className='time-label'>{getStartStringFromSlot(slotNo)}</span></div>
+        <div className="std-booking-calendar-component__row">
+          <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--time"><span className='std-booking-calendar-component__time-label'>{getStartStringFromSlot(slotNo)}</span></div>
           {DayArray.map((day) => (<>{Slot(displayData[day.no][slotNo], day.no, slotNo)}</>))}
         </div>
       )
@@ -233,21 +233,21 @@ const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
   // Main Component
   return (
     <>
-      <div className='header'>
+      <div className='std-booking-calendar-component__header'>
         {(weekNum === 0 ? 
-          <div className='week-button-div--invalid'>
-            <img className='week-button' src={LightLeftAngle} alt='invalid previous week button'/>
+          <div className='std-booking-calendar-component__week-button-div--invalid'>
+            <img className='std-booking-calendar-component__week-button' src={LightLeftAngle} alt='invalid previous week button'/>
           </div> : 
-          <div className='week-button-div' onClick={handlePrevWeek}>
-            <img className='week-button' src={DarkLeftAngle} alt='previous week button'/>
+          <div className='std-booking-calendar-component__week-button-div' onClick={handlePrevWeek}>
+            <img className='std-booking-calendar-component__week-button' src={DarkLeftAngle} alt='previous week button'/>
           </div>)}
-        <div className='week-string'>{getWeekString(weekNum)}</div>
+        <div className='std-booking-calendar-component__week-string'>{getWeekString(weekNum)}</div>
         {(weekNum === 3 ? 
-          <div className='week-button-div--invalid'>
-            <img className='week-button' src={LightRightAngle} alt='invalid next week button'/>
+          <div className='std-booking-calendar-component__week-button-div--invalid'>
+            <img className='std-booking-calendar-component__week-button' src={LightRightAngle} alt='invalid next week button'/>
           </div> : 
-          <div className='week-button-div' onClick={handleNextWeek}>
-            <img className='week-button' src={DarkRightAngle} alt='next week button'/>
+          <div className='std-booking-calendar-component__week-button-div' onClick={handleNextWeek}>
+            <img className='std-booking-calendar-component__week-button' src={DarkRightAngle} alt='next week button'/>
           </div>)}
       </div>
       {Table()}
@@ -255,4 +255,4 @@ const BookingCalendar = ({ startTime=19, rawData=RawDataDefault }) => {
   );
 };
 
-export default BookingCalendar;
+export default CalendarComponent

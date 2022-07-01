@@ -3,7 +3,7 @@ import '../std_booking.css'
 
 // Sub-components
 import { TwoLineInfoLabel } from './InfoLabel'
-import BookingCalendar from './BookingCalendar'
+import CalendarComponent from './CalendarComponent'
 import SelectComponent from './SelectComponent'
 
 // Icons
@@ -27,7 +27,7 @@ const BookingCard = () => {
         </div>
         <div className='std-booking-selection-card__time-panel-wrapper'>
           <div className='std-booking-selection-card__time-component'>
-            <BookingCalendar />
+            <CalendarComponent />
           </div>
           <div className='std-booking-selection-card__time-component std-booking-selection-card__time-component-right'>
             <div>
