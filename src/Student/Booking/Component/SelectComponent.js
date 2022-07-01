@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 // Stylesheets
-import './BookingPanel.css'
+import '../std_booking.css'
 
 
 const DayArray = [
@@ -60,7 +60,7 @@ const toEndString = (slot) => {
 }
   
 
-const BookingPanel = ({ selectedDay=-1, selectedSlot=18 }) => {
+const SelectComponent = ({ selectedDay=-1, selectedSlot=18 }) => {
   const [day, setDay] = useState(selectedDay)
   const [slot, setSlot] = useState(selectedSlot)
 
@@ -79,21 +79,21 @@ const BookingPanel = ({ selectedDay=-1, selectedSlot=18 }) => {
     let result = processTime(string)
     if (result[0]) {
       setTimeout(() => {
-        e.target.className = 'time-panel-input'
+        e.target.className = 'std-booking-select-component__time-panel-input'
         e.target.value = processTimeString(result[1], result[2])
       }, 800)
       setSlot(toSlot(result[1], result[2]))
     }
     else {
       setTimeout(() => {
-        e.target.className = 'time-panel-input time-panel-input--error'
+        e.target.className = 'std-booking-select-component__time-panel-input std-booking-select-component__time-panel-input--error'
       }, 800)
     }
   }
   
   useEffect(() => {
     if (slot === 18) {
-      document.getElementsByClassName('time-panel-input')[0].value = '09:00';
+      document.getElementsByClassName('std-booking-select-component__time-panel-input')[0].value = '09:00';
     }
   })
 
@@ -103,17 +103,17 @@ const BookingPanel = ({ selectedDay=-1, selectedSlot=18 }) => {
     return (
       <>
         {DayArray.map((obj) => (obj.no === Number(displayDay) ?
-          <div className='day-button-wrapper' key={obj.key}>
-            <div  className='day-button day-button--checked'>
+          <div className='std-booking-select-component__day-button-wrapper' key={obj.key}>
+            <div className='std-booking-select-component__day-button std-booking-select-component__day-button--checked'>
               <span>{obj.name}</span>
             </div>
-            <input className='day-checkbox' type='checkbox' value={obj.no} checked onChange={handleUncheck}></input>
+            <input className='std-booking-select-component__day-checkbox' type='checkbox' value={obj.no} checked onChange={handleUncheck}></input>
           </div> :
-          <div className='day-button-wrapper' key={obj.key}>
-            <div className='day-button'>
+          <div className='std-booking-select-component__day-button-wrapper' key={obj.key}>
+            <div className='std-booking-select-component__day-button'>
               <span>{obj.name}</span>
             </div>
-            <input className='day-checkbox' type='checkbox' value={obj.no} onChange={handleCheck}></input>
+            <input className='std-booking-select-component__day-checkbox' type='checkbox' value={obj.no} onChange={handleCheck}></input>
           </div>))}
       </>
     )
@@ -121,13 +121,13 @@ const BookingPanel = ({ selectedDay=-1, selectedSlot=18 }) => {
 
   const TimePanel = (displayTime) => {
     return (
-      <div className='time-panel-input-wrapper'>
+      <div className='std-booking-select-component__time-panel-input-wrapper'>
         <input
-          className='time-panel-input'
+          className='std-booking-select-component__time-panel-input'
           type='text'
           onChange={handleTimeInput}
         />
-        <span className='time-panel-info'> ~ {toEndString(slot)}</span>
+        <span className='std-booking-select-component__time-panel-info'> ~ {toEndString(slot)}</span>
       </div>
     )
   }
@@ -135,24 +135,24 @@ const BookingPanel = ({ selectedDay=-1, selectedSlot=18 }) => {
   // Main Component
   return (
     <>
-      <div className='day-panel-wrapper'>
-        <p className='day-label'>星期</p>
+      <div className='std-booking-select-component__day-panel-wrapper'>
+        <p className='std-booking-select-component__day-label'>星期</p>
         {WeekPanel(day)}
       </div>
-      <div className='time-panel-wrapper'>
-        <p className='time-label'>時間</p>
+      <div className='std-booking-select-component__time-panel-wrapper'>
+        <p className='std-booking-select-component__time-label'>時間</p>
         {TimePanel(slot)}
       </div>
-      <div className='price-wrapper'>
-        <div className='price-line'></div>
-        <p className='price-info'><span className='price-price'>200</span>/半小時</p>
+      <div className='std-booking-select-component__price-wrapper'>
+        <div className='std-booking-select-component__price-line'></div>
+        <p className='std-booking-select-component__price-info'><span className='std-booking-select-component__price-price'>200</span>/半小時</p>
       </div>
-      <div className='notice-wrapper'>
-        <p className='notice-label'>注意事項</p>
-        <p className='notice-item'>1. 請選擇自己一定可以的時間</p>
+      <div className='std-booking-select-component__notice-wrapper'>
+        <p className='std-booking-select-component__notice-label'>注意事項</p>
+        <p className='std-booking-select-component__notice-item'>1. 請選擇自己一定可以的時間</p>
       </div>
     </>
   )
 }
 
-export default BookingPanel
+export default SelectComponent

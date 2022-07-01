@@ -317,3 +317,133 @@
   color: #003B6B;
   width: 4em;
 }
+
+
+/* SelectComponent.js */
+/* Day Panel */
+.std-booking-select-component__day-label {
+  color: #4BB3CC;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.std-booking-select-component__day-button-wrapper {
+  display: inline-block;
+  /* has 3em of checkbox space, solved with negative margin on next title */
+}
+
+.std-booking-select-component__day-button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  margin-right: 8px;
+
+  border: 2px solid #4BB3CC;
+  color: #4BB3CC;
+
+  transition: background-color 0.25s ease-in-out;
+}
+
+.std-booking-select-component__day-button:last-child {
+  margin-right: 0;
+}
+
+.std-booking-select-component__day-button--checked {
+  background-color: #4BB3CC;
+  color: white;
+}
+
+.std-booking-select-component__day-checkbox {
+  position: relative;
+  top: calc(-3em - 8px);
+  z-index: 10;
+  
+  height: 3em;
+  width: 3em;
+
+  opacity: 0%;
+  cursor: pointer;
+}
+
+/* Time Panel */
+.std-booking-select-component__time-panel-wrapper {
+  margin-top: calc(-3em - 8px + 32px);
+  margin-bottom: 32px;
+}
+
+.std-booking-select-component__time-label {
+  color: #4BB3CC;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.std-booking-select-component__time-panel-input {
+  width: 4em;
+  height: 1.5em;
+
+  margin: 0;
+  padding: 4px;
+  border: 2px solid #4BB3CC;
+  border-radius: 8px;
+  
+  font-size: 1em;
+  color: #003B6B;
+  font-family: var(--heading-font);
+  text-align: center;
+
+  transition: border-color 0.25s ease-in-out;
+}
+
+.std-booking-select-component__time-panel-input:focus {
+  border: 2px solid #003B6B;
+  outline: none;
+}
+
+.std-booking-select-component__time-panel-input--error {
+  border: 2px solid #DE5454;
+  color: #DE5454;
+  outline: none;
+}
+
+.std-booking-select-component__time-panel-info {
+  color: #003B6B;
+}
+
+/* Price Panel */
+.std-booking-select-component__price-wrapper {
+  margin-bottom: 24px;
+}
+
+.std-booking-select-component__price-line {
+  height: 2px;
+  width: 100%;
+  background-color: #003B6B;
+}
+
+.std-booking-select-component__price-info {
+  color: #003B6B;
+  text-align: right;
+}
+
+.std-booking-select-component__price-price {
+  margin-right: 4px;
+  font-size: 2em;
+}
+
+/* Notice */
+.std-booking-select-component__notice-label {
+  color: #4BB3CC;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.std-booking-select-component__notice-item {
+  color: #003B6B;
+  margin: 0;
+  margin-bottom: 8px;
+}
