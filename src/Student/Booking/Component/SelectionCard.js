@@ -7,16 +7,17 @@ import SelectComponent from './SelectComponent'
 import WhiteX from '../img/white-x.svg'
 
 
-const BookingCard = () => {
+
+const SelectionCard = ({ data, slot, setSlot, consultant, student }) => {
   return (
     <div className='std-booking-selection-card__background'>
       <div className='std-booking-selection-card__wrapper'>
         <div className='std-booking-selection-card__people-row'>
           <div className='std-booking-selection-card__people-label'>
-            <TwoLineInfoLabel identifier='student' label='學生' content1='x' content2='y'/>
+            <TwoLineInfoLabel identifier='student' label='學生' content1={`${student.surname+student.name} 同學`} content2={`${student.school} ${student.grade}`} />
           </div>
           <div className='std-booking-selection-card__people-label'>
-            <TwoLineInfoLabel identifier='consultant' label='顧問' content1='x' content2='y'/> 
+            <TwoLineInfoLabel identifier='consultant' label='顧問' content1={`${consultant.surname+consultant.name} 同學`} content2={`${consultant.school} ${consultant.major}`} /> 
           </div>
         </div>
         <div className='std-booking-selection-card__time-label'>
@@ -24,11 +25,11 @@ const BookingCard = () => {
         </div>
         <div className='std-booking-selection-card__time-panel-wrapper'>
           <div className='std-booking-selection-card__time-component'>
-            <CalendarComponent />
+            <CalendarComponent data={data} setSlot={setSlot} />
           </div>
           <div className='std-booking-selection-card__time-component std-booking-selection-card__time-component-right'>
             <div>
-              <SelectComponent />
+              <SelectComponent slot={slot} price={consultant.price} />
             </div>
             <div className='std-booking-selection-card__button-wrapper'>
               <button className='std-booking-selection-card__button'>
@@ -46,4 +47,4 @@ const BookingCard = () => {
   )
 }
 
-export default BookingCard
+export default SelectionCard

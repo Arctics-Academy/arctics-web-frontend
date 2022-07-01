@@ -316,6 +316,7 @@
 .std-booking-label__content {
   color: #003B6B;
   width: 4em;
+  line-height: 1.5em;
 }
 
 
@@ -329,7 +330,9 @@
 
 .std-booking-select-component__day-button-wrapper {
   display: inline-block;
-  /* has 3em of checkbox space, solved with negative margin on next title */
+  margin-right: 8px;
+  margin-bottom: 32px;
+  /* has 3em of checkbox space, solved with negative margin on next title - disable selection */
 }
 
 .std-booking-select-component__day-button {
@@ -372,7 +375,7 @@
 
 /* Time Panel */
 .std-booking-select-component__time-panel-wrapper {
-  margin-top: calc(-3em - 8px + 32px);
+  /* margin-top: calc(-3em - 8px + 32px); */
   margin-bottom: 32px;
 }
 

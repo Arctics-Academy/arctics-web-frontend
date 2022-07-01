@@ -22,17 +22,22 @@ const DayArray = [
 ]
 
 // Util Functions
+const twoDigit = (num) => {
+  if (num <= 9) return `0${num}`
+  else return `${num}`
+}
+
 const getWeekString = (weekNo) => {
   let sun = new Date()
   sun.setDate(sun.getDate() - sun.getDay() + weekNo * 7)
   let sat = new Date()
   sat.setDate(sat.getDate() - sat.getDay() + 6 + weekNo * 7)
-  return `${sun.getFullYear()}/${(sun.getMonth()+1)%12}/${sun.getDate()} ~ ${sat.getFullYear()}/${(sat.getMonth()+1)%12}/${sat.getDate()}`
+  return `${sun.getFullYear()}/${twoDigit(sun.getMonth()+1)}/${twoDigit(sun.getDate())} ~ ${sat.getFullYear()}/${twoDigit(sat.getMonth()+1)}/${twoDigit(sat.getDate())}`
 }
 
 const getDateFromWeekNo = (day, weekNo) => {
   let temp = new Date()
-  temp.setDate(temp.getDate() - temp.getDay() + weekNo * 7 + day)
+  temp.setDate(temp.getDate() - temp.getDay() + Number(weekNo) * 7 + Number(day))
   return temp;
 }
 
@@ -111,14 +116,11 @@ const generateDataArray = (rawData, weekNo) => {
 //     studentBooked: [[year, month, date, slot], ...],
 //     teacherBooked: [[year, month, date, slot], ...]
 // }
+const startTime = 19;
 
-const RawDataDefault = {
-  available: [[], [], [25,26,27], [], [], [], []],
-  studentBooked: [[2022, 6, 29, 30]],
-  teacherBooked: [[2022, 6, 30, 29]]
-}
+const CalendarComponent = ({ data, setSlot }) => {
+  let rawData = data
 
-const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
   // States
   const [weekNum, setWeekNum] = useState(0)
   const [displayData, setDisplayData] = useState(generateDataArray(rawData, weekNum))
@@ -146,6 +148,10 @@ const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
     displayData[Number(day)][Number(slot)] = "s"
     setDisplayData([...displayData])
     setSelected([day, slot])
+
+    // update upper level
+    let selectedDate = getDateFromWeekNo(day, weekNum)
+    setSlot({ year: selectedDate.getFullYear(), month: selectedDate.getMonth()+1, date: selectedDate.getDate(), slot: slot })
   }
 
   const handleUncheck = (e) => {
@@ -155,6 +161,9 @@ const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
     displayData[Number(day)][Number(slot)] = "a"
     setDisplayData([...displayData])
     setSelected(null)
+
+    // update upper level
+    setSlot(null)
   }
 
   // Sub-Components
