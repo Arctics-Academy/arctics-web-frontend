@@ -1,5 +1,5 @@
 export default function BlankFooter () {
     return (
-        <footer></footer>
+        <footer className="std-booking__footer"></footer>
     );
 }
