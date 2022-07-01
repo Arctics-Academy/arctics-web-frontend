@@ -1,6 +1,3 @@
-// Stylesheet
-import '../std_booking.css'
-
 // Sub-components
 import { TwoLineInfoLabel } from './InfoLabel'
 import CalendarComponent from './CalendarComponent'

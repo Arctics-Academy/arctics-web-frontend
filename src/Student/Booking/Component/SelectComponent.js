@@ -1,10 +1,6 @@
 // Imports
 import { useEffect, useState } from 'react'
 
-// Stylesheets
-import '../std_booking.css'
-
-
 const DayArray = [
   { name: '日', key: 'sun', no: 0 },
   { name: '一', key: 'mon', no: 1 },

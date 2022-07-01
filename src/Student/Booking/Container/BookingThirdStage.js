@@ -1,17 +1,20 @@
 // Import Components
-import MeetingDetailsCard from "../Component/MeetingDetailsCard";
-import BlankFooter from "../Component/BlankFooter";
 import StageDisplay from '../Component/StageDisplay'
+import DetailCard from '../Component/DetailCard'
+import BlankFooter from '../Component/BlankFooter'
+
+// Import Stylesheets
+import '../std-booking.css'
 
 // Component
-const Booking = () => {
+const BookingThirdStage = () => {
   return (
     <>
       <StageDisplay stage={3}/>
-      <MeetingDetailsCard />
+      <DetailCard />
       <BlankFooter />
     </>
   );
 };
 
-export default Booking;
+export default BookingThirdStage

@@ -1,6 +1,3 @@
-// Stylesheet
-import '../std_booking.css'
-
 // Icons
 import DarkCircle from '../img/dark-circle.svg'
 import DarkLine from '../img/dark-line.svg'

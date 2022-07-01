@@ -5,9 +5,6 @@
 // Imports
 import { useState } from 'react'
 
-// Stylesheets
-import '../std_booking.css'
-
 // Components
 import LightLeftAngle from '../img/light-left-angle.svg'
 import DarkLeftAngle from '../img/dark-left-angle.svg'

@@ -1,6 +1,3 @@
-// Imports
-import '../std_booking.css'
-
 // Icons
 import BlueBear from '../img/blue-bear.svg'
 import BlueStudent from '../img/blue-student.svg'
