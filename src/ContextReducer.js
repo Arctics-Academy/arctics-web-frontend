@@ -35,7 +35,8 @@ const initState = {
     tmpViewForStd: {
         count: 0, email: '', emailVerified: false, experiences: '', intro: '', field: [], labels: [], mobile: '', mobileVerified: true,
         major: '', name: '', surname: '', school: '', year: '', studentCardVerified: false, timetable: [[],[],[],[],[],[],[]],
-    }
+    },
+    tmpBookingForStd: null
 }
 
 const sumAmount = (type, list) => {
@@ -172,6 +173,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 tmpViewForStd: action.payload
+            }
+        case 'storeStudentBookingSlot': 
+            return {
+                ...state,
+                tmpBookingForStd: action.payload
             }
         
         default:

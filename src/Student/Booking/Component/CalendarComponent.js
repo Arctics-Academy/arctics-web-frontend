@@ -2,7 +2,8 @@
 // * Mapping key intentinally not set as a hack for css transitions
 
 // Imports
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ParamContext } from '../../../ContextReducer'
 
 // Components
 import LightLeftAngle from '../img/light-left-angle.svg'
@@ -125,6 +126,9 @@ const CalendarComponent = ({ data, setSlot }) => {
   const [weekNum, setWeekNum] = useState(0)
   const [displayData, setDisplayData] = useState(generateDataArray(rawData, weekNum))
   const [selected, setSelected] = useState(null)
+
+  // Context
+  const Context = useContext(ParamContext)
   
   // Handlers
   const handlePrevWeek = () => {
@@ -152,6 +156,10 @@ const CalendarComponent = ({ data, setSlot }) => {
     // update upper level
     let selectedDate = getDateFromWeekNo(day, weekNum)
     setSlot({ year: selectedDate.getFullYear(), month: selectedDate.getMonth()+1, date: selectedDate.getDate(), slot: slot })
+    Context.setInfo({ 
+      type: 'storeStudentBookingSlot', 
+      payload: { year: selectedDate.getFullYear(), month: selectedDate.getMonth()+1, date: selectedDate.getDate(), slot: slot }
+    })
   }
 
   const handleUncheck = (e) => {
@@ -164,6 +172,10 @@ const CalendarComponent = ({ data, setSlot }) => {
 
     // update upper level
     setSlot(null)
+    Context.setInfo({ 
+      type: 'storeStudentBookingSlot', 
+      payload: null
+    })
   }
 
   // Sub-Components

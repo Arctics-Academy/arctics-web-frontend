@@ -8,7 +8,7 @@ import WhiteX from '../img/white-x.svg'
 
 
 
-const SelectionCard = ({ data, slot, setSlot, consultant, student }) => {
+const SelectionCard = ({ data, slot, setSlot, consultant, student, handleSubmit, handleCancel }) => {
   return (
     <div className='std-booking-selection-card__background'>
       <div className='std-booking-selection-card__wrapper'>
@@ -32,11 +32,11 @@ const SelectionCard = ({ data, slot, setSlot, consultant, student }) => {
               <SelectComponent slot={slot} price={consultant.price} />
             </div>
             <div className='std-booking-selection-card__button-wrapper'>
-              <button className='std-booking-selection-card__button'>
+              <button className='std-booking-selection-card__button' onClick={handleCancel}>
                 <img src={WhiteX} alt='cancel'/>
                 <span className='std-booking-selection-card__button-label-with-icon'>取消</span>
               </button>
-              <button className='std-booking-selection-card__button std-booking-selection-card__button--action'>
+              <button className='std-booking-selection-card__button std-booking-selection-card__button--action' onClick={handleSubmit}>
                 <span>前往確認</span>
               </button>
             </div>

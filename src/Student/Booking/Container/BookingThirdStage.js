@@ -7,11 +7,11 @@ import BlankFooter from '../Component/BlankFooter'
 import '../std-booking.css'
 
 // Component
-const BookingThirdStage = () => {
+const BookingThirdStage = ({ demo=false }) => {
   return (
     <>
       <StageDisplay stage={3}/>
-      <DetailCard />
+      <DetailCard demo={demo} />
       <BlankFooter />
     </>
   );

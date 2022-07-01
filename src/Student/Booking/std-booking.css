@@ -95,20 +95,8 @@
   margin-bottom: 32px;
 }
 
-.std_meeting-details-left {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 0px;
-  width: 35vw;
-}
-
-.std_meeting-details-right {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 0px;
-  width: 35vw;
+.std_meeting-details-content {
+  flex: 1;
 }
 
 .std_meeting-details-icon {
@@ -191,10 +179,9 @@
 
 .std_meeting-details-buttom-button {
   border: none;
-  padding: 12px;
+  padding: 12px 24px;
   border-radius: 8px;
-  font-size: 16px;
-  width: 120px;
+  font-size: 1em;
   background-color: #f2d60f;
   color: #003b6b;
   font-family: var(--heading-font);
@@ -264,7 +251,7 @@
 
 .std-booking-selection-card__button {
   margin: 0;
-  padding: 8px 16px;
+  padding: 12px 24px;
   border-radius: 8px;
   margin-left: 8px;
 
@@ -318,6 +305,10 @@
   line-height: 1.5em;
 }
 
+.std-booking-label__content--oneline {
+  color: #003B6B;
+  width: 4em;
+}
 
 /* SelectComponent.js */
 /* Day Panel */

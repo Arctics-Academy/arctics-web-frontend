@@ -1,87 +1,101 @@
-// Icons
-import Clock from '../img/blue-clock.svg'
-import Account from '../img/blue-credit-card.svg'
-import Consultant from '../img/blue-bear.svg'
-import Money from '../img/blue-money.svg'
-import Coupon from '../img/blue-coupon.svg'
-
+// Import ...
 import { ParamContext } from '../../../ContextReducer'
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
-// Placeholder Variable
-const dummy = {
-  time: '2021/08/20（五）19:00~19:30',
-  accountNo: '700-00-000000-0',
-  consultantSurname: '梁',
-  consultantFirstname: '曼',
-  consultantSchool: '國立台灣大學',
-  consultantMajor: '外國語文學系',
-  price: '700',
-  actualPrice: '350',
+// Import Components
+import { OneLineInfoLabel } from './InfoLabel'
+
+// Constants
+const DayMap = { 0: "日", 1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六" }
+
+// Until
+const twoDigit = (num) => {
+  if (num <=9) return `0${num}`
+  else return `${num}`
+}
+const toDurationString = (year, month, date, slot) => {
+  let startHour = Math.floor(slot/2)
+  let startMin = (slot%2===0 ? 0 : 30)
+  let endHour = (slot%2===0 ? startHour : startHour+1)
+  let endMin = (slot%2===0 ? 30 : 0)
+  let timestr = `${twoDigit(startHour)}:${twoDigit(startMin)} ~ ${twoDigit(endHour)}:${twoDigit(endMin)}`
+  
+  let day = new Date()
+  day.setFullYear(year)
+  day.setMonth(month-1)
+  day.setDate(date)
+  day = DayMap[day.getDay()]
+  
+  return `${year}/${twoDigit(month)}/${twoDigit(date)}（${day}） ${timestr}`
 }
 
 
 // Component
-const DetailCard = () => {
-  const context = useContext(ParamContext)
-  const history = useHistory()
-  const [code, setCode] = useState('')
-  const handleUseCoupon = (code) => {
-    context.setInfo({
-      type: 'setCoupon',
-      payload: {
-        coupon: code
-      }
-    })
-    console.log('Coupon Code:', code)
+const DetailCard = ({ demo }) => {
+  const Context = useContext(ParamContext)
+  const History = useHistory()
+  // const [code, setCode] = useState('')
+
+  const Data = {
+    time: (demo ? 
+      toDurationString(2022, 7, 1, 20) : 
+      toDurationString(Context.Info.tmpBookingForStd.year, Context.Info.tmpBookingForStd.month, Context.Info.tmpBookingForStd.date, Context.Info.tmpBookingForStd.slot)),
+    accountNo: (demo ? '700-00-000000-0' : '700-00-000000-0'),
+    consultantName: (demo ? '梁慢' : Context.toBook.name),
+    consultantSchool: (demo ? '國立台灣大學' : Context.toBook.school),
+    consultantMajor: (demo ? '外國語文學系' : Context.toBook.major),
+    price: (demo ? 200 : Context.toBook.price)
   }
+
+  // const handleUseCoupon = (code) => {
+  //   Context.setInfo({
+  //     type: 'setCoupon',
+  //     payload: {
+  //       coupon: code
+  //     }
+  //   })
+  //   console.log('Coupon Code:', code)
+  // }
+
   const handleNextStep = () => {
-    history.push('/student-submit-payment')
+    History.push('/student-submit-payment')
   }
+
   return (
     <div className='std_meeting-details-container'>
       <div className='std_meeting-details-card-container'>
         <div className='std_meeting-details'>
           <div className='std_meeting-details-line'>
-            <div className='std_meeting-details-left'>
-              <img className='std_meeting-details-icon' src={Clock} alt='' />
-              <p className='std_meeting-details-title'>時間</p>
-              <p className='std_meeting-details-content'>{dummy.time}</p>
+            <div className='std_meeting-details-content'>
+              <OneLineInfoLabel identifier='clock' label='時間' content={Data.time} />
             </div>
-            <div className='std_meeting-details-right'>
-              <img className='std_meeting-details-icon' src={Account} alt='' />
-              <p className='std_meeting-details-title'>Arctics帳號</p>
-              <p className='std_meeting-details-content'>{dummy.accountNo}</p>
+            <div className='std_meeting-details-content'>
+              <OneLineInfoLabel identifier='account' label='匯款帳戶' content={Data.accountNo} />
             </div>
           </div>
           <div className='std_meeting-details-line'>
-            <div className='std_meeting-details-left'>
-              <img className='std_meeting-details-icon' src={Consultant} alt='' />
-              <p className='std_meeting-details-title'>顧問</p>
-              <p className='std_meeting-details-content'>{context.Info.toBook.name}同學<br />{context.Info.toBook.school} {context.Info.toBook.major}
-              </p>
+            <div className='std_meeting-details-content'>
+              <OneLineInfoLabel identifier='consultant' label='顧問' content={`${Data.consultantName}同學 ${Data.consultantSchool} ${Data.consultantMajor}`} />
             </div>
-            <div className='std_meeting-details-right'>
+            <div className='std_meeting-details-content'>
+              <OneLineInfoLabel identifier='money' label='計價' content={`${Data.price}/半小時`} />
+            </div>
+          </div>
+          {/* <div className='std_meeting-details-line'>
+            <div className='std_meeting-details-left'>
               <img className='std_meeting-details-icon' src={Coupon} alt='' />
               <p className='std_meeting-details-title std_meeting-details-title-discount'>優惠代碼</p>
               <input type='text' className='std_meeting-details-input' value={code} onChange={(e)=>{setCode(e.target.value)}} />
               <button className='std_meeting-details-button' onClick={()=>{handleUseCoupon(code)}}>使用優惠碼</button>
             </div>
-          </div>
-          <div className='std_meeting-details-line'>
-            <div className='std_meeting-details-left'>
-              <img className='std_meeting-details-icon' src={Money} alt='' />
-              <p className='std_meeting-details-title'>計價</p>
-              <p className='std_meeting-details-content'>{context.Info.toBook.price}/半小時</p>
-            </div>
-          </div>
+          </div> */}
         </div>
 
         <p className='std_meeting-details-bottom-line '></p>
 
         <div className='std_meeting-details-bottom-container'>
-          <p className='std_meeting-details-bottom-content'>總金額<span className='std_meeting-details-bottom-content-span'>{dummy.actualPrice}</span>元</p>
+          <p className='std_meeting-details-bottom-content'>總金額<span className='std_meeting-details-bottom-content-span'>{Data.price}</span>元</p>
         </div>
         <div className='std_meeting-details-bottom-container'>
           <button className='std_meeting-details-buttom-button' onClick={handleNextStep}>確認預約</button>

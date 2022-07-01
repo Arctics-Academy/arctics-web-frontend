@@ -1,5 +1,6 @@
 // Import ...
 import { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { ParamContext } from '../../../ContextReducer'
 
 // Import Components
@@ -12,10 +13,10 @@ import '../std-booking.css'
 
 
 // Main Component
-const BookingFirstStage = ({ demo=false }) => { // add demo switch later
+const BookingFirstStage = ({ demo=false }) => {
   const Context = useContext(ParamContext)
   const [slot, setSlot] = useState(null)
-  console.log(slot)
+  const History = useHistory()
 
   const DefaultData = {
     available: [[], [], [25,26,27], [20, 21], [], [], []],
@@ -35,7 +36,7 @@ const BookingFirstStage = ({ demo=false }) => { // add demo switch later
     name: (demo ? "小蓁" : Context.Info.tmpViewForStd.name),
     school: (demo ? "國立臺灣大學" : Context.Info.tmpViewForStd.school),
     major: (demo ? "外國語言學系" : Context.Info.tmpViewForStd.major),
-    price: 200
+    price: (demo ? 200 : Context.Info.toBook.price)
   }
   
   const Data = {
@@ -44,10 +45,25 @@ const BookingFirstStage = ({ demo=false }) => { // add demo switch later
     student: Student
   }
 
+  const handleSubmit = () => {
+    console.log(Context.Info)
+    if (Context.Info.tmpBookingForStd === null) {
+      alert('請選擇諮詢時段！')
+    }
+    else {
+     History.push('/student-booking-three')
+    }
+  }
+
+  const handleCancel = () => {
+    Context.setInfo({ type: 'storeStudentBookingSlot', payload: null })
+    History.push('/student-home') // FIXME: or to previous route
+  }
+
   return (
     <>
       <StageDisplay stage={1} />
-      <SelectionCard data={Data.data} slot={slot} setSlot={setSlot} consultant={Data.consultant} student={Data.student} />
+      <SelectionCard data={Data.data} slot={slot} setSlot={setSlot} consultant={Data.consultant} student={Data.student} handleSubmit={handleSubmit} handleCancel={handleCancel} />
       <BlankFooter />
     </>
   )
