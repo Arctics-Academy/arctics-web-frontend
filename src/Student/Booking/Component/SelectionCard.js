@@ -2,7 +2,7 @@
 import '../std_booking.css'
 
 // Sub-components
-import TwoLineInfoLabel from './InfoLabel'
+import { TwoLineInfoLabel } from './InfoLabel'
 import BookingCalendar from './BookingCalendar'
 import BookingPanel from './BookingPanel'
 

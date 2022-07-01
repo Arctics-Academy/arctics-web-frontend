@@ -1,31 +1,45 @@
 // Imports
-import './InfoLabel.css'
+import '../std_booking.css'
 
+// Icons
 import BlueBear from '../img/blue-bear.svg'
 import BlueStudent from '../img/blue-student.svg'
 import BlueCalendar from '../img/blue-calendar.svg'
-
-
 const IdentifierMap = {
   'consultant': BlueBear,
   'student': BlueStudent,
   'time': BlueCalendar 
 }
 
-const TwoLineInfoLabel = ({ identifier, label, content1, content2 }) => {
+
+const OneLineInfoLabel = ({ identifier, label, content }) => {
   return (
-    <div className='label-wrapper'>
-      <div className='label-icon-wrapper'>
-        <img className='label-icon' src={IdentifierMap[identifier]} alt='' />
+    <div className='std-booking-label__wrapper'>
+      <div className='std-booking-label__icon-wrapper'>
+        <img className='std-booking-label__icon' src={IdentifierMap[identifier]} alt='' />
       </div>
-      <span className='label-label'>{label}</span>
+      <span className='std-booking-label__label'>{label}</span>
       <div>
-        <span className='label-content'>{content1}</span>
-        <br/>
-        <span className='label-content'>{content2}</span>
+        <span className='std-booking-label__content'>{content}</span>
       </div>
     </div>
   )
 }
 
-export default TwoLineInfoLabel
+const TwoLineInfoLabel = ({ identifier, label, content1, content2 }) => {
+  return (
+    <div className='std-booking-label__wrapper'>
+      <div className='std-booking-label__icon-wrapper'>
+        <img className='std-booking-label__icon' src={IdentifierMap[identifier]} alt='' />
+      </div>
+      <span className='std-booking-label__label'>{label}</span>
+      <div>
+        <span className='std-booking-label__content'>{content1}</span>
+        <br/>
+        <span className='std-booking-label__content'>{content2}</span>
+      </div>
+    </div>
+  )
+}
+
+export { TwoLineInfoLabel, OneLineInfoLabel }

@@ -291,3 +291,29 @@
   color: #003B6B;
   background-color: #F2D60F;
 }
+
+/* InfoLabel.js */
+.std-booking-label__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.std-booking-label__icon-wrapper {
+  width: 2em;
+  margin: 0;
+}
+
+.std-booking-label__icon {
+  height: 1em;
+}
+
+.std-booking-label__label {
+  color: #4BB3CC;
+  width: 6em;
+}
+
+.std-booking-label__content {
+  color: #003B6B;
+  width: 4em;
+}
