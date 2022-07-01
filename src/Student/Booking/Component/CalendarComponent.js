@@ -1,3 +1,6 @@
+// Known issues
+// * Mapping key intentinally not set as a hack for css transitions
+
 // Imports
 import { useState } from 'react'
 
@@ -155,7 +158,7 @@ const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
   }
 
   // Sub-Components
-  const Slot = ({ state, dayNo, slotNo }) => {
+  const Slot = (state, dayNo, slotNo) => {
     switch (state) {
       case 'o': // out-of-range
         return <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--o"></div>
@@ -192,12 +195,12 @@ const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
     }
   }
 
-  const Row = ({ slotNo }) => {
+  const Row = (slotNo) => {
     if (slotNo === -1) {
       return (
         <div className="std-booking-calendar-component__row std-booking-calendar-component__row--day">
           <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--hide"></div>
-          {DayArray.map((day) => (<div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--day" key={day.no}>{day.name}</div>))}
+          {DayArray.map((day) => (<div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--day">{day.name}</div>))}
         </div>
       )
     }
@@ -205,7 +208,7 @@ const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
       return (
         <div className="std-booking-calendar-component__row">
           <div className="std-booking-calendar-component__slot std-booking-calendar-component__slot--time"><span className='std-booking-calendar-component__time-label'>{getStartStringFromSlot(slotNo)}</span></div>
-          {DayArray.map((day) => {return(<Slot state={displayData[day.no][slotNo]} dayNo={day.no} slotNo={slotNo} key={day.no+'-'+slotNo}/>)})}
+          {DayArray.map((day) => (<>{Slot(displayData[day.no][slotNo], day.no, slotNo)}</>))}
         </div>
       )
     }
@@ -219,7 +222,7 @@ const CalendarComponent = ({ startTime=19, rawData=RawDataDefault }) => {
       }
       rows.push(ind)
     }
-    return (<>{rows.map((slotNo) => <Row slotNo={slotNo} key={'row-'+slotNo}/>)}</>)
+    return (<>{rows.map((slotNo) => Row(slotNo))}</>)
   }
   
   // Main Component
