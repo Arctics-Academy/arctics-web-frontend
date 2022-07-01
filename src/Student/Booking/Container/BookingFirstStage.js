@@ -1,12 +1,12 @@
 import StageDisplay from '../Component/StageDisplay'
-import BookingCard from '../Component/BookingCard'
+import SelectionCard from '../Component/SelectionCard'
 import BlankFooter from '../Component/BlankFooter'
 
 const BookingFirstStage = () => {
   return (
     <>
       <StageDisplay stage={1} />
-      <BookingCard />
+      <SelectionCard />
       <BlankFooter />
     </>
   )
