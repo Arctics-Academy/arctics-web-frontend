@@ -1,0 +1,49 @@
+/* PageTitle.js */
+.global-page-title__wrapper {
+    margin-top: 80px;
+    padding: 32px 10vw 16px 10vw;
+    background-color: var(--off-white);
+}
+
+.global-page-title__text {
+    color: var(--primary);
+    font-weight: normal;
+
+    width: 4em;
+    font-size: 2em;
+    padding-bottom: 4px;
+    border-bottom: solid 2px var(--primary);
+}
+
+
+/* InfoLabel.js */
+.global-info-label__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.global-info-label__icon-wrapper {
+    width: 2em;
+    margin: 0;
+}
+
+.global-info-label__icon {
+    height: 1em;
+}
+
+.global-info-label__label {
+    color: #4BB3CC;
+    width: 6em;
+}
+
+.global-info-label__content {
+    color: #003B6B;
+    width: 4em;
+    line-height: 1.5em;
+}
+
+.global-info-label__content--oneline {
+    color: #003B6B;
+    width: 4em;
+}

@@ -1,0 +1,78 @@
+/* RecordRow.js */
+.std-record-record-row__title-row-wrapper {
+    display: flex;
+    flex-direction: row;
+    
+    padding: 16px;
+    border-top: solid 2px var(--dark-highlight);
+    border-bottom: solid 1px var(--dark-highlight);
+
+    color: var(--secondary);
+    background-color: transparent;
+}
+
+.std-record-record-row__title-row-slot--small {
+    flex: 1;
+}
+
+.std-record-record-row__title-row-slot--big {
+    flex: 3;
+}
+
+.std-record-record-row__empty-row-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 16px;
+    border-bottom: solid 1px var(--dark-highlight);
+
+    color: var(--primary);
+    background-color: transparent;
+}
+
+.std-record-record-row__row-wrapper {
+    display: flex;
+    flex-direction: row;
+    
+    padding: 16px;
+    border-bottom: solid 1px var(--dark-highlight);
+
+    color: var(--primary);
+    background-color: transparent;
+}
+
+.std-record-record-row__row-slot--small {
+    flex: 1;
+}
+
+.std-record-record-row__row-slot--big {
+    flex: 3;
+}
+
+
+/* RecordCard.js */
+.std-record-record-card__background {
+    background-color: var(--off-white);
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.std-record-record-card__wrapper {
+    border-radius: 32px;
+    padding: 5vw;
+
+    background-color: white;
+    border: solid 2px var(--dark-highlight);
+}
+
+.std-record-record-card__label-wrapper {
+    margin-bottom: 24px;
+}
+
+
+/* RecordPage.js */
+.std-record-record-page__wrapper {
+    min-height: 100vh;
+    background-color: var(--off-white);
+}

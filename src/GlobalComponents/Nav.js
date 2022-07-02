@@ -130,7 +130,7 @@ export default function Nav() {
 				   		 	<li className="nav__menu-item">個人檔案
 								<ul className='nav__menu-submenu'>
 									<li className='nav__menu-submenu-item'><Link to="/student-profile">個人檔案</Link></li>
-									<li className='nav__menu-submenu-item'>付款紀錄</li>
+									<li className='nav__menu-submenu-item'><Link to="/student-record">付款紀錄</Link></li>
 									{/* <li className='nav__menu-submenu-item'>優惠</li> */}
 								</ul>
 							</li>
