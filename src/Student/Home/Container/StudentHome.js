@@ -5,15 +5,16 @@ import SearchBody from "../Components/Searcher/SearchBody"
 import '../std_home.css'
 
 const StudentHome = () => {
-    return (
-        <div className="std_home-main">
-            <Greeting />
-            <Announcement />
-            <Appointment />
-            <SearchBody place={'home'} />
-        </div>
-    )
-
+  return (
+    <div className="std_home-main">
+      <Greeting />
+      <div className="std_home-main__first-row">
+        <Announcement />
+        <Appointment />
+      </div>
+      <SearchBody place={'home'} />
+    </div>
+  )
 }
 
 export default StudentHome

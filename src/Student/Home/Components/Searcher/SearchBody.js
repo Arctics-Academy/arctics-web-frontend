@@ -15,11 +15,11 @@ const SearchBody = ({place}) => {
                     <SearchTitleIcon className='std_search-title-icon' />
                     <span className='std_search-title-text'>尋找顧問</span>
                 </div>
-                <div className='std_search-bar'>
+                {/* <div className='std_search-bar'>
                     <input className='std_search-text-input' placeholder='用關鍵字搜尋你的顧問' />
                     <div className='std_search-text-sep-line' />
                     <SearchIcon className='std_search-text-button' />
-                </div>
+                </div> */}
                 <Filter modalHidden={modalHidden} setModalHidden={setModalHidden} />
             </div>
         </>

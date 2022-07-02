@@ -79,7 +79,10 @@ const Filter = ({modalHidden, setModalHidden}) => {
                     <p className='std_filter-sf-title-text'>選擇學科領域</p>
                 </div>
                 <form className='std_filter-sf-selects' onSubmit={searcher.handleSubmit(onSubmit)}>
-                    <BachelorIcon className='std_filter-sf-icon' />
+                    <div className='std_filter-sf-icon-wrapper'>
+                        <BachelorIcon className='std_filter-sf-icon' />
+                        <span className='std_filter-sf-icon-text'>學群領域</span>
+                    </div>
                     <select className='std_filter-sf-select' id='field' {...searcher.register('field')} onChange={(e)=>{setField(e.target.value)}}>
                         <option className='std_sf_option' disabled selected>選擇學群領域</option>
                         {filedOptions(fields)}
@@ -88,10 +91,10 @@ const Filter = ({modalHidden, setModalHidden}) => {
                         <option className='std_sf_option' disabled selected>選擇學系</option>
                         {majorOptions(selectedField)}
                     </select>
-                    <button type='submit' className='std_filter_temp_submit'>搜尋</button>
+                    <button type='submit' className='std_filter_temp_submit'>前往搜尋</button>
                 </form>
             </div>
-            <form className='std_filter-condition' onSubmit={handleSubmit(onSubmit)}>
+            {/* <form className='std_filter-condition' onSubmit={handleSubmit(onSubmit)}>
                 <div className='std_filter-condition-title'>
                     <p className='std_filter-condition-title-text'>條件篩選</p>
                 </div>
@@ -176,7 +179,7 @@ const Filter = ({modalHidden, setModalHidden}) => {
                 <div className='std_filter-condition-button'>
                     <input type='submit' className='std_filter-condition-submit-btn' value='前往搜尋' />
                 </div>
-            </form>
+            </form> */}
         </div>
     )
 }
