@@ -38,6 +38,7 @@ import BookingFirstStage from './Student/Booking/Container/BookingFirstStage';
 import BookingThirdStage from './Student/Booking/Container/BookingThirdStage';
 import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
 import StudentProfile from './Student/Profile/StudentProfile';
+import RecordPage from './Student/Record/Containers/RecordPage';
 import StudentResult from './Student/Result/Result';
 import Preview from './Student/Preview/Preview';
 import StudentAnnouncements from './Student/Announcements/Container/StudentAnnounce';
@@ -137,16 +138,17 @@ const App = () => {
           <ProtectedRoute auth={auth} exact path="/exception/404" component={NotFoundException} />
           <ProtectedRoute auth={auth} exact path="/exception/500" component={InternalServerErrorException} />
 
-          <ProtectedRoute auth={auth} exact path="/student-home" component={StudentHome} />
-          <ProtectedRoute auth={auth} exact path="/student-announcement" component={StudentAnnouncements} />
-          <ProtectedRoute auth={auth} exact path="/student-schedule/:mode" component={StudentSchedule} />
-          <ProtectedRoute auth={auth} exact path="/student-submit-payment" component={SubmitPayment} />
-          <ProtectedRoute auth={auth} exact path="/student-profile" component={StudentProfile} />
-          <ProtectedRoute auth={auth} exact path="/student-search-result" component={StudentResult} />
-          <ProtectedRoute auth={auth} exact path="/student-preview/:cltid" component={Preview} />
-          <ProtectedRoute auth={auth} exact path="/student-cart" component={StudentCartList} />
-          <ProtectedRoute auth={auth} exact path="/student-booking-1" component={BookingFirstStage}/>
-          <ProtectedRoute auth={auth} exact path="/student-booking-3" component={BookingThirdStage}/>
+          <Route exact path="/student-home" component={StudentHome} />
+          <Route exact path="/student-announcement" component={StudentAnnouncements} />
+          <Route exact path="/student-schedule/:mode" component={StudentSchedule} />
+          <Route exact path="/student-submit-payment" component={SubmitPayment} />
+          <Route exact path="/student-profile" component={StudentProfile} />
+          <Route exact path="/student-search-result" component={StudentResult} />
+          <Route exact path="/student-preview/:cltid" component={Preview} />
+          <Route exact path="/student-cart" component={StudentCartList} />
+          <Route exact path="/student-booking-1" component={BookingFirstStage}/>
+          <Route exact path="/student-booking-3" component={BookingThirdStage}/>
+          <Route exact path="/student-record" component={RecordPage}/>
           
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
           <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
