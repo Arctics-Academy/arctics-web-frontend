@@ -9,23 +9,6 @@ import { ReactComponent as ShowMore } from '../img/doublearrow.svg'
 // Stylesheets
 import '../std_home.css'
 
-
-// const test = [{
-//   date: '2022/07/01（五）', time: '20:00~21:00',
-//   consultant: '羅邦齊', institution: '國立台灣大學', major: '資訊工程學系',
-//   content: ['學習歷程', '面試準備']
-// }, {
-//   date: '2022/07/02（六）', time: '20:00~21:00',
-//   consultant: '王秉聖', institution: '國立台灣大學', major: '資訊工程學系',
-//   content: ['學習歷程', '面試準備']
-// }, {
-// date: '2022/07/02（六）', time: '20:00~21:00',
-// consultant: '王秉聖', institution: '國立台灣大學', major: '資訊工程學系',
-// content: ['學習歷程', '面試準備']
-// }]
-
-const test =[]
-
 // Sub-components
 const Meetings = (appointments) => {
   return (
@@ -79,7 +62,10 @@ const AppointmentContent = (appointments) => {
 
 
 // Main component
-const Appointment = () => {
+const Appointment = ({ demo=false }) => {
+  const Context = useContext(ParamContext)
+  const TopMeetingArray = (demo ? [] : Context.Info.meetingsByStatus.future.slice(2))
+
   return (
     <div className='std_home-myapnt'>
       <div className='std_home-myapnt-title'>
@@ -87,7 +73,7 @@ const Appointment = () => {
         <span className='std_home-myapnt-title-text'>我的諮詢</span>
       </div>
       <div className='std_home-myapnt-show-apnt'>
-        {AppointmentContent(test)}
+        {AppointmentContent(TopMeetingArray)}
       </div>
     </div>
   )
