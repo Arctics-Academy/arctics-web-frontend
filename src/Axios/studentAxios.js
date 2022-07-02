@@ -175,7 +175,7 @@ const getConsultantProfilePreview = async (payload) => {
 
 const studentAuthenticate = async (payload) => {
   try {
-    const { data: { status, data, message } } = await instance.post('/api/system/student', {
+    const { data: { status, data, message } } = await instance.get('/api/system/student', {
       ...payload
     })
 

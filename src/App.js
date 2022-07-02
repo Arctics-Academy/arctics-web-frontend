@@ -40,6 +40,8 @@ import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
 import StudentProfile from './Student/Profile/StudentProfile';
 import StudentResult from './Student/Result/Result';
 import Preview from './Student/Preview/Preview';
+import StudentAnnouncements from './Student/Announcements/Container/StudentAnnounce';
+import StudentSchedule from './Student/Schedule/Container/StudentSchedule';
 
 // Misc Components
 import OpenMeetingModal from './Modals/consultant/openMeetingModal';
@@ -77,7 +79,7 @@ const App = () => {
         status = resConsultant.status
         data = resConsultant.data
         message = resConsultant.msg
-      } else if ( resStudent.status === 'successs') {
+      } else if ( resStudent.status === 'success') {
         status = resStudent.status
         data = resStudent.data
         message = resStudent.message
@@ -103,7 +105,6 @@ const App = () => {
           return
         }
       } else {
-        console.log("in status else if")
         setAuth(false)
         return
       }
@@ -120,6 +121,7 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={LandingPage} />
+
           <Route exact path="/login" component={Login} />
           <Route exact path="/register-identity" component={RegisterIdentity} />
           <Route exact path="/register/:identity" component={Register} />
