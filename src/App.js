@@ -1,7 +1,28 @@
+// Import ..
+import { useEffect, useState, useContext } from 'react';
+import { Switch, Route, useHistory, useLocation, Redirect } from 'react-router-dom';
+
+// APIs & Utils
+import { authFetchAllData } from './Axios/consulAxios';
+import studentApis from './Axios/studentAxios';
+import { wrapLoginData } from './DataProcessUtils';
+import { ParamContext } from './ContextReducer';
+
+// Global Components
 import Nav from '../src/GlobalComponents/Nav';
 import NavMobile from '../src/GlobalComponents/NavMobile';
 import Foot from '../src/GlobalComponents/Foot';
 import LandingPage from './LandingPage/Containers/LandingPage';
+
+// Register & Login Components
+import RegisterIdentity from './Register/RegisterIdentity';
+import Register from './Register/Register';
+import RegisterSuccess from './Register/RegisterSuccess';
+import RegisterMobileOTP from './Register/RegisterMobileOTP';
+import RegisterEmailOTP from './Register/RegisterEmailOTP';
+import Login from './Login/Login';
+
+// Consultant Components
 import ConsulHome from './Consultant/Home/Container/ConsulHome';
 import ConsulSchedule from './Consultant/Schedule/Container/ConsulSchedule';
 import ConsulPurse from './Consultant/Purse/Container/ConsulPurse';
@@ -9,37 +30,33 @@ import ConsulCancelSuccess from './Consultant/Cancel/Container/ConsulCancelSucce
 import ConsulMultiCancel from './Consultant/Cancel/Container/ConsulMultiCancel';
 import ConsulProfile from './Consultant/Profile/Container/ConsulProfile'
 import ConsulAnnounce from './Consultant/Announcements/Container/ConsulAnnounce';
-import RegisterIdentity from './Register/RegisterIdentity';
-import Register from './Register/Register';
-import RegisterSuccess from './Register/RegisterSuccess';
+
+// Student Components
+import StudentHome from './Student/Home/Container/StudentHome';
+import StudentCartList from './Student/CartList/Container/CartList'
+import BookingFirstStage from './Student/Booking/Container/BookingFirstStage';
+import BookingThirdStage from './Student/Booking/Container/BookingThirdStage';
+import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
+import StudentProfile from './Student/Profile/StudentProfile';
+import StudentResult from './Student/Result/Result';
+import Preview from './Student/Preview/Preview';
+
+// Misc Components
 import OpenMeetingModal from './Modals/consultant/openMeetingModal';
 import ProfilePhotoModal from './Modals/consultant/profilePhotoModal';
 import EmptyFunctionModal from './Modals/system/emptyFunctionModal';
 import NotifModal from './Modals/system/notifModal';
 import NotFoundException from './Exception/NotFoundException';
 import InternalServerErrorException from './Exception/InternalServerErrorException'
-import Login from './Login/Login';
-import StudentHome from './Student/Home/Container/StudentHome';
-import StudentCartList from './Student/CartList/Container/CartList'
-import { Switch, Route, useHistory, useLocation, Redirect } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
+
+// Stylesheets
 import './style.css';
 //import './responsive.css';
-import RegisterMobileOTP from './Register/RegisterMobileOTP';
-import RegisterEmailOTP from './Register/RegisterEmailOTP';
-import BookingSecondStage from './Student/Booking/Container/BookingSecondStage';
-import SubmitPayment from './Student/SubmitPayment/Container/SubmitPayment';
-import StudentProfile from './Student/Profile/StudentProfile';
-import StudentResult from './Student/Result/Result';
-import Preview from './Student/Preview/Preview';
-import { useEffect, useState, useContext } from 'react';
-import { authFetchAllData } from './Axios/consulAxios';
-import { ParamContext } from './ContextReducer';
-import { wrapLoginData } from './DataProcessUtils';
-import ProtectedRoute from './ProtectedRoute';
-import studentApis from './Axios/studentAxios';
 
-//TODO: tidy structure -> move navbar to here and add switch routers
-//TODO: static.json !
+
+// TODO: tidy structure -> move navbar to here and add switch routers
+// TODO: static.json !
 const App = () => {
   const [auth, setAuth] = useState(false)
   const context = useContext(ParamContext)
@@ -50,46 +67,50 @@ const App = () => {
     else return 'student'
   }
   
-  useEffect(async () => {
-    console.log('reload')
-    const resConsultant = await authFetchAllData();
-    const resStudent = await studentApis.studentAuthenticate();
-    let status, data, message
-    if (resConsultant.status === 'success') {
-      status = resConsultant.status
-      data = resConsultant.data
-      message = resConsultant.msg
-    } else if ( resStudent.status === 'successs') {
-      status = resStudent.status
-      data = resStudent.data
-      message = resStudent.message
-    } else {
-      status = 'failed'
-    }
-    console.log(status, data, message)
-    console.log(location)
-    if (status === 'success') {
-      try {
-        setAuth(true)
-        context.isLogin = true
-        //context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
-        //context.setLogin(true)
-        context.Info = wrapLoginData(data, getIdentity(data.id))
-        history.push(location.pathname)
-        console.log("App.js context: ", context)
-        return
+  useEffect(() => {
+    async function reload() {
+      console.log('reload')
+      const resConsultant = await authFetchAllData();
+      const resStudent = await studentApis.studentAuthenticate();
+      let status, data, message
+      if (resConsultant.status === 'success') {
+        status = resConsultant.status
+        data = resConsultant.data
+        message = resConsultant.msg
+      } else if ( resStudent.status === 'successs') {
+        status = resStudent.status
+        data = resStudent.data
+        message = resStudent.message
+      } else {
+        status = 'failed'
       }
-      catch (e) {
-        console.log(e)
+      console.log(status, data, message)
+      console.log(location)
+      if (status === 'success') {
+        try {
+          setAuth(true)
+          context.isLogin = true
+          //context.setInfo('login', wrapLoginData(data, getIdentity(data.id)))
+          //context.setLogin(true)
+          context.Info = wrapLoginData(data, getIdentity(data.id))
+          history.push(location.pathname)
+          console.log("App.js context: ", context)
+          return
+        }
+        catch (e) {
+          console.log(e)
+          setAuth(false)
+          return
+        }
+      } else {
+        console.log("in status else if")
         setAuth(false)
         return
       }
-    } else {
-      console.log("in status else if")
-      setAuth(false)
-      return
     }
-  }, [])
+    
+    reload()
+  })
   
 
   return (
@@ -106,7 +127,6 @@ const App = () => {
           <Route exact path="/register-email-otp/:identity" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
           <Route exact path="/student-home" component={StudentHome} />
-          <Route exact path="/student-booking" component={BookingSecondStage} />
           <Route exact path="/student-submit-payment" component={SubmitPayment} />
           <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
           <ProtectedRoute auth={auth} exact path="/consultant-profile" component={ConsulProfile} />
