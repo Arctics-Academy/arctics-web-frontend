@@ -126,26 +126,29 @@ const App = () => {
           <Route exact path="/register-mobile-otp/:identity" component={RegisterMobileOTP} />
           <Route exact path="/register-email-otp/:identity" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
-          <Route exact path="/student-home" component={StudentHome} />
-          <Route exact path="/student-submit-payment" component={SubmitPayment} />
+
           <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
           <ProtectedRoute auth={auth} exact path="/consultant-profile" component={ConsulProfile} />
+          <ProtectedRoute auth={auth} exact path="/consultant-announcement" component={ConsulAnnounce} />
           <ProtectedRoute auth={auth} exact path="/consultant-schedule/:mode" component={ConsulSchedule} />
           <ProtectedRoute auth={auth} exact path="/consultant-purse/:mode" component={ConsulPurse} />
           <ProtectedRoute auth={auth} exact path="/exception/404" component={NotFoundException} />
           <ProtectedRoute auth={auth} exact path="/exception/500" component={InternalServerErrorException} />
-          <ProtectedRoute auth={auth} exact path="/consultant-announcement" component={ConsulAnnounce} />
-          <Route exact path="/student-profile" component={StudentProfile} />
-          <Route exact path="/student-search-result" component={StudentResult} />
-          <Route exact path="/student-preview/:cltid" component={Preview} />
-          <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
-          <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />
+
+          <ProtectedRoute auth={auth} exact path="/student-home" component={StudentHome} />
+          <ProtectedRoute auth={auth} exact path="/student-announcement" component={StudentAnnouncements} />
+          <ProtectedRoute auth={auth} exact path="/student-schedule/:mode" component={StudentSchedule} />
+          <ProtectedRoute auth={auth} exact path="/student-submit-payment" component={SubmitPayment} />
+          <ProtectedRoute auth={auth} exact path="/student-profile" component={StudentProfile} />
+          <ProtectedRoute auth={auth} exact path="/student-search-result" component={StudentResult} />
+          <ProtectedRoute auth={auth} exact path="/student-preview/:cltid" component={Preview} />
+          <ProtectedRoute auth={auth} exact path="/student-cart" component={StudentCartList} />
+          <ProtectedRoute auth={auth} exact path="/student-booking-1" component={BookingFirstStage}/>
+          <ProtectedRoute auth={auth} exact path="/student-booking-3" component={BookingThirdStage}/>
+          
           <Route exact path="/profile-photo-modal" component={ProfilePhotoModal} />
           <Route exact path="/empty-function-modal" component={EmptyFunctionModal} />
           <Route exact path="/notif-modal" component={NotifModal} />
-          <Route exact path="/consultant-announcement" component={ConsulAnnounce} />
-          <Route exact path="/student-home" component={StudentHome} />
-          <Route exact path="/student-cart" component={StudentCartList} />
           <Route exact path="/modal-test" component={OpenMeetingModal} />
           <Redirect from='*' to='/exception/404' />
         </Switch>
@@ -158,3 +161,5 @@ export default App;
 
 // comment everything except landing page and payment check
 // <Foot />
+// <Route exact path="/consultant-success-cancel" component={ConsulCancelSuccess} />
+// <Route exact path="/consultant-multi-cancel" component={ConsulMultiCancel} />

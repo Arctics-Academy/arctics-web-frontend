@@ -106,9 +106,9 @@ export default function Nav() {
 			    		<ul className="nav__menu">
 				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><Link to='/student-home'>首頁</Link></li>
 				   		 	<li className="nav__menu-item">
-									<a>
+									<Link to="/student-announcement">
 									通知{displayUnreadNumber(context.Info.announcements.unreadCount,context.Info.notifications.unreadCount)}
-									</a>
+									</Link>
 							</li>
 							<li className="nav__menu-item"><a className='nav__menu-submenu-link'>尋找顧問</a>
 								<ul className='nav__menu-submenu'>
@@ -118,27 +118,33 @@ export default function Nav() {
 							</li>
 				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link'>我的諮詢</a>
 								<ul className='nav__menu-submenu'>
-									<li className='nav__menu-submenu-item'>我的行事曆</li>
-									<li className='nav__menu-submenu-item'>未來排程</li>
-									<li className='nav__menu-submenu-item'>請假</li>
+									<li className='nav__menu-submenu-item'>
+										<Link to="/student-schedule/calendar">行事曆</Link>
+									</li>
+									<li className='nav__menu-submenu-item'>
+										<Link to="/student-schedule/list">所有諮詢</Link>
+									</li>
+									{/* <li className='nav__menu-submenu-item'>請假</li> */}
 								</ul>
 							</li>
-				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link'>我的錢包</a>
+				   		 	<li className="nav__menu-item">個人檔案
 								<ul className='nav__menu-submenu'>
+									<li className='nav__menu-submenu-item'><Link to="/student-profile">個人檔案</Link></li>
 									<li className='nav__menu-submenu-item'>付款紀錄</li>
-									<li className='nav__menu-submenu-item'>優惠</li>
+									{/* <li className='nav__menu-submenu-item'>優惠</li> */}
 								</ul>
 							</li>
-				   		 	<li className="nav__menu-item" ><a className='nav__menu-submenu-link'>小幫手</a>
+				   		 	{/* <li className="nav__menu-item" ><a className='nav__menu-submenu-link'>小幫手</a>
 								<ul className='nav__menu-submenu'>
 									<li className='nav__menu-submenu-item'>常用題庫</li>
 									<li className='nav__menu-submenu-item'>網站導覽</li>
 									<li className='nav__menu-submenu-item'>FAQ</li>
 									<li className='nav__menu-submenu-item'>問題回報</li>
 								</ul>
-							</li>
+							</li> */}
 			    		</ul>
-						<button className="nav__action-button" onClick={navigateToProfile}>個人檔案</button>
+						{/* <button className="nav__action-button" onClick={navigateToProfile}>個人檔案</button> */}
+						<button className="nav__action-button" onClick={Logout}>登出</button>
 		    		</div>
 	    		</nav>
 			)
