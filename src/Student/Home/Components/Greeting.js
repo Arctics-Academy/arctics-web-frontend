@@ -8,7 +8,7 @@ import GreetBear from '../img/greetbear.png'
 // Stylesheets
 import '../std_home.css'
 
-const Greeting = ({ demo=true }) => {
+const Greeting = ({ demo=false }) => {
   const Context = useContext(ParamContext)
 
   const Data = {
@@ -30,7 +30,7 @@ const Greeting = ({ demo=true }) => {
         <img className='std_home-greet-bear' src={GreetBear} alt='' />
         <span className='std_home-greet'>{GreetString()}</span>
         <span className='std_home-greet-usrname'>{Data.name}</span>
-        <span className='std_home-greet-wishes'> {PostString()}</span>
+        <span className='std_home-greet-wishes'>{PostString()}</span>
       </div>
       <div className='std_home-greet-underline'>
       </div>

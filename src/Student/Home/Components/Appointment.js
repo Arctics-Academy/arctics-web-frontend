@@ -10,6 +10,23 @@ import { ReactComponent as ShowMore } from '../img/doublearrow.svg'
 import '../std_home.css'
 
 
+// const test = [{
+//   date: '2022/07/01（五）', time: '20:00~21:00',
+//   consultant: '羅邦齊', institution: '國立台灣大學', major: '資訊工程學系',
+//   content: ['學習歷程', '面試準備']
+// }, {
+//   date: '2022/07/02（六）', time: '20:00~21:00',
+//   consultant: '王秉聖', institution: '國立台灣大學', major: '資訊工程學系',
+//   content: ['學習歷程', '面試準備']
+// }, {
+// date: '2022/07/02（六）', time: '20:00~21:00',
+// consultant: '王秉聖', institution: '國立台灣大學', major: '資訊工程學系',
+// content: ['學習歷程', '面試準備']
+// }]
+
+const test =[]
+
+// Sub-components
 const Meetings = (appointments) => {
   return (
     appointments.map((e) => {
@@ -28,7 +45,7 @@ const Meetings = (appointments) => {
             {e.content.map((f) => (<span className='std-card-feature'>{f}</span>))}
           </div>
           <div className='std-card-btns'>
-            <button className='std-card-unavailable-button' >請假</button>
+            {/* <button className='std-card-unavailable-button' >請假</button> */}
             <button className='std-card-open-meeting'>開啟會議</button>
           </div>
         </div>
@@ -37,24 +54,10 @@ const Meetings = (appointments) => {
   ))
 }
 
-const test = [{
-    date: '2022/07/01（五）', time: '20:00~21:00',
-    consultant: '羅邦齊', institution: '國立台灣大學', major: '資訊工程學系',
-    content: ['學習歷程', '面試準備']
-}, {
-    date: '2022/07/02（六）', time: '20:00~21:00',
-    consultant: '王秉聖', institution: '國立台灣大學', major: '資訊工程學系',
-    content: ['學習歷程', '面試準備']
-}, {
-  date: '2022/07/02（六）', time: '20:00~21:00',
-  consultant: '王秉聖', institution: '國立台灣大學', major: '資訊工程學系',
-  content: ['學習歷程', '面試準備']
-}]
-
 const AppointmentContent = (appointments) => {
   if (appointments[0] === undefined) {
     return (
-        <div className='std_home-myapnt-empty'>尚未預約任何諮詢</div>
+        <div className='std_home-myapnt-empty'><span>尚未預約任何諮詢</span></div>
     )
   } 
   else {
@@ -74,6 +77,8 @@ const AppointmentContent = (appointments) => {
   }
 }
 
+
+// Main component
 const Appointment = () => {
   return (
     <div className='std_home-myapnt'>

@@ -238,6 +238,13 @@
 
 .std_home-myapnt-empty {
     text-align: center;
-    font-size: 25px;
-    padding-top: 87.5px;
+    font-size: 1em;
+    height: 200px;
+    width: calc(80vw - 32px - 30vw);
+    background-color: white;
+    border-radius: 16px;
+    color: #003b6b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
