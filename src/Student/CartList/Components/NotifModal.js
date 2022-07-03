@@ -6,16 +6,22 @@ import { useHistory } from 'react-router-dom';
 const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
     const context = useContext(ParamContext)
     const history = useHistory()
+
+    const handleCancel = () => {
+        setHidden(true)
+    }
+
     const handleConfirm = ()=>{
          if (mode==="clearAll"){
             context.setInfo({type: 'clearList'})
             setHidden(!hidden);
-         } else {
+         } 
+         else {
             context.setInfo({
                 type: mode,
                 payload: (mode==='addToList')? {newConsultant: clt}:{deleteId: clt.id}
             })
-            setHidden(!hidden);
+            setHidden(true);
          }
     }
 
@@ -27,7 +33,7 @@ const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
                     <p className='std_modal-notif-text'>{content}</p>
                 </div>
                 <div className='std_modal-notif-button-area'>
-                    <button className='std_modal-notif-button' style={{'backgroundColor': '#f5f5f5', 'color': '#003b6b'}} onClick={handleConfirm}>取消</button>
+                    <button className='std_modal-notif-button' style={{'backgroundColor': '#f5f5f5', 'color': '#003b6b'}} onClick={handleCancel}>取消</button>
                     <button className='std_modal-notif-button' style={{'backgroundColor': '#f2d60f', 'color': '#003b6b'}} onClick={handleConfirm}>確定</button>
                 </div>
             </div>
