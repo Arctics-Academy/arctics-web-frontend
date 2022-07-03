@@ -19,7 +19,7 @@ const Preview = () => {
       console.log(id, res.data)
     }
     getData(cltid)
-  }, [])
+  })
   
   return (
     <div className="std-preview-wrap">

@@ -36,7 +36,11 @@ const initState = {
         count: 0, email: '', emailVerified: false, experiences: '', intro: '', field: [], labels: [], mobile: '', mobileVerified: true,
         major: '', name: '', surname: '', school: '', year: '', studentCardVerified: false, timetable: [[],[],[],[],[],[],[]],
     },
-    tmpBookingForStd: null
+    tmpBookingForStd: { 
+        count: 0, email: '', field: [], labels: [], major: '', mobile: '', name: '', 
+        photo: 'NotFound', price: 200, school: '', surname: '', year: '',
+        timetable: [[], [], [], [], [], [], []]
+    }
 }
 
 const sumAmount = (type, list) => {
@@ -72,7 +76,7 @@ const reducer = (state, action) => {
             }
         case 'login':
             console.log(action.payload.announcements)
-            return {
+            let source = {
                 id: action.payload.id,
                 announcements: action.payload.announcements,
                 identity: action.payload.identity,
@@ -87,6 +91,10 @@ const reducer = (state, action) => {
                 withdrawableAmount: sumAmount('未提領', action.payload.purse.transactions),
                 withdrawedAmount: sumAmount('已提領', action.payload.purse.transaction),
                 list: (action.payload.list===undefined)? {}:action.payload.list,
+            }
+            Object.assign(state, source)
+            return {
+                ...state
             }
         case 'editProfile':
             return {
