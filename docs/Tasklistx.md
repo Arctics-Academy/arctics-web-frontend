@@ -12,7 +12,9 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 - [ ] Necessary documentation
     - [ ] Document site map & potential missing pages.
-    - [ ] Document design decisions and naming conventions (vague).
+    - [ ] Update README.md.
+    - [ ] Document branch use (by developer or by feature, which seems more correct).
+    - [ ] Document design decisions and naming conventions (vague - can skip).
 
 ## Before Proceeding Further...
 
