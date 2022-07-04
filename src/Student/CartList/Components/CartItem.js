@@ -23,18 +23,19 @@ const CartItem = ( {clt, setContext, context } ) => {
     setContext({
       type: 'selectBooking',
       payload: {
-        name: clt.name,
-        school: clt.education.school,
-        major: clt.education.major,
-        price: clt.fee
+        name: clt.surname+clt.name,
+        school: clt.school,
+        major: clt.major,
+        price: clt.price
       }
     })
     history.push('/student-booking')
   } 
 
-  let hashtag_converted = clt.hashtags;
-  if (clt.hashtags.length<3){
-    for(let i=clt.hashtags.length; i<3; i++){
+  if (!clt.labels) clt.labels = []
+  let hashtag_converted = clt.labels;
+  if (clt.labels.length<3){
+    for(let i=clt.labels.length; i<3; i++){
       hashtag_converted.push("n");
     }
   }
@@ -48,7 +49,8 @@ const CartItem = ( {clt, setContext, context } ) => {
   const level_int = parseInt(clt.star);
   const level_fl = Math.round((clt.star-level_int)*10);
 
-  const intro_component = ( intro )=>{
+  const intro_component = (intro) => {
+    if (!intro) intro = ""
     if (intro.length <= 50){
       return(
         <div className="std_cartitem-intro">
@@ -85,8 +87,8 @@ const CartItem = ( {clt, setContext, context } ) => {
       <div className="std_cartitem-wrapper">
         <NotifModal title={"移除 顧問：" + clt.name} content={"確定要將這位顧問從清單中移除嗎？"} hidden={itemHidden} setHidden={setItemHidden} mode={"deleteSingleListItem"} clt={ clt } />
         <div className="std_cartitem-col1">
-          <img src={img_path} className="std_cartitem-img"></img>
-          <p className="std_cartitem-name">{clt.name}</p>
+          <img src={img_path} className="std_cartitem-img" alt='consultant headshot'></img>
+          <p className="std_cartitem-name">{clt.surname+clt.name}</p>
         </div>
         <div className="std_cartitem-col2">
           <CoinIcon className="std_cartitem-coin-icon" />
@@ -95,13 +97,13 @@ const CartItem = ( {clt, setContext, context } ) => {
         <div className="std_cartitem-col3">
           <div className="std_cartitem-fee">
             <span className="std_cartitem-number">
-              {clt.fee}<span className="std_cartitem-unit"> /半小時</span>
+              {clt.price}<span className="std_cartitem-unit"> /半小時</span>
             </span>
           </div>
           <div className="std_cartitem-edu-hashtag">
-            <p>{clt.education.school}</p>
-            <p>{clt.education.major}</p>
-            <p>{clt.education.year}</p>
+            <p>{clt.school}</p>
+            <p>{clt.major}</p>
+            <p>{clt.year}</p>
           </div>
         </div>
         <div className="std_cartitem-col4">
@@ -111,7 +113,7 @@ const CartItem = ( {clt, setContext, context } ) => {
         <div className="std_cartitem-col5">
           <div className="std_cartitem-exp">
             <span className="std_cartitem-number">
-              {clt.exp}<span className="std_cartitem-unit"> 次</span>
+              {clt.count}<span className="std_cartitem-unit"> 次</span>
             </span>
           </div>
           <div className="std_cartitem-edu-hashtag">

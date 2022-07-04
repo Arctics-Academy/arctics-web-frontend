@@ -3,25 +3,63 @@ import { ParamContext } from '../../../ContextReducer';
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import StudentApi from '../../../Axios/studentAxios'
+
 const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
     const context = useContext(ParamContext)
     const history = useHistory()
+
+    // patch: context does not wrap list item into search result format (search result format looses info)
+    const unwrapSearchResult = (filter) => {
+        let cart = {
+            consultantId: filter.id,
+
+            surname: "",
+            name: filter.name,
+            photo: filter.photo,
+    
+            price: filter.fee,
+            school: filter.education.school,
+            major: filter.education.major,
+            year: filter.education.year,
+            
+            count: filter.exp,
+            labels: filter.labels,
+            intro: filter.intro,
+            star: filter.star
+        }
+        return cart
+    }
 
     const handleCancel = () => {
         setHidden(true)
     }
 
-    const handleConfirm = ()=>{
+    const handleConfirm = async () => {
          if (mode==="clearAll"){
+            // update origin
+            await StudentApi.clearCartList({ id: context.Info.id })
+            // update context
             context.setInfo({type: 'clearList'})
-            setHidden(!hidden);
+            // update view
+            setHidden(!hidden)
          } 
          else {
+            // update origin
+            if (mode === 'addToList') {
+                clt = unwrapSearchResult(clt)
+                await StudentApi.addCartList({ id: context.Info.id, consultantId: clt.consultantId })
+            }
+            if (mode === 'deleteSingleListItem') {
+                await StudentApi.deleteCartList({ id: context.Info.id, consultantId: clt.consultantId })
+            }
+            // update context
             context.setInfo({
                 type: mode,
                 payload: (mode==='addToList')? {newConsultant: clt}:{deleteId: clt.id}
             })
-            setHidden(true);
+            // update view
+            setHidden(true)
          }
     }
 

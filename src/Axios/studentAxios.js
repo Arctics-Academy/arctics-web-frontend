@@ -233,11 +233,48 @@ const verifyMobileOTP = async (payload) => {
   }
 }
 
+const addCartList = async (payload) => {
+  try {
+    const { data: { status, message } } = await instance.post('/api/student/list/add', { ...payload })
+    console.debug('addCartList()', status, message)
+    return { status, message }
+  }
+  catch (e) {
+    console.debug('addCartList()', e)
+    return { status: `failed`, message: `addCartList(): ${e}`}
+  }
+}
+
+const deleteCartList = async (payload) => {
+  try {
+    const { data: { status, message } } = await instance.post('/api/student/list/delete', { ...payload })
+    console.debug('deleteCartList()', status, message)
+    return { status, message }
+  }
+  catch (e) {
+    console.debug('deleteCartList()', e)
+    return { status: `failed`, message: `deleteCartList(): ${e}`}
+  }
+}
+
+const clearCartList = async (payload) => {
+  try {
+    const { data: { status, message } } = await instance.post('/api/student/list/clear', { ...payload })
+    console.debug('clearCartList()', status, message)
+    return { status, message }
+  }
+  catch (e) {
+    console.debug('clearCartList()', e)
+    return { status: `failed`, message: `clearCartList(): ${e}`}
+  }
+}
+
 export default {
   studentLogin, studentRegister, studentAuthenticate,
   getDashboardInfo, getListInfo, addStudentListItem, deleteStudentListItem, clearStudentList, 
   getStudentProfile, updateStudentProfile,
   getAllMeetings, getStudentNotifCount, verifyDiscountCode, 
   getFilterResult, getConsultantProfilePreview,
-  sendEmailOTP, sendMobileOTP, verifyEmailOTP, verifyMobileOTP
+  sendEmailOTP, sendMobileOTP, verifyEmailOTP, verifyMobileOTP,
+  addCartList, deleteCartList, clearCartList
 }
