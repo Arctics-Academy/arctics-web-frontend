@@ -24,13 +24,14 @@ const ResultBox = ( {clt, setContext, context } ) => {
     setContext({
       type: 'selectBooking',
       payload: {
+        id: clt.id,
         name: clt.name,
         school: clt.education.school,
         major: clt.education.major,
         price: clt.fee
       }
     })
-    history.push('/student-booking')
+    history.push('/student-booking-1')
   } 
 
   let hashtag_converted = clt.hashtags;

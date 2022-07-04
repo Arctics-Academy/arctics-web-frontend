@@ -2,7 +2,7 @@
 // * Mapping key intentinally not set as a hack for css transitions
 
 // Imports
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { ParamContext } from '../../../ContextReducer'
 
 // Components
@@ -245,6 +245,11 @@ const CalendarComponent = ({ data, setSlot }) => {
     }
     return (<>{rows.map((slotNo) => Row(slotNo))}</>)
   }
+
+  useEffect(() => {
+    setWeekNum(0)
+    setDisplayData(generateDataArray(rawData, 0))
+  }, [rawData])
   
   // Main Component
   return (

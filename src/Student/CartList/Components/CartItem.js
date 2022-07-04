@@ -23,13 +23,14 @@ const CartItem = ( {clt, setContext, context } ) => {
     setContext({
       type: 'selectBooking',
       payload: {
+        id: clt.consultantId,
         name: clt.surname+clt.name,
         school: clt.school,
         major: clt.major,
         price: clt.price
       }
     })
-    history.push('/student-booking')
+    history.push('/student-booking-1')
   } 
 
   if (!clt.labels) clt.labels = []

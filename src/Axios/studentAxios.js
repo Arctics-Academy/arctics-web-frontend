@@ -269,6 +269,46 @@ const clearCartList = async (payload) => {
   }
 }
 
+const getBookingSlot = async (payload) => {
+  // payload
+  // {
+  //   studentId: "string"
+  //   consultantId: "string"
+  // }
+  try {
+    const { data: { status, data } } = await instance.post('/api/student/tools/consultant-timetable/get', { ...payload })
+    console.debug('getBookingSlot()', status, data)
+    return { status, data }
+  }
+  catch (e) {
+    console.debug('getBookingSlot()', e)
+    return { status: `failed`, message: `getBookingSlot(): ${e}`}
+  }
+}
+
+const addMeeting = async (payload) => {
+  // req.body
+  // {
+  //     consultantId: "string",
+  //     studentId: "string",
+  //     year: number,
+  //     month: number,
+  //     date: number,
+  //     slot: number,
+  // }
+  try {
+    const { data: { status, message } } = await instance.post('/api/meeting/add', { ...payload })
+    console.debug('addMeeting()', status, message)
+    if (status === 'failed') throw new Error(message)
+    else return { status, message }
+  }
+  catch (e) {
+    console.debug('addMeeting()', e)
+    return { status: `failed`, message: `addMeeting(): ${e}`}
+  }
+}
+
+
 export default {
   studentLogin, studentRegister, studentAuthenticate,
   getDashboardInfo, getListInfo, addStudentListItem, deleteStudentListItem, clearStudentList, 
@@ -276,5 +316,7 @@ export default {
   getAllMeetings, getStudentNotifCount, verifyDiscountCode, 
   getFilterResult, getConsultantProfilePreview,
   sendEmailOTP, sendMobileOTP, verifyEmailOTP, verifyMobileOTP,
-  addCartList, deleteCartList, clearCartList
+  addCartList, deleteCartList, clearCartList,
+  getBookingSlot,
+  addMeeting
 }

@@ -2,6 +2,7 @@
 import { ParamContext } from '../../../ContextReducer'
 import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import StudentApi from '../../../Axios/studentAxios'
 
 // Import Components
 import { OneLineInfoLabel } from './InfoLabel'
@@ -42,10 +43,10 @@ const DetailCard = ({ demo }) => {
       toDurationString(2022, 7, 1, 20) : 
       toDurationString(Context.Info.tmpBookingForStd.year, Context.Info.tmpBookingForStd.month, Context.Info.tmpBookingForStd.date, Context.Info.tmpBookingForStd.slot)),
     accountNo: (demo ? '700-00-000000-0' : '700-00-000000-0'),
-    consultantName: (demo ? '梁慢' : Context.toBook.name),
-    consultantSchool: (demo ? '國立台灣大學' : Context.toBook.school),
-    consultantMajor: (demo ? '外國語文學系' : Context.toBook.major),
-    price: (demo ? 200 : Context.toBook.price)
+    consultantName: (demo ? '梁慢' : Context.Info.toBook.name),
+    consultantSchool: (demo ? '國立台灣大學' : Context.Info.toBook.school),
+    consultantMajor: (demo ? '外國語文學系' : Context.Info.toBook.major),
+    price: (demo ? 200 : Context.Info.toBook.price)
   }
 
   // const handleUseCoupon = (code) => {
@@ -58,8 +59,25 @@ const DetailCard = ({ demo }) => {
   //   console.log('Coupon Code:', code)
   // }
 
-  const handleNextStep = () => {
-    History.push('/student-submit-payment')
+  const handleNextStep = async () => {
+    let payload = {
+      consultantId: Context.Info.toBook.id,
+      studentId: Context.Info.id,
+      year: Context.Info.tmpBookingForStd.year,
+      month: Context.Info.tmpBookingForStd.month,
+      date: Context.Info.tmpBookingForStd.date,
+      slot: Number(Context.Info.tmpBookingForStd.slot),
+    }
+    let { status } = await StudentApi.addMeeting(payload)
+    if (status === 'success') {
+      alert("您已完成課程預約！請盡快前往「個人檔案 > 付款紀錄」繳交付款證明！")
+      History.push('/student-home')
+    }
+    else if (status === 'failed') {
+      alert("抱歉您所選擇的時段已被他人預約，請選擇另一時段！")
+      History.goBack()
+      History.goBack()
+    }
   }
 
   return (

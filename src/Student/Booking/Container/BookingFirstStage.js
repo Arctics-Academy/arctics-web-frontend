@@ -1,7 +1,8 @@
 // Import ...
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { ParamContext } from '../../../ContextReducer'
+import StudentApi from '../../../Axios/studentAxios'
 
 // Import Components
 import StageDisplay from '../Component/StageDisplay'
@@ -15,13 +16,13 @@ import '../std-booking.css'
 // Main Component
 const BookingFirstStage = ({ demo=false }) => {
   const Context = useContext(ParamContext)
-  const [slot, setSlot] = useState(null)
   const History = useHistory()
+  const [slot, setSlot] = useState(null)
 
   const DefaultData = {
-    available: [[], [], [25,26,27], [20, 21], [], [], []],
-    studentBooked: [[2022, 7, 4, 26]],
-    teacherBooked: [[2022, 6, 30, 29]]
+    available: [[], [], [], [], [], [], []],
+    studentBooked: [],
+    teacherBooked: []
   }
 
   const Student = {
@@ -32,18 +33,52 @@ const BookingFirstStage = ({ demo=false }) => {
   }
 
   const Consultant = {
-    surname: (demo ? "李" : Context.Info.tmpViewForStd.surname),
-    name: (demo ? "小蓁" : Context.Info.tmpViewForStd.name),
-    school: (demo ? "國立臺灣大學" : Context.Info.tmpViewForStd.school),
-    major: (demo ? "外國語言學系" : Context.Info.tmpViewForStd.major),
+    surname: (demo ? "李" : ""),
+    name: (demo ? "小蓁" : Context.Info.toBook.name),
+    school: (demo ? "國立臺灣大學" : Context.Info.toBook.school),
+    major: (demo ? "外國語言學系" : Context.Info.toBook.major),
     price: (demo ? 200 : Context.Info.toBook.price)
   }
   
-  const Data = {
+  var InitData = {
     data: DefaultData,
     consultant: Consultant,
     student: Student
   }
+
+  const [Data, setData] = useState(InitData)
+
+  const parseAvailable = (timetable) => {
+    for (let i in timetable) {
+      for (let j in timetable[i]) {
+        timetable[i][j] += 18
+      }
+    }
+    return timetable
+  }
+
+  useEffect(() => {
+    const updateSlots = async () => {
+      console.log(Context.Info.tmpViewForStd)
+      const { data } = await StudentApi.getBookingSlot({ 
+        studentId: Context.Info.id, 
+        consultantId: Context.Info.toBook.id
+      })
+      let updated = {
+        data: {
+          available: parseAvailable(data.available),
+          studentBooked: data.studentBooked,
+          teacherBooked: data.consultantBooked,
+        },
+        consultant: Consultant,
+        student: Student
+      }
+      console.log(updated)
+      setData({ ...updated })
+    }
+
+    updateSlots()
+  }, [])
 
   const handleSubmit = () => {
     console.log(Context.Info)
@@ -51,13 +86,19 @@ const BookingFirstStage = ({ demo=false }) => {
       alert('請選擇諮詢時段！')
     }
     else {
-     History.push('/student-booking-three')
+     History.push('/student-booking-3')
     }
   }
 
   const handleCancel = () => {
     Context.setInfo({ type: 'storeStudentBookingSlot', payload: null })
-    History.push('/student-home') // FIXME: or to previous route
+    try {
+      History.goBack()
+      window.scrollTo(0, 0)
+    }
+    catch (e) {
+      History.push('/student-home#top')
+    }
   }
 
   return (
