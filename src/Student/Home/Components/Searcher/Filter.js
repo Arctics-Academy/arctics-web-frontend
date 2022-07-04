@@ -64,8 +64,9 @@ const Filter = ({modalHidden, setModalHidden}) => {
     const onSubmit = async (data) => {
         if (data.field === undefined || data.field === "選擇學群領域") setModalHidden(false)
         else console.log("Search on: ", data)
-      
-        const res = await studentApi.getFilterResult({query: {school:["國立臺灣大學"], major:[data.major]}}) //, field:[data.field]
+        
+        let majorQuery = (data.major !== '選擇學系' ? data.major : NTUFieldToMajorMap[data.field])
+        const res = await studentApi.getFilterResult({query: {school:["國立臺灣大學"], major: majorQuery}}) //, field:[data.field]
         console.log(res, location)
         context.setInfo({type:'saveFilterResult', payload: {filterResult: wrapFilterResult(res.data)}})
         console.log(context.Info)
