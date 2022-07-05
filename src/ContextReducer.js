@@ -82,6 +82,7 @@ const reducer = (state, action) => {
                 identity: action.payload.identity,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
+                meetingsByStudentRecord: action.payload.meetingsByStudentRecord,
                 purse: {
                     ...action.payload.purse,
                     transactions: sortTransactions(action.payload.purse.transactions)

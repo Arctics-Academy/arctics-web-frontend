@@ -28,7 +28,7 @@ const RecordCard = ({ data=DefaultData }) => {
           <InfoLabelTwoLine identifier="student" label="學生" content1={data.name} content2={data.school+' '+data.grade} />
         </div>
         <RecordRow data={-1} />
-        {(data.array.length===0 ?
+        {(data.array.length === 0 ?
           <RecordRow data={0} /> :
           (data.array.map((item, index) => {return(<RecordRow key={index} data={item} />)}))
         )}

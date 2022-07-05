@@ -224,6 +224,30 @@ const resolveStudentListData = (list) => {
     }
 }
 
+const castMeetingListToRecordList = (received) => {
+    // combine into full list
+    let fullList = received.future.concat(received.past.concat(received.cancelled))
+    console.warn('fullList', fullList)
+    // parse into record format
+    let parsedList = []
+    for (let idx in fullList) {
+        let parsedMeeting = {
+            startTimestamp: fullList[idx].startTimestamp,
+            meetingId: fullList[idx].id,
+            meetingStatus: fullList[idx].status,
+            meetingPrice: fullList[idx].consultantPrice,
+            meetingPaymentTime: (fullList[idx].paymentTime ? wrapDateString(fullList[idx].paymentTime)+getStartTimeString(fullList[idx].paymentTime) : "-"),
+            meetingDuration: (fullList[idx].startTimestamp ? wrapDateString(fullList[idx].startTimestamp)+wrapTimeString(fullList[idx].startTimestamp) : "-"),
+            consultantName: fullList[idx].consultantName
+        }
+        parsedList.push(parsedMeeting)
+    }
+    // sort into records list
+    let sortedList = (parsedList.sort(timeComp)).reverse()
+    // return
+    return sortedList
+}
+
 const wrapLoginData = (data, identity) => {
     const meetings = retrieveDateObject(data.meetings)
     let wrappedData = {
@@ -244,7 +268,8 @@ const wrapLoginData = (data, identity) => {
     }
 
     if (identity === 'student') {
-        wrappedData['list'] = resolveStudentListData(data.list);
+        wrappedData['list'] = resolveStudentListData(data.list)
+        wrappedData['meetingsByStudentRecord'] = castMeetingListToRecordList(meetings)
     }
 
     return wrappedData

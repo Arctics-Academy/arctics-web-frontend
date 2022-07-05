@@ -1,14 +1,27 @@
 import "../std-record.css"
+import { Link } from 'react-router-dom'
 
 const DefaultData = {
-  meetingNumber: "-",
-  name: "-",
-  price: "-",
-  paymentTime: "-",
-  meetingTime: "-"
+  meetingId: "-",
+  consultantName: "-",
+  meetingPrice: "-",
+  meetingPaymentTime: "-",
+  meetingDuration: "-",
+  meetingStatus: "future"
 }
 
 const RecordRow = ({ data=DefaultData }) => {
+  const PaymentTime = (data) => {
+    switch(data.meetingStatus) {
+      case "cancelled":
+        return "已取消"
+      case "past": 
+        return data.meetingPaymentTime
+      default:
+        return (<span><Link to={`/student-submit-payment/${data.meetingId}`}>立即付款</Link></span>)
+    }
+  }
+
   if (data === -1) { // title row
     return (
       <div className="std-record-record-row__title-row-wrapper">
@@ -30,17 +43,11 @@ const RecordRow = ({ data=DefaultData }) => {
   else {
     return (
       <div className="std-record-record-row__row-wrapper">
-        <div className="std-record-record-row__row-slot--small">{data.meetingNumber}</div>
-        <div className="std-record-record-row__row-slot--small">{data.name}</div>
-        <div className="std-record-record-row__row-slot--small">{data.price}</div>
-        <div className="std-record-record-row__row-slot--big">
-          {
-            (data.paymentTime===null ? 
-            <a>立即付款</a> : // FIXME
-            data.paymentTime) 
-          }
-        </div>
-        <div className="std-record-record-row__row-slot--big">{data.meetingTime}</div>
+        <div className="std-record-record-row__row-slot--small">{data.meetingId}</div>
+        <div className="std-record-record-row__row-slot--small">{data.consultantName}</div>
+        <div className="std-record-record-row__row-slot--small">{data.meetingPrice}</div>
+        <div className="std-record-record-row__row-slot--big">{PaymentTime(data)}</div>
+        <div className="std-record-record-row__row-slot--big">{data.meetingDuration}</div>
       </div>
     )
   }
