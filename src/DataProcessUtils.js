@@ -41,29 +41,34 @@ const findIndex = (montharr, date) => {
     }
     rowIdx--
     let colIdx = 0;
-    while (colIdx < 6) {
+    while (colIdx <= 6) {
         if (montharr[rowIdx][colIdx] === undefined) colIdx++
         if (montharr[rowIdx][colIdx].date === date) return {rowIdx, colIdx}
         else colIdx++
     }
 }
 
+const toTwoDigit = (num) => {
+    if (num  <= 9) return `0${num}`
+    else return `${num}`
+}
+
 const wrapDateString = (time) => {
-    const weeday = {0:'日', 1:'一', 2:'二', 3:'三', 4:'四', 5:'五', 6:'六'}
-    return `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()} (${weeday[time.getDay()]})`
+    const weeday = { 0: '日', 1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六' }
+    return `${time.getFullYear()}-${toTwoDigit((time.getMonth()+1)%12)}-${toTwoDigit(time.getDate())}（${weeday[time.getDay()]}）`
 }
 
 const wrapTimeString = (time) => {
     let hour = time.getHours(), min = time.getMinutes()
     if (min === 30) {
-        return `${hour}:${min}~${hour+1}:00`
+        return `${toTwoDigit(hour)}:${toTwoDigit(min)}~${toTwoDigit(hour+1)}:00`
     } else {
-        return `${hour}:${min}~${hour}:30`
+        return `${toTwoDigit(hour)}:${toTwoDigit(min)}~${toTwoDigit(hour)}:30`
     }
 }
 
 const getStartTimeString = (time) => {
-    return `${time.getHours()}:${time.getMinutes()}`
+    return `${toTwoDigit(time.getHours())}:${toTwoDigit(time.getMinutes())}`
 }
 
 const stringToDateObject = (list) => {
@@ -92,9 +97,14 @@ const retrieveDateObject = (list) => {
 }
 
 const transformStatusListIntoCalender  = (list) => {
-    //list format: { future: [{meeting detail...}...], past:[...], cancelled:[...] }
+    // list format: 
+    // { 
+    //     future: [{meeting detail...}...], 
+    //     past:[...], 
+    //     cancelled:[...] 
+    // }
     const current = new Date()
-    const dayDetail = { year: current.getFullYear(), month: current.getMonth()+1, date: current.getDate() }
+    const dayDetail = { year: current.getFullYear(), month: ((current.getMonth()+1)%12), date: current.getDate() }
     let calender = {}
     let concatnated = list.future.concat(list.past.concat(list.cancelled))
     if (concatnated[0] === undefined) {
@@ -139,7 +149,6 @@ const transformStatusListIntoCalender  = (list) => {
         if (calender[dayDetail.year][dayDetail.month] === undefined) calender[dayDetail.year][dayDetail.month] = buildMonthArr(dayDetail.year, dayDetail.month)
         if (calender[dayDetail.year][dayDetail.month+1] === undefined) calender[dayDetail.year][dayDetail.month+1] = buildMonthArr(dayDetail.year, dayDetail.month+1)
     }
-
     return calender
 }
 
@@ -155,12 +164,25 @@ const resolveByStatus = (list, exp, type, identity) => {
                 student: e.studentName, grade: e.studentYear, exp: exp,
                 content: e.studentItems, remark: e.remark
             }
-        } else {
+        } 
+        else {
             wrapped = {
                 id: e.id,
-                date : wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
-                teacher: e.studentName, grade: e.studentYear, exp: exp,
-                content: e.studentItems, remark: e.remark
+
+                name: e.consultantName,
+                school: e.consultantSchool,
+                major: e.consultantMajor,
+                year: e.consultantYear,
+                count: e.consultantCount,
+                consultantId: e.consultantId,
+
+                date : wrapDateString(e.startTimestamp), 
+                time: wrapTimeString(e.startTimestamp),
+                content: e.studentItems, 
+                remark: e.remark,
+
+                startTimestamp: e.startTimestamp,
+                status: e.status
             }
         }
         if (type === 'past') wrapped['feedback'] = e.comment
@@ -203,7 +225,6 @@ const resolveStudentListData = (list) => {
 }
 
 const wrapLoginData = (data, identity) => {
-    console.log(data)
     const meetings = retrieveDateObject(data.meetings)
     let wrappedData = {
         id: data.id,

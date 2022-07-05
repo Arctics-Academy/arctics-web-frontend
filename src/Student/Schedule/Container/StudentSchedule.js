@@ -10,7 +10,7 @@ import { MetaTags } from "react-meta-tags";
 import '../std_schedule.css'
 
 const StudentSchedule = () => {
-  const { mode } = useParams(); 
+  const { mode } = useParams();
   const [displayMode, setDisplayMode] = useState(mode);
   useEffect(() => {
     setDisplayMode(mode)
@@ -64,7 +64,7 @@ const StudentSchedule = () => {
   };
 
   const showSchedule = () => {
-    if (displayMode === "calender") {
+    if (displayMode === "calendar") {
       return <Calender />;
     } else {
       return <MeetingList />;

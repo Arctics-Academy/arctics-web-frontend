@@ -13,11 +13,11 @@ import { buildMonthArr } from '../../../DataProcessUtils'
 
 /* above => test data */
 const monthMap = {
-    1: '1月', 2: '2月', 3: '3月', 4: '4月', 5: '5月', 6: '6月', 7: '7月', 8: '8月', 9: '9月', 10: '10月', 11: '11月', 12: '12月'
+    1: '01', 2: '02', 3: '03', 4: '14', 5: '05', 6: '06', 7: '07', 8: '08', 9: '09', 10: '10', 11: '11', 12: '12'
 }
 
 const showTitle = (year, month) => {
-    return `${year} ${monthMap[month]}`
+    return `${year}年${monthMap[month]}月`
 }
 
 const showHeader = () => {

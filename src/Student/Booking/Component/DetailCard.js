@@ -2,7 +2,10 @@
 import { ParamContext } from '../../../ContextReducer'
 import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+
+// Import Modules
 import StudentApi from '../../../Axios/studentAxios'
+import { wrapLoginData } from '../../../DataProcessUtils'
 
 // Import Components
 import { OneLineInfoLabel } from './InfoLabel'
@@ -68,8 +71,10 @@ const DetailCard = ({ demo }) => {
       date: Context.Info.tmpBookingForStd.date,
       slot: Number(Context.Info.tmpBookingForStd.slot),
     }
-    let { status } = await StudentApi.addMeeting(payload)
+    let { status, data } = await StudentApi.addMeeting(payload)
     if (status === 'success') {
+      // patch: lazy way of updating context
+      Context.setInfo({ type: 'login', payload: wrapLoginData(data, 'student')})
       alert("您已完成課程預約！請盡快前往「個人檔案 > 付款紀錄」繳交付款證明！")
       History.push('/student-home')
     }

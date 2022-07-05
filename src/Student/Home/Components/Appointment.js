@@ -20,15 +20,17 @@ const Meetings = (appointments) => {
             <p className='std-card-time'>{e.time}</p>
           </div>
           <div className='std-card-consul-info'>
-            <p className='std-card-name'>{e.consultant}</p>
-            <p className='std-card-institution'>{e.institution}</p>
+            <p className='std-card-name'>{e.name}</p>
+            <p className='std-card-institution'>{e.school}</p>
             <p className='std-card-major'>{e.major}</p>
           </div>
           <div className='std-card-specified-features'>
-            {e.content.map((f) => (<span className='std-card-feature'>{f}</span>))}
+            {(e.content.length !== 0 ?
+              e.content.map((f) => (<span className='std-card-feature'>{f}</span>)) :
+              <span className='std-card-feature'>-</span>)}
           </div>
           <div className='std-card-btns'>
-            {/* <button className='std-card-unavailable-button' >請假</button> */}
+            <button className='std-card-unavailable-button' >請假</button>
             <button className='std-card-open-meeting'>開啟會議</button>
           </div>
         </div>
@@ -37,6 +39,7 @@ const Meetings = (appointments) => {
   ))
 }
 
+// FIXME: add empty stuff
 const AppointmentContent = (appointments) => {
   if (appointments[0] === undefined) {
     return (
@@ -64,7 +67,7 @@ const AppointmentContent = (appointments) => {
 // Main component
 const Appointment = ({ demo=false }) => {
   const Context = useContext(ParamContext)
-  const TopMeetingArray = (demo ? [] : Context.Info.meetingsByStatus.future.slice(2))
+  const TopMeetingArray = (demo ? [] : Context.Info.meetingsByStatus.future.slice(0, 3))
 
   return (
     <div className='std_home-myapnt'>

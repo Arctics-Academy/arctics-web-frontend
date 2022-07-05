@@ -297,14 +297,14 @@ const addMeeting = async (payload) => {
   //     slot: number,
   // }
   try {
-    const { data: { status, message } } = await instance.post('/api/meeting/add', { ...payload })
-    console.debug('addMeeting()', status, message)
+    const { data: { status, message, data } } = await instance.post('/api/meeting/add', { ...payload })
+    console.debug('addMeeting()', status, message, data)
     if (status === 'failed') throw new Error(message)
-    else return { status, message }
+    else return { status, message, data }
   }
   catch (e) {
     console.debug('addMeeting()', e)
-    return { status: `failed`, message: `addMeeting(): ${e}`}
+    return { status: `failed`, message: `addMeeting(): ${e}`, data: null }
   }
 }
 
