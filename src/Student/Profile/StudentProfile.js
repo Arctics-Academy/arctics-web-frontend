@@ -20,7 +20,7 @@ const StudentProfile = () => {
           </div>
           <div className="std-profile-exp">
             <span className="std-profile-content-title">已諮詢</span>
-            <span className="std-profile-exp-count">{context.Info.profile.experiences} 次</span>
+            <span className="std-profile-exp-count">{(context.Info.profile.experiences===undefined ? 0 : context.Info.profile.experiences)} 次</span>
           </div>
           <div className="std-profile-sep-line" />
           <div className="std-profile-item">

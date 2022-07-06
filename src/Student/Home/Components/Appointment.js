@@ -1,6 +1,7 @@
 // Import ...
 import { useContext } from 'react'
 import { ParamContext } from '../../../ContextReducer'
+import { Link } from 'react-router-dom'
 
 // Icons
 import { ReactComponent as BellIcon } from '../img/bellicon.svg'
@@ -13,39 +14,55 @@ import '../std_home.css'
 const Meetings = (appointments) => {
   return (
     appointments.map((e) => {
-      return (
-        <div className='std_home-myapnt-card'>
-          <div className='std-card-date-time'>
-            <p className='std-card-date'>{e.date}</p>
-            <p className='std-card-time'>{e.time}</p>
+      if (e === null) {
+        return (
+          <div className='std_home-myapnt-card'>
+            <span>--</span>
           </div>
-          <div className='std-card-consul-info'>
-            <p className='std-card-name'>{e.name}</p>
-            <p className='std-card-institution'>{e.school}</p>
-            <p className='std-card-major'>{e.major}</p>
+        )
+      }
+      else {
+        return (
+          <div className='std_home-myapnt-card'>
+            <div className='std-card-date-time'>
+              <p className='std-card-date'>{e.date}</p>
+              <p className='std-card-time'>{e.time}</p>
+            </div>
+            <div className='std-card-consul-info'>
+              <p className='std-card-name'>{e.name}</p>
+              <p className='std-card-institution'>{e.school}</p>
+              <p className='std-card-major'>{e.major}</p>
+            </div>
+            <div className='std-card-specified-features'>
+              {(e.content.length !== 0 ?
+                e.content.map((f) => (<span className='std-card-feature'>{f}</span>)) :
+                <span className='std-card-feature'>一般諮詢</span>)}
+            </div>
+            <div className='std-card-btns'>
+              <button className='std-card-unavailable-button' >請假</button>
+              <button className='std-card-open-meeting'>開啟會議</button>
+            </div>
           </div>
-          <div className='std-card-specified-features'>
-            {(e.content.length !== 0 ?
-              e.content.map((f) => (<span className='std-card-feature'>{f}</span>)) :
-              <span className='std-card-feature'>-</span>)}
-          </div>
-          <div className='std-card-btns'>
-            <button className='std-card-unavailable-button' >請假</button>
-            <button className='std-card-open-meeting'>開啟會議</button>
-          </div>
-        </div>
-      )
+        )
+      }
     }
   ))
 }
 
 // FIXME: add empty stuff
 const AppointmentContent = (appointments) => {
+  console.log('AppointmentContent', appointments.length)
+  while ((appointments.length === 1) || (appointments.length === 2)) {
+    appointments.push(null)
+    console.log(appointments.length)
+  }
+  console.log('AppointmentContent', appointments.length)
+
   if (appointments[0] === undefined) {
     return (
         <div className='std_home-myapnt-empty'><span>尚未預約任何諮詢</span></div>
     )
-  } 
+  }
   else {
     return (
       <>
@@ -54,8 +71,10 @@ const AppointmentContent = (appointments) => {
         </div>
         <div className='std_home-myapnt-show-all-link-block' >
           <div className='std_home-myapnt-show-all-link'>
-            <span className='std_home-myapnt-link-text'>查看全部諮詢</span>
-            <ShowMore className='std_home-myapnt-link-arrow' />
+            <Link to="/student-schedule/list">
+              <span className='std_home-myapnt-link-text'>查看全部諮詢</span>
+              <ShowMore className='std_home-myapnt-link-arrow' />
+            </Link>
           </div>
         </div>
       </>
