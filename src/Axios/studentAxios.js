@@ -308,6 +308,26 @@ const addMeeting = async (payload) => {
   }
 }
 
+const uploadPaymentProof = async (payload) => {
+  // req.body (form-data)
+  // {
+  //     meetingId: "string"
+  //     paymentName: "string"
+  //     paymentDate: "string"
+  //     meetingPaymentScan: file
+  // }
+  try {
+    const { data: { status, message, data }} = await instance.post('/api/student/meetings/submit-payment-proof', payload)
+    console.debug('uploadPaymentProof()', status, message)
+    if (status === 'failed') throw new Error(message)
+    else return { status, data, message }
+  }
+  catch (e) {
+    console.debug('addMeeting()', e)
+    return { status: 'failed', message: `addMeeting(): ${e}`, data: null }
+  }
+}
+
 
 export default {
   studentLogin, studentRegister, studentAuthenticate,
@@ -318,5 +338,6 @@ export default {
   sendEmailOTP, sendMobileOTP, verifyEmailOTP, verifyMobileOTP,
   addCartList, deleteCartList, clearCartList,
   getBookingSlot,
-  addMeeting
+  addMeeting,
+  uploadPaymentProof
 }

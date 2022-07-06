@@ -8,8 +8,6 @@ import RecordCard from "../Components/RecordCard"
 const RecordPage = ({ demo=false }) => {
   const Context = useContext(ParamContext)
 
-  console.warn('RecordPage', Context.Info)
-
   const Data = {
     name: (demo ? "OOO" : Context.Info.profile.surname+Context.Info.profile.name),
     school: (demo ? "OO學校" : Context.Info.profile.school),

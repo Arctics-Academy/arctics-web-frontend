@@ -54,11 +54,13 @@ const toTwoDigit = (num) => {
 }
 
 const wrapDateString = (time) => {
+    time = new Date(time)
     const weeday = { 0: '日', 1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六' }
     return `${time.getFullYear()}-${toTwoDigit((time.getMonth()+1)%12)}-${toTwoDigit(time.getDate())}（${weeday[time.getDay()]}）`
 }
 
 const wrapTimeString = (time) => {
+    time = new Date(time)
     let hour = time.getHours(), min = time.getMinutes()
     if (min === 30) {
         return `${toTwoDigit(hour)}:${toTwoDigit(min)}~${toTwoDigit(hour+1)}:00`
@@ -68,6 +70,7 @@ const wrapTimeString = (time) => {
 }
 
 const getStartTimeString = (time) => {
+    time = new Date(time)
     return `${toTwoDigit(time.getHours())}:${toTwoDigit(time.getMinutes())}`
 }
 
@@ -227,7 +230,6 @@ const resolveStudentListData = (list) => {
 const castMeetingListToRecordList = (received) => {
     // combine into full list
     let fullList = received.future.concat(received.past.concat(received.cancelled))
-    console.warn('fullList', fullList)
     // parse into record format
     let parsedList = []
     for (let idx in fullList) {
@@ -236,7 +238,7 @@ const castMeetingListToRecordList = (received) => {
             meetingId: fullList[idx].id,
             meetingStatus: fullList[idx].status,
             meetingPrice: fullList[idx].consultantPrice,
-            meetingPaymentTime: (fullList[idx].paymentTime ? wrapDateString(fullList[idx].paymentTime)+getStartTimeString(fullList[idx].paymentTime) : "-"),
+            meetingPaymentTime: (fullList[idx].paymentTime!==undefined ? wrapDateString(fullList[idx].paymentTime)+getStartTimeString(fullList[idx].paymentTime) : "-"),
             meetingDuration: (fullList[idx].startTimestamp ? wrapDateString(fullList[idx].startTimestamp)+wrapTimeString(fullList[idx].startTimestamp) : "-"),
             consultantName: fullList[idx].consultantName
         }
@@ -365,4 +367,7 @@ const wrapConsultantPreview = (data) => {
     }
 }
 
-export { buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions, wrapFilterResult, wrapConsultantPreview }
+export { 
+    buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions, wrapFilterResult, wrapConsultantPreview,
+    wrapDateString, wrapTimeString, getStartTimeString
+}

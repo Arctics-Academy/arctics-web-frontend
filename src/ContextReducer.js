@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react'
-import { sortTransactions } from './DataProcessUtils'
+import { sortTransactions, wrapDateString, getStartTimeString } from './DataProcessUtils'
 export const ParamContext = React.createContext()
 
 /* context state doc
@@ -188,7 +188,14 @@ const reducer = (state, action) => {
                 ...state,
                 tmpBookingForStd: action.payload
             }
-        
+        case 'updatePaymentDate':
+            for (let idx in state.meetingsByStudentRecord) {
+                console.log(state.meetingsByStudentRecord[idx].meetingId)
+                if (state.meetingsByStudentRecord[idx].meetingId === action.payload.meetingId) {
+                    state.meetingsByStudentRecord[idx].meetingPaymentTime = wrapDateString(action.payload.meetingPaymentTime)+getStartTimeString(action.payload.meetingPaymentTime)
+                }
+            }
+            return { ...state }
         default:
             return state
     }

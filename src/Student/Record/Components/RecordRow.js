@@ -18,7 +18,12 @@ const RecordRow = ({ data=DefaultData }) => {
       case "past": 
         return data.meetingPaymentTime
       default:
-        return (<span><Link to={`/student-submit-payment/${data.meetingId}`}>立即付款</Link></span>)
+        if (data.meetingPaymentTime === "-") {
+          return (<span><Link to={`/student-submit-payment/${data.meetingId.substr(1,5)}`}>立即付款</Link></span>)
+        }
+        else {
+          return data.meetingPaymentTime
+        }
     }
   }
 
