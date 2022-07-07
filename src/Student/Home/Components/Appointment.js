@@ -16,8 +16,8 @@ const Meetings = (appointments) => {
     appointments.map((e) => {
       if (e === null) {
         return (
-          <div className='std_home-myapnt-card'>
-            <span>--</span>
+          <div className='std_home-myapnt-card std_home-myapnt-card-empty'>
+            <span>---</span>
           </div>
         )
       }
@@ -39,8 +39,8 @@ const Meetings = (appointments) => {
                 <span className='std-card-feature'>一般諮詢</span>)}
             </div>
             <div className='std-card-btns'>
-              <button className='std-card-unavailable-button' >請假</button>
-              <button className='std-card-open-meeting'>開啟會議</button>
+              <button className='std-card-unavailable-button' disabled>請假</button>
+              <button className='std-card-open-meeting' disabled>開啟會議</button>
             </div>
           </div>
         )

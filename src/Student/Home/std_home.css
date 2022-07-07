@@ -63,12 +63,12 @@
 }
 
 .std_home-ancmt-title-icon {
-    height: 1em;
+    height: 1.2rem;
 }
 
 .std_home-ancmt-title-content {
     margin-left: 8px;
-    font-size: 1em;
+    font-size: 1.2rem;
     color: #003b6b;
 }
 
@@ -108,11 +108,11 @@
 }
 
 .std_home-myapnt-title-icon {
-    height: 1em;
+    height: 1.2rem;
 }
 
 .std_home-myapnt-title-text {
-    font-size: 1em;
+    font-size: 1.2rem;
     color: #003b6b;
     margin-left: 4px;
 }
@@ -125,7 +125,7 @@
 .std_home-myapnt-blocks {
     display: flex;
     flex-direction: row;
-    overflow: auto;
+    /* overflow: auto; */
     margin-bottom: 8px;
 }
 
@@ -147,6 +147,12 @@
     flex-direction: column;
     align-items: left;
     justify-content: space-between;
+}
+
+.std_home-myapnt-card-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .std_home-myapnt-card:last-child {
@@ -176,7 +182,7 @@
 }
 
 .std-card-major:hover {
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .std-card-feature {
@@ -201,18 +207,29 @@
     font-size: 0.8em;
     padding: 4px 8px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     margin-right: 4px;
     font-family: var(--heading-font);
 }
+
+.std-card-unavailable-button:disabled {
+    opacity: 80%;
+    cursor: default;
+}
+
 .std-card-open-meeting {
     color: #003b6b;
     background-color: #f2d60f;
     font-size: 0.8em;
     padding: 4px 8px;
-    border-radius: 8px;
+    border-radius: 6px;
     border: none;
     font-family: var(--heading-font);
+}
+
+.std-card-open-meeting:disabled {
+    opacity: 80%;
+    cursor: default;
 }
 
 .std_home-myapnt-show-all-link-block {
@@ -226,14 +243,32 @@
     color: #003b6b;
     display: flex;
     align-items: center;
+    padding-bottom: 3px;
+}
+
+/* patch */
+.std_home-myapnt-show-all-link:hover {
+    padding-bottom: 2px;
+    color: var(--primary);
+    border-bottom: solid 1px var(--primary);
 }
 
 .std_home-myapnt-link-text {
     margin-right: 4px;
 }
 
+/* patch */
+.std_home-myapnt-link-text:hover {
+    color: var(--primary);
+}
+
 .std_home-myapnt-link-arrow {
     height: 0.8em;
+}
+
+/* patch */
+.std_home-myapnt-link-arrow:hover {
+    color: var(--primary);
 }
 
 .std_home-myapnt-empty {
