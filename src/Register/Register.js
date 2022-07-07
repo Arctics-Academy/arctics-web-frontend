@@ -40,7 +40,7 @@ const Register = () => {
             const otpRequest = await sendEmailOTP({id:data.id})
             console.log(otpRequest.status, otpRequest.msg)
             setLoading(false)
-            history.push('/register-email-otp')
+            history.push(`/register-email-otp/${identity}`)
         } else {
             setLoading(true)
             const { status, data, message } = await studentFuncs.studentRegister(payload);
