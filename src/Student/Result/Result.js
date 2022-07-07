@@ -34,7 +34,8 @@ const test = [
 const StudentResult = () => {
   const context = useContext(ParamContext)
   const displayResult = (results) => {
-    return results.map((e)=>(<ResultBox clt={e} context={context} setContext={context.setInfo} />))
+    if (results.length === 0) return (<div className="std-result-empty-box"><span>目前尚無此分類之顧問</span></div>)
+    else return results.map((e)=>(<ResultBox clt={e} context={context} setContext={context.setInfo} />))
   }
   return (
     <div className="std-result-main">

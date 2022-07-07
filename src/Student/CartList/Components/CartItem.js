@@ -125,8 +125,16 @@ const CartItem = ( {clt, setContext, context } ) => {
         { intro_component(clt.intro) }
         <div className="std_cartitem-button-group">
           <div className="std_cartitem-level">
-            <Star className="std_cartitem-level-star" />
-            {clt.star===null? <p></p>:<><p>{level_int}</p><span className="std_cartitem-level-float">.{level_fl}</span></>}
+            {
+              !(clt.star) ? 
+              <>
+                <p></p>
+              </> : 
+              <>
+                <Star className="std_cartitem-level-star" />
+                <p>{level_int}</p><span className="std_cartitem-level-float">.{level_fl}</span>
+              </>
+            }
           </div>
           <button className="std_cartitem-delete-button" onClick={()=>setItemHidden(!itemHidden)}>
             <DeleteIcon className="std_cartitem-delete-icon"/>

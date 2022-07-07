@@ -11,6 +11,7 @@ import { useState, useContext } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import { ParamContext } from '../../../../ContextReducer'
 import { wrapFilterResult } from '../../../../DataProcessUtils'
+import ActionButton from '../../../../GlobalComponents/Components/ActionButton'
 
 const experienceHashtags = ['自然組', '社會組', '轉組', '特殊班', '校隊', '社團', '營隊', '畢聯會', '有補習', '沒補習', '自學', '學生會', '競賽']
 const admissionHashtags = ['特殊選材', '繁星推薦', '個人申請', '指考分發', '學習歷程', '模擬面試', '面試技巧', '二階筆試', '認識校系']
@@ -19,6 +20,7 @@ const fields = ['文史哲學群', '外語學群', '社會心理學群', '資訊
 const Filter = ({modalHidden, setModalHidden}) => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [selectedField, setField] = useState('')
+    const [loading, setLoading] = useState(false)
     const searcher = useForm()
     const location = useLocation()
     const history = useHistory()
@@ -62,6 +64,7 @@ const Filter = ({modalHidden, setModalHidden}) => {
     }
 
     const onSubmit = async (data) => {
+        setLoading(true)
         if (data.field === undefined || data.field === "選擇學群領域") setModalHidden(false)
         else console.log("Search on: ", data)
         
@@ -70,6 +73,7 @@ const Filter = ({modalHidden, setModalHidden}) => {
         console.log(res, location)
         context.setInfo({type:'saveFilterResult', payload: {filterResult: wrapFilterResult(res.data)}})
         console.log(context.Info)
+        setLoading(false)
         if (location.pathname === '/student-home') history.push('/student-search-result')
     }
 
@@ -92,7 +96,10 @@ const Filter = ({modalHidden, setModalHidden}) => {
                         <option className='std_sf_option' disabled selected>選擇學系</option>
                         {majorOptions(selectedField)}
                     </select>
-                    <button type='submit' className='std_filter_temp_submit'>前往搜尋</button>
+                    {/* <button type='submit' className='std_filter_temp_submit'>搜尋顧問</button> */}
+                    <div className='std_filter_temp_submit'>
+                        <ActionButton type='submit' label='搜尋顧問' loading={loading}/>
+                    </div>
                 </form>
             </div>
             {/* <form className='std_filter-condition' onSubmit={handleSubmit(onSubmit)}>

@@ -350,7 +350,7 @@
 }
 
 .std_filter_temp_submit {
-    font-family: var(--heading-font);
+    /* font-family: var(--heading-font);
     font-size: 1em;
     padding: 12px 24px;
     border: none;
@@ -358,7 +358,9 @@
     margin-left: auto;
 
     color: #003b6b;
-    background-color: #f2d60f;
+    background-color: #f2d60f; */
 
+    /* patch - figure out flex-end??? */
+    margin-left: 80px;
     cursor: pointer;
 }

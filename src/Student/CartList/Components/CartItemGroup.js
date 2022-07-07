@@ -19,7 +19,7 @@ const CartItemGroup = ({hidden, setHidden}) => {
   return(
     <div>
       <NotifModal title={"清空全部"} content={"確定要刪除「好奇清單」內的全部內容嗎？"} hidden={hidden} setHidden={setHidden} mode={"clearAll"} id={-1} />
-      { cart_item }
+      {( context.Info.list.consultants.length !== 0 ? cart_item : <div className='std_cartitem-wrapper-empty'>目前好奇清單無顧問</div>)}
     </div>
   )
 }

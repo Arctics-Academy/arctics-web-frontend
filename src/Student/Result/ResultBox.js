@@ -129,8 +129,14 @@ const ResultBox = ( {clt, setContext, context } ) => {
         { intro_component(clt.intro) }
         <div className="std_cartitem-button-group">
           <div className="std_cartitem-level">
-            <Star className="std_cartitem-level-star" />
-            {clt.star? (<><p>{level_int}</p><span className="std_cartitem-level-float">.{level_fl}</span></>):<p></p>}
+            {clt.star ? 
+              (<>
+                <Star className="std_cartitem-level-star" />
+                <p>{level_int}</p>
+                <span className="std_cartitem-level-float">.{level_fl}</span>
+              </>) :
+              <p></p>
+            }
           </div>
           <button className="std_cartitem-delete-button" onClick={()=>setItemHidden(!itemHidden)}>
             {/*<DeleteIcon className="std_cartitem-delete-icon"/>*/}
