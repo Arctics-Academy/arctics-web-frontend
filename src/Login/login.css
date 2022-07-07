@@ -50,9 +50,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #808080;
-    color: darkgrey;
+    background-color: lightgray;
+    color: gray;
     border-radius: 16px 16px 0 0;
+    transition: background-color 0.5s ease-out;
 }
 
 .login_mode_tc label input[type='radio']:checked + .login_tc_text {
