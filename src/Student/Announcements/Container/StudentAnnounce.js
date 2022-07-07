@@ -13,7 +13,7 @@ const StudentAnnouncements = () => {
   const [dispalyContent, setDisplayContent] = useState('Content')
   const [hidden, setHidden] = useState(true)
   return (
-    <div className="clt_announce-main">
+    <div className="std_announce-main">
       <MetaTags>
         <title>通知 | Arctics</title>
       </MetaTags>

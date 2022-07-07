@@ -1,6 +1,6 @@
 import { ParamContext } from "../../../ContextReducer";
 import { useContext } from 'react'
-import "../clt_announce.css";
+import "../std_announce.css";
 import icon from '../img/announcement_icon.png';
 import { readNotificationsOrAnnouncements } from "../../../Axios/consulAxios";
 
@@ -38,23 +38,25 @@ const Notification = ({setContent, setTitle, setHidden}) => {
       let time = new Date(obj.timestamp).toLocaleString()
       console.log(obj.id)
       return(
-        <div className={(obj.read ? "clt_notif-line-wrapper clt_notif-line-wrapper-read" : "clt_notif-line-wrapper")} data-nid={`${obj.id}`} onClick={handleOnRead}>
-          <p className="clt_notif-line-content" data-nid={`${obj.id}`} onClick={handleOnRead}>
-            <span className={(obj.read ? "clt_notif-line-title-read" : "clt_notif-line-title-unread")} data-nid={`${obj.id}`} onClick={handleOnRead}>{obj.title}</span>
-            <span className={(obj.read ? "clt_notif-line-main-read" : "clt_notif-line-main-unread")} data-nid={`${obj.id}`} onClick={handleOnRead}>&nbsp;&nbsp;&#8212;&nbsp;&nbsp;{obj.content}</span>
+        <div className={(obj.read ? "std_notif-line-wrapper std_notif-line-wrapper-read" : "std_notif-line-wrapper")} data-nid={`${obj.id}`} onClick={handleOnRead}>
+          <p className="std_notif-line-content" data-nid={`${obj.id}`} onClick={handleOnRead}>
+            <span className={(obj.read ? "std_notif-line-title-read" : "std_notif-line-title-unread")} data-nid={`${obj.id}`} onClick={handleOnRead}>{obj.title}</span>
+            <span className={(obj.read ? "std_notif-line-main-read" : "std_notif-line-main-unread")} data-nid={`${obj.id}`} onClick={handleOnRead}>&nbsp;&nbsp;&#8212;&nbsp;&nbsp;{obj.content}</span>
           </p>
-          <p className="clt_notif-line-time" data-nid={`${obj.id}`} onClick={handleOnRead}>{time}</p>
+          <p className="std_notif-line-time" data-nid={`${obj.id}`} onClick={handleOnRead}>{time}</p>
         </div>
       )
     })
   }
   return (
-    <div className="clt_notif-wrapper">
-      <img src={icon} alt="icon"/>
-      <span className="clt_notif-head">個人通知</span>
-      <div className="clt_notif-display-frame">
+    <div className="std_notif-wrapper">
+      <div className="std_notif-head-wrapper">
+        <img className="std_notif-head-icon" src={icon} alt="icon"/>
+        <span className="std_notif-head">個人通知</span>
+      </div>
+      <div className="std_notif-display-frame">
         {context.Info.notifications.list.length>0? displayNotifications(context.Info.notifications.list):
-          <p className="clt_notif_empty">目前尚無任何通知!</p>
+          <p className="std_notif_empty">目前尚無任何通知!</p>
         }
       </div>
     </div>
