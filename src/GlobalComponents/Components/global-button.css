@@ -6,6 +6,13 @@
     border-radius: 8px;
 
     cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    font-family: var(--heading-font);
 }
 
 .global__action-button-2 {
@@ -18,12 +25,12 @@
     width: calc(4.8em + 48px);
 }
 
-.global__action-button--loading {
+/* .global__action-button--loading {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-}
+} */
 
 .global__action-button-text {
     font-size: 1.2em;

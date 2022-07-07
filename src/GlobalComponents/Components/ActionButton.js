@@ -2,7 +2,7 @@
 import "./global-button.css"
 
 // Main Component
-const ActionButton = ({ label, loading=false, callback }) => {
+const ActionButton = ({ type=undefined, label, loading=false, callback }) => {
   if (label.length <= 2) {
     if (loading) {
       return (
@@ -18,7 +18,7 @@ const ActionButton = ({ label, loading=false, callback }) => {
     }
     else {
       return (
-        <button className="global__action-button global__action-button-2" onClick={callback}>
+        <button type={(type ? type : '')} className="global__action-button global__action-button-2" onClick={callback}>
           <span className="global__action-button-text">{label}</span>
         </button>
       )
@@ -39,7 +39,7 @@ const ActionButton = ({ label, loading=false, callback }) => {
     }
     else {
       return (
-        <button className="global__action-button global__action-button-4" onClick={callback}>
+        <button type={(type ? type : '')} className="global__action-button global__action-button-4" onClick={callback}>
           <span className="global__action-button-text">{label}</span>
         </button>
       )
