@@ -8,6 +8,8 @@ import Loading from '../Login/img/loading48.gif'
 
 import MetaTags from 'react-meta-tags'
 
+import ActionButton from '../GlobalComponents/Components/ActionButton'
+
 const ShowValidCode = ({ input }) => {
     return (
         <>
@@ -66,8 +68,10 @@ const RegisterMobileOTP = () => {
     }
 
     const handleSubmitOTP = async () => {
+        console.log('loading',  loading)
         const payload = wrapCode(vcode, context.Info.id)
         setLoading(true)
+        console.log('loading',  loading)
         let res;
         if (identity === 'consultant') {
             res = await verifyMobileOTP(payload)
@@ -136,9 +140,10 @@ const RegisterMobileOTP = () => {
                 </div>
                 <p className='reg-validate-err-msg' hidden={displayErrMsg}>驗證碼錯誤!</p>
                 <div className='reg-validate-submit'>
-                    <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
+                    {/* <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
                         {loading? (<img className='register-email-otp-loading' src={Loading} />):'送出'}
-                    </button>
+                    </button> */}
+                    <ActionButton label="送出/驗證" loading={loading} callback={handleSubmitOTP} />
                 </div>
                 <div className='reg-validate-resend-request'>
                     {displayResendTimer()}

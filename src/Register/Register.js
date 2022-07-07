@@ -14,6 +14,8 @@ import { wrapLoginData } from "../DataProcessUtils"
 
 import MetaTags from 'react-meta-tags'
 
+import ActionButton from "../GlobalComponents/Components/ActionButton"
+
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -63,15 +65,15 @@ const Register = () => {
 
     const emailValidatePattern = {
         value: /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/,
-        message: "請輸入正確的Email格式"
+        message: "請輸入正確的Email格式！"
     }
     const phoneValidatePattern = {
         value: /^[0-9]{10,10}$/,
-        message: "請輸入正確的電話號碼格式,勿輸入非數字字元"
+        message: "請輸入正確的電話號碼格式，勿輸入非數字字元！"
     }
     const passwordValidatePattern = {
         value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,150}$/,
-        message: "正確的密碼格式須包含至少1大寫英文字母,1小寫英文字母,1數字,1特殊字元(如:@$!%*?&_),長度至少為8"
+        message: "正確的密碼格式須包含至少1大寫英文字母，1小寫英文字母，1數字，1特殊字元（如:@$!%*?&_），長度至少為8。"
     }
 
     const submitButtonContent = () => {
@@ -154,7 +156,7 @@ const Register = () => {
                 <MetaTags>
                     <title>註冊 | Arctics</title>
                 </MetaTags>
-                <form className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
+                <form name="registerForm" className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
                     <div className="register-image-block">
                         <img className="register-image" src={IcebergImage} />
                     </div>
@@ -202,7 +204,8 @@ const Register = () => {
                             {errors.password?.message && <span className="register-error-message" id='pwd'>{errors.password.message}</span>}
                         </div>
                         <div className="register-submit">
-                            <button type='submit' className="register-submit-button">{submitButtonContent()}</button>
+                            {/* <button type='submit' className="register-submit-button">{submitButtonContent()}</button> */}
+                            <ActionButton label="註冊帳戶" loading={loading} type='submit'/>
                             <p className="register-to-login">已經有帳號了嗎？<Link to='/login'><span className="register-login-link">點我登入</span></Link></p>
                         </div>
                     </div>
