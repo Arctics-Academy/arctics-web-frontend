@@ -1,6 +1,6 @@
 // Import ...
 import { ParamContext } from '../../../ContextReducer'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 // Import Modules
@@ -9,6 +9,7 @@ import { wrapLoginData } from '../../../DataProcessUtils'
 
 // Import Components
 import { OneLineInfoLabel } from './InfoLabel'
+import ActionButton from '../../../GlobalComponents/Components/ActionButton'
 
 // Constants
 const DayMap = { 0: "日", 1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六" }
@@ -39,7 +40,7 @@ const toDurationString = (year, month, date, slot) => {
 const DetailCard = ({ demo }) => {
   const Context = useContext(ParamContext)
   const History = useHistory()
-  // const [code, setCode] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const Data = {
     time: (demo ? 
@@ -63,6 +64,7 @@ const DetailCard = ({ demo }) => {
   // }
 
   const handleNextStep = async () => {
+    setLoading(true)
     let payload = {
       consultantId: Context.Info.toBook.id,
       studentId: Context.Info.id,
@@ -72,6 +74,7 @@ const DetailCard = ({ demo }) => {
       slot: Number(Context.Info.tmpBookingForStd.slot),
     }
     let { status, data } = await StudentApi.addMeeting(payload)
+    setLoading(false)
     if (status === 'success') {
       // patch: lazy way of updating context
       Context.setInfo({ type: 'login', payload: wrapLoginData(data, 'student')})
@@ -121,7 +124,7 @@ const DetailCard = ({ demo }) => {
           <p className='std_meeting-details-bottom-content'>總金額<span className='std_meeting-details-bottom-content-span'>{Data.price}</span>元</p>
         </div>
         <div className='std_meeting-details-bottom-container'>
-          <button className='std_meeting-details-buttom-button' onClick={handleNextStep}>確認預約</button>
+          <ActionButton label="確認預約" callback={handleNextStep} loading={loading} />
         </div>
       </div>
     </div>

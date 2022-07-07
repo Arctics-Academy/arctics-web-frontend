@@ -69,9 +69,9 @@ const generateDataArray = (rawData, weekNo) => {
   }
   // push booked
   let sun = new Date()
-  sun.setDate(sun.getDate() - sun.getDay() + weekNo * 7)
+  sun.setDate(sun.getDate() - sun.getDay() - 1 + weekNo * 7)
   let sat = new Date()
-  sat.setDate(sat.getDate() - sat.getDay() + 6 + weekNo * 7)
+  sat.setDate(sat.getDate() - sat.getDay() + 7 + weekNo * 7)
 
   for (let booking of rawData.studentBooked) {
     let [year, month, date, slot] = booking

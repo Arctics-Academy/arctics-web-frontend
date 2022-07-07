@@ -13,6 +13,7 @@ const SubmitPayment = ({ demo=false }) => {
   const Context = useContext(ParamContext)
   const History = useHistory()
   const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const SubmittedForm = new FormData()
   SubmittedForm.set('meetingId', `#${meetingId}`)
@@ -28,6 +29,7 @@ const SubmitPayment = ({ demo=false }) => {
   }
 
   const handleSubmit = async () => {
+    setLoading(true)
     try {
       // validate form
       // check all prop
@@ -53,6 +55,7 @@ const SubmitPayment = ({ demo=false }) => {
 
       // send form
       const { status, data } = await StudentApi.uploadPaymentProof(SubmittedForm)
+      setLoading(false)
       // handle response
       if (status === 'success') {
         Context.setInfo({ 
@@ -88,11 +91,11 @@ const SubmitPayment = ({ demo=false }) => {
   })
 
   return (
-    <>
+    <div className="std_submit-payment-display__overall-wrapper">
       <SubmitPaymentDisplay />
-      <MeetingPaymentCard demo={demo} data={data} handleUpload={handleUpload} handleSubmit={handleSubmit}/>
+      <MeetingPaymentCard demo={demo} data={data} handleUpload={handleUpload} handleSubmit={handleSubmit} loading={loading}/>
       <BlankFooter />
-    </>
+    </div>
   );
 };
 

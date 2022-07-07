@@ -2,14 +2,12 @@
 .std_submit-payment-display-wrapper {
   width: 80vw;
   background-color: #f5f5f5;
-  padding: 120px 10vw 16px 10vw;
+  padding: 120px 10vw 32px 10vw;
 }
 
 .std_submit-payment-display-heading {
-  width: 160px;
   margin-left: 0%;
-  margin-bottom: 0.5em;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -17,12 +15,11 @@
   letter-spacing: normal;
   text-align: left;
   color: #003b6b;
+  margin-bottom: 2px;
 }
 
 .std_submit-payment-display-line {
-  width: 160px;
-  height: 0;
-  margin: 0 330.5px 0 0.5px;
+  width: 9rem;
   border: solid 1px #003b6b;
 }
 
@@ -179,11 +176,19 @@
   margin-right: 8px;
   border: 2px solid #4bb3cc;
   border-radius: 8px;
-  height: 40px;
-  width: 250px;
+  /* height: 40px;
+  width: 250px; */
+  font-size: 1rem;
+  color: var(--primary);
+  font-family: var(--heading-font);
+  padding: 12px;
 }
 
-.std_meeting-payment-bottom-form-button {
+.std_meeting-payment-bottom-form-input:focus {
+  border: 2px solid var(--primary);
+}
+
+.std_meeting-payment-bottom-form-label {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -194,9 +199,19 @@
   border: none;
   border-radius: 8px;
   font-family: var(--heading-font);
+  cursor: pointer;
+}
+
+.std_meeting-payment-bottom-form-file-input {
+  display: none;
 }
 
 /* Blank Footer */
 footer {
   background-color: #f5f5f5;
+}
+
+.std_submit-payment-display__overall-wrapper {
+  min-height: 100vh;
+  background-color: var(--off-white);
 }

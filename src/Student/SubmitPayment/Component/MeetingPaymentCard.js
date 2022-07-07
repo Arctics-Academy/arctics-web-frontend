@@ -10,7 +10,8 @@ import Coupon from "../img/blue-coupon.svg";
 import { ReactComponent as Upload } from "../img/white-upload.svg"
 
 import { ParamContext } from "../../../ContextReducer";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import ActionButton from "../../../GlobalComponents/Components/ActionButton";
 
 // Placeholder Variable
 const DefaultData = {
@@ -24,7 +25,7 @@ const DefaultData = {
 
 
 // Component
-const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit }) => {
+const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit, loading=false }) => {
   const Context = useContext(ParamContext)
 
   const Data = {
@@ -93,16 +94,16 @@ const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit
           </div>
           <div className="std_meeting-payment-bottom-form-line">
             <p className="std_meeting-payment-bottom-form-title">匯款收據上傳</p>
-            <button className="std_meeting-payment-bottom-form-button">
+            <label  className="std_meeting-payment-bottom-form-label">
               <Upload /> 
-              <span>確認預約</span>
-              <input onChange={handleUpload} data-form-label="file" type="file"></input>
-            </button>
+              <span>&nbsp;確認預約</span>
+              <input className="std_meeting-payment-bottom-form-file-input" onChange={handleUpload} data-form-label="file" type="file"></input>
+            </label>
           </div>
         </div>
 
         <div className="std_meeting-payment-bottom-container">
-          <button className="std_meeting-payment-buttom-button" onClick={handleSubmit}>確認預約</button>
+          <ActionButton label="確認預約" callback={handleSubmit} loading={loading} />
         </div>
       </div>
     </div>
