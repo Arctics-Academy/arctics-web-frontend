@@ -6,6 +6,10 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 - [ ] Delete `create-react-app` original files.
 
+- [ ] Swap out alerts for modals.
+
+- [ ] Fix `<a>` tag css handling. Multiple patch used, marked with `/* patch */`.
+
 - [ ] Reorganize file structure
     - [ ] Update `public` folder to corrent contents.
     - [ ] Clean up current structure into `fonts`, `img`, `stylesheets`, `utils`, and `apis`.
