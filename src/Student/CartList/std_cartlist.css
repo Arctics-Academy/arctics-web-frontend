@@ -69,9 +69,8 @@
 
 .std_cartitem-wrapper-empty {
   width: 80vw;
-  padding-top: 32px;
+  padding-top: 16px;
   color: var(--off-white);
-  text-align: center;
 }
 
 .std_cartitem-col1{
