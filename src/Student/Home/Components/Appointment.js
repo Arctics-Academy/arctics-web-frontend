@@ -71,7 +71,7 @@ const AppointmentContent = (appointments) => {
         </div>
         <div className='std_home-myapnt-show-all-link-block' >
           <div className='std_home-myapnt-show-all-link'>
-            <Link to="/student-schedule/list">
+            <Link to="/student-schedule/list" style={{color: 'var(--primary)'}}>
               <span className='std_home-myapnt-link-text'>查看全部諮詢</span>
               <ShowMore className='std_home-myapnt-link-arrow' />
             </Link>

@@ -53,7 +53,7 @@
 
 .std-profile-content-title {
   color: #4bb3cc;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 .std-profile-exp {
@@ -62,7 +62,7 @@
 }
 
 .std-profile-exp-count {
-  font-size: 20px;
+  font-size: 1.2rem;
   color: #003b6b;
   margin-left: 2%;
 }
@@ -83,6 +83,6 @@
 
 .std-profile-value {
   color: #003b6b;
-  font-size: 24px;
+  font-size: 1.2rem;
   margin-left: 4%;
 }

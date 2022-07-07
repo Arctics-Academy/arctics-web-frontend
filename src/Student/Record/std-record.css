@@ -50,6 +50,10 @@
     flex: 3;
 }
 
+.std-record-record-row__link:hover {
+    border-bottom: solid 1px var(--primary);
+}
+
 
 /* RecordCard.js */
 .std-record-record-card__background {
