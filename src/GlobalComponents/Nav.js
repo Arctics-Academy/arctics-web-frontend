@@ -110,27 +110,23 @@ export default function Nav() {
 									通知{displayUnreadNumber(context.Info.announcements.unreadCount,context.Info.notifications.unreadCount)}
 									</Link>
 							</li>
-							<li className="nav__menu-item"><a className='nav__menu-submenu-link'>尋找顧問</a>
+							<li className="nav__menu-item"><a className='nav__menu-submenu-link patch-default'>尋找顧問</a>
 								<ul className='nav__menu-submenu'>
 									<Link to="/student-search-result"><li className='nav__menu-submenu-item'>搜尋</li></Link>
 									<Link to="/student-cart"><li className='nav__menu-submenu-item'>好奇清單</li></Link>
 								</ul>
 							</li>
-				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link'>我的諮詢</a>
+				   		 	<li className="nav__menu-item"><a className='nav__menu-submenu-link patch-default'>我的諮詢</a>
 								<ul className='nav__menu-submenu'>
-									<li className='nav__menu-submenu-item'>
-										<Link to="/student-schedule/calendar">行事曆</Link>
-									</li>
-									<li className='nav__menu-submenu-item'>
-										<Link to="/student-schedule/list">所有諮詢</Link>
-									</li>
+									<Link to="/student-schedule/calendar"><li className='nav__menu-submenu-item'>行事曆</li></Link>
+									<Link to="/student-schedule/list"><li className='nav__menu-submenu-item'>所有諮詢</li></Link>
 									{/* <li className='nav__menu-submenu-item'>請假</li> */}
 								</ul>
 							</li>
-				   		 	<li className="nav__menu-item">個人檔案
+				   		 	<li className="nav__menu-item"><a className='patch-default'>個人檔案</a>
 								<ul className='nav__menu-submenu'>
-									<li className='nav__menu-submenu-item'><Link to="/student-profile">個人檔案</Link></li>
-									<li className='nav__menu-submenu-item'><Link to="/student-record">付款紀錄</Link></li>
+									<Link to="/student-profile"><li className='nav__menu-submenu-item'>個人檔案</li></Link>
+									<Link to="/student-record"><li className='nav__menu-submenu-item'>付款紀錄</li></Link>
 									{/* <li className='nav__menu-submenu-item'>優惠</li> */}
 								</ul>
 							</li>

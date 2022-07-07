@@ -76,12 +76,16 @@ a:hover {
 }
 
 .nav__menu-submenu-link:hover {
-    border-bottom: solid 3px var(--tertiary);
+    /* border-bottom: solid 3px var(--tertiary); */
 }
 
 .nav__menu-item:hover > .nav__menu-submenu-link {
     color: var(--tertiary);
-    border-bottom: solid 3px var(--tertiary);
+    /* border-bottom: solid 3px var(--tertiary); */
+}
+
+a.patch-default {
+    cursor: default;
 }
 
 a:active {
