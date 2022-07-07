@@ -8,7 +8,7 @@ const showListItem = (status, lists) => {
     if (status === 'future') {
         if (lists[status][0] === undefined) {
             return (
-                <p className='clt_list-empty-msg'>目前尚未有任何紀錄!</p>
+                <p className='std_list-empty-msg'>目前尚未有任何紀錄</p>
             )
         }
         return (
@@ -17,7 +17,7 @@ const showListItem = (status, lists) => {
     } else if (status === 'past') {
         if (lists[status][0] === undefined) {
             return (
-                <p className='clt_list-empty-msg'>目前尚未有任何紀錄!</p>
+                <p className='std_list-empty-msg'>目前尚未有任何紀錄</p>
             )
         }
         return (
@@ -26,7 +26,7 @@ const showListItem = (status, lists) => {
     } else {
         if (lists[status][0] === undefined) {
             return (
-                <p className='clt_list-empty-msg'>目前尚未有任何紀錄!</p>
+                <p className='std_list-empty-msg'>目前尚未有任何紀錄</p>
             )
         }
         return (
@@ -81,13 +81,13 @@ const MeetingList = () => {
         setmode('cancelled')
     }
     return (
-        <div className="clt_schedule-list">
-            <div className="clt_schedule-list-modes">
-                <span className="clt_schedule-list-mode" onClick={handleModeToFuture} style={futureStyle}>未來排程</span>
-                <span className="clt_schedule-list-mode" onClick={handleModeToPast} style={pastStyle}>諮詢紀錄</span>
-                <span className="clt_schedule-list-mode" onClick={handleModeToCancel} style={cancelStyle}>取消紀錄</span>
+        <div className="std_schedule-list">
+            <div className="std_schedule-list-modes">
+                <span className="std_schedule-list-mode" onClick={handleModeToFuture} style={futureStyle}>未來排程</span>
+                <span className="std_schedule-list-mode" onClick={handleModeToPast} style={pastStyle}>諮詢紀錄</span>
+                <span className="std_schedule-list-mode" onClick={handleModeToCancel} style={cancelStyle}>取消紀錄</span>
             </div>
-            <div className="clt_schedule-list-items">
+            <div className="std_schedule-list-items">
                 {showListItem(mode, context.Info.meetingsByStatus)}
             </div>
         </div>

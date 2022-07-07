@@ -24,7 +24,7 @@ const showHeader = () => {
     const weekday = ['日', '一', '二', '三', '四', '五', '六']
     return (
         weekday.map((e) => (
-            <div className='clt_schedule-calender-header-text'>
+            <div className='std_schedule-calender-header-text'>
                 <span>{e}</span>
             </div>
         ))
@@ -80,20 +80,20 @@ const Calender = () => {
     }
     return (
         <>
-            <div className="clt_schedule-calender">
-                <div className='clt_schedule-calender-title'>
-                    <button className='clt_schedule-calender-btn-left' onClick={handleMinusMonth}>
-                        <img className='clt_schedule-calender-title-left-arrow' src={leftArrow}/>
+            <div className="std_schedule-calender">
+                <div className='std_schedule-calender-title'>
+                    <button className='std_schedule-calender-btn-left' onClick={handleMinusMonth}>
+                        <img className='std_schedule-calender-title-left-arrow' src={leftArrow}/>
                     </button>
-                    <span className='clt_schedule-calender-title-text'>{showTitle(year, month)}</span>
-                    <button className='clt_schedule-calender-btn-left' onClick={handleAddMonth}>
-                        <img className='clt_schedule-calender-title-right-arrow' src={rightArrow}/>
+                    <span className='std_schedule-calender-title-text'>{showTitle(year, month)}</span>
+                    <button className='std_schedule-calender-btn-left' onClick={handleAddMonth}>
+                        <img className='std_schedule-calender-title-right-arrow' src={rightArrow}/>
                     </button>
                 </div>
-                <div className='clt_schedule-calender-header'>
+                <div className='std_schedule-calender-header'>
                     {showHeader()}
                 </div>
-                <div className='"clt_schedule-calnder-content'>
+                <div className='std_schedule-calnder-content'>
                     {(context.Info.meetingsByTime[year]===undefined)? []:context.Info.meetingsByTime[year][month].map((r) => (<DateRow row={r} />))}
                 </div>
             </div>

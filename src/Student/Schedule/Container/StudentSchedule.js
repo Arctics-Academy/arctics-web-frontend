@@ -29,29 +29,29 @@ const StudentSchedule = () => {
   const modeBtn = () => {
     if (true /*displayMode === "calender"*/) {
       return (
-        <div className="clt_schedule-mode-btn">
+        <div className="std_schedule-mode-btn">
           <button
-            className="clt_schedule-mode-btn-calender"
+            className="std_schedule-mode-btn-calender"
             onClick={handleCalenderBtnOnclick}
           >
             <img
-              className="clt_schedule-mode-calender-icon"
+              className="std_schedule-mode-calender-icon"
               src={calenderIcon}
             />
-            <span className="clt_schedule-mode-calender-text">行事曆</span>
+            <span className="std_schedule-mode-calender-text">行事曆</span>
           </button>
           <button
-            className="clt_schedule-mode-btn-list"
+            className="std_schedule-mode-btn-list"
             onClick={handleListBtnOnclick}
           >
-            <img className="clt_schedule-mode-list-icon" src={listIcon} />
-            <span className="clt_schedule-mode-list-text">條列式</span>
+            <img className="std_schedule-mode-list-icon" src={listIcon} />
+            <span className="std_schedule-mode-list-text">條列式</span>
           </button>
         </div>
       );
     } else {
       return (
-        <div className="clt_schedule_mode_btn" style={{ display: "flex" }}>
+        <div className="std_schedule_mode_btn" style={{ display: "flex" }}>
           <button onClick={handleCalenderBtnOnclick} style={{ color: "cyan" }}>
             Calender
           </button>
@@ -72,16 +72,16 @@ const StudentSchedule = () => {
   };
 
   return (
-    <div className="clt_schedule-main">
+    <div className="std_schedule-main">
       <MetaTags>
         <title>我的諮詢 | Arctics</title>
       </MetaTags>
-      <div className="clt_schedule-title">
-        <span className="clt_schedule-title-text">我的諮詢</span>
-        <div className="clt_schedule-title-underline" />
+      <div className="std_schedule-title">
+        <span className="std_schedule-title-text">我的諮詢</span>
+        <div className="std_schedule-title-underline" />
       </div>
       {/* {modeBtn()} */}
-      <div className="clt_schedule-display">{showSchedule()}</div>
+      <div className="std_schedule-display">{showSchedule()}</div>
     </div>
   );
 };
