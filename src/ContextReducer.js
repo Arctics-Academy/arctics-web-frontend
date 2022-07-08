@@ -196,6 +196,8 @@ const reducer = (state, action) => {
                 }
             }
             return { ...state }
+        case 'logout':
+            return { ...initState }
         default:
             return state
     }

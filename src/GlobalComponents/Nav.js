@@ -3,12 +3,13 @@ import './style.css';
 import './responsive.css';
 import logo from './img/nav-arctics-logo.png';
 import { ParamContext } from '../ContextReducer';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { handleLogout } from '../Axios/consulAxios';
 
 export default function Nav() {
 	const context = useContext(ParamContext)
 	const history = useHistory()
+	const location = useLocation()
 
 	const navigateToLogin = () => {history.push('/login')}
 	const navigateToProfile = () => {history.push(`/${context.Info.identity}-profile`)}
@@ -38,7 +39,7 @@ export default function Nav() {
 
 	console.log("Nav context: ", context)
 
-	if (!context.isLogin) {
+	if ((!context.isLogin) || (location.pathname==='/')) {
 		// const handleScrollTop = (evt)=>document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
 		// const handleScrollAbout = (evt)=>document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
 		// const handleScrollFunction = (evt)=>document.querySelector('#function').scrollIntoView({ behavior: 'smooth' });

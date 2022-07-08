@@ -187,7 +187,7 @@ const studentAuthenticate = async (payload) => {
 
 const sendEmailOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/email-otp/send', {
+    const { data: { status, message } } = await instance.post('/api/user/student/email-otp/send', {
       ...payload
     })
 
@@ -199,7 +199,7 @@ const sendEmailOTP = async (payload) => {
 
 const verifyEmailOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/email-otp/verify', {
+    const { data: { status, message } } = await instance.post('/api/user/student/email-otp/verify', {
       ...payload
     })
 
@@ -211,7 +211,7 @@ const verifyEmailOTP = async (payload) => {
 
 const sendMobileOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/mobile-otp/send', {
+    const { data: { status, message } } = await instance.post('/api/user/student/mobile-otp/send', {
       ...payload
     })
 
@@ -223,7 +223,7 @@ const sendMobileOTP = async (payload) => {
 
 const verifyMobileOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/mobile-otp/verify', {
+    const { data: { status, message } } = await instance.post('/api/user/student/mobile-otp/verify', {
       ...payload
     })
 

@@ -96,11 +96,11 @@ const Login = () => {
                     </div>
                     <div className="login_input">
                         <div className="login_account">
-                            <input className="login_account_inputbox" value={account} onChange={evt=>{setAccount(evt.target.value)}} placeholder="電子郵件" />
+                            <input className="login_account_inputbox" value={account} onChange={evt=>{setAccount(evt.target.value)}} placeholder="電子郵件" autoComplete="username"/>
                             <p className="login_account_warn">{displayWrongAct? '電子郵件錯誤, 請重新輸入':' '}</p>
                         </div>
                         <div className="login_password">
-                            <input type="password" minLength={8} className="login_password_inputbox" vlaue={password} onChange={evt=>{setPassword(evt.target.value)}} placeholder="密碼" />
+                            <input type="password" minLength={8} className="login_password_inputbox" value={password} onChange={evt=>{setPassword(evt.target.value)}} placeholder="密碼" autoComplete="password" />
                             <p className="login_password_warn">{displayWrongPwd? '密碼錯誤, 請重新輸入':' '}</p>
                         </div>
                         <div className="login_submit">
