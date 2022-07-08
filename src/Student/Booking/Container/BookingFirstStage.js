@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { ParamContext } from '../../../ContextReducer'
 import StudentApi from '../../../Axios/studentAxios'
+import { MetaTags } from 'react-meta-tags'
 
 // Import Components
 import StageDisplay from '../Component/StageDisplay'
@@ -102,6 +103,9 @@ const BookingFirstStage = ({ demo=false }) => {
 
   return (
     <>
+      <MetaTags>
+        <title>選擇課程 | Arctics</title>
+      </MetaTags>
       <StageDisplay stage={1} />
       <SelectionCard data={Data.data} slot={slot} setSlot={setSlot} consultant={Data.consultant} student={Data.student} handleSubmit={handleSubmit} handleCancel={handleCancel} />
       <BlankFooter />

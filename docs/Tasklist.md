@@ -6,15 +6,15 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 - [x] DONE: Stop booking from proceeding if not selected slot.
 
-- [x] SAM: Add `<title>` tags to each student page.
+- [x] DONE: Add `<title>` tags to each student page.
 
 - [x] DONE: Missing 開啟會議 buttons. (Opacity rendered incorrectly?)
 
-- [x] SEAN: Fix duplicate cart list items issue. (closed)
+- [x] DONE: Fix duplicate cart list items issue.
 
-- [x] SEAN: Handle registration problems if server returns errors. (closed)
+- [x] DONE: Handle registration problems if server returns errors.
 
-- [x] SEAN: Fix student home page search error modal display issue
+- [x] SEAN: Fix student home page search error modal display issue.
 
 - [ ] Align `modal`s and `alert()`s. (TBD)
 

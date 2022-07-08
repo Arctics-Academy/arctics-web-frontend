@@ -6,6 +6,7 @@ import { useParams, useHistory } from "react-router-dom"
 import { useState, useEffect, useContext } from "react"
 import StudentApi from "../../../Axios/studentAxios"
 import { ParamContext } from "../../../ContextReducer"
+import { MetaTags } from "react-meta-tags"
 
 // Component
 const SubmitPayment = ({ demo=false }) => {
@@ -91,11 +92,16 @@ const SubmitPayment = ({ demo=false }) => {
   })
 
   return (
-    <div className="std_submit-payment-display__overall-wrapper">
-      <SubmitPaymentDisplay />
-      <MeetingPaymentCard demo={demo} data={data} handleUpload={handleUpload} handleSubmit={handleSubmit} loading={loading}/>
-      <BlankFooter />
-    </div>
+    <>
+      <MetaTags>
+        <title>提交付款證明 | Arctics</title>
+      </MetaTags>
+      <div className="std_submit-payment-display__overall-wrapper">
+        <SubmitPaymentDisplay />
+        <MeetingPaymentCard demo={demo} data={data} handleUpload={handleUpload} handleSubmit={handleSubmit} loading={loading}/>
+        <BlankFooter />
+      </div>
+    </>
   );
 };
 

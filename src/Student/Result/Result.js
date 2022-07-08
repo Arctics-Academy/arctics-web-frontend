@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { ParamContext } from "../../ContextReducer"
 import SearchBody from "../Home/Components/Searcher/SearchBody"
 import ResultBox from "./ResultBox"
+import { MetaTags } from "react-meta-tags"
 
 const test = [
   {
@@ -38,12 +39,17 @@ const StudentResult = () => {
     else return results.map((e)=>(<ResultBox clt={e} context={context} setContext={context.setInfo} />))
   }
   return (
-    <div className="std-result-main">
-      <SearchBody place={'result'} />
-      <div className="std-result-results">
-        {displayResult(context.Info.filterResult)}
+    <>
+      <MetaTags>
+        <title>搜尋 | Arctics</title>
+      </MetaTags>
+      <div className="std-result-main">
+        <SearchBody place={'result'} />
+        <div className="std-result-results">
+          {displayResult(context.Info.filterResult)}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

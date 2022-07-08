@@ -4,6 +4,8 @@ import { ParamContext } from "../../../ContextReducer"
 import PageTitle from "../Components/PageTitle"
 import RecordCard from "../Components/RecordCard"
 
+import { MetaTags } from "react-meta-tags"
+
 
 const RecordPage = ({ demo=false }) => {
   const Context = useContext(ParamContext)
@@ -16,10 +18,15 @@ const RecordPage = ({ demo=false }) => {
   }
 
   return (
-    <div className="std-record-record-page__wrapper">
-      <PageTitle title="付款資料" />
-      <RecordCard data={Data} />
-    </div>
+    <>
+      <MetaTags>
+        <title>付款紀錄 | Arctics</title>
+      </MetaTags>
+      <div className="std-record-record-page__wrapper">
+        <PageTitle title="付款資料" />
+        <RecordCard data={Data} />
+      </div>
+    </>
   )
 }
 

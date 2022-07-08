@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { wrapConsultantPreview } from "../../DataProcessUtils";
 import studentApis from "../../Axios/studentAxios";
 import './std-review.css'
+import { MetaTags } from "react-meta-tags";
 
 const Preview = () => {
   const context = useContext(ParamContext)
@@ -22,15 +23,20 @@ const Preview = () => {
   })
   
   return (
-    <div className="std-preview-wrap">
-      <div className="std-preview-databox-wrap">
-        <div className="std-preview-box">
-          <IntroTop profile={context.Info.tmpViewForStd} page={'student-view'} changePage={()=>('')} />
-          <Line1 />
-          <IntroTable profile={context.Info.tmpViewForStd} studentView={true} />
+    <>
+      <MetaTags>
+        <title>顧問簡介 | Arctics</title>
+      </MetaTags>
+      <div className="std-preview-wrap">
+        <div className="std-preview-databox-wrap">
+          <div className="std-preview-box">
+            <IntroTop profile={context.Info.tmpViewForStd} page={'student-view'} changePage={()=>('')} />
+            <Line1 />
+            <IntroTable profile={context.Info.tmpViewForStd} studentView={true} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
