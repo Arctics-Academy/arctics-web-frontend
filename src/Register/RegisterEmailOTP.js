@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import './register.css'
 import { useHistory, useParams } from 'react-router-dom'
 import { sendEmailOTP, verifyEmailOTP, sendMobileOTP } from '../Axios/consulAxios'
@@ -41,10 +41,15 @@ const RegisterEmailOTP = () => {
     const { identity } = useParams()
     const context = useContext(ParamContext)
     const history = useHistory()
+    const inputBox = useRef(null)
 
-    const clearVcode = () => { setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) }
+    const clearVcode = () => { 
+        setInputCount(0)
+        setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) 
+    }
 
     const handleKeyboardOnkeydown = (event) => {
+        handleOnClickFocus()
         if (inputCount === 6 && event.keyCode !== 8) return
         if (event.keyCode >= 48 && event.keyCode <= 57 ) {
             let tempVcode = {...vcode}
@@ -58,6 +63,10 @@ const RegisterEmailOTP = () => {
             setVcode(tempVcode)
             setInputCount(inputCount-1)
         } else return
+    }
+
+    const handleOnClickFocus = (event) => {
+        inputBox.current.focus();
     }
 
     const handleSubmitOTP = async () => {
@@ -155,7 +164,7 @@ const RegisterEmailOTP = () => {
                     {displayResendTimer()}
                 </div>
             </div>
-            <input style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
+            <input ref={inputBox} style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
         </div>
     )
 }

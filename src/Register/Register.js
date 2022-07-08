@@ -11,6 +11,7 @@ import studentFuncs from '../Axios/studentAxios'
 import { sendEmailOTP } from "../Axios/consulAxios"
 import { ParamContext } from "../ContextReducer"
 import { wrapLoginData } from "../DataProcessUtils"
+import NotifModal from "../Modals/system/notifModal"
 
 import MetaTags from 'react-meta-tags'
 
@@ -23,6 +24,7 @@ const Register = () => {
     const [loading, setLoading] = useState(false)
     const [schoolBoxStyle, setSchoolBoxStyle] = useState({color: 'rgb(212,232,240)'})
     const [yearBoxStyle, setYearBoxStyle] = useState({color: 'rgb(212,232,240)'})
+    const [modalVisible, setModalVisible] = useState(true)
     const context = useContext(ParamContext)
     const history = useHistory()
     const schoolList = ['國立臺灣大學']
@@ -45,6 +47,12 @@ const Register = () => {
             setLoading(true)
             const { status, data, message } = await studentFuncs.studentRegister(payload);
             console.log(status, data, message)
+            if (status === 'failed') {
+                console.log('register failed')
+                setLoading(false)
+                setModalVisible(false)
+                return
+            }
             await context.setInfo({
                 type: 'register',
                 payload: wrapLoginData(data, 'student'),
@@ -89,6 +97,7 @@ const Register = () => {
                 <MetaTags>
                     <title>註冊 | Arctics</title>
                 </MetaTags>
+                <NotifModal title={"註冊失敗"} content={"帳號(Email)已被註冊"} hidden={modalVisible} setHidden={setModalVisible} />
                 <form className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
                     <div className="register-image-block">
                         <img className="register-image" src={IcebergImage} />
@@ -156,6 +165,7 @@ const Register = () => {
                 <MetaTags>
                     <title>註冊 | Arctics</title>
                 </MetaTags>
+                <NotifModal title={"註冊失敗"} content={"帳號(Email)已被註冊"} hidden={modalVisible} setHidden={setModalVisible} />
                 <form name="registerForm" className="register-content-box" onSubmit={handleSubmit(registerOnSubmit)}>
                     <div className="register-image-block">
                         <img className="register-image" src={IcebergImage} />

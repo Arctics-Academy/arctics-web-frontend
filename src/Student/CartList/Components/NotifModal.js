@@ -48,6 +48,10 @@ const NotifModal = ({title, content, hidden, setHidden, mode, clt}) => {
             // update origin
             if (mode === 'addToList') {
                 clt = unwrapSearchResult(clt)
+                if (context.Info.list.consultants.filter((e)=>(e.consultantId === clt.consultantId)).length !== 0) {
+                    setHidden(true)
+                    return
+                }
                 await StudentApi.addCartList({ id: context.Info.id, consultantId: clt.consultantId })
             }
             if (mode === 'deleteSingleListItem') {

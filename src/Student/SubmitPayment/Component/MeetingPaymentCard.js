@@ -47,19 +47,19 @@ const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit
             <div className="std_meeting-payment-left">
               <img className="std_meeting-payment-icon" src={Clock} alt="" />
               <p className="std_meeting-payment-title">時間</p>
-              <p className="std_meeting-payment-content">{Data.time}</p>
+              <p className="std_meeting-payment-content">{data.time}</p>
             </div>
             <div className="std_meeting-payment-right">
               <img className="std_meeting-payment-icon" src={Account} alt="" />
               <p className="std_meeting-payment-title">Arctics帳號</p>
-              <p className="std_meeting-payment-content">{Data.accountNo}</p>
+              <p className="std_meeting-payment-content">{data.accountNo}</p>
             </div>
           </div>
           <div className="std_meeting-payment-line">
             <div className="std_meeting-payment-left">
               <img className="std_meeting-payment-icon" src={Consultant} alt="" />
               <p className="std_meeting-payment-title">顧問</p>
-              <p className="std_meeting-payment-content">{Data.consultantName}同學<br />{Data.consultantSchool+' '+Data.consultantMajor}
+              <p className="std_meeting-payment-content">{data.consultantName}同學<br />{data.consultantSchool+' '+data.consultantMajor}
               </p>
             </div>
             <div className="std_meeting-payment-right">
@@ -72,7 +72,7 @@ const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit
             <div className="std_meeting-payment-left">
               <img className="std_meeting-payment-icon" src={Money} alt="" />
               <p className="std_meeting-payment-title">計價</p>
-              <p className="std_meeting-payment-content">{Data.price}/半小時</p>
+              <p className="std_meeting-payment-content">{data.price}/半小時</p>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit
         <p className="std_meeting-payment-bottom-line "></p>
 
         <div className="std_meeting-payment-bottom-container">
-          <p className="std_meeting-payment-bottom-content">總金額<span className="std_meeting-payment-bottom-content-span">{Data.price}</span>元</p>
+          <p className="std_meeting-payment-bottom-content">總金額<span className="std_meeting-payment-bottom-content-span">{data.price}</span>元</p>
         </div>
 
         <div className="std_meeting-payment-bottom-form-container">
