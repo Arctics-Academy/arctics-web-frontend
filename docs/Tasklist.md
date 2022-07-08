@@ -4,7 +4,7 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 ## Before Student Release...
 
-- [x] SAM: Stop booking from proceeding if not selected slot.
+- [x] DONE: Stop booking from proceeding if not selected slot.
 
 - [x] SAM: Add `<title>` tags to each student page.
 

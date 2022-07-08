@@ -81,8 +81,7 @@ const BookingFirstStage = ({ demo=false }) => {
   }, [])
 
   const handleSubmit = () => {
-    console.log(Context.Info)
-    if (Context.Info.tmpBookingForStd === null) {
+    if (slot === null) {
       alert('請選擇諮詢時段！')
     }
     else {
