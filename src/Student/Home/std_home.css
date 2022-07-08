@@ -213,7 +213,7 @@
 }
 
 .std-card-unavailable-button:disabled {
-    opacity: 80%;
+    opacity: 0.7;
     cursor: default;
 }
 
@@ -228,7 +228,7 @@
 }
 
 .std-card-open-meeting:disabled {
-    opacity: 80%;
+    opacity: 0.7;
     cursor: default;
 }
 

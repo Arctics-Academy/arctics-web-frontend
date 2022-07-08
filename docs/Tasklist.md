@@ -8,7 +8,7 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 - [x] SAM: Add `<title>` tags to each student page.
 
-- [x] SEAN: Missing 開啟會議 buttons. (Opacity rendered incorrectly?)
+- [x] DONE: Missing 開啟會議 buttons. (Opacity rendered incorrectly?)
 
 - [x] SEAN: Fix duplicate cart list items issue. (closed)
 
