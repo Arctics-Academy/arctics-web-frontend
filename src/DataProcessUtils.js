@@ -240,7 +240,9 @@ const castMeetingListToRecordList = (received) => {
             meetingPrice: fullList[idx].consultantPrice,
             meetingPaymentTime: (fullList[idx].paymentTime!==undefined ? wrapDateString(fullList[idx].paymentTime)+getStartTimeString(fullList[idx].paymentTime) : "-"),
             meetingDuration: (fullList[idx].startTimestamp ? wrapDateString(fullList[idx].startTimestamp)+wrapTimeString(fullList[idx].startTimestamp) : "-"),
-            consultantName: fullList[idx].consultantName
+            consultantName: fullList[idx].consultantName,
+            consultantSchool: fullList[idx].consultantSchool,
+            consultantMajor: fullList[idx].consultantMajor
         }
         parsedList.push(parsedMeeting)
     }
