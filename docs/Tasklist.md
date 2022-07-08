@@ -2,6 +2,16 @@
 
 List of suggested to-dos written by Sam before proceeding to the next stage of development. Project is not efficiently organized to utilize component-based design, which has hindered development efficiency.
 
+## Before Student Release...
+
+- [ ] Stop booking from proce
+
+- [ ] Add  `<title>` tags to each student page.
+
+- [ ] Fix React missing `key` prop. (Can be possible problem for not rendering correctly? Figure out transisitons.)
+
+- [ ] Align `modal`s and `alert()`s.
+
 ## Must-Do
 
 - [ ] Delete `create-react-app` original files.
@@ -9,6 +19,8 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 - [ ] Swap out alerts for modals.
 
 - [ ] Fix `<a>` tag css handling. Multiple patch used, marked with `/* patch */`.
+
+- [ ] Fix login password form handling.
 
 - [ ] Reorganize file structure
     - [ ] Update `public` folder to corrent contents.
