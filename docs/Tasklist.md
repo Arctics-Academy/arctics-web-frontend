@@ -4,13 +4,19 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 ## Before Student Release...
 
-- [ ] Stop booking from proce
+- [x] SAM: Stop booking from proceeding if not selected slot.
 
-- [ ] Add  `<title>` tags to each student page.
+- [x] SAM: Add `<title>` tags to each student page.
+
+- [x] SEAN: Missing 開啟會議 buttons. (Opacity rendered incorrectly?)
+
+- [x] SEAN: Fix duplicate cart list items issue.
+
+- [x] SEAN: Handle registration problems if server returns errors.
+
+- [ ] Align `modal`s and `alert()`s. (TBD)
 
 - [ ] Fix React missing `key` prop. (Can be possible problem for not rendering correctly? Figure out transisitons.)
-
-- [ ] Align `modal`s and `alert()`s.
 
 ## Must-Do
 
