@@ -10,9 +10,11 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 - [x] SEAN: Missing 開啟會議 buttons. (Opacity rendered incorrectly?)
 
-- [x] SEAN: Fix duplicate cart list items issue.
+- [x] SEAN: Fix duplicate cart list items issue. (closed)
 
-- [x] SEAN: Handle registration problems if server returns errors.
+- [x] SEAN: Handle registration problems if server returns errors. (closed)
+
+- [x] SEAN: Fix student home page search error modal display issue
 
 - [ ] Align `modal`s and `alert()`s. (TBD)
 
