@@ -34,23 +34,28 @@ const SubmitPayment = ({ demo=false }) => {
     try {
       // validate form
       // check all prop
-      let validator = { meetingId: false, paymentName: false, paymentDate: false, meetingPaymentScan: false } 
+      let validator = { 
+        meetingId: false, 
+        paymentName: false, 
+        paymentDate: false, 
+        meetingPaymentScan: false,
+        paymentBankNo: false,
+        paymentAccountNo: false
+      } 
       for (let key of SubmittedForm.entries()) {
         if ((key[1] !== undefined) || (key[1] !== '')) {
           validator[key[0]] = true;
         }
       }
       // check validator
-      let valid = true
-      for (let prop in validator) {
-        if (!validator[prop]) {
-          valid = false
-        }
-      }
+      let validWithScan = validator.meetingId && validator.paymentName && validator.paymentDate && validator.meetingPaymentScan;
+      let validWithForm = validator.meetingId && validator.paymentName && validator.paymentDate && validator.paymentBankNo && 
+        validator.paymentAccountNo;
       
       // if not valid...
-      if (!valid) {
+      if (!(validWithForm || validWithScan)) {
         alert(`請將表單填寫完成！`)
+        setLoading(false)
         return
       }
 
