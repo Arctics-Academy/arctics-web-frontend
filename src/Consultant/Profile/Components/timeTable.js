@@ -17,7 +17,7 @@ const TimeTable = ({ profile }) => {
 
   const updateTimetable = async (data) => {
     setLoading(true)
-    console.log(wrapTimetable(data.selected))
+    console.debug(wrapTimetable(data.selected))
     let payload = {
       profile: {
         timetable: wrapTimetable(data.selected)
@@ -27,7 +27,7 @@ const TimeTable = ({ profile }) => {
       const { status, msg } = await updateProfileData(payload)
       setLoading(false)
       setMsgVisible(true)
-      console.log(status, msg)
+      console.debug(status, msg)
       context.setInfo({
         type: 'editTimetable',
         payload: payload.profile.timetable
@@ -35,7 +35,7 @@ const TimeTable = ({ profile }) => {
       context.setLogin(true)
       setTimeout(() => {setMsgVisible(false)}, 3000)
     } catch (e) {
-      console.log(e)
+      console.debug(e)
     }
   }
 

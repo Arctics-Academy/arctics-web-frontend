@@ -20,7 +20,7 @@ const ResultBox = ( {clt, setContext, context } ) => {
   const history = useHistory()
 
   const handleBooking = () => {
-    console.log(context)
+    console.debug(context)
     setContext({
       type: 'selectBooking',
       payload: {
@@ -85,7 +85,7 @@ const ResultBox = ( {clt, setContext, context } ) => {
 
   const checkApi = async () => {
     const { status, data, message } = await studentApis.getConsultantProfilePreview({consultantId: 'TR00000002'})
-    console.log(status, data)
+    console.debug(status, data)
   }
 
   return (

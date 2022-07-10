@@ -29,26 +29,26 @@ const Register = () => {
     const history = useHistory()
     const schoolList = ['國立臺灣大學']
     const registerOnSubmit = async (payload) => {
-        console.log(payload)
+        console.debug(payload)
         if (identity === 'consultant') {
             setLoading(true)
             const { status, data } = await submitConsultantRegistrationData(payload);
-            console.log(status, data)
+            console.debug(status, data)
             await context.setInfo({
                 type: 'register',
                 payload: wrapLoginData(data, 'consultant'),
             })
             context.setLogin(true)
             const otpRequest = await sendEmailOTP({id:data.id})
-            console.log(otpRequest.status, otpRequest.msg)
+            console.debug(otpRequest.status, otpRequest.msg)
             setLoading(false)
             history.push(`/register-email-otp/${identity}`)
         } else {
             setLoading(true)
             const { status, data, message } = await studentFuncs.studentRegister(payload);
-            console.log(status, data, message)
+            console.debug(status, data, message)
             if (status === 'failed') {
-                console.log('register failed')
+                console.debug('register failed')
                 setLoading(false)
                 setModalVisible(false)
                 return
@@ -59,7 +59,7 @@ const Register = () => {
             })
             context.setLogin(true)
             const otpRequest = await studentFuncs.sendEmailOTP({id:data.id})
-            console.log(otpRequest.status, otpRequest.msg)
+            console.debug(otpRequest.status, otpRequest.msg)
             setLoading(false)
             history.push(`/register-email-otp/${identity}`)
         }

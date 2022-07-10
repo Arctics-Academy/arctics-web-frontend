@@ -12,7 +12,7 @@ const showBlocks = (items) => {
 const IntroTable = ({ profile, studentView }) => {
   const form = useForm()
   //form to prevent calender crash...
-  console.log(profile.timetable, resolveTimetable(profile.timetable))
+  console.debug(profile.timetable, resolveTimetable(profile.timetable))
   return (
     <>
       <table class="introTable">

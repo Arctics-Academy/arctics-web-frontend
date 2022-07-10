@@ -75,7 +75,7 @@ const reducer = (state, action) => {
                 notifications: action.payload.notifications,
             }
         case 'login':
-            console.log(action.payload.announcements)
+            console.debug(action.payload.announcements)
             let source = {
                 id: action.payload.id,
                 announcements: action.payload.announcements,
@@ -190,7 +190,7 @@ const reducer = (state, action) => {
             }
         case 'updatePaymentDate':
             for (let idx in state.meetingsByStudentRecord) {
-                console.log(state.meetingsByStudentRecord[idx].meetingId)
+                console.debug(state.meetingsByStudentRecord[idx].meetingId)
                 if (state.meetingsByStudentRecord[idx].meetingId === action.payload.meetingId) {
                     state.meetingsByStudentRecord[idx].meetingPaymentTime = wrapDateString(action.payload.meetingPaymentTime)+getStartTimeString(action.payload.meetingPaymentTime)
                 }

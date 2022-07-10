@@ -84,7 +84,7 @@ const IntroTop = ({ profile, page, changePage, setHidden }) => {
     );
   };
   const showButtonByPage = (page) => {
-    console.log(page);
+    console.debug(page);
     if (page === "intro-main") return showButton(topButton.main);
     else if (page === "intro-edit") return showButton(topButton.edit);
     else if (page === "intro-view") return showButton(topButton.view);

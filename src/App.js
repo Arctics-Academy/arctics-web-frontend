@@ -72,7 +72,7 @@ const App = () => {
   
   useEffect(() => {
     async function reload() {
-      console.log('reload')
+      console.debug('reload')
       const resConsultant = await authFetchAllData();
       const resStudent = await studentApis.studentAuthenticate();
       let status, data, message
@@ -87,8 +87,8 @@ const App = () => {
       } else {
         status = 'failed'
       }
-      console.log(status, data, message)
-      console.log(location)
+      console.debug(status, data, message)
+      console.debug(location)
       if (status === 'success') {
         try {
           setAuth(true)
@@ -97,11 +97,11 @@ const App = () => {
           //context.setLogin(true)
           context.Info = wrapLoginData(data, getIdentity(data.id))
           history.push(location.pathname)
-          console.log("App.js context: ", context)
+          console.debug("App.js context: ", context)
           return
         }
         catch (e) {
-          console.log(e)
+          console.debug(e)
           setAuth(false)
           return
         }

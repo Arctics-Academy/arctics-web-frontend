@@ -40,7 +40,7 @@ export default function Header () {
         } else{    
             if (validateInput(email)) {
                 const {status, msg} = await submitSubscriber(email)
-                console.log(status, msg)
+                console.debug(status, msg)
                 setConfirmText("已送出！")
                 setTimeout(()=>{setConfirmText("通知我")}, 750)
             } else {

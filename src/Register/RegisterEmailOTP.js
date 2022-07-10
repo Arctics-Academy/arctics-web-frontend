@@ -83,14 +83,14 @@ const RegisterEmailOTP = () => {
             setDisplayErrMsg(false)
             clearVcode()
         } else {
-            console.log(res.msg)
+            console.debug(res.msg)
             let otpRequest 
             if (identity === 'consultant') {
                 otpRequest = await sendMobileOTP({id:context.Info.id});
             } else {
                 otpRequest = await studentApis.sendMobileOTP({id:context.Info.id})
             }
-            console.log(otpRequest.status, otpRequest.msg)
+            console.debug(otpRequest.status, otpRequest.msg)
             setLoading(false)
             history.push(`/register-mobile-otp/${identity}`)
         }
@@ -104,7 +104,7 @@ const RegisterEmailOTP = () => {
         } else {
             res = await studentApis.sendEmailOTP({id:context.Info.id})
         }
-        console.log(res.status, res.msg)
+        console.debug(res.status, res.msg)
         clearVcode()
     }
 

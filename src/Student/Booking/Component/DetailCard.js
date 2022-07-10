@@ -60,7 +60,7 @@ const DetailCard = ({ demo }) => {
   //       coupon: code
   //     }
   //   })
-  //   console.log('Coupon Code:', code)
+  //   console.debug('Coupon Code:', code)
   // }
 
   const handleNextStep = async () => {

@@ -19,7 +19,7 @@ const CartItem = ( {clt, setContext, context } ) => {
   const history = useHistory()
 
   const handleBooking = () => {
-    console.log(context)
+    console.debug(context)
     setContext({
       type: 'selectBooking',
       payload: {

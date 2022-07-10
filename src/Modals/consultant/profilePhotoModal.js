@@ -8,16 +8,16 @@ import { ParamContext } from '../../ContextReducer'
 const ProfilePhotoModal = ({ hidden, setHidden }) => {
     const context = useContext(ParamContext)
     const handleOnChangeUpload = async (event) => {
-        console.log(event)
+        console.debug(event)
         const fdt = new FormData()
         fdt.append('profilePhoto', event.target.files[0])
         fdt.append('id', context.Info.id)
         setHidden(true)
         try{
             const { status, msg } = await updateProfilePhoto(fdt)
-            console.log(status, msg)
+            console.debug(status, msg)
         } catch (e) {
-            console.log(e)
+            console.debug(e)
         }
         context.setLogin(true)
         context.setInfo({
@@ -31,9 +31,9 @@ const ProfilePhotoModal = ({ hidden, setHidden }) => {
         setHidden(true)
         try {
             const { status, msg } = await updateProfilePhoto({id:context.Info.id})
-            console.log(status, msg)
+            console.debug(status, msg)
         } catch (e) {
-            console.log(e)
+            console.debug(e)
         }
         context.setInfo({
             type: 'updateAvatar',

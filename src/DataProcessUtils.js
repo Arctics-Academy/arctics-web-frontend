@@ -358,7 +358,7 @@ const wrapFilterResult = (result) => {
         }
     })
 
-    console.log(pack)
+    console.debug(pack)
     return pack
 }
 

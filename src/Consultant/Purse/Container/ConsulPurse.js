@@ -23,8 +23,8 @@ const ConsulPurse = () => {
     
     const jumpToReceipt = () => {history.push('/consultant-purse/receipt')}
     const jumpToWithdraw = () => {
-        console.log('jump')
-        console.log(hidden)
+        console.debug('jump')
+        console.debug(hidden)
         setHidden(false)
         //history.push('/consultant-purse/withdraw')
     }

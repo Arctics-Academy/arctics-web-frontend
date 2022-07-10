@@ -77,10 +77,10 @@ const RegisterMobileOTP = () => {
     }
 
     const handleSubmitOTP = async () => {
-        console.log('loading',  loading)
+        console.debug('loading',  loading)
         const payload = wrapCode(vcode, context.Info.id)
         setLoading(true)
-        console.log('loading',  loading)
+        console.debug('loading',  loading)
         let res;
         if (identity === 'consultant') {
             res = await verifyMobileOTP(payload)
@@ -92,7 +92,7 @@ const RegisterMobileOTP = () => {
             setDisplayErrMsg(false)
             clearVcode()
         } else {
-            console.log(res.msg)
+            console.debug(res.msg)
             history.push('/register-success')
         }
     }
@@ -105,7 +105,7 @@ const RegisterMobileOTP = () => {
         } else {
             res = await studentApis.sendMobileOTP({id:context.Info.id})
         }
-        console.log(res.status, res.msg)
+        console.debug(res.status, res.msg)
         clearVcode()
     }
 

@@ -16,8 +16,8 @@ const Preview = () => {
     const getData = async (id) => {
       const res = await studentApis.getConsultantProfilePreview({consultantId: id});
       context.setInfo({type:'storePreviewData', payload: wrapConsultantPreview(res.data)})
-      console.log(wrapConsultantPreview(res.data))
-      console.log(id, res.data)
+      console.debug(wrapConsultantPreview(res.data))
+      console.debug(id, res.data)
     }
     getData(cltid)
   })

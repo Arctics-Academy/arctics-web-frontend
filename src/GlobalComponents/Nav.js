@@ -37,7 +37,7 @@ export default function Nav() {
 		history.push('/')
 	}
 
-	console.log("Nav context: ", context)
+	console.debug("Nav context: ", context)
 
 	if ((!context.isLogin) || (location.pathname==='/')) {
 		// const handleScrollTop = (evt)=>document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
@@ -68,7 +68,7 @@ export default function Nav() {
 		    		<img className="nav__logo" src={logo} alt="arctics" width="224px" height="41px"></img>
 		    		<div className="nav__right">
 			    		<ul className="nav__menu">
-				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><Link to='/consultant-home'>首頁</Link></li>
+				   		 	<li className="nav__menu-item" onClick={() => {console.debug(context.Info)}}><Link to='/consultant-home'>首頁</Link></li>
 				   		 	<li className="nav__menu-item">
 								<Link to='/consultant-announcement'><a>
 									通知 
@@ -105,7 +105,7 @@ export default function Nav() {
 		    		<img className="nav__logo" src={logo} alt="arctics" width="224px" height="41px"></img>
 		    		<div className="nav__right">
 			    		<ul className="nav__menu">
-				   		 	<li className="nav__menu-item" onClick={() => {console.log(context.Info)}}><Link to='/student-home'>首頁</Link></li>
+				   		 	<li className="nav__menu-item" onClick={() => {console.debug(context.Info)}}><Link to='/student-home'>首頁</Link></li>
 				   		 	<li className="nav__menu-item">
 									<Link to="/student-announcement">
 									通知{displayUnreadNumber(context.Info.announcements.unreadCount,context.Info.notifications.unreadCount)}

@@ -26,7 +26,7 @@ export default function ContactUs () {
 
 		let errorString = "", index
 		for (index in items) {
-			// console.log(index, items.length-1, parseInt(index) !== parseInt(items.length-1))
+			// console.debug(index, items.length-1, parseInt(index) !== parseInt(items.length-1))
 			if (parseInt(index) !== parseInt(items.length-1)) errorString += items[index] + "、"
 			else errorString += items[index]
 		}
@@ -60,7 +60,7 @@ export default function ContactUs () {
 			phone,
 			message
 		};
-		// console.log(allValue);
+		// console.debug(allValue);
 		
 		let formStatus = validateForm(allValue)
 		if (formStatus === "0") { // Validate True

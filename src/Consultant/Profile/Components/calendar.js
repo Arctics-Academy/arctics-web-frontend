@@ -47,7 +47,7 @@ const getTimeArray = () => {
 
 const Calendar = ({ editing, timeslot }) => {
   const { register } = useFormContext();
-  console.log(timeslot);
+  console.debug(timeslot);
   let defaultChecked = timeslot.reduce((m, v) => ((m[v] = true), m), {})
   const [checkedItems, setCheckedItems] = useState(defaultChecked);
 
@@ -56,7 +56,7 @@ const Calendar = ({ editing, timeslot }) => {
       ...checkedItems,
       [event.target.name]: event.target.checked,
     });
-    console.log("checkedItems: ", checkedItems);
+    console.debug("checkedItems: ", checkedItems);
   };
 
   const displayCheckbox = (day, time) => {

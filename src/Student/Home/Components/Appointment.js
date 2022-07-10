@@ -51,12 +51,12 @@ const Meetings = (appointments) => {
 
 // FIXME: add empty stuff
 const AppointmentContent = (appointments) => {
-  console.log('AppointmentContent', appointments.length)
+  console.debug('AppointmentContent', appointments.length)
   while ((appointments.length === 1) || (appointments.length === 2)) {
     appointments.push(null)
-    console.log(appointments.length)
+    console.debug(appointments.length)
   }
-  console.log('AppointmentContent', appointments.length)
+  console.debug('AppointmentContent', appointments.length)
 
   if (appointments[0] === undefined) {
     return (

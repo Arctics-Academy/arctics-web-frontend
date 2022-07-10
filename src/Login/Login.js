@@ -46,7 +46,7 @@ const Login = () => {
                 setDisplayWrongAct(true)
                 setDisplayWrongPwd(true)
             } else {
-                console.log(res.status, res.data)
+                console.debug(res.status, res.data)
                 setAccount('')
                 setPassword('')
                 context.setInfo({
@@ -57,7 +57,7 @@ const Login = () => {
                 history.push(`/${getIdentity(res.data.id)}-home`)
             }
         } catch (err) {
-            console.log(err)
+            console.debug(err)
             setLoading(false)
             setDisplayWrongAct(true)
             setDisplayWrongPwd(true)

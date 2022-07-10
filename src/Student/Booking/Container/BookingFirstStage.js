@@ -60,7 +60,7 @@ const BookingFirstStage = ({ demo=false }) => {
 
   useEffect(() => {
     const updateSlots = async () => {
-      console.log(Context.Info.tmpViewForStd)
+      console.debug(Context.Info.tmpViewForStd)
       const { data } = await StudentApi.getBookingSlot({ 
         studentId: Context.Info.id, 
         consultantId: Context.Info.toBook.id
@@ -74,7 +74,7 @@ const BookingFirstStage = ({ demo=false }) => {
         consultant: Consultant,
         student: Student
       }
-      console.log(updated)
+      console.debug(updated)
       setData({ ...updated })
     }
 

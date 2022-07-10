@@ -24,7 +24,7 @@ const SubmitPayment = ({ demo=false }) => {
       SubmittedForm.set('meetingPaymentScan', event.target.files[0])
     }
     else {
-      console.log(event.target.dataset.formLabel, event.target.value)
+      console.debug(event.target.dataset.formLabel, event.target.value)
       SubmittedForm.set(event.target.dataset.formLabel, event.target.value)
     }
   }
