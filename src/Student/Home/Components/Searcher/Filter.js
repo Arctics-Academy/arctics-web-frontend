@@ -65,8 +65,21 @@ const Filter = ({modalHidden, setModalHidden}) => {
 
     const onSubmit = async (data) => {
         setLoading(true)
-        if (data.field === undefined || data.field === "選擇學群領域") setModalHidden(false)
-        else console.log("Search on: ", data)
+        // if (data.field === undefined || data.field === "選擇學群領域") {
+        //     if (location.pathname === '/student-home') {
+        //         setLoading(false)
+        //         history.push('/student-search-result')
+        //         setModalHidden(false)
+        //     }
+        //     else {
+        //         setLoading(false)
+        //         setModalHidden(false)
+        //     }
+        //     return
+        // }
+        // else {
+        //     console.debug("Search on: ", data)
+        // }
         
         let majorQuery = (data.major !== '選擇學系' ? data.major : NTUFieldToMajorMap[data.field])
         const res = await studentApi.getFilterResult({query: {school:["國立臺灣大學"], major: majorQuery}}) //, field:[data.field]

@@ -2,9 +2,9 @@ import '../system/system_modal.css'
 import { ReactComponent as RedExclamationPoint } from '../img/red-exclamation-point.svg'
 
 
-const EmptySearchModal = ({hidden, setHidden}) => {
+const EmptySearchModal = ({modalHidden, setModalHidden}) => {
     return (
-        <div className='sys_modal-open-meeting' style={hidden? {display:'none'}:{}}>
+        <div className='sys_modal-open-meeting' style={(modalHidden ? { display:'none' } : {})}>
             <div className='sys_modal-open-meeting-info'>
                 <div className='sys_modal-empty-function-icon-area'>
                     <RedExclamationPoint className='sys_modal-empty-function-icon' />
@@ -12,7 +12,7 @@ const EmptySearchModal = ({hidden, setHidden}) => {
                     <p className='sys_modal-empty-function-text'>使用顧問搜尋須至少選擇學群！</p>
                 </div>
                 <div className='sys_modal-empty-function-button-area'>
-                    <button className='sys_modal-empty-function-button' onClick={()=>setHidden(true)}>確認</button>
+                    <button className='sys_modal-empty-function-button' onClick={()=>setModalHidden(true)}>確認</button>
                 </div>
             </div>
         </div>

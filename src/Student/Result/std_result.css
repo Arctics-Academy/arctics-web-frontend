@@ -35,9 +35,8 @@
 }
 
 .std-result-empty-box {
-  width: 1195px;
-  height: 260px;
-  
+  margin-left: 10vw;
+  margin-right: 10vw;
   margin-top: 64px;
 
   text-align: center;

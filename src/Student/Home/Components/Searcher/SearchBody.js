@@ -9,7 +9,7 @@ const SearchBody = ({place}) => {
     const [modalHidden, setModalHidden] = useState(true)
     return (
         <>
-            <EmptySearchModal hidden={modalHidden} setHidden={setModalHidden} />
+            <EmptySearchModal modalHidden={modalHidden} setModalHidden={setModalHidden} key={String(modalHidden)}/>
             <div className={`std_search-${place}-main`}>
                 <div className='std_search-title'>
                     <SearchTitleIcon className='std_search-title-icon' />
