@@ -1,11 +1,14 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import './register.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { sendEmailOTP, verifyEmailOTP, sendMobileOTP } from '../Axios/consulAxios'
+import studentApis from '../Axios/studentAxios'
 import { ParamContext } from '../ContextReducer'
 import Loading from '../Login/img/loading48.gif'
 
 import MetaTags from 'react-meta-tags'
+
+import ActionButton from '../GlobalComponents/Components/ActionButton'
 
 const ShowValidCode = ({ input }) => {
     return (
@@ -35,48 +38,73 @@ const RegisterEmailOTP = () => {
     const [timerLeft, setTimerLeft] = useState(180)
     const [counting, setCounting] = useState(true)
     const [loading, setLoading] = useState(false)
+    const { identity } = useParams()
     const context = useContext(ParamContext)
     const history = useHistory()
+    const inputBox = useRef(null)
 
-    const clearVcode = () => { setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) }
+    const clearVcode = () => { 
+        setInputCount(0)
+        setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) 
+    }
 
     const handleKeyboardOnkeydown = (event) => {
+        handleOnClickFocus()
         if (inputCount === 6 && event.keyCode !== 8) return
         if (event.keyCode >= 48 && event.keyCode <= 57 ) {
             let tempVcode = {...vcode}
             tempVcode[inputCount+1] = event.key
-            setInputCount(inputCount+1)
             setVcode(tempVcode)
+            setInputCount(inputCount+1)
         } else if (event.keyCode === 8) {
             if (inputCount === 0) return
             let tempVcode = {...vcode}
             tempVcode[inputCount] = ' '
-            setInputCount(inputCount-1)
             setVcode(tempVcode)
+            setInputCount(inputCount-1)
         } else return
+    }
+
+    const handleOnClickFocus = (event) => {
+        inputBox.current.focus();
     }
 
     const handleSubmitOTP = async () => {
         const payload = wrapCode(vcode, context.Info.id)
         setLoading(true)
-        const { status, msg } = await verifyEmailOTP(payload)      
-        if (status === 'failed') {
+        let res;
+        if (identity === 'consultant') {
+            res = await verifyEmailOTP(payload)
+        } else {
+            res = await studentApis.verifyEmailOTP(payload)
+        }       
+        if (res.status === 'failed') {
             setLoading(false)
             setDisplayErrMsg(false)
             clearVcode()
         } else {
-            console.log(msg)
-            const otpRequest = await sendMobileOTP({id:context.Info.id});
-            console.log(otpRequest.status, otpRequest.msg)
+            console.debug(res.msg)
+            let otpRequest 
+            if (identity === 'consultant') {
+                otpRequest = await sendMobileOTP({id:context.Info.id});
+            } else {
+                otpRequest = await studentApis.sendMobileOTP({id:context.Info.id})
+            }
+            console.debug(otpRequest.status, otpRequest.msg)
             setLoading(false)
-            history.push('/register-mobile-otp')
+            history.push(`/register-mobile-otp/${identity}`)
         }
     }
 
     const handleResendOTP = async () => {
         setCounting(true)
-        const { status, msg } = await sendEmailOTP({id:context.Info.id})
-        console.log(status, msg)
+        let res
+        if (identity === 'consultant') {
+            res = await sendEmailOTP({id:context.Info.id})
+        } else {
+            res = await studentApis.sendEmailOTP({id:context.Info.id})
+        }
+        console.debug(res.status, res.msg)
         clearVcode()
     }
 
@@ -127,15 +155,16 @@ const RegisterEmailOTP = () => {
                 </div>
                 <p className='reg-validate-err-msg' hidden={displayErrMsg}>驗證碼錯誤!</p>
                 <div className='reg-validate-submit'>
-                    <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
+                    {/* <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
                         {loading? (<img className='register-email-otp-loading' src={Loading} />):'送出並驗證手機'}
-                    </button>
+                    </button> */}
+                    <ActionButton label="送出/驗證" loading={loading} callback={handleSubmitOTP} />
                 </div>
                 <div className='reg-validate-resend-request'>
                     {displayResendTimer()}
                 </div>
             </div>
-            <input style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
+            <input ref={inputBox} style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
         </div>
     )
 }

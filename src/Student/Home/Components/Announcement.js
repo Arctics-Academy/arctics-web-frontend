@@ -1,20 +1,22 @@
-import '../std_home.css' 
-import { ReactComponent as AnnounceIcon } from '../img/announceicon.svg'
+// Icons
+import AnnounceIcon from '../img/announceicon.svg'
+
+// Stylesheet
+import '../std_home.css'
+
 
 const Announcement = () => {
-    return (
-        <div className="std_home-ancmt">
-            <div className="std_home-ancmt-title">
-                <AnnounceIcon className='std_home-ancmt-title-icon' />
-                <span className='std_home-ancmt-title-content'> 最新公告</span>
-            </div>
-            <div className='std_home-ancmt-banner'>
-                <p className='std_home-ancmt-banner-title'>顧問問卷調查</p>
-                <a className='std_home-ancmt-banner-link'>立即前往</a>
-                {/*<img className='std_home-ancmt-banner-bkg' src={announcementBkg} />*/}
-            </div>
-        </div>
-    )
+  return (
+    <div className="std_home-ancmt">
+      <div className="std_home-ancmt-title">
+        <img className='std_home-ancmt-title-icon' src={AnnounceIcon} alt=''/>
+        <span className='std_home-ancmt-title-content'> 最新公告</span>
+      </div>
+      <div className='std_home-ancmt-banner'>
+        <p className='std_home-ancmt-banner-title'>目前沒有任何公告</p>
+      </div>
+    </div>
+  )
 }
 
 export default Announcement

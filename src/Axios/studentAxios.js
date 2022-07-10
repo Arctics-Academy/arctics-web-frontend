@@ -150,6 +150,7 @@ const verifyDiscountCode = async (payload) => {
 
 const getFilterResult = async (payload) => {
   try {
+    console.debug('search on:', payload)
     const { data: { status, data, message } } = await instance.post('/api/student/tools/filter', {
       ...payload
     })   
@@ -174,7 +175,7 @@ const getConsultantProfilePreview = async (payload) => {
 
 const studentAuthenticate = async (payload) => {
   try {
-    const { data: { status, data, message } } = await instance.post('/api/system/student', {
+    const { data: { status, data, message } } = await instance.get('/api/system/student', {
       ...payload
     })
 
@@ -186,7 +187,7 @@ const studentAuthenticate = async (payload) => {
 
 const sendEmailOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/email-otp/send', {
+    const { data: { status, message } } = await instance.post('/api/user/student/email-otp/send', {
       ...payload
     })
 
@@ -198,7 +199,7 @@ const sendEmailOTP = async (payload) => {
 
 const verifyEmailOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/email-otp/verify', {
+    const { data: { status, message } } = await instance.post('/api/user/student/email-otp/verify', {
       ...payload
     })
 
@@ -210,7 +211,7 @@ const verifyEmailOTP = async (payload) => {
 
 const sendMobileOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/mobile-otp/send', {
+    const { data: { status, message } } = await instance.post('/api/user/student/mobile-otp/send', {
       ...payload
     })
 
@@ -222,7 +223,7 @@ const sendMobileOTP = async (payload) => {
 
 const verifyMobileOTP = async (payload) => {
   try {
-    const { data: { status, message } } = await instance.post('/api/system/student/mobile-otp/verify', {
+    const { data: { status, message } } = await instance.post('/api/user/student/mobile-otp/verify', {
       ...payload
     })
 
@@ -232,11 +233,111 @@ const verifyMobileOTP = async (payload) => {
   }
 }
 
+const addCartList = async (payload) => {
+  try {
+    const { data: { status, message } } = await instance.post('/api/student/list/add', { ...payload })
+    console.debug('addCartList()', status, message)
+    return { status, message }
+  }
+  catch (e) {
+    console.debug('addCartList()', e)
+    return { status: `failed`, message: `addCartList(): ${e}`}
+  }
+}
+
+const deleteCartList = async (payload) => {
+  try {
+    const { data: { status, message } } = await instance.post('/api/student/list/delete', { ...payload })
+    console.debug('deleteCartList()', status, message)
+    return { status, message }
+  }
+  catch (e) {
+    console.debug('deleteCartList()', e)
+    return { status: `failed`, message: `deleteCartList(): ${e}`}
+  }
+}
+
+const clearCartList = async (payload) => {
+  try {
+    const { data: { status, message } } = await instance.post('/api/student/list/clear', { ...payload })
+    console.debug('clearCartList()', status, message)
+    return { status, message }
+  }
+  catch (e) {
+    console.debug('clearCartList()', e)
+    return { status: `failed`, message: `clearCartList(): ${e}`}
+  }
+}
+
+const getBookingSlot = async (payload) => {
+  // payload
+  // {
+  //   studentId: "string"
+  //   consultantId: "string"
+  // }
+  try {
+    const { data: { status, data } } = await instance.post('/api/student/tools/consultant-timetable/get', { ...payload })
+    console.debug('getBookingSlot()', status, data)
+    return { status, data }
+  }
+  catch (e) {
+    console.debug('getBookingSlot()', e)
+    return { status: `failed`, message: `getBookingSlot(): ${e}`}
+  }
+}
+
+const addMeeting = async (payload) => {
+  // req.body
+  // {
+  //     consultantId: "string",
+  //     studentId: "string",
+  //     year: number,
+  //     month: number,
+  //     date: number,
+  //     slot: number,
+  // }
+  try {
+    const { data: { status, message, data } } = await instance.post('/api/meeting/add', { ...payload })
+    console.debug('addMeeting()', status, message, data)
+    if (status === 'failed') throw new Error(message)
+    else return { status, message, data }
+  }
+  catch (e) {
+    console.debug('addMeeting()', e)
+    return { status: `failed`, message: `addMeeting(): ${e}`, data: null }
+  }
+}
+
+const uploadPaymentProof = async (payload) => {
+  // req.body (form-data)
+  // {
+  //     meetingId: "string"
+  //     paymentName: "string"
+  //     paymentDate: "string"
+  //     meetingPaymentScan: file
+  // }
+  try {
+    const { data: { status, message, data }} = await instance.post('/api/student/meetings/submit-payment-proof', payload)
+    console.debug('uploadPaymentProof()', status, message)
+    if (status === 'failed') throw new Error(message)
+    else return { status, data, message }
+  }
+  catch (e) {
+    console.debug('addMeeting()', e)
+    return { status: 'failed', message: `addMeeting(): ${e}`, data: null }
+  }
+}
+
+
 export default {
   studentLogin, studentRegister, studentAuthenticate,
   getDashboardInfo, getListInfo, addStudentListItem, deleteStudentListItem, clearStudentList, 
   getStudentProfile, updateStudentProfile,
   getAllMeetings, getStudentNotifCount, verifyDiscountCode, 
   getFilterResult, getConsultantProfilePreview,
-  sendEmailOTP, sendMobileOTP, verifyEmailOTP, verifyMobileOTP
+  sendEmailOTP, sendMobileOTP, verifyEmailOTP, verifyMobileOTP,
+  addCartList, deleteCartList, clearCartList,
+  getBookingSlot,
+  addMeeting,
+  uploadPaymentProof
 }

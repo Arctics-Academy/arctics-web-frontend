@@ -1,11 +1,14 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import './register.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { sendMobileOTP, verifyMobileOTP } from '../Axios/consulAxios'
+import studentApis from '../Axios/studentAxios'
 import { ParamContext } from '../ContextReducer'
 import Loading from '../Login/img/loading48.gif'
 
 import MetaTags from 'react-meta-tags'
+
+import ActionButton from '../GlobalComponents/Components/ActionButton'
 
 const ShowValidCode = ({ input }) => {
     return (
@@ -35,10 +38,15 @@ const RegisterMobileOTP = () => {
     const [timerLeft, setTimerLeft] = useState(180)
     const [counting, setCounting] = useState(true)
     const [loading, setLoading] = useState(false)
+    const { identity } = useParams()
     const context = useContext(ParamContext)
     const history = useHistory()
+    const inputBox = useRef(null)
 
-    const clearVcode = () => { setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) }
+    const clearVcode = () => {  
+        setInputCount(0)
+        setVcode({1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' '}) 
+    }
     
     const displayTimer = () => {
         let sec = timerLeft%60
@@ -48,6 +56,7 @@ const RegisterMobileOTP = () => {
     }
 
     const handleKeyboardOnkeydown = (event) => {
+        handleOnClickFocus()
         if (inputCount === 6 && event.keyCode !== 8) return
         if (event.keyCode >= 48 && event.keyCode <= 57 ) {
             let tempVcode = {...vcode}
@@ -63,24 +72,40 @@ const RegisterMobileOTP = () => {
         } else return
     }
 
+    const handleOnClickFocus = (event) => {
+        inputBox.current.focus();
+    }
+
     const handleSubmitOTP = async () => {
+        console.debug('loading',  loading)
         const payload = wrapCode(vcode, context.Info.id)
         setLoading(true)
-        const { status, msg } = await verifyMobileOTP(payload)
+        console.debug('loading',  loading)
+        let res;
+        if (identity === 'consultant') {
+            res = await verifyMobileOTP(payload)
+        } else {
+            res = await studentApis.verifyMobileOTP(payload)
+        }
         setLoading(false)
-        if (status === 'failed') {
+        if (res.status === 'failed') {
             setDisplayErrMsg(false)
             clearVcode()
         } else {
-            console.log(msg)
+            console.debug(res.msg)
             history.push('/register-success')
         }
     }
 
     const handleResendOTP = async () => {
         setCounting(true)
-        const { status, msg } = await sendMobileOTP({id:context.Info.id})
-        console.log(status, msg)
+        let res;
+        if (identity === 'consultant') {
+            res = await sendMobileOTP({id:context.Info.id})
+        } else {
+            res = await studentApis.sendMobileOTP({id:context.Info.id})
+        }
+        console.debug(res.status, res.msg)
         clearVcode()
     }
 
@@ -124,15 +149,16 @@ const RegisterMobileOTP = () => {
                 </div>
                 <p className='reg-validate-err-msg' hidden={displayErrMsg}>驗證碼錯誤!</p>
                 <div className='reg-validate-submit'>
-                    <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
+                    {/* <button className='reg-validate-submit-button' onClick={handleSubmitOTP}>
                         {loading? (<img className='register-email-otp-loading' src={Loading} />):'送出'}
-                    </button>
+                    </button> */}
+                    <ActionButton label="送出/驗證" loading={loading} callback={handleSubmitOTP} />
                 </div>
                 <div className='reg-validate-resend-request'>
                     {displayResendTimer()}
                 </div>
             </div>
-            <input style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
+            <input ref={inputBox} style={{opacity:'0'}} onKeyDown={handleKeyboardOnkeydown} autoFocus />
         </div>
     )
 }

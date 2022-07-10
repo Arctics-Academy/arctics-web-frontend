@@ -9,9 +9,9 @@ import { readNotificationsOrAnnouncements } from "../../../Axios/consulAxios";
 const Notification = ({setContent, setTitle, setHidden}) => {
   const context = useContext(ParamContext)
   const handleOnRead = async (evt) => {
-    console.log(evt.target.dataset.nid)
+    console.debug(evt.target.dataset.nid)
     let clicked = context.Info.notifications.list.filter((e) => (e.id === evt.target.dataset.nid))
-    console.log(evt.target.dataset.nid, clicked, clicked[0])
+    console.debug(evt.target.dataset.nid, clicked, clicked[0])
     setContent(clicked[0].content)
     setTitle(clicked[0].title)
     setHidden(false)
@@ -29,14 +29,14 @@ const Notification = ({setContent, setTitle, setHidden}) => {
       notificationId: [evt.target.dataset.nid]
     }
     const { status, message } = await readNotificationsOrAnnouncements(payload)
-    console.log(context.Info)
-    console.log(status, message)
-    console.log(payload)
+    console.debug(context.Info)
+    console.debug(status, message)
+    console.debug(payload)
   }
   const displayNotifications = (notifs) => {
     return notifs.map( (obj)=>{
       let time = new Date(obj.timestamp).toLocaleString()
-      console.log(obj.id)
+      console.debug(obj.id)
       return(
         <div className={(obj.read ? "clt_notif-line-wrapper clt_notif-line-wrapper-read" : "clt_notif-line-wrapper")} data-nid={`${obj.id}`} onClick={handleOnRead}>
           <p className="clt_notif-line-content" data-nid={`${obj.id}`} onClick={handleOnRead}>

@@ -13,7 +13,7 @@ const Receipt = () => {
     }, [context.Info.receipts])
 
     const handleOnclickId = () => {
-        console.log(receipt, context.Info.receipts)
+        console.debug(receipt, context.Info.receipts)
         if (sortTarget === 'id') setSortTarget('id-r')           
         else setSortTarget('id')
         setReceipt(getSortedList(sortTarget, receipt))

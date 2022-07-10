@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react'
-import { sortTransactions } from './DataProcessUtils'
+import { sortTransactions, wrapDateString, getStartTimeString } from './DataProcessUtils'
 export const ParamContext = React.createContext()
 
 /* context state doc
@@ -28,6 +28,19 @@ const initState = {
     },
     withdrawableAmount: 0,
     withdrawedAmount: 0,
+    list: {
+        consultants: [],
+    },
+    filterResult: [],
+    tmpViewForStd: {
+        count: 0, email: '', emailVerified: false, experiences: '', intro: '', field: [], labels: [], mobile: '', mobileVerified: true,
+        major: '', name: '', surname: '', school: '', year: '', studentCardVerified: false, timetable: [[],[],[],[],[],[],[]],
+    },
+    tmpBookingForStd: { 
+        count: 0, email: '', field: [], labels: [], major: '', mobile: '', name: '', 
+        photo: 'NotFound', price: 200, school: '', surname: '', year: '',
+        timetable: [[], [], [], [], [], [], []]
+    }
 }
 
 const sumAmount = (type, list) => {
@@ -62,13 +75,14 @@ const reducer = (state, action) => {
                 notifications: action.payload.notifications,
             }
         case 'login':
-            console.log(action.payload.announcements)
-            return {
+            console.debug(action.payload.announcements)
+            let source = {
                 id: action.payload.id,
                 announcements: action.payload.announcements,
                 identity: action.payload.identity,
                 meetingsByTime: action.payload.meetingsByTime,
                 meetingsByStatus: action.payload.meetingsByStatus,
+                meetingsByStudentRecord: action.payload.meetingsByStudentRecord,
                 purse: {
                     ...action.payload.purse,
                     transactions: sortTransactions(action.payload.purse.transactions)
@@ -76,7 +90,12 @@ const reducer = (state, action) => {
                 profile: action.payload.profile,
                 notifications: action.payload.notifications,
                 withdrawableAmount: sumAmount('未提領', action.payload.purse.transactions),
-                withdrawedAmount: sumAmount('已提領', action.payload.purse.transaction)
+                withdrawedAmount: sumAmount('已提領', action.payload.purse.transaction),
+                list: (action.payload.list===undefined)? {}:action.payload.list,
+            }
+            Object.assign(state, source)
+            return {
+                ...state
             }
         case 'editProfile':
             return {
@@ -118,6 +137,67 @@ const reducer = (state, action) => {
                     })
                 }
             }
+        case 'selectBooking':
+            return {
+                ...state,
+                toBook: {
+                    ...action.payload
+                }
+            }
+        case 'setCoupon':
+            return {
+                ...state,
+                toBook: {
+                    ...state.toBook,
+                    coupon: action.payload.coupon
+                }
+            }
+        case 'saveFilterResult':
+            return {
+                ...state, 
+                filterResult: action.payload.filterResult
+            }
+        case 'deleteSingleListItem':
+            return {
+                ...state,
+                list: {
+                    consultants: state.list.consultants.filter((e) => (action.payload.deleteId !== e.id))
+                }
+            }
+        case 'clearList':
+            return {
+                ...state,
+                list: {
+                    consultants: []
+                }
+            }
+        case 'addToList':
+            return {
+                ...state,
+                list: {
+                    consultants: [...state.list.consultants, action.payload.newConsultant]
+                }
+            }
+        case 'storePreviewData':
+            return {
+                ...state,
+                tmpViewForStd: action.payload
+            }
+        case 'storeStudentBookingSlot': 
+            return {
+                ...state,
+                tmpBookingForStd: action.payload
+            }
+        case 'updatePaymentDate':
+            for (let idx in state.meetingsByStudentRecord) {
+                console.debug(state.meetingsByStudentRecord[idx].meetingId)
+                if (state.meetingsByStudentRecord[idx].meetingId === action.payload.meetingId) {
+                    state.meetingsByStudentRecord[idx].meetingPaymentTime = wrapDateString(action.payload.meetingPaymentTime)+getStartTimeString(action.payload.meetingPaymentTime)
+                }
+            }
+            return { ...state }
+        case 'logout':
+            return { ...initState }
         default:
             return state
     }

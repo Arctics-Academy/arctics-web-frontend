@@ -41,29 +41,37 @@ const findIndex = (montharr, date) => {
     }
     rowIdx--
     let colIdx = 0;
-    while (colIdx < 6) {
+    while (colIdx <= 6) {
         if (montharr[rowIdx][colIdx] === undefined) colIdx++
         if (montharr[rowIdx][colIdx].date === date) return {rowIdx, colIdx}
         else colIdx++
     }
 }
 
+const toTwoDigit = (num) => {
+    if (num  <= 9) return `0${num}`
+    else return `${num}`
+}
+
 const wrapDateString = (time) => {
-    const weeday = {0:'日', 1:'一', 2:'二', 3:'三', 4:'四', 5:'五', 6:'六'}
-    return `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()} (${weeday[time.getDay()]})`
+    time = new Date(time)
+    const weeday = { 0: '日', 1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六' }
+    return `${time.getFullYear()}-${toTwoDigit((time.getMonth()+1)%12)}-${toTwoDigit(time.getDate())}（${weeday[time.getDay()]}）`
 }
 
 const wrapTimeString = (time) => {
+    time = new Date(time)
     let hour = time.getHours(), min = time.getMinutes()
     if (min === 30) {
-        return `${hour}:${min}~${hour+1}:00`
+        return `${toTwoDigit(hour)}:${toTwoDigit(min)}~${toTwoDigit(hour+1)}:00`
     } else {
-        return `${hour}:${min}~${hour}:30`
+        return `${toTwoDigit(hour)}:${toTwoDigit(min)}~${toTwoDigit(hour)}:30`
     }
 }
 
 const getStartTimeString = (time) => {
-    return `${time.getHours()}:${time.getMinutes()}`
+    time = new Date(time)
+    return `${toTwoDigit(time.getHours())}:${toTwoDigit(time.getMinutes())}`
 }
 
 const stringToDateObject = (list) => {
@@ -92,9 +100,14 @@ const retrieveDateObject = (list) => {
 }
 
 const transformStatusListIntoCalender  = (list) => {
-    //list format: { future: [{meeting detail...}...], past:[...], cancelled:[...] }
+    // list format: 
+    // { 
+    //     future: [{meeting detail...}...], 
+    //     past:[...], 
+    //     cancelled:[...] 
+    // }
     const current = new Date()
-    const dayDetail = { year: current.getFullYear(), month: current.getMonth()+1, date: current.getDate() }
+    const dayDetail = { year: current.getFullYear(), month: ((current.getMonth()+1)%12), date: current.getDate() }
     let calender = {}
     let concatnated = list.future.concat(list.past.concat(list.cancelled))
     if (concatnated[0] === undefined) {
@@ -139,19 +152,41 @@ const transformStatusListIntoCalender  = (list) => {
         if (calender[dayDetail.year][dayDetail.month] === undefined) calender[dayDetail.year][dayDetail.month] = buildMonthArr(dayDetail.year, dayDetail.month)
         if (calender[dayDetail.year][dayDetail.month+1] === undefined) calender[dayDetail.year][dayDetail.month+1] = buildMonthArr(dayDetail.year, dayDetail.month+1)
     }
-
     return calender
 }
 
-const resolveByStatus = (list, exp, type) => {
+const resolveByStatus = (list, exp, type, identity) => {
     if (list[0] === undefined) return []
     let output = []
     list.map((e) => {
-        const wrapped = {
-            id: e.id,
-            date: wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
-            student: e.studentName, grade: e.studentYear, exp: exp,
-            content: e.studentItems, remark: e.remark
+        let wrapped;
+        if (identity === 'consultant') { 
+            wrapped = {
+                id: e.id,
+                date : wrapDateString(e.startTimestamp), time: wrapTimeString(e.startTimestamp),
+                student: e.studentName, grade: e.studentYear, exp: exp,
+                content: e.studentItems, remark: e.remark
+            }
+        } 
+        else {
+            wrapped = {
+                id: e.id,
+
+                name: e.consultantName,
+                school: e.consultantSchool,
+                major: e.consultantMajor,
+                year: e.consultantYear,
+                count: e.consultantCount,
+                consultantId: e.consultantId,
+
+                date : wrapDateString(e.startTimestamp), 
+                time: wrapTimeString(e.startTimestamp),
+                content: e.studentItems, 
+                remark: e.remark,
+
+                startTimestamp: e.startTimestamp,
+                status: e.status
+            }
         }
         if (type === 'past') wrapped['feedback'] = e.comment
         output.push(wrapped)
@@ -160,9 +195,9 @@ const resolveByStatus = (list, exp, type) => {
     return output
 }
 
-const resolveListData = (list) => {
+const resolveListData = (list, identity) => {
     const exp = list.past.length
-    let future = resolveByStatus(list.future, exp, 'future'), past = resolveByStatus(list.past, exp, 'past'), cancelled = resolveByStatus(list.cancelled, exp, 'cancelled')
+    let future = resolveByStatus(list.future, exp, 'future', identity), past = resolveByStatus(list.past, exp, 'past', identity), cancelled = resolveByStatus(list.cancelled, exp, 'cancelled', identity)
     return { future, past, cancelled }
 }
 
@@ -177,13 +212,53 @@ const convertBase64ForImage = (photo) => {
     return srcString
 }
 
+const resolveStudentListData = (list) => {
+    let data = []
+    list.consultants.map((e) => {
+        const consul = {
+            ...e,
+            photo: convertBase64ForImage(e.photo)
+        }
+        data.push(consul)
+    })
+
+    return {
+        consultants: data,
+    }
+}
+
+const castMeetingListToRecordList = (received) => {
+    // combine into full list
+    let fullList = received.future.concat(received.past.concat(received.cancelled))
+    // parse into record format
+    let parsedList = []
+    for (let idx in fullList) {
+        let parsedMeeting = {
+            startTimestamp: fullList[idx].startTimestamp,
+            meetingId: fullList[idx].id,
+            meetingStatus: fullList[idx].status,
+            meetingPrice: fullList[idx].consultantPrice,
+            meetingPaymentTime: (fullList[idx].paymentTime!==undefined ? wrapDateString(fullList[idx].paymentTime)+getStartTimeString(fullList[idx].paymentTime) : "-"),
+            meetingDuration: (fullList[idx].startTimestamp ? wrapDateString(fullList[idx].startTimestamp)+wrapTimeString(fullList[idx].startTimestamp) : "-"),
+            consultantName: fullList[idx].consultantName,
+            consultantSchool: fullList[idx].consultantSchool,
+            consultantMajor: fullList[idx].consultantMajor
+        }
+        parsedList.push(parsedMeeting)
+    }
+    // sort into records list
+    let sortedList = (parsedList.sort(timeComp)).reverse()
+    // return
+    return sortedList
+}
+
 const wrapLoginData = (data, identity) => {
     const meetings = retrieveDateObject(data.meetings)
-    const wrappedData = {
+    let wrappedData = {
         id: data.id,
         announcements: data.announcements,
         meetingsByTime: transformStatusListIntoCalender(meetings),
-        meetingsByStatus: resolveListData(meetings),
+        meetingsByStatus: resolveListData(meetings, identity),
         notifications: data.notifications,
         profile: {
             ...data.profile,
@@ -194,6 +269,11 @@ const wrapLoginData = (data, identity) => {
             transactions: stringToDateObject2(data.purse.transactions)
         },
         identity: identity,
+    }
+
+    if (identity === 'student') {
+        wrappedData['list'] = resolveStudentListData(data.list)
+        wrappedData['meetingsByStudentRecord'] = castMeetingListToRecordList(meetings)
     }
 
     return wrappedData
@@ -247,5 +327,49 @@ const sortTransactions = (trans) => {
     sorted.sort(timeComp2)
     return sorted
 }
+/*
+"id": 2,
+    "name": "李小蓁",
+    "img":"",
+    "fee": 200,
+    "exp": 15,
+    "education": { "school": "國立臺灣大學", "major": "外國語文學系", "year":"二年級" },
+    "hashtags": ["學習歷程檔案", "筆試準備", "社團"],
+    "intro": "我也不知道可以寫什麼，大概請他們寫一些諮詢風格、諮詢經歷、教學理念、簡述自己的升學歷程之類的吧？",
+    "star": 4.8,
+    "deleted": false
+*/
+const wrapFilterResult = (result) => {
+    const pack = result.map((e) => {
+        return {
+            name: e.name || 'CLT',
+            id: e.consultantId,
+            fee: e.price,
+            education: {
+                school: e.school,
+                major: e.major,
+                year: e.year || ''
+            },
+            exp: e.count,
+            intro: e.intro || '',
+            img: e.photo? convertBase64ForImage(e.photo):null,
+            hashtags: e.labels,
+            star: e.star
+        }
+    })
 
-export { buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions }
+    console.debug(pack)
+    return pack
+}
+
+const wrapConsultantPreview = (data) => {
+    return {
+        ...data.profile,
+        photo: convertBase64ForImage(data.profile.photo)
+    }
+}
+
+export { 
+    buildMonthArr, wrapLoginData, resolveTimetable, wrapTimetable, sortTransactions, wrapFilterResult, wrapConsultantPreview,
+    wrapDateString, wrapTimeString, getStartTimeString
+}

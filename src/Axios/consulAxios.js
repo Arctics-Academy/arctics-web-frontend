@@ -78,13 +78,13 @@ const updateProfileData = async (payload) => {
 
 const updateStudentID = async (payload) => {
   const { data: { status, message } } = await instance.post('/api/consultant/profile/student-id/update', payload)
-  console.log(status, message)
+  console.debug(status, message)
   return { status, msg: message }
 }
 
 const updateProfilePhoto = async (payload) => {
   const { data: {status, message } } = await instance.post('/api/consultant/profile/photo/update', payload)
-  console.log(status, message)
+  console.debug(status, message)
   return { status, msg: message }
 }
 
@@ -123,7 +123,7 @@ const readNotificationsOrAnnouncements = async (payload) => {
 
 const handleLogout = async () => {
   const { data: { status, message } } = await instance.post('/api/user/consultant/logout')
-  console.log(status, message)
+  console.debug(status, message)
   return { status, message }
 }
 
