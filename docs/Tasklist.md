@@ -14,11 +14,11 @@ List of suggested to-dos written by Sam before proceeding to the next stage of d
 
 - [x] DONE: Handle registration problems if server returns errors.
 
-- [x] SEAN: Fix student home page search error modal display issue.
+- [x] PATCHED: Fix student home page search error modal display issue.
 
-- [ ] Align `modal`s and `alert()`s. (TBD)
+- [ ] OPEN: Fix React missing `key` prop. (Can be possible problem for not rendering correctly? Figure out transisitons.)
 
-- [ ] Fix React missing `key` prop. (Can be possible problem for not rendering correctly? Figure out transisitons.)
+- [x] CLOSED: Align `modal`s and `alert()`s.
 
 ## Must-Do
 
