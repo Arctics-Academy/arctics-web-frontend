@@ -19,7 +19,7 @@ const RecordRow = ({ data=DefaultData }) => {
         return data.meetingPaymentTime
       default:
         if (data.meetingPaymentTime === "-") {
-          return (<span className="std-record-record-row__link"><Link to={`/student-submit-payment/${data.meetingId.substr(1,5)}`} style={{color: 'var(--primary)'}}>立即付款</Link></span>)
+          return (<span className="std-record-record-row__link"><Link to={`/student-submit-payment/${data.meetingId.substr(1,5)}`} style={{color: 'var(--primary)'}}>按此立即付款</Link></span>)
         }
         else {
           return data.meetingPaymentTime
