@@ -71,7 +71,7 @@ const SubmitPayment = ({ demo=false }) => {
             meetingPaymentTime: data.paymentTime
           }
         })
-        alert('檔案上傳成功！')
+        alert('匯款資料上傳成功！')
         History.push('/student-record')
       }
       else {
