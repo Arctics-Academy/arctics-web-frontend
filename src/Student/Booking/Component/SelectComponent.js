@@ -169,6 +169,24 @@ const SelectComponent = ({ slot, price=250 }) => {
         <p className='std-booking-select-component__notice-label'>注意事項</p>
         <p className='std-booking-select-component__notice-item'>1. 請選擇自己一定可以的時間</p>
       </div>
+      <div className='std-booking-select-component__legend-wrapper'>
+        <p className='std-booking-select-component__legend-label'>圖例</p>
+        <p className='std-booking-select-component__legend-item'>
+          <span className='std-booking-select-component__legend-circle std-booking-select-component__legend-circle--a'></span>: 可選擇時段
+        </p>
+        <p className='std-booking-select-component__legend-item'>
+          <span className='std-booking-select-component__legend-circle std-booking-select-component__legend-circle--s'></span>: 已選擇時段
+        </p>
+        <p className='std-booking-select-component__legend-item'>
+          <span className='std-booking-select-component__legend-circle std-booking-select-component__legend-circle--b'></span>: 已預約時段
+        </p>
+        <p className='std-booking-select-component__legend-item'>
+          <span className='std-booking-select-component__legend-circle std-booking-select-component__legend-circle--o'></span>: 已結束時段
+        </p>
+        <p className='std-booking-select-component__legend-item'>
+          <span className='std-booking-select-component__legend-circle std-booking-select-component__legend-circle--n'></span>: 無法預約時段
+        </p>
+      </div>
     </>
   )
 }
