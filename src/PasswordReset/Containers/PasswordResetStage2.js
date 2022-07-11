@@ -25,7 +25,6 @@ const PasswordResetStage2 = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.warn(Context.Info)
 
     setLoading(true)
 
