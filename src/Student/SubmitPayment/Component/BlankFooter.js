@@ -1,5 +1,5 @@
 export default function BlankFooter () {
     return (
-        <footer></footer>
+        <div className="blank-footer"></div>
     );
 }

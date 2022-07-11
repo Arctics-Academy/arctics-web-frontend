@@ -21,6 +21,9 @@ import RegisterSuccess from './Register/RegisterSuccess';
 import RegisterMobileOTP from './Register/RegisterMobileOTP';
 import RegisterEmailOTP from './Register/RegisterEmailOTP';
 import Login from './Login/Login';
+import PasswordResetStage1 from './PasswordReset/Containers/PasswordResetStage1';
+import PasswordResetStage2 from './PasswordReset/Containers/PasswordResetStage2';
+import PasswordResetStage3 from './PasswordReset/Containers/PasswordResetStage3';
 
 // Consultant Components
 import ConsulHome from './Consultant/Home/Container/ConsulHome';
@@ -130,6 +133,9 @@ const App = () => {
           <Route exact path="/register-mobile-otp/:identity" component={RegisterMobileOTP} />
           <Route exact path="/register-email-otp/:identity" component={RegisterEmailOTP} />
           <Route exact path='/register-success' component={RegisterSuccess} />
+          <Route exact path='/password-reset-1/:identity' component={PasswordResetStage1} />
+          <Route exact path='/password-reset-2/:identity' component={PasswordResetStage2} />
+          <Route exact path='/password-reset-3' component={PasswordResetStage3} />
 
           <ProtectedRoute auth={auth} exact path="/consultant-home" component={ConsulHome} />
           <ProtectedRoute auth={auth} exact path="/consultant-profile" component={ConsulProfile} />

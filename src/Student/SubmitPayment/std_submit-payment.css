@@ -206,9 +206,23 @@
   display: none;
 }
 
+.std_meeting-payment-bottom-form-divider {
+  margin: 24px 0;
+  height: 2px;
+  width: 323px;
+  background-color: var(--secondary);
+}
+
+.std_meeting-payment-bottom-form-text {
+  width: 330px;
+  color: var(--secondary);
+  margin: 24px 0;
+}
+
 /* Blank Footer */
-footer {
+.blank-footer {
   background-color: #f5f5f5;
+  height: 80px;
 }
 
 .std_submit-payment-display__overall-wrapper {

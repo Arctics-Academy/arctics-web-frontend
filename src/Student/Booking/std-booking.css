@@ -441,6 +441,50 @@
   margin-bottom: 8px;
 }
 
+/* Legend */
+.std-booking-select-component__legend-wrapper {
+  margin-top: 32px;
+}
+
+.std-booking-select-component__legend-label {
+  color: var(--secondary);
+}
+
+.std-booking-select-component__legend-item {
+  color: var(--primary);
+}
+
+.std-booking-select-component__legend-circle {
+  display: inline-block;
+  margin-bottom: -4px;
+  margin-right: 2px;
+
+  width: 1rem;
+  height: 1rem;
+  border-radius: 25%;
+}
+
+.std-booking-select-component__legend-circle--a {
+  background-color: #B0DDE2;
+}
+
+.std-booking-select-component__legend-circle--s {
+  background-color: #003B6B;
+}
+
+.std-booking-select-component__legend-circle--b {
+  background-color: #DE5454;
+}
+
+.std-booking-select-component__legend-circle--n {
+  background-color: #F5F5F5;
+}
+
+.std-booking-select-component__legend-circle--o {
+  background-color: lightgrey;
+}
+
+
 
 /* CalendarComponent.js */
 /* Header */
@@ -560,3 +604,4 @@
   font-size: 0.75em;
   color: #003B6B;
 }
+

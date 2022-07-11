@@ -83,18 +83,30 @@ const MeetingPaymentCard = ({ demo, data=DefaultData, handleUpload, handleSubmit
             <p className="std_meeting-payment-bottom-form-title">匯款日期</p>
             <input className="std_meeting-payment-bottom-form-input" onBlur={handleUpload} type="text" data-form-label="paymentDate"></input>
           </div>
+          <div className="std_meeting-payment-bottom-form-divider"></div>
           <div className="std_meeting-payment-bottom-form-line">
             <p className="std_meeting-payment-bottom-form-title">匯款收據上傳</p>
             <label  className="std_meeting-payment-bottom-form-label">
               <Upload /> 
-              <span>&nbsp;確認預約</span>
+              <span>&nbsp;上傳檔案</span>
               <input className="std_meeting-payment-bottom-form-file-input" onChange={handleUpload} data-form-label="file" type="file"></input>
             </label>
+          </div>
+          <div className="std_meeting-payment-bottom-form-text">-- 或是 --</div>
+          <div>
+            <div className="std_meeting-payment-bottom-form-line">
+              <p className="std_meeting-payment-bottom-form-title">匯款銀行代碼</p>
+              <input className="std_meeting-payment-bottom-form-input" onBlur={handleUpload} type="text" data-form-label="paymentBankNo"></input>
+            </div>
+            <div className="std_meeting-payment-bottom-form-line">
+              <p className="std_meeting-payment-bottom-form-title">匯帳戶號碼</p>
+              <input className="std_meeting-payment-bottom-form-input" onBlur={handleUpload} type="text" data-form-label="paymentAccountNo"></input>
+            </div>
           </div>
         </div>
 
         <div className="std_meeting-payment-bottom-container">
-          <ActionButton label="確認預約" callback={handleSubmit} loading={loading} />
+          <ActionButton label="提交證明" callback={handleSubmit} loading={loading} />
         </div>
       </div>
     </div>
