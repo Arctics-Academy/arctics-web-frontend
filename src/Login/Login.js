@@ -97,11 +97,22 @@ const Login = () => {
                     <div className="login_input">
                         <div className="login_account">
                             <input className="login_account_inputbox" value={account} onChange={evt=>{setAccount(evt.target.value)}} placeholder="電子郵件" autoComplete="username"/>
-                            <p className="login_account_warn">{displayWrongAct? '電子郵件錯誤, 請重新輸入':' '}</p>
+                            {(displayWrongAct ? 
+                                <p className="login_password_warn">帳戶或密碼錯誤，請重新輸入。</p> :
+                                <p> </p>
+                            )}
                         </div>
                         <div className="login_password">
                             <input type="password" minLength={8} className="login_password_inputbox" value={password} onChange={evt=>{setPassword(evt.target.value)}} placeholder="密碼" autoComplete="password" />
-                            <p className="login_password_warn">{displayWrongPwd? '密碼錯誤, 請重新輸入':' '}</p>
+                            {(displayWrongPwd ? 
+                                <p className="login_password_warn">
+                                    帳戶或密碼錯誤，請重新輸入。<br />
+                                    <span className="login_password_reset_text">忘記密碼？</span>
+                                    <Link to={`/password-reset-1/${state}`} style={{ color: 'var(--secondary)'}}>點此重設</Link>
+                                </p> :
+                                <p> 
+                                </p>
+                            )}
                         </div>
                         <div className="login_submit">
                             <ActionButton label="登入" loading={loading} callback={handleLogin} />

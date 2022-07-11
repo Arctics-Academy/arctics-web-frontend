@@ -197,3 +197,7 @@
 .login-loading {
     margin-top: 10px;
 }
+
+.login_password_reset_text {
+    color: var(--primary);
+}

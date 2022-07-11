@@ -198,6 +198,11 @@ const reducer = (state, action) => {
             return { ...state }
         case 'logout':
             return { ...initState }
+        case 'passwordResetEmail':
+            console.log(action)
+            state.passwordResetEmail = action.payload.passwordResetEmail
+            console.log(state)
+            return { ...state }
         default:
             return state
     }
